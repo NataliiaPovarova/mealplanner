@@ -1,0 +1,263 @@
+{
+  "egg-noodles": {
+    "category": "grains",
+    "ru": "Лапша (яичная или пшеничная)",
+    "en": "Egg noodles"
+  },
+  "noodles": {
+    "category": "grains",
+    "ru": "Лапша",
+    "en": "Noodles"
+  },
+  "noodles-udon": {
+    "category": "grains",
+    "ru": "Лапша (удон, пшеничная или рисовая)",
+    "en": "Noodles (udon, wheat, or rice)"
+  },
+  "rice": {
+    "category": "grains",
+    "ru": "Рис",
+    "en": "Rice"
+  },
+  "buckwheat": {
+    "category": "grains",
+    "ru": "Гречка",
+    "en": "Buckwheat"
+  },
+  "quinoa": {
+    "category": "grains",
+    "ru": "Киноа",
+    "en": "Quinoa"
+  },
+  "couscous": {
+    "category": "grains",
+    "ru": "Кус-кус",
+    "en": "Couscous"
+  },
+  "short-pasta": {
+    "category": "grains",
+    "ru": "Макароны короткие (фузилли, пенне)",
+    "en": "Short pasta (fusilli, penne)"
+  },
+  "gnocchi": {
+    "category": "grains",
+    "ru": "Ньокки",
+    "en": "Gnocchi"
+  },
+  "oats": {
+    "category": "grains",
+    "ru": "Овсяные хлопья",
+    "en": "Oats"
+  },
+  "corn-flakes": {
+    "category": "grains",
+    "ru": "Кукурузные хлопья без сахара",
+    "en": "Sugar-free corn flakes"
+  },
+  "toast-bread": {
+    "category": "grains",
+    "ru": "Хлеб для тостов",
+    "en": "Toast bread"
+  },
+  "tortilla": {
+    "category": "grains",
+    "ru": "Тортилья",
+    "en": "Tortilla"
+  },
+  "egg": {
+    "category": "protein",
+    "ru": "Яйца",
+    "en": "Eggs"
+  },
+  "chicken-breast": {
+    "category": "protein",
+    "ru": "Куриная грудка",
+    "en": "Chicken breast"
+  },
+  "chicken-breast-or-thigh": {
+    "category": "protein",
+    "ru": "Куриная грудка или бедро без кожи",
+    "en": "Chicken breast or boneless thigh"
+  },
+  "chicken-thigh-bone-in": {
+    "category": "protein",
+    "ru": "Куриное бедро на кости (или голень)",
+    "en": "Bone-in chicken thigh (or drumstick)"
+  },
+  "turkey-fillet": {
+    "category": "protein",
+    "ru": "Филе индейки",
+    "en": "Turkey fillet"
+  },
+  "frozen-shrimp": {
+    "category": "protein",
+    "ru": "Креветки очищенные замороженные",
+    "en": "Frozen peeled shrimp"
+  },
+  "canned-tuna": {
+    "category": "protein",
+    "ru": "Тунец консервированный в собственном соку",
+    "en": "Canned tuna in water"
+  },
+  "smoked-fish": {
+    "category": "protein",
+    "ru": "Копчёная рыба (лосось, форель)",
+    "en": "Smoked fish (salmon, trout)"
+  },
+  "smoked-turkey": {
+    "category": "protein",
+    "ru": "Копчёная индейка или карбонад",
+    "en": "Smoked turkey or ham"
+  },
+  "cottage-cheese": {
+    "category": "dairy",
+    "ru": "Творог",
+    "en": "Cottage cheese"
+  },
+  "greek-yogurt": {
+    "category": "dairy",
+    "ru": "Греческий йогурт",
+    "en": "Greek yogurt"
+  },
+  "cream-cheese": {
+    "category": "dairy",
+    "ru": "Творожный сыр",
+    "en": "Cream cheese"
+  },
+  "hard-cheese": {
+    "category": "dairy",
+    "ru": "Твёрдый сыр (хорошо плавится)",
+    "en": "Hard cheese (melting)"
+  },
+  "feta": {
+    "category": "dairy",
+    "ru": "Фета",
+    "en": "Feta cheese"
+  },
+  "mozzarella": {
+    "category": "dairy",
+    "ru": "Моцарелла",
+    "en": "Mozzarella"
+  },
+  "halloumi": {
+    "category": "dairy",
+    "ru": "Халуми",
+    "en": "Halloumi"
+  },
+  "butter": {
+    "category": "dairy",
+    "ru": "Сливочное масло",
+    "en": "Butter"
+  },
+  "red-lentils": {
+    "category": "legumes",
+    "ru": "Красная чечевица",
+    "en": "Red lentils"
+  },
+  "canned-chickpeas": {
+    "category": "legumes",
+    "ru": "Нут консервированный",
+    "en": "Canned chickpeas"
+  },
+  "canned-beans": {
+    "category": "legumes",
+    "ru": "Фасоль консервированная (красная или белая)",
+    "en": "Canned beans (red or white)"
+  },
+  "tomato": {
+    "category": "produce",
+    "ru": "Помидоры",
+    "en": "Tomatoes"
+  },
+  "cherry-tomatoes": {
+    "category": "produce",
+    "ru": "Помидоры черри",
+    "en": "Cherry tomatoes"
+  },
+  "cucumber": {
+    "category": "produce",
+    "ru": "Огурец",
+    "en": "Cucumber"
+  },
+  "bell-pepper": {
+    "category": "produce",
+    "ru": "Болгарский перец",
+    "en": "Bell pepper"
+  },
+  "carrot": {
+    "category": "produce",
+    "ru": "Морковь",
+    "en": "Carrot"
+  },
+  "avocado": {
+    "category": "produce",
+    "ru": "Авокадо",
+    "en": "Avocado"
+  },
+  "green-onion": {
+    "category": "produce",
+    "ru": "Зелёный лук",
+    "en": "Green onion"
+  },
+  "spinach": {
+    "category": "produce",
+    "ru": "Шпинат",
+    "en": "Spinach"
+  },
+  "banana": {
+    "category": "produce",
+    "ru": "Банан",
+    "en": "Banana"
+  },
+  "berries": {
+    "category": "produce",
+    "ru": "Ягоды (голубика, малина, клубника)",
+    "en": "Berries (blueberry, raspberry, strawberry)"
+  },
+  "nuts": {
+    "category": "pantry",
+    "ru": "Орехи (миндаль, кешью, кедровые)",
+    "en": "Nuts (almond, cashew, pine)"
+  },
+  "nut-butter": {
+    "category": "pantry",
+    "ru": "Ореховая паста (арахисовая, миндальная)",
+    "en": "Nut butter (peanut, almond)"
+  },
+  "chia-seeds": {
+    "category": "pantry",
+    "ru": "Семена чиа",
+    "en": "Chia seeds"
+  },
+  "soy-sauce": {
+    "category": "pantry",
+    "ru": "Соевый соус",
+    "en": "Soy sauce"
+  },
+  "olive-oil": {
+    "category": "pantry",
+    "ru": "Оливковое масло",
+    "en": "Olive oil"
+  },
+  "vegetable-oil": {
+    "category": "pantry",
+    "ru": "Растительное масло",
+    "en": "Vegetable oil"
+  },
+  "sesame-oil": {
+    "category": "pantry",
+    "ru": "Кунжутное масло",
+    "en": "Sesame oil"
+  },
+  "lemon-juice": {
+    "category": "pantry",
+    "ru": "Лимонный сок",
+    "en": "Lemon juice"
+  },
+  "water": {
+    "category": "pantry",
+    "shopping": false,
+    "ru": "Вода",
+    "en": "Water"
+  }
+}
