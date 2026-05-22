@@ -1,0 +1,1 @@
+>This file is meant for tracking changes in the app. If you want to contribute, please don't forget to update and commit it.
