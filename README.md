@@ -5,6 +5,8 @@
 
 A weekly meal planning app with automatic grocery list generation.
 
+Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
+
 ## Features
 
 - **29 recipes** with step-by-step instructions and tips
@@ -81,6 +83,8 @@ MIT
 <summary><strong>Русский</strong></summary>
 
 Приложение для планирования питания на неделю с автоматической генерацией списка продуктов.
+
+Доступно по ссылке здесь: https://mealplanner-three-coral.vercel.app/ (использую Vercel)
 
 ## Возможности
 
