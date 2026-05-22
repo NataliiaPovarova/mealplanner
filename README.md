@@ -71,7 +71,8 @@ Each recipe includes:
 - [ ] Add ability to manually add, remove, and edit tags
 - [ ] Add the same for recipes and allow changing calorie values
 - [ ] Add English translation
-- [ ] Publish the app on GitHub Pages
+- [ ] Move the recepies to a database and improve produce count
+- [x] ~~Publish the app on GitHub Pages~~ (published on Vercel)
 
 ## License
 
@@ -150,7 +151,8 @@ Preview-сервер будет доступен по адресу http://127.0.
 - [ ] Добавить возможность вручную добавлять, удалять и изменять теги
 - [ ] Добавить возможность то же самое делать с рецептами и менять для них калорийность
 - [ ] Сделать перевод на английский язык
-- [ ] Сделать приложение доступным по ссылке на GitHub Pages
+- [ ] Перенести рецепты в базу данных и уточнить сборку списка продуктов в Закупке
+- [x] ~~Сделать приложение доступным по ссылке на GitHub Pages~~ (опубликовано на Vercel)
 
 ## Лицензия
 
