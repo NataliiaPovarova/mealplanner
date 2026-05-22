@@ -3,7 +3,7 @@
 <details>
 <summary><strong>English</strong></summary>
 
-A weekly meal planning app with automatic grocery list generation.
+A weekly meal planning app with automatic grocery list generation. Available in Russian and English.
 
 Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 
@@ -13,7 +13,7 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 - **Weekly planner**: breakfast, lunch, dinner, and snack for each day
 - **Batch cooking**: dishes for 2–3 days automatically fill the following days
 - **Batch validation**: warnings when portion counts do not match the recipe
-- **Automatic shopping list**: ingredients are aggregated in the "Shopping" tab
+- **Categorized shopping list**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry) with automatic unit normalization (1000g → 1kg)
 - **Tag filtering**: lunch, breakfast/dinner, snack, meat-free, iron-rich, with cheese, and more
 
 > Please be careful if calorie counting matters to you. This app is not built for calorie tracking; estimates are approximate, and the source is "trust me, bro".
@@ -51,7 +51,36 @@ The preview server will be available at http://127.0.0.1:4173/.
 
 - React 18
 - Vite
+- react-i18next (internationalization)
 - No external UI libraries — CSS-in-JS only
+
+## Project Structure
+
+```
+src/
+  App.jsx                  # Shell: header, language switcher, tab routing
+  constants.js             # Shared constants and ingredient formatting
+  main.jsx                 # Entry point, i18n initialization
+  i18n/                    # Internationalization config + string catalogs
+    locales/ru/ui.json     # Russian UI strings
+    locales/en/ui.json     # English UI strings
+  data/
+    ingredients.json       # Ingredient catalog (id → names, categories)
+    tags.json              # Tag ID → display names per language
+    recipes/
+      ru.json              # 29 recipes in Russian
+      en.json              # 29 recipes in English
+  hooks/
+    useWeekPlan.js         # Weekly plan state and batch logic
+    useShoppingList.js     # Shopping list aggregation with categories
+    useRecipes.js          # Language-aware recipe loader
+  components/
+    WeekPlanner.jsx        # Week plan tab
+    ShoppingList.jsx       # Shopping tab with category grouping
+    RecipeList.jsx         # Recipe browser with tag filtering
+    RecipeDetail.jsx       # Single recipe view
+    AboutOverlay.jsx       # About modal
+```
 
 ## Recipe Structure
 
@@ -62,7 +91,7 @@ Each recipe includes:
 - Servings and storage days (batch)
 - Prep and cook time
 - Macros per serving (kcal, protein, fat, carbs, fiber). These are a **very rough** estimate. Do not rely on them if you need accurate values
-- Ingredient list with required amounts
+- Structured ingredient list with amounts and units
 - Step-by-step instructions
 - Tips and recommendations so you cannot mess it up (I am hopeless in the kitchen myself, so Opus 4.6 / 4.7 tried hard)
 
@@ -70,8 +99,8 @@ Each recipe includes:
 
 - [ ] Add ability to manually add, remove, and edit tags
 - [ ] Add the same for recipes and allow changing calorie values
-- [ ] Add English translation
-- [ ] Move the recepies to a database and improve produce count
+- [x] ~~Add English translation~~ (done — full bilingual support)
+- [x] ~~Move the recipes to a database and improve produce count~~ (done — structured JSON data + categorized shopping list)
 - [x] ~~Publish the app on GitHub Pages~~ (published on Vercel)
 
 ## License
@@ -83,7 +112,7 @@ MIT
 <details>
 <summary><strong>Русский</strong></summary>
 
-Приложение для планирования питания на неделю с автоматической генерацией списка продуктов.
+Приложение для планирования питания на неделю с автоматической генерацией списка продуктов. Доступно на русском и английском языке.
 
 Доступно по ссылке здесь: https://mealplanner-three-coral.vercel.app/ (использую Vercel)
 
@@ -93,7 +122,7 @@ MIT
 - **Планировщик недели**: завтрак, обед, ужин и перекус на каждый день
 - **Batch cooking**: блюда на 2–3 дня автоматически заполняют следующие дни
 - **Контроль батчей**: предупреждения, если количество порций не совпадает с рецептом
-- **Автоматический список закупки**: ингредиенты агрегируются в список во вкладке «Закупка»
+- **Список закупки по категориям**: ингредиенты сгруппированы (овощи, белок, молочное, бобовые, крупы, прочее) с автоматической нормализацией единиц (1000г → 1кг)
 - **Фильтрация по тегам**: обед, завтрак/ужин, перекус, без мяса, богато железом, с сыром и другие
 
 > Пожалуйста, будьте внимательны, если вам важно считать калории. Это приложение создано не для подсчёта калорий, поэтому оценки приблизительные, а источник их — «trust me, bro».
@@ -131,7 +160,36 @@ Preview-сервер будет доступен по адресу http://127.0.
 
 - React 18
 - Vite
+- react-i18next (интернационализация)
 - Без внешних UI-библиотек — только CSS-in-JS
+
+## Структура проекта
+
+```
+src/
+  App.jsx                  # Оболочка: шапка, переключатель языка, вкладки
+  constants.js             # Общие константы и форматирование ингредиентов
+  main.jsx                 # Точка входа, инициализация i18n
+  i18n/                    # Конфигурация i18n + каталоги строк
+    locales/ru/ui.json     # Русские строки интерфейса
+    locales/en/ui.json     # Английские строки интерфейса
+  data/
+    ingredients.json       # Каталог ингредиентов (id → названия, категории)
+    tags.json              # ID тегов → названия на каждом языке
+    recipes/
+      ru.json              # 29 рецептов на русском
+      en.json              # 29 рецептов на английском
+  hooks/
+    useWeekPlan.js         # Состояние плана и batch-логика
+    useShoppingList.js     # Агрегация списка закупки по категориям
+    useRecipes.js          # Загрузка рецептов с учётом языка
+  components/
+    WeekPlanner.jsx        # Вкладка «План недели»
+    ShoppingList.jsx       # Вкладка «Закупка» с группировкой по категориям
+    RecipeList.jsx         # Просмотр рецептов с фильтрацией по тегам
+    RecipeDetail.jsx       # Отдельный рецепт
+    AboutOverlay.jsx       # Модальное окно «О проекте»
+```
 
 ## Структура рецептов
 
@@ -142,7 +200,7 @@ Preview-сервер будет доступен по адресу http://127.0.
 - Количество порций и дней хранения (batch)
 - Время подготовки и готовки
 - КБЖУ на порцию (ккал, белки, жиры, углеводы, клетчатка). Это **очень грубая** оценка. Если вам важны точные значения, пожалуйста, не полагайтесь на них
-- Список ингредиентов с указанием нужного количества каждого
+- Структурированный список ингредиентов с количеством и единицами измерения
 - Пошаговую инструкцию
 - Советы и рекомендации, чтобы вы не могли ничего испортить (у меня самой руки из попы, так что мы с Opus 4.6 / 4.7 постарались)
 
@@ -150,8 +208,8 @@ Preview-сервер будет доступен по адресу http://127.0.
 
 - [ ] Добавить возможность вручную добавлять, удалять и изменять теги
 - [ ] Добавить возможность то же самое делать с рецептами и менять для них калорийность
-- [ ] Сделать перевод на английский язык
-- [ ] Перенести рецепты в базу данных и уточнить сборку списка продуктов в Закупке
+- [x] ~~Сделать перевод на английский язык~~ (готово — полная двуязычная поддержка)
+- [x] ~~Перенести рецепты в базу данных и уточнить сборку списка продуктов в Закупке~~ (готово — структурированные JSON-данные + список по категориям)
 - [x] ~~Сделать приложение доступным по ссылке на GitHub Pages~~ (опубликовано на Vercel)
 
 ## Лицензия
