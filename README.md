@@ -14,6 +14,7 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 - **Batch cooking**: dishes for 2–3 days automatically fill the following days
 - **Batch validation**: warnings when portion counts do not match the recipe
 - **Categorized shopping list**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry) with automatic unit normalization (1000g → 1kg)
+- **Downloadable PDF**: export the weekly plan and all referenced recipes as a single PDF — no account needed, works offline once downloaded
 - **Tag filtering**: lunch, breakfast/dinner, snack, meat-free, iron-rich, with cheese, and more
 
 > Please be careful if calorie counting matters to you. This app is not built for calorie tracking; estimates are approximate, and the source is "trust me, bro".
@@ -52,6 +53,7 @@ The preview server will be available at http://127.0.0.1:4173/.
 - React 18
 - Vite
 - react-i18next (internationalization)
+- jsPDF + jsPDF-AutoTable (client-side PDF generation)
 - No external UI libraries — CSS-in-JS only
 
 ## Project Structure
@@ -74,6 +76,8 @@ src/
     useWeekPlan.js         # Weekly plan state and batch logic
     useShoppingList.js     # Shopping list aggregation with categories
     useRecipes.js          # Language-aware recipe loader
+  utils/
+    generateWeekPlanPdf.js # PDF export (plan table + recipes)
   components/
     WeekPlanner.jsx        # Week plan tab
     ShoppingList.jsx       # Shopping tab with category grouping
@@ -102,6 +106,7 @@ Each recipe includes:
 - [x] ~~Add English translation~~ (done — full bilingual support)
 - [x] ~~Move the recipes to a database and improve produce count~~ (done — structured JSON data + categorized shopping list)
 - [x] ~~Publish the app on GitHub Pages~~ (published on Vercel)
+- [x] ~~Downloadable PDF with the weekly plan and recipes~~ (done — client-side PDF via jsPDF)
 
 ## License
 
@@ -123,6 +128,7 @@ MIT
 - **Batch cooking**: блюда на 2–3 дня автоматически заполняют следующие дни
 - **Контроль батчей**: предупреждения, если количество порций не совпадает с рецептом
 - **Список закупки по категориям**: ингредиенты сгруппированы (овощи, белок, молочное, бобовые, крупы, прочее) с автоматической нормализацией единиц (1000г → 1кг)
+- **PDF на неделю**: скачайте план и все рецепты одним файлом
 - **Фильтрация по тегам**: обед, завтрак/ужин, перекус, без мяса, богато железом, с сыром и другие
 
 > Пожалуйста, будьте внимательны, если вам важно считать калории. Это приложение создано не для подсчёта калорий, поэтому оценки приблизительные, а источник их — «trust me, bro».
@@ -161,6 +167,7 @@ Preview-сервер будет доступен по адресу http://127.0.
 - React 18
 - Vite
 - react-i18next (интернационализация)
+- jsPDF + jsPDF-AutoTable (генерация PDF на клиенте)
 - Без внешних UI-библиотек — только CSS-in-JS
 
 ## Структура проекта
@@ -183,6 +190,8 @@ src/
     useWeekPlan.js         # Состояние плана и batch-логика
     useShoppingList.js     # Агрегация списка закупки по категориям
     useRecipes.js          # Загрузка рецептов с учётом языка
+  utils/
+    generateWeekPlanPdf.js # Экспорт в PDF (таблица плана + рецепты)
   components/
     WeekPlanner.jsx        # Вкладка «План недели»
     ShoppingList.jsx       # Вкладка «Закупка» с группировкой по категориям
@@ -211,6 +220,7 @@ src/
 - [x] ~~Сделать перевод на английский язык~~ (готово — полная двуязычная поддержка)
 - [x] ~~Перенести рецепты в базу данных и уточнить сборку списка продуктов в Закупке~~ (готово — структурированные JSON-данные + список по категориям)
 - [x] ~~Сделать приложение доступным по ссылке на GitHub Pages~~ (опубликовано на Vercel)
+- [x] ~~Скачиваемый PDF с планом на неделю и рецептами~~ (готово — генерация PDF на клиенте через jsPDF)
 
 ## Лицензия
 

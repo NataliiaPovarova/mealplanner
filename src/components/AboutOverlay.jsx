@@ -71,6 +71,7 @@ export default function AboutOverlay({ onClose }) {
               <li><strong>Batch cooking</strong>: блюда на 2–3 дня автоматически заполняют следующие дни</li>
               <li><strong>Контроль батчей</strong>: предупреждения, если количество порций не совпадает с рецептом</li>
               <li><strong>Автоматический список закупки</strong>: ингредиенты агрегируются во вкладке «Закупка»</li>
+              <li><strong>PDF на неделю</strong>: скачай план и все рецепты одним файлом — открывай на телефоне прямо на кухне</li>
               <li><strong>Фильтрация по тегам</strong>: обед, завтрак/ужин, перекус, без мяса, богато железом и другие</li>
             </ul>
             <h3 style={sectionTitle}>Философия</h3>
@@ -87,7 +88,7 @@ export default function AboutOverlay({ onClose }) {
               <li>Советы и рекомендации</li>
             </ul>
             <h3 style={sectionTitle}>Технологии</h3>
-            <p style={bodyText}>React 18 · Vite · CSS-in-JS (без внешних UI-библиотек)</p>
+            <p style={bodyText}>React 18 · Vite · jsPDF · CSS-in-JS (без внешних UI-библиотек)</p>
             <h3 style={sectionTitle}>Лицензия</h3>
             <p style={bodyText}>MIT</p>
           </div>
@@ -101,6 +102,7 @@ export default function AboutOverlay({ onClose }) {
               <li><strong>Batch cooking</strong>: dishes for 2–3 days automatically fill the following days</li>
               <li><strong>Batch validation</strong>: warnings when portion counts do not match the recipe</li>
               <li><strong>Automatic shopping list</strong>: ingredients are aggregated on the Shopping tab</li>
+              <li><strong>Downloadable PDF</strong>: export the weekly plan and all recipes as a single file — open it on your phone right in the kitchen</li>
               <li><strong>Tag filtering</strong>: lunch, breakfast/dinner, snack, meat-free, iron-rich, and more</li>
             </ul>
             <h3 style={sectionTitle}>Philosophy</h3>
@@ -117,7 +119,7 @@ export default function AboutOverlay({ onClose }) {
               <li>Tips and recommendations</li>
             </ul>
             <h3 style={sectionTitle}>Tech Stack</h3>
-            <p style={bodyText}>React 18 · Vite · CSS-in-JS (no external UI libraries)</p>
+            <p style={bodyText}>React 18 · Vite · jsPDF · CSS-in-JS (no external UI libraries)</p>
             <h3 style={sectionTitle}>License</h3>
             <p style={bodyText}>MIT</p>
           </div>

@@ -28,7 +28,6 @@ export default function WeekPlanner({ plan, meals }) {
       await generateWeekPlanPdf({ weekPlan, meals, t, language: i18n.language });
     } catch (e) {
       console.error("PDF generation failed:", e);
-      alert(e?.message || String(e));
     } finally {
       setPdfBusy(false);
     }
