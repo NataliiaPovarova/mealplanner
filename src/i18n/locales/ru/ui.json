@@ -100,6 +100,12 @@
   "tags.favorite": "любимое",
   "tags.prep-evening": "подготовить с вечера",
 
+  "pdf.download": "Скачать PDF",
+  "pdf.generating": "Создаётся…",
+  "pdf.title": "План на неделю",
+  "pdf.recipesHeading": "Рецепты",
+  "pdf.empty": "—",
+
   "category.produce": "Овощи и фрукты",
   "category.protein": "Мясо, рыба, яйца",
   "category.dairy": "Молочное и сыры",

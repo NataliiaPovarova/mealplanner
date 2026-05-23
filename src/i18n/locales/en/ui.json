@@ -100,6 +100,12 @@
   "tags.favorite": "Favorite",
   "tags.prep-evening": "Prep evening before",
 
+  "pdf.download": "Download PDF",
+  "pdf.generating": "Generating…",
+  "pdf.title": "Week Plan",
+  "pdf.recipesHeading": "Recipes",
+  "pdf.empty": "—",
+
   "category.produce": "Produce",
   "category.protein": "Meat, Fish & Eggs",
   "category.dairy": "Dairy & Cheese",

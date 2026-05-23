@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DAYS, SLOTS } from "../constants";
 
@@ -9,7 +10,8 @@ const dropdownStyle = {
 };
 
 export default function WeekPlanner({ plan, meals }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [pdfBusy, setPdfBusy] = useState(false);
   const {
     weekPlan, cellKey, setSlot, clearSlot, clearAll,
     getBatchWarnings, dismissWarning, getDayKBJU,
@@ -19,15 +21,34 @@ export default function WeekPlanner({ plan, meals }) {
   const filledSlots = Object.keys(weekPlan).length;
   const batchWarnings = getBatchWarnings();
 
+  const handleDownloadPdf = async () => {
+    setPdfBusy(true);
+    try {
+      const { default: generateWeekPlanPdf } = await import("../utils/generateWeekPlanPdf");
+      await generateWeekPlanPdf({ weekPlan, meals, t, language: i18n.language });
+    } catch (e) {
+      console.error("PDF generation failed:", e);
+      alert(e?.message || String(e));
+    } finally {
+      setPdfBusy(false);
+    }
+  };
+
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
         <p style={{ fontSize: 13, opacity: 0.6, margin: 0 }}>{t("week.hint")}</p>
         {filledSlots > 0 && (
-          <button onClick={clearAll}
-            style={{ fontSize: 12, padding: "4px 10px", borderRadius: 16, border: "1px dashed var(--border-color, #d5d0c8)", background: "transparent", cursor: "pointer", fontFamily: "inherit", color: "var(--text-color-secondary, #8a8478)", fontStyle: "italic", flexShrink: 0, marginLeft: 12 }}>
-            {t("week.clear")}
-          </button>
+          <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: 12 }}>
+            <button onClick={handleDownloadPdf} disabled={pdfBusy}
+              style={{ fontSize: 12, padding: "4px 10px", borderRadius: 16, border: "1px solid var(--border-color, #d5d0c8)", background: "transparent", cursor: pdfBusy ? "wait" : "pointer", fontFamily: "inherit", color: "var(--text-color-secondary, #8a8478)", flexShrink: 0, opacity: pdfBusy ? 0.5 : 1 }}>
+              {pdfBusy ? t("pdf.generating") : t("pdf.download")}
+            </button>
+            <button onClick={clearAll}
+              style={{ fontSize: 12, padding: "4px 10px", borderRadius: 16, border: "1px dashed var(--border-color, #d5d0c8)", background: "transparent", cursor: "pointer", fontFamily: "inherit", color: "var(--text-color-secondary, #8a8478)", fontStyle: "italic", flexShrink: 0 }}>
+              {t("week.clear")}
+            </button>
+          </div>
         )}
       </div>
 
