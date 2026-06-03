@@ -149,6 +149,11 @@
     "ru": "Сливочное масло",
     "en": "Butter"
   },
+  "milk": {
+    "category": "dairy",
+    "ru": "Молоко (обычное или растительное)",
+    "en": "Milk (dairy or plant)"
+  },
   "red-lentils": {
     "category": "legumes",
     "ru": "Красная чечевица",
@@ -209,6 +214,11 @@
     "ru": "Банан",
     "en": "Banana"
   },
+  "mango": {
+    "category": "produce",
+    "ru": "Манго",
+    "en": "Mango"
+  },
   "berries": {
     "category": "produce",
     "ru": "Ягоды (голубика, малина, клубника)",
@@ -228,6 +238,16 @@
     "category": "pantry",
     "ru": "Семена чиа",
     "en": "Chia seeds"
+  },
+  "cocoa-powder": {
+    "category": "pantry",
+    "ru": "Какао-порошок",
+    "en": "Cocoa powder"
+  },
+  "honey": {
+    "category": "pantry",
+    "ru": "Мёд",
+    "en": "Honey"
   },
   "soy-sauce": {
     "category": "pantry",

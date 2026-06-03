@@ -923,5 +923,123 @@
     ],
     "tips": "Идеальный поздний перекус: лёгкий, но белковый. Если хочется послаще — добавь чайную ложку мёда. Можно заменить ягоды на банан.",
     "freshAdd": ""
+  },
+  {
+    "id": "smoothie-banana-pb",
+    "emoji": "🥤",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 480, "protein": 18, "fat": 18, "carbs": 62, "fiber": 6 },
+    "ingredients": [
+      { "id": "banana", "amount": 1, "unit": "pcs", "note": "можно замороженный" },
+      { "id": "nut-butter", "amount": 1.5, "unit": "tbsp" },
+      { "id": "milk", "amount": 250, "unit": "ml" },
+      { "id": "oats", "amount": 2, "unit": "tbsp" },
+      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+    ],
+    "name": "Смузи банан + арахисовая паста",
+    "description": "Самый калорийный смузи: банан, арахисовая паста, молоко, овсянка. Можно пить между приёмами пищи, даже когда не голодна.",
+    "prepTime": "3 мин",
+    "cookTime": "0 мин",
+    "steps": [
+      "Всё в блендер",
+      "Взбить 30–40 секунд до гладкости",
+      "Если густо — добавить молока"
+    ],
+    "tips": "Овсянка делает смузи более калорийным и сытным, не добавляя объёма «на глаз». Замороженный банан даёт текстуру как у милкшейка. Пей медленно в течение часа-двух — так проще добрать калории без чувства переедания.",
+    "freshAdd": ""
+  },
+  {
+    "id": "smoothie-cocoa-protein",
+    "emoji": "🍫",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "to-go", "no-cooking", "calorie-dense", "high-protein"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 450, "protein": 28, "fat": 14, "carbs": 52, "fiber": 6 },
+    "ingredients": [
+      { "id": "banana", "amount": 1, "unit": "pcs" },
+      { "id": "cocoa-powder", "amount": 1, "unit": "tbsp" },
+      { "id": "milk", "amount": 250, "unit": "ml" },
+      { "id": "greek-yogurt", "amount": 100, "unit": "g" },
+      { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
+      { "id": "oats", "amount": 2, "unit": "tbsp" }
+    ],
+    "name": "Шоколадный смузи на дорогу",
+    "description": "Калорийный смузи с какао и протеином в бутылку с собой. Сделать утром, взять в транспорт — выпить до или во время поездки.",
+    "prepTime": "3 мин",
+    "cookTime": "0 мин",
+    "steps": [
+      "Всё в блендер, взбить до гладкости",
+      "Перелить в бутылку с собой",
+      "Выпить до выхода или в начале поездки"
+    ],
+    "tips": "Это твой «страховочный» смузи на дни, когда завтракаешь на работе. Выпей дома или в начале дороги — не выезжай натощак. Йогурт и арахисовая паста дают белок и жир, чтобы калории усваивались равномерно.",
+    "freshAdd": ""
+  },
+  {
+    "id": "smoothie-mango-yogurt",
+    "emoji": "🥭",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "no-cooking", "quick"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 380, "protein": 16, "fat": 8, "carbs": 64, "fiber": 5 },
+    "ingredients": [
+      { "id": "mango", "amount": 150, "unit": "g", "note": "свежее или замороженное" },
+      { "id": "banana", "amount": 0.5, "unit": "pcs" },
+      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
+      { "id": "milk", "amount": 150, "unit": "ml" },
+      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+    ],
+    "name": "Смузи манго + йогурт",
+    "description": "Тропический смузи на йогурте: манго, банан, йогурт. Освежающий вариант, когда хочется чего-то полегче, но всё ещё калорийного.",
+    "prepTime": "3 мин",
+    "cookTime": "0 мин",
+    "steps": [
+      "Всё в блендер",
+      "Взбить до гладкости",
+      "Если густо — добавить молока"
+    ],
+    "tips": "Замороженное манго делает смузи холодным и густым без льда. Йогурт даёт белок. Хорош как дозаправка днём, когда основной приём был давно, а до следующего ещё далеко.",
+    "freshAdd": ""
+  },
+  {
+    "id": "smoothie-berry-oat",
+    "emoji": "🫐",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 420, "protein": 18, "fat": 10, "carbs": 64, "fiber": 7 },
+    "ingredients": [
+      { "id": "berries", "amount": 1, "unit": "handful", "note": "голубика, малина; можно замороженные" },
+      { "id": "banana", "amount": 1, "unit": "pcs" },
+      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
+      { "id": "oats", "amount": 3, "unit": "tbsp" },
+      { "id": "milk", "amount": 150, "unit": "ml" },
+      { "id": "nuts", "amount": 15, "unit": "g", "optional": true }
+    ],
+    "name": "Ягодно-овсяный смузи",
+    "description": "Ягоды, йогурт, овсянка, банан. Плотный смузи в духе твоего любимого йогуртового боула, только в жидком виде.",
+    "prepTime": "3 мин",
+    "cookTime": "0 мин",
+    "steps": [
+      "Всё в блендер",
+      "Взбить до гладкости",
+      "Добавить молока, если густо"
+    ],
+    "tips": "Овсянка и орехи поднимают калорийность. Этот смузи близок по вкусу к твоему йогуртовому боулу, так что зайдёт легко. Замороженные ягоды дешевле и всегда под рукой.",
+    "freshAdd": ""
   }
 ]
