@@ -923,5 +923,123 @@
     ],
     "tips": "The perfect late-night snack: light but high in protein. If you want it sweeter — add a teaspoon of honey. You can swap berries for banana.",
     "freshAdd": ""
+  },
+  {
+    "id": "smoothie-banana-pb",
+    "emoji": "🥤",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 480, "protein": 18, "fat": 18, "carbs": 62, "fiber": 6 },
+    "ingredients": [
+      { "id": "banana", "amount": 1, "unit": "pcs", "note": "frozen works too" },
+      { "id": "nut-butter", "amount": 1.5, "unit": "tbsp" },
+      { "id": "milk", "amount": 250, "unit": "ml" },
+      { "id": "oats", "amount": 2, "unit": "tbsp" },
+      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+    ],
+    "name": "Banana + Peanut Butter Smoothie",
+    "description": "The most calorie-dense smoothie: banana, peanut butter, milk, oats. Sip it between meals, even when you're not hungry.",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "steps": [
+      "Everything into the blender",
+      "Blend 30–40 seconds until smooth",
+      "If too thick — add more milk"
+    ],
+    "tips": "Oats make the smoothie more calorie-dense and filling without adding obvious bulk. A frozen banana gives a milkshake-like texture. Sip it slowly over an hour or two — that way it's easier to add calories without feeling overstuffed.",
+    "freshAdd": ""
+  },
+  {
+    "id": "smoothie-cocoa-protein",
+    "emoji": "🍫",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "to-go", "no-cooking", "calorie-dense", "high-protein"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 450, "protein": 28, "fat": 14, "carbs": 52, "fiber": 6 },
+    "ingredients": [
+      { "id": "banana", "amount": 1, "unit": "pcs" },
+      { "id": "cocoa-powder", "amount": 1, "unit": "tbsp" },
+      { "id": "milk", "amount": 250, "unit": "ml" },
+      { "id": "greek-yogurt", "amount": 100, "unit": "g" },
+      { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
+      { "id": "oats", "amount": 2, "unit": "tbsp" }
+    ],
+    "name": "Chocolate Smoothie To Go",
+    "description": "A calorie-dense smoothie with cocoa and protein in a bottle to take with you. Make it in the morning, grab it for the commute — drink it before or during the ride.",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "steps": [
+      "Everything into the blender, blend until smooth",
+      "Pour into a bottle to go",
+      "Drink before heading out or at the start of the ride"
+    ],
+    "tips": "This is your \"safety net\" smoothie for days when you eat breakfast at work. Drink it at home or at the start of the commute — don't leave on an empty stomach. The yogurt and peanut butter add protein and fat so the calories absorb evenly.",
+    "freshAdd": ""
+  },
+  {
+    "id": "smoothie-mango-yogurt",
+    "emoji": "🥭",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "no-cooking", "quick"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 380, "protein": 16, "fat": 8, "carbs": 64, "fiber": 5 },
+    "ingredients": [
+      { "id": "mango", "amount": 150, "unit": "g", "note": "fresh or frozen" },
+      { "id": "banana", "amount": 0.5, "unit": "pcs" },
+      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
+      { "id": "milk", "amount": 150, "unit": "ml" },
+      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+    ],
+    "name": "Mango + Yogurt Smoothie",
+    "description": "A tropical yogurt-based smoothie: mango, banana, yogurt. A refreshing option when you want something lighter but still calorie-dense.",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "steps": [
+      "Everything into the blender",
+      "Blend until smooth",
+      "If too thick — add more milk"
+    ],
+    "tips": "Frozen mango makes the smoothie cold and thick without ice. The yogurt adds protein. Great as a midday top-up when your last meal was a while ago and the next one is still far off.",
+    "freshAdd": ""
+  },
+  {
+    "id": "smoothie-berry-oat",
+    "emoji": "🫐",
+    "type": "smoothie",
+    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 3,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 420, "protein": 18, "fat": 10, "carbs": 64, "fiber": 7 },
+    "ingredients": [
+      { "id": "berries", "amount": 1, "unit": "handful", "note": "blueberry, raspberry; frozen works too" },
+      { "id": "banana", "amount": 1, "unit": "pcs" },
+      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
+      { "id": "oats", "amount": 3, "unit": "tbsp" },
+      { "id": "milk", "amount": 150, "unit": "ml" },
+      { "id": "nuts", "amount": 15, "unit": "g", "optional": true }
+    ],
+    "name": "Berry-Oat Smoothie",
+    "description": "Berries, yogurt, oats, banana. A dense smoothie in the spirit of your favorite yogurt bowl, just in liquid form.",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "steps": [
+      "Everything into the blender",
+      "Blend until smooth",
+      "Add more milk if too thick"
+    ],
+    "tips": "Oats and nuts bump up the calories. This smoothie tastes close to your yogurt bowl, so it goes down easily. Frozen berries are cheaper and always on hand.",
+    "freshAdd": ""
   }
 ]
