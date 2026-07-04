@@ -1041,5 +1041,67 @@
     ],
     "tips": "Oats and nuts bump up the calories. This smoothie tastes close to your yogurt bowl, so it goes down easily. Frozen berries are cheaper and always on hand.",
     "freshAdd": ""
+  },
+  {
+    "id": "banana-oat-pancakes",
+    "emoji": "🥞",
+    "type": "warm-bowl",
+    "tags": ["breakfast-dinner", "flour-free", "quick"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 5,
+    "cookMinutes": 8,
+    "perPortion": { "kcal": 380, "protein": 16, "fat": 10, "carbs": 56, "fiber": 6 },
+    "ingredients": [
+      { "id": "banana", "amount": 1, "unit": "pcs", "note": "ripe, with brown spots" },
+      { "id": "egg", "amount": 2, "unit": "pcs" },
+      { "id": "oats", "amount": 4, "unit": "tbsp" },
+      { "id": "milk", "amount": 2, "unit": "tbsp", "note": "if batter is thick", "optional": true },
+      { "id": "butter", "amount": 1, "unit": "small-piece", "note": "for frying" }
+    ],
+    "name": "Banana Oat Pancakes",
+    "description": "Flour-free pancakes made with banana and oats. Held together by egg — simple, sweet from the banana, no sugar needed.",
+    "prepTime": "5 min",
+    "cookTime": "8 min (pan-fry)",
+    "steps": [
+      "Mash the banana with a fork",
+      "Mix in eggs and oats",
+      "Let rest 5 minutes — the oats will swell and the batter will thicken",
+      "Fry over medium heat (5–6 of 9) on butter",
+      "1.5–2 min per side, flip once a crust forms"
+    ],
+    "tips": "The batter is thicker than usual; the pancakes come out small and dense. A ripe banana provides sweetness — no sugar needed. Keep them small (a tablespoon of batter per pancake) and don't flip too early or they'll fall apart. Serve with berries, yogurt, nut butter or honey — adds calories.",
+    "freshAdd": "Berries, a spoon of yogurt, nut butter or a drizzle of honey on top."
+  },
+  {
+    "id": "banana-cottage-pancakes",
+    "emoji": "🥞",
+    "type": "warm-bowl",
+    "tags": ["breakfast-dinner", "flour-free", "quick", "high-protein"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 5,
+    "cookMinutes": 8,
+    "perPortion": { "kcal": 420, "protein": 28, "fat": 12, "carbs": 48, "fiber": 5 },
+    "ingredients": [
+      { "id": "banana", "amount": 1, "unit": "pcs", "note": "ripe" },
+      { "id": "cottage-cheese", "amount": 100, "unit": "g" },
+      { "id": "egg", "amount": 2, "unit": "pcs" },
+      { "id": "oats", "amount": 3, "unit": "tbsp" },
+      { "id": "butter", "amount": 1, "unit": "small-piece", "note": "for frying" }
+    ],
+    "name": "Banana Cottage Cheese Pancakes",
+    "description": "Banana pancakes with cottage cheese — 28 g of protein. Cottage cheese makes them softer and helps them hold shape better than plain banana pancakes.",
+    "prepTime": "5 min",
+    "cookTime": "8 min (pan-fry)",
+    "steps": [
+      "Mash the banana with a fork",
+      "Add cottage cheese, eggs, oats, stir together",
+      "Let rest 5 minutes",
+      "Fry over medium heat (5–6 of 9) on butter",
+      "2 min per side, flip once a crust forms"
+    ],
+    "tips": "Cottage cheese adds protein (28 g — almost like a lunch bowl) and makes the pancakes softer and sturdier. A good option when you want a sweet breakfast but need protein. Works great as a filling breakfast on commuting days.",
+    "freshAdd": "Berries, yogurt, nut butter or honey on top."
   }
 ]
