@@ -2,7 +2,7 @@
 
 ## Overview
 
-Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bilingual (ru/en) with 29 recipes, structured ingredient data, automated shopping list with category grouping.
+Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bilingual (ru/en) with 31 recipes, structured ingredient data, automated shopping list with category grouping.
 
 ## Architecture
 
@@ -19,8 +19,8 @@ src/
     ingredients.json                # Ingredient catalog: id -> {category, ru, en, shopping?}
     tags.json                       # Tag ID -> {ru, en} display names
     recipes/
-      ru.json                       # 29 recipes in Russian (structural + text)
-      en.json                       # 29 recipes in English (structural + text)
+      ru.json                       # 31 recipes in Russian (structural + text)
+      en.json                       # 31 recipes in English (structural + text)
   hooks/
     useWeekPlan.js                  # State + logic for weekly meal plan
     useShoppingList.js              # Aggregation with category grouping + unit normalization
