@@ -27,5 +27,6 @@
   "light": { "ru": "лёгкий", "en": "Light" },
   "basic": { "ru": "базовый", "en": "Basic" },
   "favorite": { "ru": "любимое", "en": "Favorite" },
-  "prep-evening": { "ru": "подготовить с вечера", "en": "Prep evening before" }
+  "prep-evening": { "ru": "подготовить с вечера", "en": "Prep evening before" },
+  "add-on": { "ru": "добавка", "en": "Add-on" }
 }

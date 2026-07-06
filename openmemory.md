@@ -2,7 +2,7 @@
 
 ## Overview
 
-Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bilingual (ru/en) with 31 recipes, structured ingredient data, automated shopping list with category grouping.
+Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bilingual (ru/en) with 36 recipes (35 meals + 1 add-on sauce), structured ingredient data, automated shopping list with category grouping.
 
 ## Architecture
 
@@ -19,8 +19,8 @@ src/
     ingredients.json                # Ingredient catalog: id -> {category, ru, en, shopping?}
     tags.json                       # Tag ID -> {ru, en} display names
     recipes/
-      ru.json                       # 31 recipes in Russian (structural + text)
-      en.json                       # 31 recipes in English (structural + text)
+      ru.json                       # 36 recipes in Russian (35 meals + 1 add-on sauce)
+      en.json                       # 36 recipes in English (35 meals + 1 add-on sauce)
   hooks/
     useWeekPlan.js                  # State + logic for weekly meal plan
     useShoppingList.js              # Aggregation with category grouping + unit normalization
@@ -35,7 +35,9 @@ src/
 
 ## Key Design Decisions
 
-- **JSON data files** instead of a database: 29 recipes don't justify infrastructure. JSON is bundled at build time by Vite. Zero runtime cost.
+- **JSON data files** instead of a database: 36 recipes don't justify infrastructure. JSON is bundled at build time by Vite. Zero runtime cost.
+- **Reference ingredients for shared components**: `tahini-sauce-portion` (unit: `portion`) is a marker ingredient in main-dish recipes pointing at the standalone `tahini-sauce` recipe. Marked with `shopping: false` so it doesn't clutter the shopping list; users see it in ingredient lists as a reminder to make the sauce separately.
+- **Add-on recipes via tag**: Recipes tagged `add-on` (like the tahini sauce) don't map to any slot in `SLOT_TAG_MAP`, so they don't appear in week planner dropdowns but remain browsable in the Recipe list.
 - **Structured ingredients** (id + amount + unit) instead of free-text strings: enables reliable shopping list aggregation across languages, no regex needed.
 - **Ingredient catalog** maps IDs to localized names + categories: shopping list groups by category, ingredient names switch with language.
 - **Tags as language-neutral IDs** (e.g. "lunch", "meat-free"): recipes filter correctly regardless of display language. Tag display names live in i18n.

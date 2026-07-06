@@ -8,14 +8,15 @@
     "portions": 2,
     "prepMinutes": 15,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 480, "protein": 22, "fat": 14, "carbs": 62, "fiber": 4 },
+    "perPortion": { "kcal": 476, "protein": 24, "fat": 18, "carbs": 60, "fiber": 4 },
     "ingredients": [
-      { "id": "egg-noodles", "amount": 200, "unit": "g" },
+      { "id": "egg-noodles", "amount": 140, "unit": "g" },
       { "id": "tomato", "amount": 3, "unit": "medium" },
-      { "id": "egg", "amount": 3, "unit": "pcs" },
+      { "id": "egg", "amount": 4, "unit": "pcs" },
       { "id": "green-onion", "amount": 3, "unit": "stalks" },
       { "id": "vegetable-oil", "amount": 1, "unit": "dash" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tsp", "optional": true }
+      { "id": "soy-sauce", "amount": 1, "unit": "tsp", "optional": true },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
     ],
     "name": "Tomato Egg Noodles",
     "description": "Your tried-and-true favorite — 西红柿鸡蛋面. Quick, filling, minimal fuss.",
@@ -40,15 +41,16 @@
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 510, "protein": 42, "fat": 8, "carbs": 65, "fiber": 12 },
+    "perPortion": { "kcal": 470, "protein": 47, "fat": 13, "carbs": 43, "fiber": 12 },
     "ingredients": [
-      { "id": "red-lentils", "amount": 150, "unit": "g" },
+      { "id": "red-lentils", "amount": 100, "unit": "g" },
       { "id": "chicken-breast", "amount": 200, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "carrot", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "bell-pepper", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" }
+      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
     ],
     "name": "Lentil Bowl with Chicken",
     "description": "Red lentils in the rice cooker (simmered soup mode) + chicken breast on top. Fill the pot no more than halfway to keep the foam from overflowing.",
@@ -73,13 +75,15 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 490, "protein": 38, "fat": 7, "carbs": 68, "fiber": 3 },
+    "perPortion": { "kcal": 444, "protein": 31, "fat": 17, "carbs": 41, "fiber": 3 },
     "ingredients": [
-      { "id": "rice", "amount": 300, "unit": "g" },
+      { "id": "rice", "amount": 150, "unit": "g" },
       { "id": "chicken-breast-or-thigh", "amount": 300, "unit": "g" },
       { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 2 on the left scale 东北米" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp", "optional": true }
+      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp", "optional": true },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
     ],
     "name": "Rice Bowl with Chicken",
     "description": "The simplest option: rice + chicken right in the rice cooker. Hainanese chicken rice, simplified to the max.",
@@ -104,13 +108,14 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 30,
-    "perPortion": { "kcal": 470, "protein": 40, "fat": 9, "carbs": 55, "fiber": 6 },
+    "perPortion": { "kcal": 455, "protein": 44, "fat": 10, "carbs": 50, "fiber": 6 },
     "ingredients": [
-      { "id": "buckwheat", "amount": 250, "unit": "g" },
+      { "id": "buckwheat", "amount": 180, "unit": "g" },
       { "id": "turkey-fillet", "amount": 350, "unit": "g" },
       { "id": "water", "amount": 500, "unit": "ml" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" }
+      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
     ],
     "name": "Buckwheat with Turkey",
     "description": "Buckwheat in the rice cooker comes out perfectly fluffy. Sear the turkey steak separately in 5 minutes, or put it in the rice cooker together.",
@@ -135,16 +140,17 @@
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 460, "protein": 28, "fat": 18, "carbs": 48, "fiber": 8 },
+    "perPortion": { "kcal": 666, "protein": 26, "fat": 40, "carbs": 57, "fiber": 8 },
     "ingredients": [
-      { "id": "quinoa", "amount": 150, "unit": "g" },
+      { "id": "quinoa", "amount": 100, "unit": "g" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately or steam in the rice cooker" },
       { "id": "cucumber", "amount": 1, "unit": "large" },
       { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
       { "id": "avocado", "amount": 1, "unit": "pcs" },
       { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "rinse" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
     ],
     "name": "Cold Quinoa and Egg Bowl",
     "description": "Everything at room temperature or straight from the fridge. Perfect for summer or when you can't be bothered to reheat.",
@@ -169,14 +175,15 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 40,
-    "perPortion": { "kcal": 440, "protein": 35, "fat": 10, "carbs": 52, "fiber": 3 },
+    "perPortion": { "kcal": 519, "protein": 35, "fat": 18, "carbs": 56, "fiber": 3 },
     "ingredients": [
       { "id": "chicken-thigh-bone-in", "amount": 2, "unit": "pcs" },
       { "id": "water", "amount": 800, "unit": "ml" },
       { "id": "noodles", "amount": 150, "unit": "g" },
       { "id": "egg", "amount": 2, "unit": "pcs", "note": "boil separately, halve for the broth" },
       { "id": "green-onion", "amount": 4, "unit": "stalks" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" }
+      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
     ],
     "name": "Chicken Broth Noodles",
     "description": "Gentle chicken broth from the rice cooker + noodles + fresh veggies. Ramen vibes without the packet seasoning.",
@@ -201,16 +208,18 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 505, "protein": 26, "fat": 12, "carbs": 74, "fiber": 10 },
+    "perPortion": { "kcal": 448, "protein": 17, "fat": 25, "carbs": 41, "fiber": 10 },
     "ingredients": [
-      { "id": "rice", "amount": 250, "unit": "g" },
+      { "id": "rice", "amount": 120, "unit": "g" },
       { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "drain the liquid" },
       { "id": "egg", "amount": 6, "unit": "pcs", "note": "boil separately" },
       { "id": "tomato", "amount": 3, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "between marks 1 and 2 on the left scale 东北米" }
+      { "id": "water", "amount": 1, "unit": "pcs", "note": "between marks 1 and 2 on the left scale 东北米" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
     ],
     "name": "Rice with Chickpeas and Egg",
     "description": "Rice in the rice cooker, canned chickpeas, boiled eggs. Double protein, lots of fiber, zero effort.",
@@ -235,15 +244,17 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 520, "protein": 40, "fat": 8, "carbs": 70, "fiber": 11 },
+    "perPortion": { "kcal": 430, "protein": 35, "fat": 13, "carbs": 43, "fiber": 11 },
     "ingredients": [
-      { "id": "rice", "amount": 250, "unit": "g" },
+      { "id": "rice", "amount": 120, "unit": "g" },
       { "id": "turkey-fillet", "amount": 300, "unit": "g" },
       { "id": "canned-beans", "amount": 1, "unit": "can", "note": "drain and rinse" },
       { "id": "tomato", "amount": 3, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "between marks 1 and 2 on the left scale 东北米" }
+      { "id": "water", "amount": 1, "unit": "pcs", "note": "between marks 1 and 2 on the left scale 东北米" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
     ],
     "name": "Beans with Turkey and Rice",
     "description": "Rice + turkey in the rice cooker, stir in canned beans after. Burrito bowl without the spices or heat.",
@@ -268,7 +279,7 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 420, "protein": 30, "fat": 8, "carbs": 56, "fiber": 4 },
+    "perPortion": { "kcal": 510, "protein": 37, "fat": 6, "carbs": 80, "fiber": 4 },
     "ingredients": [
       { "id": "noodles-udon", "amount": 200, "unit": "g" },
       { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
@@ -276,7 +287,8 @@
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, cut into sticks" },
       { "id": "green-onion", "amount": 4, "unit": "stalks" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp" }
+      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp" },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
     ],
     "name": "Shrimp Noodles",
     "description": "Shrimp thaw in 5 min, cook in 3 min. Noodles at the same time. Light, fresh, fast.",
@@ -301,9 +313,9 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 450, "protein": 30, "fat": 6, "carbs": 68, "fiber": 3 },
+    "perPortion": { "kcal": 499, "protein": 32, "fat": 20, "carbs": 52, "fiber": 3 },
     "ingredients": [
-      { "id": "rice", "amount": 200, "unit": "g" },
+      { "id": "rice", "amount": 100, "unit": "g" },
       { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
       { "id": "butter", "amount": 1, "unit": "small-piece" },
@@ -311,7 +323,9 @@
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "green-onion", "amount": 3, "unit": "stalks" },
       { "id": "sesame-oil", "amount": 1, "unit": "dash", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 1 on the left scale 东北米" }
+      { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 1 on the left scale 东北米" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
+      { "id": "avocado", "amount": 0.5, "unit": "pcs", "note": "for bowl" }
     ],
     "name": "Rice with Shrimp",
     "description": "Rice in the rice cooker, shrimp separately in a pan in 3 minutes. Two steps, both simple.",
@@ -336,7 +350,7 @@
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 480, "protein": 22, "fat": 24, "carbs": 46, "fiber": 14 },
+    "perPortion": { "kcal": 352, "protein": 15, "fat": 28, "carbs": 14, "fiber": 14 },
     "ingredients": [
       { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "drain and rinse" },
       { "id": "avocado", "amount": 1, "unit": "pcs" },
@@ -369,9 +383,9 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 540, "protein": 40, "fat": 16, "carbs": 58, "fiber": 5 },
+    "perPortion": { "kcal": 783, "protein": 45, "fat": 37, "carbs": 71, "fiber": 5 },
     "ingredients": [
-      { "id": "rice", "amount": 200, "unit": "g" },
+      { "id": "rice", "amount": 140, "unit": "g" },
       { "id": "chicken-breast", "amount": 200, "unit": "g" },
       { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 1 on the left scale 东北米" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
@@ -380,7 +394,8 @@
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp", "optional": true }
+      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp", "optional": true },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
     ],
     "name": "Rice with Chicken, Feta and Avocado",
     "description": "Rice + chicken in the rice cooker, topped with fresh veggies, avocado, and feta cubes. Mediterranean bowl without the spices or fuss.",
@@ -405,15 +420,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 490, "protein": 28, "fat": 16, "carbs": 58, "fiber": 10 },
+    "perPortion": { "kcal": 692, "protein": 34, "fat": 34, "carbs": 72, "fiber": 10 },
     "ingredients": [
-      { "id": "buckwheat", "amount": 200, "unit": "g" },
+      { "id": "buckwheat", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 6, "unit": "pcs", "note": "boil separately" },
       { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "drain and rinse" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
     ],
     "name": "Buckwheat with Egg and Veggies",
     "description": "Vegetarian version of buckwheat with turkey. Buckwheat in the rice cooker, eggs boiled separately. For protein — 3 eggs per portion + canned chickpeas.",
@@ -438,15 +454,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 460, "protein": 32, "fat": 10, "carbs": 58, "fiber": 4 },
+    "perPortion": { "kcal": 401, "protein": 10, "fat": 15, "carbs": 60, "fiber": 4 },
     "ingredients": [
-      { "id": "couscous", "amount": 200, "unit": "g" },
+      { "id": "couscous", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 250, "unit": "ml" },
       { "id": "canned-tuna", "amount": 1, "unit": "can", "note": "drain the liquid" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, diced" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
     ],
     "name": "Couscous with Tuna and Veggies",
     "description": "The fastest recipe: pour boiling water over couscous for 5 minutes, open a can of tuna, chop veggies. That's it.",
@@ -471,7 +488,7 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 520, "protein": 28, "fat": 18, "carbs": 60, "fiber": 4 },
+    "perPortion": { "kcal": 766, "protein": 40, "fat": 32, "carbs": 84, "fiber": 4 },
     "ingredients": [
       { "id": "short-pasta", "amount": 200, "unit": "g" },
       { "id": "mozzarella", "amount": 125, "unit": "g", "note": "1 ball, diced" },
@@ -504,16 +521,17 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 500, "protein": 24, "fat": 22, "carbs": 52, "fiber": 9 },
+    "perPortion": { "kcal": 666, "protein": 25, "fat": 39, "carbs": 58, "fiber": 9 },
     "ingredients": [
-      { "id": "quinoa", "amount": 200, "unit": "g" },
+      { "id": "quinoa", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
       { "id": "avocado", "amount": 1, "unit": "pcs", "note": "slice before eating" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
       { "id": "cucumber", "amount": 1, "unit": "pcs" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
     ],
     "name": "Quinoa with Egg and Avocado",
     "description": "Quinoa in the rice cooker (Rice mode), eggs boiled separately. Before eating — avocado and fresh veggies. Complete amino acid profile without meat.",
@@ -538,15 +556,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 480, "protein": 30, "fat": 12, "carbs": 62, "fiber": 14 },
+    "perPortion": { "kcal": 505, "protein": 28, "fat": 26, "carbs": 45, "fiber": 14 },
     "ingredients": [
-      { "id": "red-lentils", "amount": 150, "unit": "g" },
+      { "id": "red-lentils", "amount": 100, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
     ],
     "name": "Lentils with Egg and Bell Pepper",
     "description": "Lentils are one of the best plant-based sources of iron. Bell peppers and tomatoes (vitamin C) boost absorption. Dairy-free.",
@@ -571,15 +590,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 460, "protein": 24, "fat": 14, "carbs": 58, "fiber": 8 },
+    "perPortion": { "kcal": 558, "protein": 24, "fat": 28, "carbs": 63, "fiber": 8 },
     "ingredients": [
-      { "id": "buckwheat", "amount": 200, "unit": "g" },
+      { "id": "buckwheat", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
     ],
     "name": "Buckwheat with Egg and Pepper (iron-rich)",
     "description": "Buckwheat has the highest iron content among grains. Together with peppers and tomatoes (vitamin C), iron absorption is maximized. Dairy-free.",
@@ -604,15 +624,16 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 530, "protein": 28, "fat": 20, "carbs": 58, "fiber": 4 },
+    "perPortion": { "kcal": 760, "protein": 30, "fat": 42, "carbs": 71, "fiber": 4 },
     "ingredients": [
-      { "id": "couscous", "amount": 100, "unit": "g" },
+      { "id": "couscous", "amount": 80, "unit": "g" },
       { "id": "water", "amount": 130, "unit": "ml" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
       { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "raw, diced" },
       { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "raw, halved" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 0.5, "unit": "tbsp", "note": "extra, to finish" }
     ],
     "name": "Couscous with Halloumi and Veggies",
     "description": "Pour boiling water over couscous, pan-fry halloumi on a dry pan in 3 minutes. Fresh veggies on top. Like a Pinterest photo — only easier.",
@@ -636,7 +657,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 560, "protein": 28, "fat": 18, "carbs": 68, "fiber": 4 },
+    "perPortion": { "kcal": 776, "protein": 32, "fat": 36, "carbs": 85, "fiber": 4 },
     "ingredients": [
       { "id": "short-pasta", "amount": 100, "unit": "g" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
@@ -667,7 +688,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 520, "protein": 32, "fat": 14, "carbs": 64, "fiber": 3 },
+    "perPortion": { "kcal": 568, "protein": 22, "fat": 30, "carbs": 59, "fiber": 3 },
     "ingredients": [
       { "id": "gnocchi", "amount": 200, "unit": "g" },
       { "id": "canned-tuna", "amount": 0.5, "unit": "can", "note": "drain the liquid" },
@@ -698,7 +719,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 540, "protein": 24, "fat": 20, "carbs": 64, "fiber": 3 },
+    "perPortion": { "kcal": 670, "protein": 27, "fat": 37, "carbs": 63, "fiber": 3 },
     "ingredients": [
       { "id": "gnocchi", "amount": 200, "unit": "g" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
@@ -730,7 +751,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 520, "protein": 32, "fat": 28, "carbs": 36, "fiber": 5 },
+    "perPortion": { "kcal": 532, "protein": 26, "fat": 35, "carbs": 31, "fiber": 5 },
     "ingredients": [
       { "id": "tortilla", "amount": 1, "unit": "pcs" },
       { "id": "egg", "amount": 2, "unit": "pcs" },
@@ -764,7 +785,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 420, "protein": 20, "fat": 16, "carbs": 50, "fiber": 5 },
+    "perPortion": { "kcal": 422, "protein": 28, "fat": 14, "carbs": 47, "fiber": 5 },
     "ingredients": [
       { "id": "greek-yogurt", "amount": 200, "unit": "g" },
       { "id": "berries", "amount": 1, "unit": "handful" },
@@ -792,7 +813,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 450, "protein": 24, "fat": 14, "carbs": 56, "fiber": 10 },
+    "perPortion": { "kcal": 526, "protein": 33, "fat": 22, "carbs": 54, "fiber": 10 },
     "ingredients": [
       { "id": "greek-yogurt", "amount": 200, "unit": "g" },
       { "id": "oats", "amount": 4, "unit": "tbsp" },
@@ -821,7 +842,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 430, "protein": 20, "fat": 22, "carbs": 38, "fiber": 7 },
+    "perPortion": { "kcal": 460, "protein": 20, "fat": 29, "carbs": 33, "fiber": 7 },
     "ingredients": [
       { "id": "toast-bread", "amount": 2, "unit": "slice" },
       { "id": "avocado", "amount": 0.5, "unit": "pcs" },
@@ -850,7 +871,7 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 420, "protein": 24, "fat": 18, "carbs": 40, "fiber": 3 },
+    "perPortion": { "kcal": 357, "protein": 24, "fat": 15, "carbs": 33, "fiber": 3 },
     "ingredients": [
       { "id": "toast-bread", "amount": 2, "unit": "slice" },
       { "id": "cream-cheese", "amount": 1, "unit": "tbsp" },
@@ -880,7 +901,7 @@
     "portions": 1,
     "prepMinutes": 2,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 320, "protein": 10, "fat": 14, "carbs": 40, "fiber": 4 },
+    "perPortion": { "kcal": 350, "protein": 11, "fat": 10, "carbs": 56, "fiber": 4 },
     "ingredients": [
       { "id": "toast-bread", "amount": 2, "unit": "slice" },
       { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
@@ -907,7 +928,7 @@
     "portions": 1,
     "prepMinutes": 1,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 180, "protein": 15, "fat": 5, "carbs": 18, "fiber": 2 },
+    "perPortion": { "kcal": 187, "protein": 17, "fat": 7, "carbs": 15, "fiber": 2 },
     "ingredients": [
       { "id": "cottage-cheese", "amount": 150, "unit": "g" },
       { "id": "berries", "amount": 1, "unit": "handful" }
@@ -933,7 +954,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 480, "protein": 18, "fat": 18, "carbs": 62, "fiber": 6 },
+    "perPortion": { "kcal": 456, "protein": 18, "fat": 19, "carbs": 60, "fiber": 6 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs", "note": "frozen works too" },
       { "id": "nut-butter", "amount": 1.5, "unit": "tbsp" },
@@ -962,7 +983,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 450, "protein": 28, "fat": 14, "carbs": 52, "fiber": 6 },
+    "perPortion": { "kcal": 460, "protein": 27, "fat": 16, "carbs": 60, "fiber": 6 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs" },
       { "id": "cocoa-powder", "amount": 1, "unit": "tbsp" },
@@ -992,7 +1013,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 380, "protein": 16, "fat": 8, "carbs": 64, "fiber": 5 },
+    "perPortion": { "kcal": 326, "protein": 22, "fat": 5, "carbs": 54, "fiber": 5 },
     "ingredients": [
       { "id": "mango", "amount": 150, "unit": "g", "note": "fresh or frozen" },
       { "id": "banana", "amount": 0.5, "unit": "pcs" },
@@ -1021,7 +1042,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 420, "protein": 18, "fat": 10, "carbs": 64, "fiber": 7 },
+    "perPortion": { "kcal": 494, "protein": 28, "fat": 14, "carbs": 70, "fiber": 7 },
     "ingredients": [
       { "id": "berries", "amount": 1, "unit": "handful", "note": "blueberry, raspberry; frozen works too" },
       { "id": "banana", "amount": 1, "unit": "pcs" },
@@ -1051,7 +1072,7 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 380, "protein": 16, "fat": 10, "carbs": 56, "fiber": 6 },
+    "perPortion": { "kcal": 424, "protein": 18, "fat": 19, "carbs": 51, "fiber": 6 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs", "note": "ripe, with brown spots" },
       { "id": "egg", "amount": 2, "unit": "pcs" },
@@ -1082,7 +1103,7 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 420, "protein": 28, "fat": 12, "carbs": 48, "fiber": 5 },
+    "perPortion": { "kcal": 489, "protein": 28, "fat": 22, "carbs": 48, "fiber": 5 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs", "note": "ripe" },
       { "id": "cottage-cheese", "amount": 100, "unit": "g" },
@@ -1103,5 +1124,33 @@
     ],
     "tips": "Cottage cheese adds protein (28 g — almost like a lunch bowl) and makes the pancakes softer and sturdier. A good option when you want a sweet breakfast but need protein. Works great as a filling breakfast on commuting days.",
     "freshAdd": "Berries, yogurt, nut butter or honey on top."
+  },
+  {
+    "id": "tahini-sauce",
+    "emoji": "🥄",
+    "type": "sauce",
+    "tags": ["add-on", "no-cooking", "quick", "calorie-dense"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 2,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 153, "protein": 1, "fat": 17, "carbs": 2, "fiber": 1 },
+    "ingredients": [
+      { "id": "tahini", "amount": 1, "unit": "tsp", "note": "heaping" },
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-or-sesame-oil", "amount": 1, "unit": "tbsp" },
+      { "id": "water", "amount": 1, "unit": "splash", "note": "to desired consistency" }
+    ],
+    "name": "Tahini Sauce (bowl add-on)",
+    "description": "A universal calorie-dense add-on for any lunch bowl. Adds ~160 kcal of dense calories with barely any volume.",
+    "prepTime": "2 min",
+    "cookTime": "0 min",
+    "steps": [
+      "Mix tahini, lemon juice, and oil",
+      "Add water gradually until it's the consistency of thin sour cream",
+      "Drizzle over the bowl before eating"
+    ],
+    "tips": "Add it to rice, buckwheat, lentils, quinoa, couscous. Delivers dense calories without volume — exactly what you need when large portions don't fit. Tahini contains calcium and iron; lemon (vitamin C) helps iron absorption.",
+    "freshAdd": ""
   }
 ]
