@@ -16,13 +16,16 @@ function normalizeAmount(amount, unit) {
   return { amount, unit };
 }
 
-export default function useShoppingList(weekPlan, meals) {
+export default function useShoppingList(weekPlan, meals, weekAddOns = {}) {
   const { i18n } = useTranslation();
   const lang = i18n.language;
 
   const mealCounts = {};
   Object.values(weekPlan).forEach(mealId => {
     mealCounts[mealId] = (mealCounts[mealId] || 0) + 1;
+  });
+  Object.values(weekAddOns).forEach(addOnId => {
+    mealCounts[addOnId] = (mealCounts[addOnId] || 0) + 1;
   });
 
   const batchCounts = {};

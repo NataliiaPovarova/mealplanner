@@ -52,6 +52,7 @@ function tryRegisterFonts(doc, fonts) {
 
 export default async function generateWeekPlanPdf({
   weekPlan,
+  weekAddOns = {},
   meals,
   t,
   language,
@@ -99,10 +100,14 @@ export default async function generateWeekPlanPdf({
   const body = DAYS.map((day) => {
     const dayLabel = t(`days.${day}`);
     const cells = SLOTS.map((slot) => {
-      const mealId = weekPlan[`${day}-${slot}`];
+      const key = `${day}-${slot}`;
+      const mealId = weekPlan[key];
       if (!mealId) return t("pdf.empty");
       const meal = meals.find((m) => m.id === mealId);
-      return meal ? meal.name : t("pdf.empty");
+      const mealName = meal ? meal.name : t("pdf.empty");
+      const addOnId = weekAddOns[key];
+      const addOn = addOnId ? meals.find((m) => m.id === addOnId) : null;
+      return addOn ? `${mealName}\n+ ${addOn.name}` : mealName;
     });
     return [dayLabel, ...cells];
   });
@@ -119,7 +124,9 @@ export default async function generateWeekPlanPdf({
 
   // ── Recipes section ─────────────────────────────────────────
 
-  const uniqueIds = [...new Set(Object.values(weekPlan))];
+  const uniqueIds = [
+    ...new Set([...Object.values(weekPlan), ...Object.values(weekAddOns)]),
+  ];
   const uniqueMeals = uniqueIds
     .map((id) => meals.find((m) => m.id === id))
     .filter(Boolean);

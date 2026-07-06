@@ -29,6 +29,7 @@
   "week.choose": "+ выбрать",
   "week.skip": "— пропустить —",
   "week.batchDays": "{{count}}д",
+  "week.addOnChoose": "+ добавка",
 
   "shopping.title": "Планировщик закупки",
   "shopping.empty": "Сначала заполни план недели — список ингредиентов соберётся автоматически.",
