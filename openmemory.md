@@ -24,10 +24,11 @@ src/
   hooks/
     useWeekPlan.js                  # State + logic for weekly meal plan (main meals + parallel weekAddOns map)
     useShoppingList.js              # Aggregation (main meals + add-ons) with category grouping + unit normalization
+    useShoppingChecks.js          # Interactive checkbox state for shopping items (localStorage)
     useRecipes.js                   # Returns language-specific recipe array
   components/
     WeekPlanner.jsx                 # Week plan tab (day cards + meal slot dropdowns)
-    ShoppingList.jsx                # Shopping tab (categorized ingredients + daily energy value)
+    ShoppingList.jsx                # Shopping tab (categorized ingredients, checkboxes, PDF export, daily energy value)
     RecipeList.jsx                  # Recipe browser with tag filtering
     RecipeDetail.jsx                # Single recipe view (energy value bar, ingredients, steps)
     AboutOverlay.jsx                # About modal (bilingual content)
@@ -48,7 +49,7 @@ src/
 
 - **App.jsx** (~75 lines): orchestrates tabs, language switcher, hooks
 - **WeekPlanner**: 7 day cards × 4 slots, batch auto-fill, batch mismatch warnings, optional nested add-on chip below each occupied slot
-- **ShoppingList**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry), unit normalization (1000g→1kg), daily energy value summary
+- **ShoppingList**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry), unit normalization (1000g→1kg), interactive checkboxes (persisted in localStorage), independent PDF export, daily energy value summary
 - **RecipeList**: tag filter pills, recipe cards with emoji/name/description/macros
 - **RecipeDetail**: energy value bar, structured ingredients, steps, tips, fresh additions
 
