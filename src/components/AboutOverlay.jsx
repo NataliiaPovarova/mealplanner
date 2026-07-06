@@ -72,7 +72,7 @@ export default function AboutOverlay({ onClose }) {
               <li><strong>Планировщик недели</strong>: завтрак, обед, ужин и перекус на каждый день</li>
               <li><strong>Batch cooking</strong>: блюда на 2–3 дня автоматически заполняют следующие дни</li>
               <li><strong>Контроль батчей</strong>: предупреждения, если количество порций не совпадает с рецептом</li>
-              <li><strong>Рецепты-добавки</strong>: соусы и другие сопровождения (тег <code>add-on</code>) не появляются в слотах плана, но их можно указывать как «ссылку-ингредиент» в других рецептах</li>
+              <li><strong>Рецепты-добавки</strong>: соусы и другие сопровождения (тег <code>add-on</code>) прикрепляются к любому выбранному приёму пищи через chip под ним. Их калории учитываются в КБЖУ дня, а ингредиенты попадают в список закупки. Также добавки можно упоминать в других рецептах как «ссылку-ингредиент»</li>
               <li><strong>Умный список закупки</strong>: ингредиенты агрегируются во вкладке «Закупка» и группируются по категориям (овощи, белок, молочное, бобовые, крупы, прочее); ингредиенты-ссылки (например, порция тахинного соуса) исключаются из списка</li>
               <li><strong>PDF на неделю</strong>: скачай план и все рецепты одним файлом — открывай на телефоне прямо на кухне</li>
               <li><strong>Фильтрация по тегам</strong>: обед, завтрак/ужин, перекус, без мяса, богато железом и другие</li>
@@ -104,7 +104,7 @@ export default function AboutOverlay({ onClose }) {
               <li><strong>Weekly planner</strong>: breakfast, lunch, dinner, and snack for each day</li>
               <li><strong>Batch cooking</strong>: dishes for 2–3 days automatically fill the following days</li>
               <li><strong>Batch validation</strong>: warnings when portion counts do not match the recipe</li>
-              <li><strong>Add-on recipes</strong>: sauces and other extras (tagged <code>add-on</code>) don't show up in plan slots but can be referenced from other recipes as a "reference ingredient"</li>
+              <li><strong>Add-on recipes</strong>: sauces and other extras (tagged <code>add-on</code>) can be attached to any filled meal slot via a chip below the meal. Their calories are counted in the daily totals and their ingredients are included in the shopping list. They can also be referenced from other recipes as a "reference ingredient"</li>
               <li><strong>Smart shopping list</strong>: ingredients are aggregated on the Shopping tab and grouped by category (produce, protein, dairy, legumes, grains, pantry); reference ingredients (like a tahini-sauce portion) are excluded so you only see what to actually buy</li>
               <li><strong>Downloadable PDF</strong>: export the weekly plan and all recipes as a single file — open it on your phone right in the kitchen</li>
               <li><strong>Tag filtering</strong>: lunch, breakfast/dinner, snack, meat-free, iron-rich, and more</li>

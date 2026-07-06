@@ -29,6 +29,7 @@
   "week.choose": "+ choose",
   "week.skip": "— skip —",
   "week.batchDays": "{{count}}d",
+  "week.addOnChoose": "+ add-on",
 
   "shopping.title": "Shopping Planner",
   "shopping.empty": "Fill in the week plan first — the ingredient list will be generated automatically.",

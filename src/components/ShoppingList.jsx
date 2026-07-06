@@ -2,9 +2,9 @@ import { useTranslation } from "react-i18next";
 import { DAYS } from "../constants";
 import useShoppingList from "../hooks/useShoppingList";
 
-export default function ShoppingList({ weekPlan, getDayKBJU, filledSlots, meals }) {
+export default function ShoppingList({ weekPlan, weekAddOns, getDayKBJU, filledSlots, meals }) {
   const { t } = useTranslation();
-  const { grouped, sortedCategories } = useShoppingList(weekPlan, meals);
+  const { grouped, sortedCategories } = useShoppingList(weekPlan, meals, weekAddOns);
 
   if (filledSlots === 0) {
     return (

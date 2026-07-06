@@ -80,7 +80,7 @@ function App() {
       </div>
 
       {activeTab === "week" && <WeekPlanner plan={plan} meals={meals} />}
-      {activeTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} getDayKBJU={plan.getDayKBJU} filledSlots={filledSlots} meals={meals} />}
+      {activeTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} weekAddOns={plan.weekAddOns} getDayKBJU={plan.getDayKBJU} filledSlots={filledSlots} meals={meals} />}
       {activeTab === "recipes" && <RecipeList />}
 
       {showAbout && <AboutOverlay onClose={() => setShowAbout(false)} />}

@@ -22,14 +22,14 @@ src/
       ru.json                       # 36 recipes in Russian (35 meals + 1 add-on sauce)
       en.json                       # 36 recipes in English (35 meals + 1 add-on sauce)
   hooks/
-    useWeekPlan.js                  # State + logic for weekly meal plan
-    useShoppingList.js              # Aggregation with category grouping + unit normalization
+    useWeekPlan.js                  # State + logic for weekly meal plan (main meals + parallel weekAddOns map)
+    useShoppingList.js              # Aggregation (main meals + add-ons) with category grouping + unit normalization
     useRecipes.js                   # Returns language-specific recipe array
   components/
     WeekPlanner.jsx                 # Week plan tab (day cards + meal slot dropdowns)
-    ShoppingList.jsx                # Shopping tab (categorized ingredients + daily KBJU)
+    ShoppingList.jsx                # Shopping tab (categorized ingredients + daily energy value)
     RecipeList.jsx                  # Recipe browser with tag filtering
-    RecipeDetail.jsx                # Single recipe view (KBJU bar, ingredients, steps)
+    RecipeDetail.jsx                # Single recipe view (energy value bar, ingredients, steps)
     AboutOverlay.jsx                # About modal (bilingual content)
 ```
 
@@ -37,7 +37,7 @@ src/
 
 - **JSON data files** instead of a database: 36 recipes don't justify infrastructure. JSON is bundled at build time by Vite. Zero runtime cost.
 - **Reference ingredients for shared components**: `tahini-sauce-portion` (unit: `portion`) is a marker ingredient in main-dish recipes pointing at the standalone `tahini-sauce` recipe. Marked with `shopping: false` so it doesn't clutter the shopping list; users see it in ingredient lists as a reminder to make the sauce separately.
-- **Add-on recipes via tag**: Recipes tagged `add-on` (like the tahini sauce) don't map to any slot in `SLOT_TAG_MAP`, so they don't appear in week planner dropdowns but remain browsable in the Recipe list.
+- **Add-on recipes via tag**: Recipes tagged `add-on` (like the tahini sauce) don't map to any slot in `SLOT_TAG_MAP` (constant `ADDON_TAG` in `constants.js`). They aren't listed among main-meal options, but each occupied meal slot in the week planner shows a nested chip below allowing the user to attach an add-on. Add-on ingredients are aggregated into the shopping list (via parallel `weekAddOns` state in `useWeekPlan`, passed to `useShoppingList`) and their energy value is included in the per-day totals. Add-on recipes are also emitted in the PDF plan (inside the day cell) and in the PDF recipes section.
 - **Structured ingredients** (id + amount + unit) instead of free-text strings: enables reliable shopping list aggregation across languages, no regex needed.
 - **Ingredient catalog** maps IDs to localized names + categories: shopping list groups by category, ingredient names switch with language.
 - **Tags as language-neutral IDs** (e.g. "lunch", "meat-free"): recipes filter correctly regardless of display language. Tag display names live in i18n.
@@ -47,10 +47,10 @@ src/
 ## Components
 
 - **App.jsx** (~75 lines): orchestrates tabs, language switcher, hooks
-- **WeekPlanner**: 7 day cards × 4 slots, batch auto-fill, batch mismatch warnings
-- **ShoppingList**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry), unit normalization (1000g→1kg), daily KBJU summary
+- **WeekPlanner**: 7 day cards × 4 slots, batch auto-fill, batch mismatch warnings, optional nested add-on chip below each occupied slot
+- **ShoppingList**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry), unit normalization (1000g→1kg), daily energy value summary
 - **RecipeList**: tag filter pills, recipe cards with emoji/name/description/macros
-- **RecipeDetail**: KBJU bar, structured ingredients, steps, tips, fresh additions
+- **RecipeDetail**: energy value bar, structured ingredients, steps, tips, fresh additions
 
 ## Patterns
 

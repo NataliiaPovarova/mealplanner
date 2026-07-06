@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { DAYS, SLOTS, SLOT_TAG_MAP } from "../constants";
+import { DAYS, SLOTS, SLOT_TAG_MAP, ADDON_TAG } from "../constants";
 
 const cellKey = (day, slot) => `${day}-${slot}`;
 
 export default function useWeekPlan(meals) {
   const [weekPlan, setWeekPlan] = useState({});
+  const [weekAddOns, setWeekAddOns] = useState({});
   const [dismissedWarnings, setDismissedWarnings] = useState({});
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -12,6 +13,8 @@ export default function useWeekPlan(meals) {
     const tag = SLOT_TAG_MAP[slot];
     return meals.filter(m => m.tags.includes(tag));
   };
+
+  const getAddOns = () => meals.filter(m => m.tags.includes(ADDON_TAG));
 
   const setSlot = (day, slot, mealId) => {
     const key = cellKey(day, slot);
@@ -40,13 +43,31 @@ export default function useWeekPlan(meals) {
     setOpenDropdown(null);
   };
 
+  const setAddOn = (day, slot, addOnId) => {
+    const key = cellKey(day, slot);
+    setWeekAddOns(prev => {
+      const next = { ...prev };
+      if (!addOnId) delete next[key];
+      else next[key] = addOnId;
+      return next;
+    });
+    setOpenDropdown(null);
+  };
+
+  const clearAddOn = (day, slot) => {
+    const key = cellKey(day, slot);
+    setWeekAddOns(prev => { const n = { ...prev }; delete n[key]; return n; });
+  };
+
   const clearSlot = (day, slot) => {
     const key = cellKey(day, slot);
     setWeekPlan(prev => { const n = { ...prev }; delete n[key]; return n; });
+    setWeekAddOns(prev => { const n = { ...prev }; delete n[key]; return n; });
   };
 
   const clearAll = () => {
     setWeekPlan({});
+    setWeekAddOns({});
     setDismissedWarnings({});
   };
 
@@ -78,7 +99,8 @@ export default function useWeekPlan(meals) {
   const getDayKBJU = (day) => {
     let kcal = 0, protein = 0, fiber = 0;
     SLOTS.forEach(slot => {
-      const mealId = weekPlan[cellKey(day, slot)];
+      const key = cellKey(day, slot);
+      const mealId = weekPlan[key];
       if (mealId) {
         const meal = meals.find(m => m.id === mealId);
         if (meal) {
@@ -87,13 +109,25 @@ export default function useWeekPlan(meals) {
           fiber += meal.perPortion.fiber;
         }
       }
+      const addOnId = weekAddOns[key];
+      if (addOnId) {
+        const addOn = meals.find(m => m.id === addOnId);
+        if (addOn) {
+          kcal += addOn.perPortion.kcal;
+          protein += addOn.perPortion.protein;
+          fiber += addOn.perPortion.fiber;
+        }
+      }
     });
     return { kcal, protein, fiber };
   };
 
   return {
-    weekPlan, cellKey, setSlot, clearSlot, clearAll,
+    weekPlan, weekAddOns, cellKey,
+    setSlot, clearSlot, clearAll,
+    setAddOn, clearAddOn,
     getBatchWarnings, dismissWarning, getDayKBJU,
-    openDropdown, setOpenDropdown, getMealsForSlot,
+    openDropdown, setOpenDropdown,
+    getMealsForSlot, getAddOns,
   };
 }

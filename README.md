@@ -14,7 +14,7 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 - **Weekly planner**: breakfast, lunch, dinner, and snack for each day
 - **Batch cooking**: dishes for 2–3 days automatically fill the following days
 - **Batch validation**: warnings when portion counts do not match the recipe
-- **Add-on recipes**: sauces and other extras (tagged `add-on`) don't appear in slot dropdowns but can be referenced from other recipes as a virtual "reference ingredient" (e.g. the tahini-sauce portion listed in bowl recipes points at the standalone sauce recipe)
+- **Add-on recipes**: sauces and other extras (tagged `add-on`) can be attached to any filled meal slot in the week plan via a nested chip below the meal (e.g. tahini sauce for a bowl). Their calories are added to that day's totals, their ingredients flow into the shopping list, and they appear inside the corresponding cell of the PDF plan. They can also be referenced from other recipes as a virtual "reference ingredient" that points at the standalone add-on recipe
 - **Categorized shopping list**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry) with automatic unit normalization (1000g → 1kg); reference ingredients are excluded from the list so you only see what to actually buy
 - **Downloadable PDF**: export the weekly plan and all referenced recipes as a single PDF — no account needed, works offline once downloaded
 - **Tag filtering**: lunch, breakfast/dinner, snack, meat-free, iron-rich, with cheese, and more
@@ -130,7 +130,7 @@ MIT
 - **Планировщик недели**: завтрак, обед, ужин и перекус на каждый день
 - **Batch cooking**: блюда на 2–3 дня автоматически заполняют следующие дни
 - **Контроль батчей**: предупреждения, если количество порций не совпадает с рецептом
-- **Рецепты-добавки**: соусы и другие сопровождения (с тегом `add-on`) не появляются в выпадашках слотов, но могут быть указаны в других рецептах как «виртуальный» ингредиент-ссылка (например, порция тахинного соуса в боуле ссылается на отдельный рецепт соуса)
+- **Рецепты-добавки**: соусы и другие сопровождения (с тегом `add-on`) можно прикрепить к любому занятому приёму пищи в плане недели — под выбранным блюдом появляется отдельный chip выбора добавки (например, тахинный соус к боулу). Калории добавки прибавляются к дневному итогу, её ингредиенты попадают в закупку, и она отображается в соответствующей ячейке PDF-плана. Добавки также можно упоминать в других рецептах как «ингредиент-ссылку» на отдельный рецепт добавки
 - **Список закупки по категориям**: ингредиенты сгруппированы (овощи, белок, молочное, бобовые, крупы, прочее) с автоматической нормализацией единиц (1000г → 1кг); ингредиенты-ссылки исключаются из списка, чтобы вы видели только то, что нужно реально купить
 - **PDF на неделю**: скачайте план и все рецепты одним файлом
 - **Фильтрация по тегам**: обед, завтрак/ужин, перекус, без мяса, богато железом, с сыром и другие
