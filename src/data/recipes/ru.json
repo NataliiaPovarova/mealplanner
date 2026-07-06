@@ -8,14 +8,15 @@
     "portions": 2,
     "prepMinutes": 15,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 480, "protein": 22, "fat": 14, "carbs": 62, "fiber": 4 },
+    "perPortion": { "kcal": 476, "protein": 24, "fat": 18, "carbs": 60, "fiber": 4 },
     "ingredients": [
-      { "id": "egg-noodles", "amount": 200, "unit": "g" },
+      { "id": "egg-noodles", "amount": 140, "unit": "g" },
       { "id": "tomato", "amount": 3, "unit": "medium" },
-      { "id": "egg", "amount": 3, "unit": "pcs" },
+      { "id": "egg", "amount": 4, "unit": "pcs" },
       { "id": "green-onion", "amount": 3, "unit": "stalks" },
       { "id": "vegetable-oil", "amount": 1, "unit": "dash" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tsp", "optional": true }
+      { "id": "soy-sauce", "amount": 1, "unit": "tsp", "optional": true },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Лапша с томатом и яйцом",
     "description": "Твой проверенный фаворит — 西红柿鸡蛋面. Быстро, сытно, с минимальной заморочкой.",
@@ -40,15 +41,16 @@
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 510, "protein": 42, "fat": 8, "carbs": 65, "fiber": 12 },
+    "perPortion": { "kcal": 470, "protein": 47, "fat": 13, "carbs": 43, "fiber": 12 },
     "ingredients": [
-      { "id": "red-lentils", "amount": 150, "unit": "g" },
+      { "id": "red-lentils", "amount": 100, "unit": "g" },
       { "id": "chicken-breast", "amount": 200, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "carrot", "amount": 1, "unit": "pcs", "note": "сырая, в боул" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "bell-pepper", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" }
+      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
     ],
     "name": "Чечевичный боул с курицей",
     "description": "Красная чечевица в рисоварке (режим simmered soup) + куриная грудка сверху. Чашу заполнять максимум наполовину, чтобы пена не полезла.",
@@ -73,13 +75,15 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 490, "protein": 38, "fat": 7, "carbs": 68, "fiber": 3 },
+    "perPortion": { "kcal": 444, "protein": 31, "fat": 17, "carbs": 41, "fiber": 3 },
     "ingredients": [
-      { "id": "rice", "amount": 300, "unit": "g" },
+      { "id": "rice", "amount": 150, "unit": "g" },
       { "id": "chicken-breast-or-thigh", "amount": 300, "unit": "g" },
       { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 2 по левой шкале 东北米" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp", "optional": true }
+      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp", "optional": true },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Рисовый боул с курицей",
     "description": "Самый простой вариант: рис + курица прямо в рисоварке. Классика хайнаньского куриного риса, упрощённая до предела.",
@@ -104,13 +108,14 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 30,
-    "perPortion": { "kcal": 470, "protein": 40, "fat": 9, "carbs": 55, "fiber": 6 },
+    "perPortion": { "kcal": 455, "protein": 44, "fat": 10, "carbs": 50, "fiber": 6 },
     "ingredients": [
-      { "id": "buckwheat", "amount": 250, "unit": "g" },
+      { "id": "buckwheat", "amount": 180, "unit": "g" },
       { "id": "turkey-fillet", "amount": 350, "unit": "g" },
       { "id": "water", "amount": 500, "unit": "ml" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" }
+      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
     ],
     "name": "Гречка с индейкой",
     "description": "Гречка в рисоварке получается рассыпчатой. Стейк из индейки обжариваешь отдельно за 5 минут или кладёшь в рисоварку вместе.",
@@ -135,16 +140,17 @@
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 460, "protein": 28, "fat": 18, "carbs": 48, "fiber": 8 },
+    "perPortion": { "kcal": 666, "protein": 26, "fat": 40, "carbs": 57, "fiber": 8 },
     "ingredients": [
-      { "id": "quinoa", "amount": 150, "unit": "g" },
+      { "id": "quinoa", "amount": 100, "unit": "g" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "варить отдельно или на пару в рисоварке" },
       { "id": "cucumber", "amount": 1, "unit": "large" },
       { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
       { "id": "avocado", "amount": 1, "unit": "pcs" },
       { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "промыть" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Холодный боул с киноа и яйцом",
     "description": "Всё комнатной температуры или из холодильника. Идеально на лето или когда лень разогревать.",
@@ -169,14 +175,15 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 40,
-    "perPortion": { "kcal": 440, "protein": 35, "fat": 10, "carbs": 52, "fiber": 3 },
+    "perPortion": { "kcal": 519, "protein": 35, "fat": 18, "carbs": 56, "fiber": 3 },
     "ingredients": [
       { "id": "chicken-thigh-bone-in", "amount": 2, "unit": "pcs" },
       { "id": "water", "amount": 800, "unit": "ml" },
       { "id": "noodles", "amount": 150, "unit": "g" },
       { "id": "egg", "amount": 2, "unit": "pcs", "note": "сварить отдельно, в бульон разрезать пополам" },
       { "id": "green-onion", "amount": 4, "unit": "stalks" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" }
+      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Лапша в бульоне с курицей",
     "description": "Мягкий куриный бульон из рисоварки + лапша + свежие овощи. Не острый рамён по духу, но без пакетиков.",
@@ -201,16 +208,18 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 505, "protein": 26, "fat": 12, "carbs": 74, "fiber": 10 },
+    "perPortion": { "kcal": 448, "protein": 17, "fat": 25, "carbs": 41, "fiber": 10 },
     "ingredients": [
-      { "id": "rice", "amount": 250, "unit": "g" },
+      { "id": "rice", "amount": 120, "unit": "g" },
       { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "слить жидкость" },
       { "id": "egg", "amount": 6, "unit": "pcs", "note": "сварить отдельно" },
       { "id": "tomato", "amount": 3, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "между отметками 1 и 2 по левой шкале 东北米" }
+      { "id": "water", "amount": 1, "unit": "pcs", "note": "между отметками 1 и 2 по левой шкале 东北米" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Рис с нутом и яйцом",
     "description": "Рис в рисоварке, нут из банки, яйца сварить. Двойной белок, много клетчатки, ноль усилий.",
@@ -235,15 +244,17 @@
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 520, "protein": 40, "fat": 8, "carbs": 70, "fiber": 11 },
+    "perPortion": { "kcal": 430, "protein": 35, "fat": 13, "carbs": 43, "fiber": 11 },
     "ingredients": [
-      { "id": "rice", "amount": 250, "unit": "g" },
+      { "id": "rice", "amount": 120, "unit": "g" },
       { "id": "turkey-fillet", "amount": 300, "unit": "g" },
       { "id": "canned-beans", "amount": 1, "unit": "can", "note": "слить и промыть" },
       { "id": "tomato", "amount": 3, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "между отметками 1 и 2 по левой шкале 东北米" }
+      { "id": "water", "amount": 1, "unit": "pcs", "note": "между отметками 1 и 2 по левой шкале 东北米" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Фасоль с индейкой и рисом",
     "description": "Рис + индейка в рисоварке, фасоль из банки подмешать после. Burrito bowl без специй и острого.",
@@ -268,7 +279,7 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 420, "protein": 30, "fat": 8, "carbs": 56, "fiber": 4 },
+    "perPortion": { "kcal": 510, "protein": 37, "fat": 6, "carbs": 80, "fiber": 4 },
     "ingredients": [
       { "id": "noodles-udon", "amount": 200, "unit": "g" },
       { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
@@ -276,7 +287,8 @@
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, палочками" },
       { "id": "green-onion", "amount": 4, "unit": "stalks" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp" }
+      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp" },
+      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Лапша с креветками",
     "description": "Креветки размораживаются 5 мин, жарятся 3 мин. Лапша параллельно. Лёгкий, свежий, быстрый.",
@@ -301,9 +313,9 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 450, "protein": 30, "fat": 6, "carbs": 68, "fiber": 3 },
+    "perPortion": { "kcal": 499, "protein": 32, "fat": 20, "carbs": 52, "fiber": 3 },
     "ingredients": [
-      { "id": "rice", "amount": 200, "unit": "g" },
+      { "id": "rice", "amount": 100, "unit": "g" },
       { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
       { "id": "butter", "amount": 1, "unit": "small-piece" },
@@ -311,7 +323,9 @@
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
       { "id": "green-onion", "amount": 3, "unit": "stalks" },
       { "id": "sesame-oil", "amount": 1, "unit": "dash", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 1 по левой шкале 东北米" }
+      { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 1 по левой шкале 东北米" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
+      { "id": "avocado", "amount": 0.5, "unit": "pcs", "note": "в боул" }
     ],
     "name": "Рис с креветками",
     "description": "Рис в рисоварке, креветки отдельно на сковороде за 3 минуты. Два шага, оба простые.",
@@ -336,7 +350,7 @@
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 480, "protein": 22, "fat": 24, "carbs": 46, "fiber": 14 },
+    "perPortion": { "kcal": 352, "protein": 15, "fat": 28, "carbs": 14, "fiber": 14 },
     "ingredients": [
       { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "слить и промыть" },
       { "id": "avocado", "amount": 1, "unit": "pcs" },
@@ -369,9 +383,9 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 540, "protein": 40, "fat": 16, "carbs": 58, "fiber": 5 },
+    "perPortion": { "kcal": 783, "protein": 45, "fat": 37, "carbs": 71, "fiber": 5 },
     "ingredients": [
-      { "id": "rice", "amount": 200, "unit": "g" },
+      { "id": "rice", "amount": 140, "unit": "g" },
       { "id": "chicken-breast", "amount": 200, "unit": "g" },
       { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 1 по левой шкале 东北米" },
       { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
@@ -380,7 +394,8 @@
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp", "optional": true }
+      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp", "optional": true },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
     ],
     "name": "Рис с курицей, фетой и авокадо",
     "description": "Рис + курица в рисоварке, сверху свежие овощи, авокадо и кубики феты. Средиземноморский боул без специй и лишнего.",
@@ -405,15 +420,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 490, "protein": 28, "fat": 16, "carbs": 58, "fiber": 10 },
+    "perPortion": { "kcal": 692, "protein": 34, "fat": 34, "carbs": 72, "fiber": 10 },
     "ingredients": [
-      { "id": "buckwheat", "amount": 200, "unit": "g" },
+      { "id": "buckwheat", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 6, "unit": "pcs", "note": "сварить отдельно" },
       { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "слить и промыть" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
     ],
     "name": "Гречка с яйцом и овощами",
     "description": "Вегетарианская версия гречки с индейкой. Гречка в рисоварке, яйца сварить отдельно. Для белка — 3 яйца на порцию + нут из банки.",
@@ -438,15 +454,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 460, "protein": 32, "fat": 10, "carbs": 58, "fiber": 4 },
+    "perPortion": { "kcal": 401, "protein": 10, "fat": 15, "carbs": 60, "fiber": 4 },
     "ingredients": [
-      { "id": "couscous", "amount": 200, "unit": "g" },
+      { "id": "couscous", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 250, "unit": "ml" },
       { "id": "canned-tuna", "amount": 1, "unit": "can", "note": "слить жидкость" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, кубиками" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Кус-кус с тунцом и овощами",
     "description": "Самый быстрый рецепт: кус-кус залить кипятком на 5 минут, открыть банку тунца, нарезать овощи. Всё.",
@@ -471,7 +488,7 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 520, "protein": 28, "fat": 18, "carbs": 60, "fiber": 4 },
+    "perPortion": { "kcal": 766, "protein": 40, "fat": 32, "carbs": 84, "fiber": 4 },
     "ingredients": [
       { "id": "short-pasta", "amount": 200, "unit": "g" },
       { "id": "mozzarella", "amount": 125, "unit": "g", "note": "1 шарик, нарезать кубиками" },
@@ -504,16 +521,17 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 500, "protein": 24, "fat": 22, "carbs": 52, "fiber": 9 },
+    "perPortion": { "kcal": 666, "protein": 25, "fat": 39, "carbs": 58, "fiber": 9 },
     "ingredients": [
-      { "id": "quinoa", "amount": 200, "unit": "g" },
+      { "id": "quinoa", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить отдельно" },
       { "id": "avocado", "amount": 1, "unit": "pcs", "note": "нарезать перед едой" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
       { "id": "cucumber", "amount": 1, "unit": "pcs" },
       { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Киноа с яйцом и авокадо",
     "description": "Киноа в рисоварке (режим «Рис»), яйца сварить отдельно. Перед едой — авокадо и свежие овощи. Полный набор аминокислот без мяса.",
@@ -538,15 +556,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 480, "protein": 30, "fat": 12, "carbs": 62, "fiber": 14 },
+    "perPortion": { "kcal": 505, "protein": 28, "fat": 26, "carbs": 45, "fiber": 14 },
     "ingredients": [
-      { "id": "red-lentils", "amount": 150, "unit": "g" },
+      { "id": "red-lentils", "amount": 100, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить отдельно" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
     ],
     "name": "Чечевица с яйцом и болгарским перцем",
     "description": "Чечевица — один из лучших растительных источников железа. Болгарский перец и помидоры (витамин С) помогают усвоению. Без молочных продуктов.",
@@ -571,15 +590,16 @@
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 460, "protein": 24, "fat": 14, "carbs": 58, "fiber": 8 },
+    "perPortion": { "kcal": 558, "protein": 24, "fat": 28, "carbs": 63, "fiber": 8 },
     "ingredients": [
-      { "id": "buckwheat", "amount": 200, "unit": "g" },
+      { "id": "buckwheat", "amount": 140, "unit": "g" },
       { "id": "water", "amount": 400, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить отдельно" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
     ],
     "name": "Гречка с яйцом и перцем (для железа)",
     "description": "Гречка — рекордсмен по железу среди круп. Вместе с перцем и помидорами (витамин С) железо усваивается максимально. Без молочных.",
@@ -604,15 +624,16 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 530, "protein": 28, "fat": 20, "carbs": 58, "fiber": 4 },
+    "perPortion": { "kcal": 760, "protein": 30, "fat": 42, "carbs": 71, "fiber": 4 },
     "ingredients": [
-      { "id": "couscous", "amount": 100, "unit": "g" },
+      { "id": "couscous", "amount": 80, "unit": "g" },
       { "id": "water", "amount": 130, "unit": "ml" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
       { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "сырой, кубиками" },
       { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "сырые, пополам" },
       { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" }
+      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
+      { "id": "olive-oil", "amount": 0.5, "unit": "tbsp", "note": "дополнительно, в готовое" }
     ],
     "name": "Кус-кус с халуми и овощами",
     "description": "Кус-кус залить кипятком, халуми обжарить на сухой сковороде за 3 минуты. Свежие овощи сверху. Как на фото из Pinterest — только проще.",
@@ -636,7 +657,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 560, "protein": 28, "fat": 18, "carbs": 68, "fiber": 4 },
+    "perPortion": { "kcal": 776, "protein": 32, "fat": 36, "carbs": 85, "fiber": 4 },
     "ingredients": [
       { "id": "short-pasta", "amount": 100, "unit": "g" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
@@ -667,7 +688,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 520, "protein": 32, "fat": 14, "carbs": 64, "fiber": 3 },
+    "perPortion": { "kcal": 568, "protein": 22, "fat": 30, "carbs": 59, "fiber": 3 },
     "ingredients": [
       { "id": "gnocchi", "amount": 200, "unit": "g" },
       { "id": "canned-tuna", "amount": 0.5, "unit": "can", "note": "слить жидкость" },
@@ -698,7 +719,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 540, "protein": 24, "fat": 20, "carbs": 64, "fiber": 3 },
+    "perPortion": { "kcal": 670, "protein": 27, "fat": 37, "carbs": 63, "fiber": 3 },
     "ingredients": [
       { "id": "gnocchi", "amount": 200, "unit": "g" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
@@ -730,7 +751,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 520, "protein": 32, "fat": 28, "carbs": 36, "fiber": 5 },
+    "perPortion": { "kcal": 532, "protein": 26, "fat": 35, "carbs": 31, "fiber": 5 },
     "ingredients": [
       { "id": "tortilla", "amount": 1, "unit": "pcs" },
       { "id": "egg", "amount": 2, "unit": "pcs" },
@@ -764,7 +785,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 420, "protein": 20, "fat": 16, "carbs": 50, "fiber": 5 },
+    "perPortion": { "kcal": 422, "protein": 28, "fat": 14, "carbs": 47, "fiber": 5 },
     "ingredients": [
       { "id": "greek-yogurt", "amount": 200, "unit": "g" },
       { "id": "berries", "amount": 1, "unit": "handful" },
@@ -792,7 +813,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 450, "protein": 24, "fat": 14, "carbs": 56, "fiber": 10 },
+    "perPortion": { "kcal": 526, "protein": 33, "fat": 22, "carbs": 54, "fiber": 10 },
     "ingredients": [
       { "id": "greek-yogurt", "amount": 200, "unit": "g" },
       { "id": "oats", "amount": 4, "unit": "tbsp" },
@@ -821,7 +842,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 430, "protein": 20, "fat": 22, "carbs": 38, "fiber": 7 },
+    "perPortion": { "kcal": 460, "protein": 20, "fat": 29, "carbs": 33, "fiber": 7 },
     "ingredients": [
       { "id": "toast-bread", "amount": 2, "unit": "slice" },
       { "id": "avocado", "amount": 0.5, "unit": "pcs" },
@@ -850,7 +871,7 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 420, "protein": 24, "fat": 18, "carbs": 40, "fiber": 3 },
+    "perPortion": { "kcal": 357, "protein": 24, "fat": 15, "carbs": 33, "fiber": 3 },
     "ingredients": [
       { "id": "toast-bread", "amount": 2, "unit": "slice" },
       { "id": "cream-cheese", "amount": 1, "unit": "tbsp" },
@@ -880,7 +901,7 @@
     "portions": 1,
     "prepMinutes": 2,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 320, "protein": 10, "fat": 14, "carbs": 40, "fiber": 4 },
+    "perPortion": { "kcal": 350, "protein": 11, "fat": 10, "carbs": 56, "fiber": 4 },
     "ingredients": [
       { "id": "toast-bread", "amount": 2, "unit": "slice" },
       { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
@@ -907,7 +928,7 @@
     "portions": 1,
     "prepMinutes": 1,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 180, "protein": 15, "fat": 5, "carbs": 18, "fiber": 2 },
+    "perPortion": { "kcal": 187, "protein": 17, "fat": 7, "carbs": 15, "fiber": 2 },
     "ingredients": [
       { "id": "cottage-cheese", "amount": 150, "unit": "g" },
       { "id": "berries", "amount": 1, "unit": "handful" }
@@ -933,7 +954,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 480, "protein": 18, "fat": 18, "carbs": 62, "fiber": 6 },
+    "perPortion": { "kcal": 456, "protein": 18, "fat": 19, "carbs": 60, "fiber": 6 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs", "note": "можно замороженный" },
       { "id": "nut-butter", "amount": 1.5, "unit": "tbsp" },
@@ -962,7 +983,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 450, "protein": 28, "fat": 14, "carbs": 52, "fiber": 6 },
+    "perPortion": { "kcal": 460, "protein": 27, "fat": 16, "carbs": 60, "fiber": 6 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs" },
       { "id": "cocoa-powder", "amount": 1, "unit": "tbsp" },
@@ -992,7 +1013,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 380, "protein": 16, "fat": 8, "carbs": 64, "fiber": 5 },
+    "perPortion": { "kcal": 326, "protein": 22, "fat": 5, "carbs": 54, "fiber": 5 },
     "ingredients": [
       { "id": "mango", "amount": 150, "unit": "g", "note": "свежее или замороженное" },
       { "id": "banana", "amount": 0.5, "unit": "pcs" },
@@ -1021,7 +1042,7 @@
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 420, "protein": 18, "fat": 10, "carbs": 64, "fiber": 7 },
+    "perPortion": { "kcal": 494, "protein": 28, "fat": 14, "carbs": 70, "fiber": 7 },
     "ingredients": [
       { "id": "berries", "amount": 1, "unit": "handful", "note": "голубика, малина; можно замороженные" },
       { "id": "banana", "amount": 1, "unit": "pcs" },
@@ -1051,7 +1072,7 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 380, "protein": 16, "fat": 10, "carbs": 56, "fiber": 6 },
+    "perPortion": { "kcal": 424, "protein": 18, "fat": 19, "carbs": 51, "fiber": 6 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs", "note": "спелый, с коричневыми точками" },
       { "id": "egg", "amount": 2, "unit": "pcs" },
@@ -1082,7 +1103,7 @@
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 420, "protein": 28, "fat": 12, "carbs": 48, "fiber": 5 },
+    "perPortion": { "kcal": 489, "protein": 28, "fat": 22, "carbs": 48, "fiber": 5 },
     "ingredients": [
       { "id": "banana", "amount": 1, "unit": "pcs", "note": "спелый" },
       { "id": "cottage-cheese", "amount": 100, "unit": "g" },
@@ -1103,5 +1124,33 @@
     ],
     "tips": "Творог добавляет белок (28 г — почти как обеденный боул) и делает оладьи нежнее и прочнее. Хороший вариант, когда хочется сладкого завтрака, но нужен белок. Отлично идёт как сытный завтрак в дни с транспортом.",
     "freshAdd": "Ягоды, йогурт, ореховая паста или мёд сверху."
+  },
+  {
+    "id": "tahini-sauce",
+    "emoji": "🥄",
+    "type": "sauce",
+    "tags": ["add-on", "no-cooking", "quick", "calorie-dense"],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 2,
+    "cookMinutes": 0,
+    "perPortion": { "kcal": 153, "protein": 1, "fat": 17, "carbs": 2, "fiber": 1 },
+    "ingredients": [
+      { "id": "tahini", "amount": 1, "unit": "tsp", "note": "с горкой" },
+      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
+      { "id": "olive-or-sesame-oil", "amount": 1, "unit": "tbsp" },
+      { "id": "water", "amount": 1, "unit": "splash", "note": "до нужной консистенции" }
+    ],
+    "name": "Тахинный соус (добавка к боулам)",
+    "description": "Универсальная калорийная добавка к любому обеденному боулу. Добавляет ~160 ккал плотных калорий, почти не увеличивая объём.",
+    "prepTime": "2 мин",
+    "cookTime": "0 мин",
+    "steps": [
+      "Смешать тахини, лимонный сок и масло",
+      "Добавлять воду понемногу, пока не станет как жидкая сметана",
+      "Полить боул перед едой"
+    ],
+    "tips": "Добавляй к рису, гречке, чечевице, киноа, кус-кусу. Даёт плотные калории без объёма — именно то, что нужно, когда большие порции не влезают. Тахини содержит кальций и железо, лимон (витамин С) помогает усвоению железа.",
+    "freshAdd": ""
   }
 ]

@@ -73,6 +73,8 @@
   "units.dash": "капля",
   "units.ball": "шарик",
   "units.small-piece": "кусочек",
+  "units.splash": "брызги",
+  "units.portion": "порция",
 
   "tags.lunch": "обед",
   "tags.breakfast-dinner": "завтрак / ужин",
@@ -103,6 +105,7 @@
   "tags.basic": "базовый",
   "tags.favorite": "любимое",
   "tags.prep-evening": "подготовить с вечера",
+  "tags.add-on": "добавка",
 
   "pdf.download": "Скачать PDF",
   "pdf.generating": "Создаётся…",

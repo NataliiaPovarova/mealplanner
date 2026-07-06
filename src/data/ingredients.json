@@ -234,6 +234,11 @@
     "ru": "Ореховая паста (арахисовая, миндальная)",
     "en": "Nut butter (peanut, almond)"
   },
+  "tahini": {
+    "category": "pantry",
+    "ru": "Тахини (кунжутная паста)",
+    "en": "Tahini (sesame paste)"
+  },
   "chia-seeds": {
     "category": "pantry",
     "ru": "Семена чиа",
@@ -269,6 +274,12 @@
     "ru": "Кунжутное масло",
     "en": "Sesame oil"
   },
+  "olive-or-sesame-oil": {
+    "category": "pantry",
+    "shopping": false,
+    "ru": "Оливковое или кунжутное масло",
+    "en": "Olive or sesame oil"
+  },
   "lemon-juice": {
     "category": "pantry",
     "ru": "Лимонный сок",
@@ -279,5 +290,11 @@
     "shopping": false,
     "ru": "Вода",
     "en": "Water"
+  },
+  "tahini-sauce-portion": {
+    "category": "pantry",
+    "shopping": false,
+    "ru": "Тахинный соус (порция, см. отдельный рецепт)",
+    "en": "Tahini sauce (portion, see separate recipe)"
   }
 }

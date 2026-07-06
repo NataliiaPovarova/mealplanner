@@ -73,6 +73,8 @@
   "units.dash": "dash",
   "units.ball": "ball",
   "units.small-piece": "piece",
+  "units.splash": "splash",
+  "units.portion": "portion",
 
   "tags.lunch": "Lunch",
   "tags.breakfast-dinner": "Breakfast / Dinner",
@@ -103,6 +105,7 @@
   "tags.basic": "Basic",
   "tags.favorite": "Favorite",
   "tags.prep-evening": "Prep evening before",
+  "tags.add-on": "Add-on",
 
   "pdf.download": "Download PDF",
   "pdf.generating": "Generating…",
