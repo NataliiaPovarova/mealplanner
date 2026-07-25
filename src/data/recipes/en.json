@@ -45,7 +45,7 @@
     "ingredients": [
       { "id": "red-lentils", "amount": 100, "unit": "g" },
       { "id": "chicken-breast", "amount": 200, "unit": "g" },
-      { "id": "water", "amount": 400, "unit": "ml" },
+      { "id": "water", "amount": 300, "unit": "ml" },
       { "id": "carrot", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "bell-pepper", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
@@ -63,7 +63,7 @@
       "Take out the chicken, slice or shred into pieces",
       "Divide into containers: lentils + chicken"
     ],
-    "tips": "Important: don't fill the pot more than halfway — lentils foam up a lot and expand. 150 g dry lentils + 400 ml water is a safe volume. If you need 3 portions, better cook in a pot on the stove (40 min).",
+    "tips": "Important: don't fill the pot more than halfway — lentils foam up a lot and expand. 100 g dry lentils + 300 ml water is a safe volume. If you need 3 portions, better cook in a pot on the stove (40 min).",
     "freshAdd": "Chop raw veggies: carrot sticks, pepper strips, tomato wedges. Place on top of the warm lentils."
   },
   {
@@ -112,7 +112,7 @@
     "ingredients": [
       { "id": "buckwheat", "amount": 180, "unit": "g" },
       { "id": "turkey-fillet", "amount": 350, "unit": "g" },
-      { "id": "water", "amount": 500, "unit": "ml" },
+      { "id": "water", "amount": 360, "unit": "ml" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
@@ -143,6 +143,7 @@
     "perPortion": { "kcal": 666, "protein": 26, "fat": 40, "carbs": 57, "fiber": 8 },
     "ingredients": [
       { "id": "quinoa", "amount": 100, "unit": "g" },
+      { "id": "water", "amount": 200, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately or steam in the rice cooker" },
       { "id": "cucumber", "amount": 1, "unit": "large" },
       { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
@@ -423,7 +424,7 @@
     "perPortion": { "kcal": 692, "protein": 34, "fat": 34, "carbs": 72, "fiber": 10 },
     "ingredients": [
       { "id": "buckwheat", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 400, "unit": "ml" },
+      { "id": "water", "amount": 280, "unit": "ml" },
       { "id": "egg", "amount": 6, "unit": "pcs", "note": "boil separately" },
       { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "drain and rinse" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
@@ -457,7 +458,7 @@
     "perPortion": { "kcal": 401, "protein": 10, "fat": 15, "carbs": 60, "fiber": 4 },
     "ingredients": [
       { "id": "couscous", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 250, "unit": "ml" },
+      { "id": "water", "amount": 200, "unit": "ml" },
       { "id": "canned-tuna", "amount": 1, "unit": "can", "note": "drain the liquid" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
       { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, diced" },
@@ -524,7 +525,7 @@
     "perPortion": { "kcal": 666, "protein": 25, "fat": 39, "carbs": 58, "fiber": 9 },
     "ingredients": [
       { "id": "quinoa", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 400, "unit": "ml" },
+      { "id": "water", "amount": 280, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
       { "id": "avocado", "amount": 1, "unit": "pcs", "note": "slice before eating" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
@@ -559,7 +560,7 @@
     "perPortion": { "kcal": 505, "protein": 28, "fat": 26, "carbs": 45, "fiber": 14 },
     "ingredients": [
       { "id": "red-lentils", "amount": 100, "unit": "g" },
-      { "id": "water", "amount": 400, "unit": "ml" },
+      { "id": "water", "amount": 300, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
@@ -593,7 +594,7 @@
     "perPortion": { "kcal": 558, "protein": 24, "fat": 28, "carbs": 63, "fiber": 8 },
     "ingredients": [
       { "id": "buckwheat", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 400, "unit": "ml" },
+      { "id": "water", "amount": 280, "unit": "ml" },
       { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
       { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
       { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
@@ -627,7 +628,7 @@
     "perPortion": { "kcal": 760, "protein": 30, "fat": 42, "carbs": 71, "fiber": 4 },
     "ingredients": [
       { "id": "couscous", "amount": 80, "unit": "g" },
-      { "id": "water", "amount": 130, "unit": "ml" },
+      { "id": "water", "amount": 110, "unit": "ml" },
       { "id": "halloumi", "amount": 80, "unit": "g" },
       { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "raw, diced" },
       { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "raw, halved" },
