@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DAYS, SLOTS, SLOT_TAG_MAP, ADDON_TAG } from "../constants";
+import { sumDayNutrition } from "../utils/nutrition";
 
 const cellKey = (day, slot) => `${day}-${slot}`;
 
@@ -96,31 +97,8 @@ export default function useWeekPlan(meals) {
     setDismissedWarnings(prev => ({ ...prev, [dismissKey]: true }));
   };
 
-  const getDayKBJU = (day) => {
-    let kcal = 0, protein = 0, fiber = 0;
-    SLOTS.forEach(slot => {
-      const key = cellKey(day, slot);
-      const mealId = weekPlan[key];
-      if (mealId) {
-        const meal = meals.find(m => m.id === mealId);
-        if (meal) {
-          kcal += meal.perPortion.kcal;
-          protein += meal.perPortion.protein;
-          fiber += meal.perPortion.fiber;
-        }
-      }
-      const addOnId = weekAddOns[key];
-      if (addOnId) {
-        const addOn = meals.find(m => m.id === addOnId);
-        if (addOn) {
-          kcal += addOn.perPortion.kcal;
-          protein += addOn.perPortion.protein;
-          fiber += addOn.perPortion.fiber;
-        }
-      }
-    });
-    return { kcal, protein, fiber };
-  };
+  const getDayKBJU = (day) =>
+    sumDayNutrition(day, weekPlan, weekAddOns, meals, cellKey, SLOTS);
 
   return {
     weekPlan, weekAddOns, cellKey,

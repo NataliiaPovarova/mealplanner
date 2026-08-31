@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { DAYS, SLOTS } from "../constants";
+import NutrientSummary from "./NutrientSummary";
 
 const ADDON_SUFFIX = ":addon";
 const addOnKey = (day, slot) => `${day}-${slot}${ADDON_SUFFIX}`;
@@ -96,11 +97,16 @@ export default function WeekPlanner({ plan, meals }) {
               }}>
                 <span style={{ fontWeight: 700, fontSize: 15 }}>{t(`days.${day}`)}</span>
                 {hasAny && (
-                  <span style={{ fontSize: 11, opacity: 0.55 }}>
-                    {dayKBJU.kcal} {t("week.kcal")} · {dayKBJU.protein}{t("week.protein")} · {dayKBJU.fiber}{t("week.fiber")}
+                  <span style={{ fontSize: 11, opacity: 0.55, textAlign: "right", maxWidth: "70%" }}>
+                    {dayKBJU.kcal} {t("week.kcal")} · {dayKBJU.protein}{t("week.protein")} · {dayKBJU.fat}{t("week.fat")} · {dayKBJU.carbs}{t("week.carbs")} · {dayKBJU.fiber}{t("week.fiber")}
                   </span>
                 )}
               </div>
+              {hasAny && (
+                <div style={{ padding: "0 14px" }}>
+                  <NutrientSummary nutrients={dayKBJU.nutrients} t={t} compact />
+                </div>
+              )}
               <div style={{ padding: "8px 14px 12px" }}>
                 {SLOTS.map(slot => {
                   const key = cellKey(day, slot);

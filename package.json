@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "nutrition:normalize-units": "node scripts/normalize-recipe-units.mjs",
+    "nutrition:fetch": "node scripts/fetch-usda-nutrition.mjs",
+    "nutrition:recalc": "node scripts/recalculate-recipe-nutrition.mjs"
   },
   "dependencies": {
     "i18next": "^26.2.0",

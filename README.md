@@ -16,10 +16,12 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 - **Batch validation**: warnings when portion counts do not match the recipe
 - **Add-on recipes**: sauces and other extras (tagged `add-on`) can be attached to any filled meal slot in the week plan via a nested chip below the meal (e.g. tahini sauce for a bowl). Their calories are added to that day's totals, their ingredients flow into the shopping list, and they appear inside the corresponding cell of the PDF plan. They can also be referenced from other recipes as a virtual "reference ingredient" that points at the standalone add-on recipe
 - **Categorized shopping list**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry) with automatic unit normalization (1000g → 1kg); reference ingredients are excluded from the list so you only see what to actually buy
+- **Household measures in the shopping list**: each line starts with an approximate measure (pieces, cans, slices, spoons, handfuls) derived from the recipe conversion table, with grams or millilitres in parentheses — e.g. `2 pcs (272 g)`. Ingredients without a natural piece size fall back to how many times they are used during the week (`4 pcs (650 g)` of yogurt = four servings), and goods bought by weight (grains, milk) keep grams only
 - **Downloadable PDF**: export the weekly plan and all referenced recipes as a single PDF — no account needed, works offline once downloaded
 - **Tag filtering**: lunch, breakfast/dinner, snack, meat-free, iron-rich, with cheese, and more
+- **USDA nutrition**: macros (kcal, protein, fat, carbs, fiber) and curated micronutrients recalculated from [FoodData Central](https://fdc.nal.usda.gov/api-guide); daily totals appear on the week plan and shopping tab
 
-> Please be careful if calorie counting matters to you. This app is not built for calorie tracking; estimates are approximate, and the source is "trust me, bro".
+> Nutrition values are **approximate** estimates from USDA FDC (CC0). Culinary units were converted to g/ml with household averages; branded products (e.g. mozzarella, Greek yogurt) use a typical SR Legacy / Foundation entry, not your specific brand. Not for medical use.
 
 ## Philosophy
 
@@ -50,6 +52,31 @@ npm run preview
 
 The preview server will be available at http://127.0.0.1:4173/.
 
+## Nutrition data (USDA)
+
+Ingredient nutrient cache and recipe macros are built offline via CLI (API key in `.env` as `USDA_API_KEY`, never commit `.env`):
+
+```bash
+# Convert culinary units in recipes to g/ml (writes notes with ≈ equivalents)
+npm run nutrition:normalize-units
+
+# Same, plus recompute already converted lines from their ≈ notes
+# (use after editing conversion factors in unit-conversions.json)
+npm run nutrition:normalize-units -- --refresh
+
+# Fetch missing USDA FoodData Central entries into src/data/nutrition/
+npm run nutrition:fetch
+
+# Recalculate perPortion + perPortionNutrients on all recipes (en + ru)
+npm run nutrition:recalc
+```
+
+Data files:
+
+- `src/data/unit-conversions.json` — tbsp/tsp/pcs/… → g/ml, plus `shoppingUnits` / `bulkByWeight` that drive the household measures in the shopping list
+- `src/data/nutrition/fdc-mapping.json` — ingredient id → FDC query / fdcId
+- `src/data/nutrition/ingredients-usda.json` — curated `per100g` + raw API payload
+
 ## Tech Stack
 
 - React 18
@@ -70,6 +97,8 @@ src/
     locales/en/ui.json     # English UI strings
   data/
     ingredients.json       # Ingredient catalog (id → names, categories)
+    unit-conversions.json  # Culinary unit → g/ml estimates
+    nutrition/             # USDA FDC mapping + cached nutrients
     tags.json              # Tag ID → display names per language
     recipes/
       ru.json              # 36 recipes in Russian (35 meals + 1 add-on sauce)
@@ -79,12 +108,19 @@ src/
     useShoppingList.js     # Shopping list aggregation with categories
     useRecipes.js          # Language-aware recipe loader
   utils/
+    nutrition.js           # Day totals for macros + micronutrients
+    shoppingMeasure.js     # Household measure for shopping-list lines
     generateWeekPlanPdf.js # PDF export (plan table + recipes)
+  scripts/
+    fetch-usda-nutrition.mjs
+    recalculate-recipe-nutrition.mjs
+    normalize-recipe-units.mjs
   components/
     WeekPlanner.jsx        # Week plan tab
     ShoppingList.jsx       # Shopping tab with category grouping
     RecipeList.jsx         # Recipe browser with tag filtering
     RecipeDetail.jsx       # Single recipe view
+    NutrientSummary.jsx    # Collapsible micronutrient list
     AboutOverlay.jsx       # About modal
 ```
 
@@ -96,8 +132,8 @@ Each recipe includes:
 - Tags for filtering (e.g. `lunch`, `snack`, `meat-free`, `add-on`)
 - Servings and storage days (batch)
 - Prep and cook time
-- Macros per serving (kcal, protein, fat, carbs, fiber). These are a **very rough** estimate. Do not rely on them if you need accurate values
-- Structured ingredient list with amounts and units — supports "reference ingredients" that point at other recipes (e.g. a portion of tahini sauce) and are automatically excluded from the shopping list
+- Macros per serving (`perPortion`: kcal, protein, fat, carbs, fiber) and micronutrients (`perPortionNutrients`), recalculated from USDA FDC
+- Structured ingredient list with amounts in **g/ml** (culinary equivalents in `note`) — supports "reference ingredients" that point at other recipes (e.g. a portion of tahini sauce) and are automatically excluded from the shopping list
 - Step-by-step instructions
 - Tips and recommendations so you cannot mess it up (I am hopeless in the kitchen myself, so Opus 4.6 / 4.7 tried hard)
 
@@ -132,10 +168,12 @@ MIT
 - **Контроль батчей**: предупреждения, если количество порций не совпадает с рецептом
 - **Рецепты-добавки**: соусы и другие сопровождения (с тегом `add-on`) можно прикрепить к любому занятому приёму пищи в плане недели — под выбранным блюдом появляется отдельный chip выбора добавки (например, тахинный соус к боулу). Калории добавки прибавляются к дневному итогу, её ингредиенты попадают в закупку, и она отображается в соответствующей ячейке PDF-плана. Добавки также можно упоминать в других рецептах как «ингредиент-ссылку» на отдельный рецепт добавки
 - **Список закупки по категориям**: ингредиенты сгруппированы (овощи, белок, молочное, бобовые, крупы, прочее) с автоматической нормализацией единиц (1000г → 1кг); ингредиенты-ссылки исключаются из списка, чтобы вы видели только то, что нужно реально купить
+- **Примерные мерки в закупке**: в каждой строке сначала идёт примерная мера (штуки, банки, ломтики, ложки, горсти) из таблицы пересчёта рецептов, а граммы или миллилитры — в скобках, например `2 шт. (272 г)`. Для продуктов без естественной «штуки» считается количество использований за неделю (`4 шт. (650 г)` йогурта — это четыре порции), а весовые товары (крупы, молоко) остаются в граммах и миллилитрах
 - **PDF на неделю**: скачайте план и все рецепты одним файлом
 - **Фильтрация по тегам**: обед, завтрак/ужин, перекус, без мяса, богато железом, с сыром и другие
+- **Питательная ценность USDA**: КБЖУ и курируемые микронутриенты пересчитаны по [FoodData Central](https://fdc.nal.usda.gov/api-guide); дневные итоги — в плане недели и на вкладке закупки
 
-> Пожалуйста, будьте внимательны, если вам важно считать калории. Это приложение создано не для подсчёта калорий, поэтому оценки приблизительные, а источник их — «trust me, bro».
+> Значения **приблизительные**, источник — USDA FDC (CC0). Кулинарные единицы переведены в г/мл по бытовым средним; брендовые продукты (моцарелла, греческий йогурт) взяты как типичная запись SR Legacy / Foundation, не ваш конкретный бренд. Не для медицинских целей.
 
 ## Философия
 
@@ -166,6 +204,31 @@ npm run preview
 
 Preview-сервер будет доступен по адресу http://127.0.0.1:4173/.
 
+## Данные о питательности (USDA)
+
+Кэш нутриентов и КБЖУ рецептов собираются офлайн через CLI (ключ API в `.env` как `USDA_API_KEY`, файл `.env` не коммитить):
+
+```bash
+# Перевести кулинарные единицы в рецептах в г/мл (в note — ≈ эквиваленты)
+npm run nutrition:normalize-units
+
+# То же плюс пересчёт уже сконвертированных строк по их ≈ заметкам
+# (нужно после правки коэффициентов в unit-conversions.json)
+npm run nutrition:normalize-units -- --refresh
+
+# Догрузить недостающие записи USDA в src/data/nutrition/
+npm run nutrition:fetch
+
+# Пересчитать perPortion + perPortionNutrients во всех рецептах (en + ru)
+npm run nutrition:recalc
+```
+
+Файлы данных:
+
+- `src/data/unit-conversions.json` — ст.л./ч.л./шт./… → г/мл, а также `shoppingUnits` / `bulkByWeight` — на их основе строятся примерные мерки в закупке
+- `src/data/nutrition/fdc-mapping.json` — id ингредиента → запрос / fdcId
+- `src/data/nutrition/ingredients-usda.json` — курируемый `per100g` + сырой ответ API
+
 ## Технологии
 
 - React 18
@@ -186,6 +249,8 @@ src/
     locales/en/ui.json     # Английские строки интерфейса
   data/
     ingredients.json       # Каталог ингредиентов (id → названия, категории)
+    unit-conversions.json  # Кулинарные единицы → г/мл
+    nutrition/             # Маппинг USDA FDC + кэш нутриентов
     tags.json              # ID тегов → названия на каждом языке
     recipes/
       ru.json              # 36 рецептов на русском (35 блюд + 1 соус-добавка)
@@ -195,12 +260,19 @@ src/
     useShoppingList.js     # Агрегация списка закупки по категориям
     useRecipes.js          # Загрузка рецептов с учётом языка
   utils/
+    nutrition.js           # Итоги дня: КБЖУ + микронутриенты
+    shoppingMeasure.js     # Примерная мерка для строк закупки
     generateWeekPlanPdf.js # Экспорт в PDF (таблица плана + рецепты)
+  scripts/
+    fetch-usda-nutrition.mjs
+    recalculate-recipe-nutrition.mjs
+    normalize-recipe-units.mjs
   components/
     WeekPlanner.jsx        # Вкладка «План недели»
     ShoppingList.jsx       # Вкладка «Закупка» с группировкой по категориям
     RecipeList.jsx         # Просмотр рецептов с фильтрацией по тегам
     RecipeDetail.jsx       # Отдельный рецепт
+    NutrientSummary.jsx    # Сворачиваемый список микронутриентов
     AboutOverlay.jsx       # Модальное окно «О проекте»
 ```
 
@@ -212,8 +284,8 @@ src/
 - Теги для фильтрации (например, `lunch`, `snack`, `meat-free`, `add-on`)
 - Количество порций и дней хранения (batch)
 - Время подготовки и готовки
-- КБЖУ на порцию (ккал, белки, жиры, углеводы, клетчатка). Это **очень грубая** оценка. Если вам важны точные значения, пожалуйста, не полагайтесь на них
-- Структурированный список ингредиентов с количеством и единицами измерения — поддерживает «ингредиенты-ссылки», которые указывают на другие рецепты (например, порция тахинного соуса) и автоматически исключаются из списка закупки
+- КБЖУ на порцию (`perPortion`) и микронутриенты (`perPortionNutrients`), пересчитанные по USDA FDC
+- Структурированный список ингредиентов с количеством в **г/мл** (кулинарные эквиваленты в `note`) — поддерживает «ингредиенты-ссылки», которые указывают на другие рецепты (например, порция тахинного соуса) и автоматически исключаются из списка закупки
 - Пошаговую инструкцию
 - Советы и рекомендации, чтобы вы не могли ничего испортить (у меня самой руки из попы, так что мы с Opus 4.6 / 4.7 постарались)
 

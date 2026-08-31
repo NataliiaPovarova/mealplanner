@@ -1,5 +1,6 @@
 import autoTable from "jspdf-autotable";
 import { initPdfDoc } from "./pdfFonts";
+import { formatShoppingAmount } from "./shoppingMeasure";
 
 export default async function generateShoppingListPdf({
   grouped,
@@ -23,9 +24,7 @@ export default async function generateShoppingListPdf({
     const items = grouped[category];
     const body = items.map((item) => [
       item.name,
-      item.amount > 0
-        ? `${item.amount} ${t(`units.${item.unit}`, { defaultValue: item.unit })}`
-        : "—",
+      formatShoppingAmount(item, t, language),
     ]);
 
     autoTable(doc, {
@@ -35,7 +34,7 @@ export default async function generateShoppingListPdf({
       margin: { left: margin, right: margin },
       styles: { font: fontName, fontSize: 10, cellPadding: 3.5 },
       headStyles: { fillColor: [45, 42, 36], fontStyle: "bold" },
-      columnStyles: { 1: { halign: "right", cellWidth: 35 } },
+      columnStyles: { 1: { halign: "right", cellWidth: 48 } },
     });
 
     startY = doc.lastAutoTable.finalY;

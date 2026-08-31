@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { formatIngredient } from "../constants";
+import { knownMicros } from "../utils/nutrition";
+import NutrientSummary from "./NutrientSummary";
 
 function Section({ title, children }) {
   return (
@@ -12,6 +14,8 @@ function Section({ title, children }) {
 
 export default function RecipeDetail({ meal, onBack }) {
   const { t, i18n } = useTranslation();
+  const micros = knownMicros(meal);
+  const nutrientMap = Object.fromEntries(micros.map((m) => [m.key, m.value]));
 
   return (
     <div>
@@ -28,7 +32,7 @@ export default function RecipeDetail({ meal, onBack }) {
           </div>
         </div>
       </div>
-      <div style={{ display: "flex", gap: 0, margin: "16px 0 24px", borderRadius: 8, overflow: "hidden", fontSize: 12, fontWeight: 500 }}>
+      <div style={{ display: "flex", gap: 0, margin: "16px 0 8px", borderRadius: 8, overflow: "hidden", fontSize: 12, fontWeight: 500 }}>
         {[
           { label: `${meal.perPortion.kcal} ${t("recipe.kcal")}`, color: "#6b8f71", flex: 3 },
           { label: `${t("recipe.protein")} ${meal.perPortion.protein}${t("units.g")}`, color: "#7a9cc6", flex: 2 },
@@ -39,6 +43,12 @@ export default function RecipeDetail({ meal, onBack }) {
           <div key={i} style={{ flex: seg.flex, background: seg.color, color: "#fff", padding: "8px 10px", textAlign: "center", whiteSpace: "nowrap", fontSize: 11 }}>{seg.label}</div>
         ))}
       </div>
+      <p style={{ fontSize: 11, opacity: 0.45, margin: "0 0 16px" }}>{t("nutrition.sourceNote")}</p>
+      {micros.length > 0 && (
+        <Section title={t("nutrition.microsTitle")}>
+          <NutrientSummary nutrients={nutrientMap} t={t} alwaysOpen />
+        </Section>
+      )}
       <Section title={t("recipe.ingredients")}>
         <ul style={{ margin: 0, paddingLeft: 18 }}>
           {meal.ingredients.map((ing, i) => (<li key={i} style={{ fontSize: 14, marginBottom: 4 }}>{formatIngredient(ing, t, i18n.language)}</li>))}

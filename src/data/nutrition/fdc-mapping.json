@@ -1,0 +1,428 @@
+{
+  "egg-noodles": {
+    "query": "Noodles, egg, dry, enriched",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169731,
+    "notes": "dry egg noodles"
+  },
+  "noodles": {
+    "query": "Pasta, dry, enriched",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169736,
+    "notes": "generic dry wheat pasta/noodles"
+  },
+  "noodles-udon": {
+    "query": "Noodles, egg, dry, enriched",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169731,
+    "notes": "dry egg noodles as udon/wheat noodle proxy (raw weight)"
+  },
+  "rice": {
+    "query": "Rice, white, medium-grain, raw, unenriched",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169760,
+    "notes": "raw uncooked rice"
+  },
+  "buckwheat": {
+    "query": "Buckwheat groats, roasted, dry",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170286
+  },
+  "quinoa": {
+    "query": "Quinoa, uncooked",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 168874
+  },
+  "couscous": {
+    "query": "Couscous, dry",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169699
+  },
+  "short-pasta": {
+    "query": "Pasta, dry, enriched",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169736
+  },
+  "gnocchi": {
+    "query": "Gnocchi, potato",
+    "dataType": [
+      "Survey (FNDDS)"
+    ],
+    "fdcId": 2708722,
+    "notes": "FNDDS potato gnocchi"
+  },
+  "oats": {
+    "query": "Cereals, oats, regular and quick, not fortified, dry",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173904
+  },
+  "corn-flakes": {
+    "query": "Cereals ready-to-eat, corn flakes",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 174648
+  },
+  "toast-bread": {
+    "query": "Bread, white, commercially prepared",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 174924
+  },
+  "tortilla": {
+    "query": "Mission Foods, Mission Flour Tortillas, Soft Taco, 8 inch",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 175082,
+    "notes": "soft flour tortilla proxy"
+  },
+  "egg": {
+    "query": "Egg, whole, raw, fresh",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171287
+  },
+  "chicken-breast": {
+    "query": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171077
+  },
+  "chicken-breast-or-thigh": {
+    "query": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171077,
+    "notes": "use breast as average for breast-or-thigh"
+  },
+  "chicken-thigh-bone-in": {
+    "query": "Chicken, broilers or fryers, thigh, meat and skin, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 172385,
+    "notes": "edible portion estimate; bone-in weight approximate"
+  },
+  "turkey-fillet": {
+    "query": "Turkey, whole, breast, meat only, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171098
+  },
+  "frozen-shrimp": {
+    "query": "Crustaceans, shrimp, mixed species, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 175179
+  },
+  "canned-tuna": {
+    "query": "Fish, tuna, light, canned in water, drained solids",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173709
+  },
+  "smoked-fish": {
+    "query": "Fish, salmon, chinook, smoked",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173687,
+    "notes": "smoked salmon as proxy"
+  },
+  "smoked-turkey": {
+    "query": "Turkey breast, sliced, prepackaged",
+    "dataType": [
+      "SR Legacy",
+      "Survey (FNDDS)"
+    ],
+    "fdcId": 174592,
+    "notes": "deli turkey breast slices"
+  },
+  "cottage-cheese": {
+    "query": "Cheese, cottage, lowfat, 2% milkfat",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 172179
+  },
+  "greek-yogurt": {
+    "query": "Yogurt, Greek, plain, nonfat",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170894,
+    "notes": "averaged Greek yogurt; brands vary"
+  },
+  "cream-cheese": {
+    "query": "Cheese, cream",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173418
+  },
+  "hard-cheese": {
+    "query": "Cheese, cheddar",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173414,
+    "notes": "cheddar as melting hard cheese proxy"
+  },
+  "feta": {
+    "query": "Cheese, feta",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173420
+  },
+  "mozzarella": {
+    "query": "Cheese, mozzarella, whole milk",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170845,
+    "notes": "averaged mozzarella; brands vary"
+  },
+  "halloumi": {
+    "query": "Cheese, feta",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173420,
+    "notes": "halloumi not in SR Legacy; feta used as approximate proxy"
+  },
+  "butter": {
+    "query": "Butter, salted",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173410
+  },
+  "milk": {
+    "query": "Milk, whole, 3.25% milkfat, with added vitamin D",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171264,
+    "notes": "dairy milk as default"
+  },
+  "red-lentils": {
+    "query": "Lentils, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 172420
+  },
+  "canned-chickpeas": {
+    "query": "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained solids",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173803
+  },
+  "canned-beans": {
+    "query": "Beans, kidney, red, mature seeds, canned, drained solids",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 174285
+  },
+  "tomato": {
+    "query": "Tomatoes, red, ripe, raw, year round average",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170457
+  },
+  "cherry-tomatoes": {
+    "query": "Tomatoes, red, ripe, raw, year round average",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170457,
+    "notes": "same as tomato per 100g"
+  },
+  "cucumber": {
+    "query": "Cucumber, with peel, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 168409
+  },
+  "bell-pepper": {
+    "query": "Peppers, sweet, red, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170427
+  },
+  "carrot": {
+    "query": "Carrots, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170393
+  },
+  "avocado": {
+    "query": "Avocados, raw, all commercial varieties",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171705
+  },
+  "green-onion": {
+    "query": "Onions, spring or scallions (includes tops and bulb), raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170005
+  },
+  "spinach": {
+    "query": "Spinach, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 168462
+  },
+  "banana": {
+    "query": "Bananas, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 173944
+  },
+  "mango": {
+    "query": "Mangos, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169910
+  },
+  "berries": {
+    "query": "Blueberries, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171711,
+    "notes": "blueberry as berry mix proxy"
+  },
+  "nuts": {
+    "query": "Nuts, mixed nuts, oil roasted, without peanuts, without salt added",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170588
+  },
+  "nut-butter": {
+    "query": "Peanut butter, smooth style, without salt",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 172470
+  },
+  "tahini": {
+    "query": "Seeds, sesame butter, tahini, from roasted and toasted kernels",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 168604
+  },
+  "chia-seeds": {
+    "query": "Seeds, chia seeds, dried",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170554
+  },
+  "cocoa-powder": {
+    "query": "Cocoa, dry powder, unsweetened",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169593
+  },
+  "honey": {
+    "query": "Honey",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169640
+  },
+  "soy-sauce": {
+    "query": "Soy sauce made from soy and wheat (shoyu)",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 174277
+  },
+  "olive-oil": {
+    "query": "Oil, olive, salad or cooking",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171413
+  },
+  "vegetable-oil": {
+    "query": "Oil, soybean, salad or cooking",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171427
+  },
+  "sesame-oil": {
+    "query": "Oil, sesame",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171429
+  },
+  "olive-or-sesame-oil": {
+    "query": "Oil, olive, salad or cooking",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171413,
+    "notes": "olive oil as default for olive-or-sesame"
+  },
+  "lemon-juice": {
+    "query": "Lemon juice, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 167747
+  },
+  "water": {
+    "skip": true,
+    "notes": "zero nutrients; no API fetch"
+  },
+  "tahini-sauce-portion": {
+    "skip": true,
+    "notes": "derived from tahini-sauce recipe"
+  }
+}

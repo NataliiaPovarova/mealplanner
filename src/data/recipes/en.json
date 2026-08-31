@@ -3,20 +3,65 @@
     "id": "tomato-egg-noodles",
     "emoji": "🍜",
     "type": "noodle",
-    "tags": ["lunch", "no-rice-cooker", "favorite"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "favorite"
+    ],
     "batchDays": 1,
     "portions": 2,
     "prepMinutes": 15,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 476, "protein": 24, "fat": 18, "carbs": 60, "fiber": 4 },
+    "perPortion": {
+      "kcal": 482,
+      "protein": 24.7,
+      "fat": 16.3,
+      "carbs": 59.6,
+      "fiber": 5.1
+    },
     "ingredients": [
-      { "id": "egg-noodles", "amount": 140, "unit": "g" },
-      { "id": "tomato", "amount": 3, "unit": "medium" },
-      { "id": "egg", "amount": 4, "unit": "pcs" },
-      { "id": "green-onion", "amount": 3, "unit": "stalks" },
-      { "id": "vegetable-oil", "amount": 1, "unit": "dash" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tsp", "optional": true },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
+      {
+        "id": "egg-noodles",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "tomato",
+        "amount": 369,
+        "unit": "g",
+        "note": "≈ 3 medium"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs"
+      },
+      {
+        "id": "green-onion",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 3 stalks"
+      },
+      {
+        "id": "vegetable-oil",
+        "amount": 2,
+        "unit": "ml",
+        "note": "≈ 1 dash"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp; extra, to finish"
+      }
     ],
     "name": "Tomato Egg Noodles",
     "description": "Your tried-and-true favorite — 西红柿鸡蛋面. Quick, filling, minimal fuss.",
@@ -30,27 +75,96 @@
       "Top with green onion"
     ],
     "tips": "Put the second portion in a container — reheat tomorrow. Tomatoes give plenty of juice, so you barely need any oil.",
-    "freshAdd": "Raw cucumber sticks on the side — crunchy and refreshing"
+    "freshAdd": "Raw cucumber sticks on the side — crunchy and refreshing",
+    "perPortionNutrients": {
+      "sugar": 7.1,
+      "sodium": 327.4,
+      "calcium": 116.1,
+      "iron": 5.4,
+      "potassium": 820.7,
+      "magnesium": 79.5,
+      "zinc": 3.1,
+      "vitaminA": 261,
+      "vitaminC": 29.5,
+      "vitaminD": 2,
+      "vitaminE": 2.9,
+      "vitaminK": 62,
+      "vitaminB1": 0.9,
+      "vitaminB2": 0.8,
+      "vitaminB3": 7.2,
+      "vitaminB5": 2.4,
+      "vitaminB6": 0.5,
+      "vitaminB9": 250,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "lentil-chicken-bowl",
     "emoji": "🥘",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "high-protein"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "high-protein"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 470, "protein": 47, "fat": 13, "carbs": 43, "fiber": 12 },
+    "perPortion": {
+      "kcal": 423,
+      "protein": 37.8,
+      "fat": 11.8,
+      "carbs": 43.3,
+      "fiber": 8.9
+    },
     "ingredients": [
-      { "id": "red-lentils", "amount": 100, "unit": "g" },
-      { "id": "chicken-breast", "amount": 200, "unit": "g" },
-      { "id": "water", "amount": 300, "unit": "ml" },
-      { "id": "carrot", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "bell-pepper", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
+      {
+        "id": "red-lentils",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "chicken-breast",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 300,
+        "unit": "ml"
+      },
+      {
+        "id": "carrot",
+        "amount": 61,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 119,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      }
     ],
     "name": "Lentil Bowl with Chicken",
     "description": "Red lentils in the rice cooker (simmered soup mode) + chicken breast on top. Fill the pot no more than halfway to keep the foam from overflowing.",
@@ -64,26 +178,92 @@
       "Divide into containers: lentils + chicken"
     ],
     "tips": "Important: don't fill the pot more than halfway — lentils foam up a lot and expand. 100 g dry lentils + 300 ml water is a safe volume. If you need 3 portions, better cook in a pot on the stove (40 min).",
-    "freshAdd": "Chop raw veggies: carrot sticks, pepper strips, tomato wedges. Place on top of the warm lentils."
+    "freshAdd": "Chop raw veggies: carrot sticks, pepper strips, tomato wedges. Place on top of the warm lentils.",
+    "perPortionNutrients": {
+      "sugar": 7.2,
+      "sodium": 551.8,
+      "calcium": 57.4,
+      "iron": 4.5,
+      "potassium": 1217.5,
+      "magnesium": 83.6,
+      "zinc": 2.8,
+      "vitaminA": 327,
+      "vitaminC": 69.8,
+      "vitaminD": 0,
+      "vitaminE": 2.9,
+      "vitaminK": 25,
+      "vitaminB1": 0.7,
+      "vitaminB2": 0.4,
+      "vitaminB3": 12.6,
+      "vitaminB5": 2.8,
+      "vitaminB6": 1.4,
+      "vitaminB9": 283,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "rice-chicken-bowl",
     "emoji": "🍚",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "basic"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "basic"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 444, "protein": 31, "fat": 17, "carbs": 41, "fiber": 3 },
+    "perPortion": {
+      "kcal": 374,
+      "protein": 26.6,
+      "fat": 10.7,
+      "carbs": 40.4,
+      "fiber": 0.1
+    },
     "ingredients": [
-      { "id": "rice", "amount": 150, "unit": "g" },
-      { "id": "chicken-breast-or-thigh", "amount": 300, "unit": "g" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 2 on the left scale 东北米" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp", "optional": true },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
+      {
+        "id": "rice",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "chicken-breast-or-thigh",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "up to mark 2 on the left scale 东北米"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 2.5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 0.5 tsp"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp; extra, to finish"
+      }
     ],
     "name": "Rice Bowl with Chicken",
     "description": "The simplest option: rice + chicken right in the rice cooker. Hainanese chicken rice, simplified to the max.",
@@ -97,25 +277,84 @@
       "Take out the chicken, slice, place back on top"
     ],
     "tips": "The chicken steams on top of the rice — comes out tender and juicy. Three containers for 3 days.",
-    "freshAdd": "Cucumber + tomato + green onion. Or iceberg lettuce with a dash of soy sauce."
+    "freshAdd": "Cucumber + tomato + green onion. Or iceberg lettuce with a dash of soy sauce.",
+    "perPortionNutrients": {
+      "sugar": 0.1,
+      "sodium": 362,
+      "calcium": 13.9,
+      "iron": 1,
+      "potassium": 411.5,
+      "magnesium": 51.5,
+      "zinc": 1.4,
+      "vitaminA": 9,
+      "vitaminC": 0.7,
+      "vitaminD": 0,
+      "vitaminE": 1.2,
+      "vitaminK": 3,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.2,
+      "vitaminB3": 10.6,
+      "vitaminB5": 2.2,
+      "vitaminB6": 0.9,
+      "vitaminB9": 16,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "buckwheat-turkey-bowl",
     "emoji": "🫘",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "high-protein"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "high-protein"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 30,
-    "perPortion": { "kcal": 455, "protein": 44, "fat": 10, "carbs": 50, "fiber": 6 },
+    "perPortion": {
+      "kcal": 414,
+      "protein": 37,
+      "fat": 9.4,
+      "carbs": 49.1,
+      "fiber": 7.4
+    },
     "ingredients": [
-      { "id": "buckwheat", "amount": 180, "unit": "g" },
-      { "id": "turkey-fillet", "amount": 350, "unit": "g" },
-      { "id": "water", "amount": 360, "unit": "ml" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
+      {
+        "id": "buckwheat",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "id": "turkey-fillet",
+        "amount": 350,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 360,
+        "unit": "ml"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      }
     ],
     "name": "Buckwheat with Turkey",
     "description": "Buckwheat in the rice cooker comes out perfectly fluffy. Sear the turkey steak separately in 5 minutes, or put it in the rice cooker together.",
@@ -129,29 +368,109 @@
       "Divide into containers"
     ],
     "tips": "Buckwheat and turkey — the most neutral flavor combo, just the way you like it. Fresh produce = fresh taste.",
-    "freshAdd": "Tomato + cucumber + a couple of lettuce leaves"
+    "freshAdd": "Tomato + cucumber + a couple of lettuce leaves",
+    "perPortionNutrients": {
+      "sugar": 3.4,
+      "sodium": 138.6,
+      "calcium": 45,
+      "iron": 2.7,
+      "potassium": 860.1,
+      "magnesium": 190.7,
+      "zinc": 3.3,
+      "vitaminA": 45,
+      "vitaminC": 13.8,
+      "vitaminD": 0,
+      "vitaminE": 1.2,
+      "vitaminK": 20,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.5,
+      "vitaminB3": 16.4,
+      "vitaminB5": 1.9,
+      "vitaminB6": 1.2,
+      "vitaminB9": 45,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "cold-grain-bowl",
     "emoji": "🥗",
     "type": "cold-bowl",
-    "tags": ["lunch", "rice-cooker-for-grain", "batch-2", "no-reheating"],
+    "tags": [
+      "lunch",
+      "rice-cooker-for-grain",
+      "batch-2",
+      "no-reheating"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 666, "protein": 26, "fat": 40, "carbs": 57, "fiber": 8 },
+    "perPortion": {
+      "kcal": 618,
+      "protein": 26.7,
+      "fat": 32.1,
+      "carbs": 59.2,
+      "fiber": 13.7
+    },
     "ingredients": [
-      { "id": "quinoa", "amount": 100, "unit": "g" },
-      { "id": "water", "amount": 200, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately or steam in the rice cooker" },
-      { "id": "cucumber", "amount": 1, "unit": "large" },
-      { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
-      { "id": "avocado", "amount": 1, "unit": "pcs" },
-      { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "rinse" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
+      {
+        "id": "quinoa",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs; boil separately or steam in the rice cooker"
+      },
+      {
+        "id": "cucumber",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 1 large"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 170,
+        "unit": "g",
+        "note": "≈ 10 pcs"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      },
+      {
+        "id": "canned-chickpeas",
+        "amount": 100,
+        "unit": "g",
+        "note": "rinse"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp; extra, to finish"
+      }
     ],
     "name": "Cold Quinoa and Egg Bowl",
     "description": "Everything at room temperature or straight from the fridge. Perfect for summer or when you can't be bothered to reheat.",
@@ -165,26 +484,90 @@
       "Assemble the bowl: quinoa → chickpeas → eggs → veggies → a drizzle of oil and lemon"
     ],
     "tips": "Store the grain and eggs separately from the veggies. Assemble the bowl right before eating so the veggies stay crunchy.",
-    "freshAdd": "Everything is fresh already! You can add corn or edamame."
+    "freshAdd": "Everything is fresh already! You can add corn or edamame.",
+    "perPortionNutrients": {
+      "sugar": 5.6,
+      "sodium": 276.2,
+      "calcium": 134.9,
+      "iron": 6.3,
+      "potassium": 1374.5,
+      "magnesium": 185.7,
+      "zinc": 4.2,
+      "vitaminA": 208,
+      "vitaminC": 23.6,
+      "vitaminD": 2,
+      "vitaminE": 5.5,
+      "vitaminK": 51,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.8,
+      "vitaminB3": 3,
+      "vitaminB5": 3.6,
+      "vitaminB6": 0.8,
+      "vitaminB9": 293,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "noodle-broth-bowl",
     "emoji": "🍲",
     "type": "noodle",
-    "tags": ["lunch", "rice-cooker-for-broth", "batch-2"],
+    "tags": [
+      "lunch",
+      "rice-cooker-for-broth",
+      "batch-2"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 40,
-    "perPortion": { "kcal": 519, "protein": 35, "fat": 18, "carbs": 56, "fiber": 3 },
+    "perPortion": {
+      "kcal": 716,
+      "protein": 42.1,
+      "fat": 33.2,
+      "carbs": 59.4,
+      "fiber": 3.2
+    },
     "ingredients": [
-      { "id": "chicken-thigh-bone-in", "amount": 2, "unit": "pcs" },
-      { "id": "water", "amount": 800, "unit": "ml" },
-      { "id": "noodles", "amount": 150, "unit": "g" },
-      { "id": "egg", "amount": 2, "unit": "pcs", "note": "boil separately, halve for the broth" },
-      { "id": "green-onion", "amount": 4, "unit": "stalks" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
+      {
+        "id": "chicken-thigh-bone-in",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 2 pcs"
+      },
+      {
+        "id": "water",
+        "amount": 800,
+        "unit": "ml"
+      },
+      {
+        "id": "noodles",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 pcs; boil separately, halve for the broth"
+      },
+      {
+        "id": "green-onion",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 4 stalks"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp; extra, to finish"
+      }
     ],
     "name": "Chicken Broth Noodles",
     "description": "Gentle chicken broth from the rice cooker + noodles + fresh veggies. Ramen vibes without the packet seasoning.",
@@ -198,29 +581,111 @@
       "Assemble: noodles → broth → meat → egg halved → green onion"
     ],
     "tips": "Broth keeps 2 days in the fridge. Better to cook noodles fresh before eating (5 min), otherwise they get mushy.",
-    "freshAdd": "Green onion, mung bean sprouts, thinly sliced cucumber"
+    "freshAdd": "Green onion, mung bean sprouts, thinly sliced cucumber",
+    "perPortionNutrients": {
+      "sugar": 2.9,
+      "sodium": 675.6,
+      "calcium": 78.7,
+      "iron": 4.9,
+      "potassium": 662.6,
+      "magnesium": 85.1,
+      "zinc": 3.8,
+      "vitaminA": 130,
+      "vitaminC": 5.6,
+      "vitaminD": 1,
+      "vitaminE": 1.1,
+      "vitaminK": 65,
+      "vitaminB1": 0.8,
+      "vitaminB2": 0.8,
+      "vitaminB3": 12.7,
+      "vitaminB5": 1.4,
+      "vitaminB6": 0.7,
+      "vitaminB9": 226,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "chickpea-rice-bowl",
     "emoji": "🧆",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "plant-protein"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "plant-protein"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 448, "protein": 17, "fat": 25, "carbs": 41, "fiber": 10 },
+    "perPortion": {
+      "kcal": 524,
+      "protein": 23.5,
+      "fat": 21.9,
+      "carbs": 58.9,
+      "fiber": 8.1
+    },
     "ingredients": [
-      { "id": "rice", "amount": 120, "unit": "g" },
-      { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "drain the liquid" },
-      { "id": "egg", "amount": 6, "unit": "pcs", "note": "boil separately" },
-      { "id": "tomato", "amount": 3, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "between marks 1 and 2 on the left scale 东北米" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
+      {
+        "id": "rice",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "id": "canned-chickpeas",
+        "amount": 240,
+        "unit": "g",
+        "note": "≈ 1 can; drain the liquid"
+      },
+      {
+        "id": "egg",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 6 pcs; boil separately"
+      },
+      {
+        "id": "tomato",
+        "amount": 369,
+        "unit": "g",
+        "note": "≈ 3 pcs; raw, for bowl"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "between marks 1 and 2 on the left scale 东北米"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp; extra, to finish"
+      }
     ],
     "name": "Rice with Chickpeas and Egg",
     "description": "Rice in the rice cooker, canned chickpeas, boiled eggs. Double protein, lots of fiber, zero effort.",
@@ -234,28 +699,103 @@
       "Before eating: reheat, top with fresh veggies"
     ],
     "tips": "Canned chickpeas are a lifesaver: no soaking, no boiling. Open, rinse, stir in. Gives you both protein and fiber in one go.",
-    "freshAdd": "Tomato + cucumber + a drizzle of lemon and olive oil on top"
+    "freshAdd": "Tomato + cucumber + a drizzle of lemon and olive oil on top",
+    "perPortionNutrients": {
+      "sugar": 4.8,
+      "sodium": 341.9,
+      "calcium": 108.4,
+      "iron": 4.6,
+      "potassium": 894,
+      "magnesium": 92.4,
+      "zinc": 3,
+      "vitaminA": 215,
+      "vitaminC": 20.1,
+      "vitaminD": 2,
+      "vitaminE": 3.3,
+      "vitaminK": 27,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.6,
+      "vitaminB3": 2.1,
+      "vitaminB5": 2.7,
+      "vitaminB6": 0.4,
+      "vitaminB9": 196,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "bean-turkey-bowl",
     "emoji": "🫛",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "high-fiber"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "high-fiber"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 430, "protein": 35, "fat": 13, "carbs": 43, "fiber": 11 },
+    "perPortion": {
+      "kcal": 489,
+      "protein": 35.2,
+      "fat": 12.9,
+      "carbs": 58.3,
+      "fiber": 7.4
+    },
     "ingredients": [
-      { "id": "rice", "amount": 120, "unit": "g" },
-      { "id": "turkey-fillet", "amount": 300, "unit": "g" },
-      { "id": "canned-beans", "amount": 1, "unit": "can", "note": "drain and rinse" },
-      { "id": "tomato", "amount": 3, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "between marks 1 and 2 on the left scale 东北米" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
+      {
+        "id": "rice",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "id": "turkey-fillet",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "id": "canned-beans",
+        "amount": 240,
+        "unit": "g",
+        "note": "≈ 1 can; drain and rinse"
+      },
+      {
+        "id": "tomato",
+        "amount": 369,
+        "unit": "g",
+        "note": "≈ 3 pcs; raw, for bowl"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 238,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "between marks 1 and 2 on the left scale 东北米"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp; extra, to finish"
+      }
     ],
     "name": "Beans with Turkey and Rice",
     "description": "Rice + turkey in the rice cooker, stir in canned beans after. Burrito bowl without the spices or heat.",
@@ -269,27 +809,97 @@
       "Divide into containers: rice with beans + turkey"
     ],
     "tips": "Canned beans: open, rinse, stir in. Red beans are firmer, white beans are softer — both work.",
-    "freshAdd": "Pepper strips + tomato + lettuce leaves. A squeeze of lemon if you like."
+    "freshAdd": "Pepper strips + tomato + lettuce leaves. A squeeze of lemon if you like.",
+    "perPortionNutrients": {
+      "sugar": 8.3,
+      "sodium": 623.4,
+      "calcium": 84.9,
+      "iron": 3.1,
+      "potassium": 962.9,
+      "magnesium": 93.4,
+      "zinc": 2.8,
+      "vitaminA": 72,
+      "vitaminC": 81.5,
+      "vitaminD": 0,
+      "vitaminE": 2.3,
+      "vitaminK": 21,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.2,
+      "vitaminB3": 12.3,
+      "vitaminB5": 1.5,
+      "vitaminB6": 1.2,
+      "vitaminB9": 62,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "shrimp-noodle-bowl",
     "emoji": "🦐",
     "type": "noodle",
-    "tags": ["lunch", "no-rice-cooker", "quick", "15-min"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "15-min"
+    ],
     "batchDays": 1,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 510, "protein": 37, "fat": 6, "carbs": 80, "fiber": 4 },
+    "perPortion": {
+      "kcal": 541,
+      "protein": 36.8,
+      "fat": 8.8,
+      "carbs": 80.2,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "noodles-udon", "amount": 200, "unit": "g" },
-      { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, cut into sticks" },
-      { "id": "green-onion", "amount": 4, "unit": "stalks" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp" },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "extra, to finish" }
+      {
+        "id": "noodles-udon",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "frozen-shrimp",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, halved"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, cut into sticks"
+      },
+      {
+        "id": "green-onion",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 4 stalks"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 tsp"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp; extra, to finish"
+      }
     ],
     "name": "Shrimp Noodles",
     "description": "Shrimp thaw in 5 min, cook in 3 min. Noodles at the same time. Light, fresh, fast.",
@@ -303,30 +913,116 @@
       "Assemble: noodles → shrimp → fresh veggies → green onion"
     ],
     "tips": "Keep a bag of peeled shrimp in the freezer — fastest protein after eggs. Don't overcook: 2–3 min, otherwise they turn rubbery.",
-    "freshAdd": "Cherry tomatoes halved, cucumber sticks, green onion. You can add mung bean sprouts."
+    "freshAdd": "Cherry tomatoes halved, cucumber sticks, green onion. You can add mung bean sprouts.",
+    "perPortionNutrients": {
+      "sugar": 6.1,
+      "sodium": 624,
+      "calcium": 146.2,
+      "iron": 5.6,
+      "potassium": 936.5,
+      "magnesium": 125.9,
+      "zinc": 3.8,
+      "vitaminA": 66,
+      "vitaminC": 17.8,
+      "vitaminD": 0,
+      "vitaminE": 0.9,
+      "vitaminK": 84,
+      "vitaminB1": 1.2,
+      "vitaminB2": 0.5,
+      "vitaminB3": 9.2,
+      "vitaminB5": 1.3,
+      "vitaminB6": 0.3,
+      "vitaminB9": 268,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "shrimp-rice-bowl",
     "emoji": "🍤",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker-and-pan", "batch-2", "light"],
+    "tags": [
+      "lunch",
+      "rice-cooker-and-pan",
+      "batch-2",
+      "light"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 499, "protein": 32, "fat": 20, "carbs": 52, "fiber": 3 },
+    "perPortion": {
+      "kcal": 478,
+      "protein": 26.9,
+      "fat": 19.2,
+      "carbs": 51.6,
+      "fiber": 4.4
+    },
     "ingredients": [
-      { "id": "rice", "amount": 100, "unit": "g" },
-      { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "butter", "amount": 1, "unit": "small-piece" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "green-onion", "amount": 3, "unit": "stalks" },
-      { "id": "sesame-oil", "amount": 1, "unit": "dash", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 1 on the left scale 东北米" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" },
-      { "id": "avocado", "amount": 0.5, "unit": "pcs", "note": "for bowl" }
+      {
+        "id": "rice",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "frozen-shrimp",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 small piece"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, for bowl"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "green-onion",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 3 stalks"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 2,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 1 dash"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "up to mark 1 on the left scale 东北米"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      },
+      {
+        "id": "avocado",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 0.5 pcs; for bowl"
+      }
     ],
     "name": "Rice with Shrimp",
     "description": "Rice in the rice cooker, shrimp separately in a pan in 3 minutes. Two steps, both simple.",
@@ -340,26 +1036,94 @@
       "Before eating: reheat, top with fresh veggies and green onion"
     ],
     "tips": "Don't put shrimp in the rice cooker — they'll overcook in 35 minutes and turn rubbery. 3 minutes in a pan is perfect. They taste especially good cooked in butter.",
-    "freshAdd": "Cherry tomatoes halved, cucumber sticks, green onion. A few drops of sesame oil on top."
+    "freshAdd": "Cherry tomatoes halved, cucumber sticks, green onion. A few drops of sesame oil on top.",
+    "perPortionNutrients": {
+      "sugar": 4.3,
+      "sodium": 637.9,
+      "calcium": 119.4,
+      "iron": 2.2,
+      "potassium": 895.1,
+      "magnesium": 96.4,
+      "zinc": 2.7,
+      "vitaminA": 81,
+      "vitaminC": 20.8,
+      "vitaminD": 0,
+      "vitaminE": 2.3,
+      "vitaminK": 80,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.1,
+      "vitaminB3": 2.4,
+      "vitaminB5": 1.5,
+      "vitaminB6": 0.3,
+      "vitaminB9": 68,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "chickpea-avocado-cold-bowl",
     "emoji": "🥑",
     "type": "cold-bowl",
-    "tags": ["lunch", "no-rice-cooker", "no-cooking", "quick", "high-fiber"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "no-cooking",
+      "quick",
+      "high-fiber"
+    ],
     "batchDays": 1,
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 352, "protein": 15, "fat": 28, "carbs": 14, "fiber": 14 },
+    "perPortion": {
+      "kcal": 461,
+      "protein": 25.3,
+      "fat": 22.6,
+      "carbs": 43.4,
+      "fiber": 15.6
+    },
     "ingredients": [
-      { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "drain and rinse" },
-      { "id": "avocado", "amount": 1, "unit": "pcs" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "hard-boiled" },
-      { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
-      { "id": "cucumber", "amount": 1, "unit": "large" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      {
+        "id": "canned-chickpeas",
+        "amount": 240,
+        "unit": "g",
+        "note": "≈ 1 can; drain and rinse"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs; hard-boiled"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 170,
+        "unit": "g",
+        "note": "≈ 10 pcs"
+      },
+      {
+        "id": "cucumber",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 1 large"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      }
     ],
     "name": "Cold Chickpea and Avocado Bowl",
     "description": "Fully cold bowl: canned chickpeas, avocado, fresh veggies, boiled egg. Zero cooking besides the eggs. Ready in 10 minutes.",
@@ -373,30 +1137,116 @@
       "A drizzle of olive oil and lemon juice"
     ],
     "tips": "Only slice the avocado right before eating, otherwise it browns. Eggs and chickpeas can be prepped ahead and stored in the fridge. For extra filling — add avocado toast on the side (mash with a fork onto bread).",
-    "freshAdd": "Everything is fresh already! You can add green onion or parsley if you like."
+    "freshAdd": "Everything is fresh already! You can add green onion or parsley if you like.",
+    "perPortionNutrients": {
+      "sugar": 5.6,
+      "sodium": 440.9,
+      "calcium": 131.6,
+      "iron": 5.7,
+      "potassium": 1373.6,
+      "magnesium": 124.3,
+      "zinc": 3.4,
+      "vitaminA": 208,
+      "vitaminC": 23.6,
+      "vitaminD": 2,
+      "vitaminE": 3.3,
+      "vitaminK": 47,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.7,
+      "vitaminB3": 2.7,
+      "vitaminB5": 3.5,
+      "vitaminB6": 0.6,
+      "vitaminB9": 306,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "greek-chicken-rice-bowl",
     "emoji": "🧀",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "with-cheese"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "with-cheese"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 783, "protein": 45, "fat": 37, "carbs": 71, "fiber": 5 },
+    "perPortion": {
+      "kcal": 688,
+      "protein": 35.2,
+      "fat": 30.2,
+      "carbs": 70,
+      "fiber": 6.1
+    },
     "ingredients": [
-      { "id": "rice", "amount": 140, "unit": "g" },
-      { "id": "chicken-breast", "amount": 200, "unit": "g" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "up to mark 1 on the left scale 东北米" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "feta", "amount": 60, "unit": "g", "note": "diced, for bowl" },
-      { "id": "avocado", "amount": 1, "unit": "pcs", "note": "sliced, for bowl" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp", "optional": true },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
+      {
+        "id": "rice",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "chicken-breast",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "up to mark 1 on the left scale 东北米"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "feta",
+        "amount": 60,
+        "unit": "g",
+        "note": "diced, for bowl"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 pc; sliced, for bowl"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, halved"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 0.5 tsp"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      }
     ],
     "name": "Rice with Chicken, Feta and Avocado",
     "description": "Rice + chicken in the rice cooker, topped with fresh veggies, avocado, and feta cubes. Mediterranean bowl without the spices or fuss.",
@@ -410,27 +1260,97 @@
       "Divide into containers: rice + chicken"
     ],
     "tips": "Add feta, avocado, and veggies only before eating — not in the storage container. Avocado browns, feta dries out, veggies get soggy. Store only rice + chicken in the container.",
-    "freshAdd": "Before eating: reheat rice with chicken, top with sliced cucumber, cherry tomatoes, avocado, crumbled feta, a drizzle of olive oil."
+    "freshAdd": "Before eating: reheat rice with chicken, top with sliced cucumber, cherry tomatoes, avocado, crumbled feta, a drizzle of olive oil.",
+    "perPortionNutrients": {
+      "sugar": 4,
+      "sodium": 872.4,
+      "calcium": 196.9,
+      "iron": 2.3,
+      "potassium": 1103.8,
+      "magnesium": 107.4,
+      "zinc": 3.3,
+      "vitaminA": 85,
+      "vitaminC": 20.5,
+      "vitaminD": 0,
+      "vitaminE": 3.7,
+      "vitaminK": 42,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.6,
+      "vitaminB3": 13,
+      "vitaminB5": 4,
+      "vitaminB6": 1.3,
+      "vitaminB9": 102,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "buckwheat-egg-bowl",
     "emoji": "🥚",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "meat-free"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "meat-free"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 692, "protein": 34, "fat": 34, "carbs": 72, "fiber": 10 },
+    "perPortion": {
+      "kcal": 650,
+      "protein": 34.3,
+      "fat": 27.6,
+      "carbs": 71.9,
+      "fiber": 13
+    },
     "ingredients": [
-      { "id": "buckwheat", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 280, "unit": "ml" },
-      { "id": "egg", "amount": 6, "unit": "pcs", "note": "boil separately" },
-      { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "drain and rinse" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
+      {
+        "id": "buckwheat",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 280,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 6 pcs; boil separately"
+      },
+      {
+        "id": "canned-chickpeas",
+        "amount": 100,
+        "unit": "g",
+        "note": "drain and rinse"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, for bowl"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      }
     ],
     "name": "Buckwheat with Egg and Veggies",
     "description": "Vegetarian version of buckwheat with turkey. Buckwheat in the rice cooker, eggs boiled separately. For protein — 3 eggs per portion + canned chickpeas.",
@@ -444,27 +1364,98 @@
       "Before eating: reheat, top with fresh veggies"
     ],
     "tips": "Without meat, you get protein from eggs (3 pcs = 18 g) + chickpeas (another ~7 g). If it's not enough — add feta cubes on top (+4 g per 30 g of cheese). Iron from buckwheat + vitamin C from fresh tomatoes helps absorption.",
-    "freshAdd": "Tomato + cucumber + a drizzle of olive oil. You can add feta."
+    "freshAdd": "Tomato + cucumber + a drizzle of olive oil. You can add feta.",
+    "perPortionNutrients": {
+      "sugar": 5.5,
+      "sodium": 342.4,
+      "calcium": 143.2,
+      "iron": 6.1,
+      "potassium": 1182.2,
+      "magnesium": 235.3,
+      "zinc": 4.6,
+      "vitaminA": 297,
+      "vitaminC": 20.8,
+      "vitaminD": 3,
+      "vitaminE": 3.6,
+      "vitaminK": 32,
+      "vitaminB1": 0.3,
+      "vitaminB2": 1.1,
+      "vitaminB3": 6.3,
+      "vitaminB5": 3.8,
+      "vitaminB6": 0.6,
+      "vitaminB9": 195,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "couscous-tuna-bowl",
     "emoji": "🐟",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "quick", "10-min", "meat-free"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "10-min",
+      "meat-free"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 401, "protein": 10, "fat": 15, "carbs": 60, "fiber": 4 },
+    "perPortion": {
+      "kcal": 423,
+      "protein": 21.9,
+      "fat": 10.4,
+      "carbs": 60.7,
+      "fiber": 4.8
+    },
     "ingredients": [
-      { "id": "couscous", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 200, "unit": "ml" },
-      { "id": "canned-tuna", "amount": 1, "unit": "can", "note": "drain the liquid" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, diced" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
+      {
+        "id": "couscous",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "id": "canned-tuna",
+        "amount": 120,
+        "unit": "g",
+        "note": "≈ 1 can; drain the liquid"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, halved"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, diced"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp; extra, to finish"
+      }
     ],
     "name": "Couscous with Tuna and Veggies",
     "description": "The fastest recipe: pour boiling water over couscous for 5 minutes, open a can of tuna, chop veggies. That's it.",
@@ -478,26 +1469,94 @@
       "Before eating: top with fresh veggies, oil and lemon"
     ],
     "tips": "You don't boil couscous — just pour boiling water over it. It's literally the fastest grain. Tuna in its own juice (not in oil) — less fat and cheaper. Keeps in a container for 2 days.",
-    "freshAdd": "Cherry tomatoes halved, cucumber diced, a drizzle of olive oil and lemon. You can add avocado."
+    "freshAdd": "Cherry tomatoes halved, cucumber diced, a drizzle of olive oil and lemon. You can add avocado.",
+    "perPortionNutrients": {
+      "sugar": 3.5,
+      "sodium": 160.8,
+      "calcium": 50,
+      "iron": 2.3,
+      "potassium": 534.5,
+      "magnesium": 65.2,
+      "zinc": 1.3,
+      "vitaminA": 44,
+      "vitaminC": 13.1,
+      "vitaminD": 1,
+      "vitaminE": 1.9,
+      "vitaminK": 27,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.2,
+      "vitaminB3": 9,
+      "vitaminB5": 1.3,
+      "vitaminB6": 0.4,
+      "vitaminB9": 34,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "cold-pasta-salad",
     "emoji": "🍝",
     "type": "cold-bowl",
-    "tags": ["lunch", "no-rice-cooker", "batch-2", "meat-free", "no-reheating", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "batch-2",
+      "meat-free",
+      "no-reheating",
+      "with-cheese"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 766, "protein": 40, "fat": 32, "carbs": 84, "fiber": 4 },
+    "perPortion": {
+      "kcal": 792,
+      "protein": 40.9,
+      "fat": 32,
+      "carbs": 84,
+      "fiber": 4.7
+    },
     "ingredients": [
-      { "id": "short-pasta", "amount": 200, "unit": "g" },
-      { "id": "mozzarella", "amount": 125, "unit": "g", "note": "1 ball, diced" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "hard-boiled" },
-      { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs", "note": "raw, halved" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "raw, diced" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      {
+        "id": "short-pasta",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "mozzarella",
+        "amount": 125,
+        "unit": "g",
+        "note": "1 ball, diced"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs; hard-boiled"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 170,
+        "unit": "g",
+        "note": "≈ 10 pcs; raw, halved"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc; raw, diced"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      }
     ],
     "name": "Cold Pasta Salad with Mozzarella",
     "description": "Cold pasta salad with mozzarella, egg, and fresh veggies. Eat at room temperature or from the fridge — no reheating needed.",
@@ -511,28 +1570,104 @@
       "Divide into containers. Add veggies before eating"
     ],
     "tips": "Rinsing pasta with cold water is a must — otherwise it sticks together by the next day. Mozzarella keeps fine in the salad for 2 days. Chop veggies before eating so they stay crunchy.",
-    "freshAdd": "Cherry tomatoes halved, cucumber diced, olive oil and lemon. You can add arugula."
+    "freshAdd": "Cherry tomatoes halved, cucumber diced, olive oil and lemon. You can add arugula.",
+    "perPortionNutrients": {
+      "sugar": 7,
+      "sodium": 458.2,
+      "calcium": 417.3,
+      "iron": 5.9,
+      "potassium": 759.7,
+      "magnesium": 100,
+      "zinc": 4.9,
+      "vitaminA": 313,
+      "vitaminC": 15.4,
+      "vitaminD": 2,
+      "vitaminE": 2.8,
+      "vitaminK": 29,
+      "vitaminB1": 1,
+      "vitaminB2": 1.1,
+      "vitaminB3": 7.9,
+      "vitaminB5": 2.4,
+      "vitaminB6": 0.4,
+      "vitaminB9": 309,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "quinoa-egg-avocado-bowl",
     "emoji": "🌿",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker-for-grain", "batch-2", "meat-free", "high-fiber"],
+    "tags": [
+      "lunch",
+      "rice-cooker-for-grain",
+      "batch-2",
+      "meat-free",
+      "high-fiber"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 666, "protein": 25, "fat": 39, "carbs": 58, "fiber": 9 },
+    "perPortion": {
+      "kcal": 618,
+      "protein": 25.1,
+      "fat": 33.1,
+      "carbs": 57.9,
+      "fiber": 10.8
+    },
     "ingredients": [
-      { "id": "quinoa", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 280, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
-      { "id": "avocado", "amount": 1, "unit": "pcs", "note": "slice before eating" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "extra, to finish" }
+      {
+        "id": "quinoa",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 280,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs; boil separately"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 pc; slice before eating"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, halved"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp; extra, to finish"
+      }
     ],
     "name": "Quinoa with Egg and Avocado",
     "description": "Quinoa in the rice cooker (Rice mode), eggs boiled separately. Before eating — avocado and fresh veggies. Complete amino acid profile without meat.",
@@ -546,27 +1681,99 @@
       "Before eating: top with avocado, veggies, oil and lemon"
     ],
     "tips": "Quinoa is one of the few grains with a complete set of essential amino acids, making it ideal for meat-free weeks. Rinsing before cooking is a must — the surface has saponins that taste bitter. Cooks faster than rice.",
-    "freshAdd": "Avocado + cherry tomatoes + cucumber + olive oil and lemon. You can add feta."
+    "freshAdd": "Avocado + cherry tomatoes + cucumber + olive oil and lemon. You can add feta.",
+    "perPortionNutrients": {
+      "sugar": 4.3,
+      "sodium": 155.9,
+      "calcium": 120.1,
+      "iron": 5.8,
+      "potassium": 1172.8,
+      "magnesium": 190.3,
+      "zinc": 4.2,
+      "vitaminA": 199,
+      "vitaminC": 19.9,
+      "vitaminD": 2,
+      "vitaminE": 5.9,
+      "vitaminK": 42,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.8,
+      "vitaminB3": 2.8,
+      "vitaminB5": 3.3,
+      "vitaminB6": 0.8,
+      "vitaminB9": 249,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "lentil-egg-bowl-iron",
     "emoji": "💪",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "meat-free", "iron-rich", "high-fiber"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "meat-free",
+      "iron-rich",
+      "high-fiber"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 505, "protein": 28, "fat": 26, "carbs": 45, "fiber": 14 },
+    "perPortion": {
+      "kcal": 461,
+      "protein": 27.4,
+      "fat": 20.9,
+      "carbs": 43.6,
+      "fiber": 9
+    },
     "ingredients": [
-      { "id": "red-lentils", "amount": 100, "unit": "g" },
-      { "id": "water", "amount": 300, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
-      { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
+      {
+        "id": "red-lentils",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 300,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs; boil separately"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 238,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      }
     ],
     "name": "Lentils with Egg and Bell Pepper",
     "description": "Lentils are one of the best plant-based sources of iron. Bell peppers and tomatoes (vitamin C) boost absorption. Dairy-free.",
@@ -580,27 +1787,98 @@
       "Before eating: reheat, top with pepper, tomatoes, lemon juice"
     ],
     "tips": "For maximum iron absorption: don't drink tea, coffee, or eat dairy 30–40 minutes before or after this meal. Bell peppers have twice the vitamin C of oranges — the perfect iron partner.",
-    "freshAdd": "Bell pepper strips + tomato wedges + lemon juice. No cheese!"
+    "freshAdd": "Bell pepper strips + tomato wedges + lemon juice. No cheese!",
+    "perPortionNutrients": {
+      "sugar": 7.6,
+      "sodium": 155.8,
+      "calcium": 101.6,
+      "iron": 5.9,
+      "potassium": 993.1,
+      "magnesium": 63.6,
+      "zinc": 3.4,
+      "vitaminA": 234,
+      "vitaminC": 116.9,
+      "vitaminD": 2,
+      "vitaminE": 3.7,
+      "vitaminK": 27,
+      "vitaminB1": 0.6,
+      "vitaminB2": 0.6,
+      "vitaminB3": 2.8,
+      "vitaminB5": 2.8,
+      "vitaminB6": 0.8,
+      "vitaminB9": 320,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "buckwheat-egg-pepper-iron",
     "emoji": "🔥",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "meat-free", "iron-rich"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "meat-free",
+      "iron-rich"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 558, "protein": 24, "fat": 28, "carbs": 63, "fiber": 8 },
+    "perPortion": {
+      "kcal": 515,
+      "protein": 23.9,
+      "fat": 22.7,
+      "carbs": 59.8,
+      "fiber": 10
+    },
     "ingredients": [
-      { "id": "buckwheat", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 280, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "boil separately" },
-      { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "raw, for bowl" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "see tahini sauce recipe" }
+      {
+        "id": "buckwheat",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 280,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 pcs; boil separately"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 238,
+        "unit": "g",
+        "note": "≈ 2 pcs; raw, for bowl"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, halved"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "see tahini sauce recipe"
+      }
     ],
     "name": "Buckwheat with Egg and Pepper (iron-rich)",
     "description": "Buckwheat has the highest iron content among grains. Together with peppers and tomatoes (vitamin C), iron absorption is maximized. Dairy-free.",
@@ -614,27 +1892,98 @@
       "Before eating: reheat, top with pepper, cherry tomatoes, lemon juice"
     ],
     "tips": "Buckwheat + lentils are the two main iron sources in your system. Alternate them during meat-free weeks. Important: coffee and tea block iron absorption, so your latte is better at breakfast, not at lunch with this bowl.",
-    "freshAdd": "Pepper strips + cherry tomatoes halved + lemon juice + olive oil. No cheese and no yogurt!"
+    "freshAdd": "Pepper strips + cherry tomatoes halved + lemon juice + olive oil. No cheese and no yogurt!",
+    "perPortionNutrients": {
+      "sugar": 5.1,
+      "sodium": 150.8,
+      "calcium": 91.2,
+      "iron": 4,
+      "potassium": 846.3,
+      "magnesium": 195.8,
+      "zinc": 3.3,
+      "vitaminA": 210,
+      "vitaminC": 107.1,
+      "vitaminD": 2,
+      "vitaminE": 3.2,
+      "vitaminK": 20,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.8,
+      "vitaminB3": 6.1,
+      "vitaminB5": 2.6,
+      "vitaminB6": 0.6,
+      "vitaminB9": 94,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "couscous-halloumi-bowl",
     "emoji": "🧀",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "quick", "10-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "10-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 760, "protein": 30, "fat": 42, "carbs": 71, "fiber": 4 },
+    "perPortion": {
+      "kcal": 648,
+      "protein": 23.1,
+      "fat": 29.4,
+      "carbs": 73,
+      "fiber": 5.7
+    },
     "ingredients": [
-      { "id": "couscous", "amount": 80, "unit": "g" },
-      { "id": "water", "amount": 110, "unit": "ml" },
-      { "id": "halloumi", "amount": 80, "unit": "g" },
-      { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "raw, diced" },
-      { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "raw, halved" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 0.5, "unit": "tbsp", "note": "extra, to finish" }
+      {
+        "id": "couscous",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 110,
+        "unit": "ml"
+      },
+      {
+        "id": "halloumi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "cucumber",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 0.5 pcs; raw, diced"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 pcs; raw, halved"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 7.5,
+        "unit": "ml",
+        "note": "≈ 0.5 tbsp; extra, to finish"
+      }
     ],
     "name": "Couscous with Halloumi and Veggies",
     "description": "Pour boiling water over couscous, pan-fry halloumi on a dry pan in 3 minutes. Fresh veggies on top. Like a Pinterest photo — only easier.",
@@ -647,25 +1996,86 @@
       "Drizzle with lemon juice and olive oil"
     ],
     "tips": "Halloumi fries on a dry pan — no oil needed, it has enough fat of its own. Best eaten right away while the halloumi is warm and crispy. Next day it gets firm — you can reheat on a pan for 30 seconds.",
-    "freshAdd": "Cucumber diced, cherry tomatoes halved, lemon juice. You can add spinach."
+    "freshAdd": "Cucumber diced, cherry tomatoes halved, lemon juice. You can add spinach.",
+    "perPortionNutrients": {
+      "sugar": 4.5,
+      "sodium": 926.6,
+      "calcium": 440.2,
+      "iron": 2,
+      "potassium": 576.6,
+      "magnesium": 74.9,
+      "zinc": 3.3,
+      "vitaminA": 148,
+      "vitaminC": 18.8,
+      "vitaminD": 0,
+      "vitaminE": 2.4,
+      "vitaminK": 33,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.8,
+      "vitaminB3": 4.3,
+      "vitaminB5": 2.1,
+      "vitaminB6": 0.6,
+      "vitaminB9": 65,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "pasta-halloumi-bowl",
     "emoji": "🍝",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "15-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "15-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 776, "protein": 32, "fat": 36, "carbs": 85, "fiber": 4 },
+    "perPortion": {
+      "kcal": 663,
+      "protein": 26.3,
+      "fat": 23.6,
+      "carbs": 86.9,
+      "fiber": 5.3
+    },
     "ingredients": [
-      { "id": "short-pasta", "amount": 100, "unit": "g" },
-      { "id": "halloumi", "amount": 80, "unit": "g" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "raw, halved" },
-      { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "raw, diced" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp" }
+      {
+        "id": "short-pasta",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "halloumi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 pcs; raw, halved"
+      },
+      {
+        "id": "cucumber",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 0.5 pcs; raw, diced"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 tsp"
+      }
     ],
     "name": "Pasta with Halloumi and Cherry Tomatoes",
     "description": "Short pasta + pan-fried halloumi + fresh veggies. Simple, filling, no spices — just quality ingredients.",
@@ -678,25 +2088,88 @@
       "Top with halloumi, cucumber, olive oil and lemon"
     ],
     "tips": "Halloumi is best eaten freshly fried. If you're making it for two days — store pasta and veggies in a container, fry halloumi right before eating (3 minutes). Rinse pasta with cold water after cooking so it doesn't stick.",
-    "freshAdd": "Cherry tomatoes halved, cucumber diced. You can add arugula or spinach."
+    "freshAdd": "Cherry tomatoes halved, cucumber diced. You can add arugula or spinach.",
+    "perPortionNutrients": {
+      "sugar": 8,
+      "sodium": 926.1,
+      "calcium": 445.2,
+      "iron": 4.5,
+      "potassium": 744.6,
+      "magnesium": 96.3,
+      "zinc": 4.1,
+      "vitaminA": 162,
+      "vitaminC": 22.4,
+      "vitaminD": 0,
+      "vitaminE": 1.7,
+      "vitaminK": 31,
+      "vitaminB1": 1.1,
+      "vitaminB2": 1.1,
+      "vitaminB3": 8.9,
+      "vitaminB5": 1.6,
+      "vitaminB6": 0.6,
+      "vitaminB9": 291,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "gnocchi-tuna-mozzarella",
     "emoji": "🥔",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "quick", "10-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "10-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 568, "protein": 22, "fat": 30, "carbs": 59, "fiber": 3 },
+    "perPortion": {
+      "kcal": 560,
+      "protein": 30.8,
+      "fat": 31.3,
+      "carbs": 40,
+      "fiber": 3.2
+    },
     "ingredients": [
-      { "id": "gnocchi", "amount": 200, "unit": "g" },
-      { "id": "canned-tuna", "amount": 0.5, "unit": "can", "note": "drain the liquid" },
-      { "id": "mozzarella", "amount": 60, "unit": "g", "note": "diced" },
-      { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "raw, halved" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp" }
+      {
+        "id": "gnocchi",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "canned-tuna",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 0.5 cans; drain the liquid"
+      },
+      {
+        "id": "mozzarella",
+        "amount": 60,
+        "unit": "g",
+        "note": "diced"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 pcs; raw, halved"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 tsp"
+      }
     ],
     "name": "Gnocchi with Tuna and Mozzarella",
     "description": "Gnocchi cook in 2–3 minutes, tuna from a can, mozzarella diced, fresh cherry tomatoes. Soft potato texture + protein with no cooking.",
@@ -709,25 +2182,86 @@
       "Drizzle with olive oil and lemon juice"
     ],
     "tips": "Gnocchi come in individual vacuum packs — nothing goes to waste. Don't overcook: floated = done, beyond that they fall apart. Mozzarella slightly melts on warm gnocchi — that's delicious.",
-    "freshAdd": "Cherry tomatoes halved. You can add arugula or spinach, cucumber diced."
+    "freshAdd": "Cherry tomatoes halved. You can add arugula or spinach, cucumber diced.",
+    "perPortionNutrients": {
+      "sugar": 4.7,
+      "sodium": 1003,
+      "calcium": 367.6,
+      "iron": 3.2,
+      "potassium": 675.4,
+      "magnesium": 61.2,
+      "zinc": 2.8,
+      "vitaminA": 284,
+      "vitaminC": 18.8,
+      "vitaminD": 1,
+      "vitaminE": 1.6,
+      "vitaminK": 15,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.4,
+      "vitaminB3": 9.2,
+      "vitaminB5": 0.3,
+      "vitaminB6": 0.5,
+      "vitaminB9": 56,
+      "vitaminB12": 3
+    }
   },
   {
     "id": "gnocchi-halloumi-bowl",
     "emoji": "🧈",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "10-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "10-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 670, "protein": 27, "fat": 37, "carbs": 63, "fiber": 3 },
+    "perPortion": {
+      "kcal": 556,
+      "protein": 17.8,
+      "fat": 34.7,
+      "carbs": 45.3,
+      "fiber": 3.7
+    },
     "ingredients": [
-      { "id": "gnocchi", "amount": 200, "unit": "g" },
-      { "id": "halloumi", "amount": 80, "unit": "g" },
-      { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "raw, halved" },
-      { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "raw, diced" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp" }
+      {
+        "id": "gnocchi",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "halloumi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 pcs; raw, halved"
+      },
+      {
+        "id": "cucumber",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 0.5 pcs; raw, diced"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 tsp"
+      }
     ],
     "name": "Gnocchi with Halloumi and Veggies",
     "description": "Two warm components — soft gnocchi and crispy halloumi — plus fresh veggies on top. Parallel cooking: while the gnocchi boil, the halloumi fries.",
@@ -741,27 +2275,98 @@
       "Olive oil and lemon juice"
     ],
     "tips": "Cook in parallel: while the water boils — fry the halloumi. Everything will be ready at the same time in 5–6 minutes. Eat the halloumi right away while it's crispy.",
-    "freshAdd": "Cherry tomatoes halved, cucumber diced, lemon juice. You can add spinach."
+    "freshAdd": "Cherry tomatoes halved, cucumber diced, lemon juice. You can add spinach.",
+    "perPortionNutrients": {
+      "sugar": 6.4,
+      "sodium": 1476.4,
+      "calcium": 464.8,
+      "iron": 2.8,
+      "potassium": 719,
+      "magnesium": 63.6,
+      "zinc": 3.2,
+      "vitaminA": 272,
+      "vitaminC": 21.6,
+      "vitaminD": 1,
+      "vitaminE": 1.4,
+      "vitaminK": 31,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.9,
+      "vitaminB3": 3.9,
+      "vitaminB5": 1.1,
+      "vitaminB6": 0.7,
+      "vitaminB9": 82,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "tortilla-scramble-wrap",
     "emoji": "🌯",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "quick", "10-min", "high-protein"],
+    "tags": [
+      "breakfast-dinner",
+      "quick",
+      "10-min",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 532, "protein": 26, "fat": 35, "carbs": 31, "fiber": 5 },
+    "perPortion": {
+      "kcal": 517,
+      "protein": 26.9,
+      "fat": 32.5,
+      "carbs": 30.5,
+      "fiber": 3.8
+    },
     "ingredients": [
-      { "id": "tortilla", "amount": 1, "unit": "pcs" },
-      { "id": "egg", "amount": 2, "unit": "pcs" },
-      { "id": "cream-cheese", "amount": 1, "unit": "tbsp" },
-      { "id": "smoked-fish", "amount": 40, "unit": "g" },
-      { "id": "avocado", "amount": 0.25, "unit": "pcs" },
-      { "id": "spinach", "amount": 1, "unit": "handful" },
-      { "id": "cherry-tomatoes", "amount": 4, "unit": "pcs", "note": "halved" },
-      { "id": "butter", "amount": 1, "unit": "small-piece" }
+      {
+        "id": "tortilla",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 pcs"
+      },
+      {
+        "id": "cream-cheese",
+        "amount": 15,
+        "unit": "g",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "smoked-fish",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "id": "avocado",
+        "amount": 34,
+        "unit": "g",
+        "note": "≈ 0.25 pcs"
+      },
+      {
+        "id": "spinach",
+        "amount": 30,
+        "unit": "g",
+        "note": "≈ 1 handful"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 4 pcs; halved"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 small piece"
+      }
     ],
     "name": "Tortilla Wrap with Scramble and Fish",
     "description": "Tortilla + scrambled eggs + cream cheese + smoked fish + avocado + spinach + cherry tomatoes. Filling, juicy, pretty.",
@@ -775,23 +2380,71 @@
       "Fold: fold in half, then in half again, or roll it up"
     ],
     "tips": "Cherry tomatoes add juiciness and a tang that balances the richness of avocado and fish. Scramble should be soft and slightly moist — don't overcook. Spinach goes in fresh, no cooking needed.",
-    "freshAdd": "Apple + latte on the side."
+    "freshAdd": "Apple + latte on the side.",
+    "perPortionNutrients": {
+      "sugar": 3.1,
+      "sodium": 955.8,
+      "calcium": 203.9,
+      "iron": 4.2,
+      "potassium": 723.7,
+      "magnesium": 61.8,
+      "zinc": 2,
+      "vitaminA": 457,
+      "vitaminC": 21.1,
+      "vitaminD": 9,
+      "vitaminE": 3.6,
+      "vitaminK": 159,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0.6,
+      "vitaminB3": 3.2,
+      "vitaminB5": 2.5,
+      "vitaminB6": 0.5,
+      "vitaminB9": 145,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "yogurt-berry-bowl",
     "emoji": "🫐",
     "type": "cold-bowl",
-    "tags": ["breakfast-dinner", "no-cooking", "quick"],
+    "tags": [
+      "breakfast-dinner",
+      "no-cooking",
+      "quick"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 422, "protein": 28, "fat": 14, "carbs": 47, "fiber": 5 },
+    "perPortion": {
+      "kcal": 415,
+      "protein": 26.4,
+      "fat": 15.3,
+      "carbs": 46.4,
+      "fiber": 3.4
+    },
     "ingredients": [
-      { "id": "greek-yogurt", "amount": 200, "unit": "g" },
-      { "id": "berries", "amount": 1, "unit": "handful" },
-      { "id": "nuts", "amount": 25, "unit": "g" },
-      { "id": "corn-flakes", "amount": 30, "unit": "g" }
+      {
+        "id": "greek-yogurt",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 handful"
+      },
+      {
+        "id": "nuts",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "id": "corn-flakes",
+        "amount": 30,
+        "unit": "g"
+      }
     ],
     "name": "Yogurt Bowl with Berries and Nuts",
     "description": "Your go-to breakfast. Greek yogurt + berries + nuts + cereal flakes. Quick, tasty, never gets old.",
@@ -803,24 +2456,79 @@
       "Done"
     ],
     "tips": "For extra staying power: add 1–2 tbsp of chia seeds (soak in the yogurt overnight or for 15–20 min). That's +4 g protein and +8 g fiber. You can also swap some flakes for oats for longer satiety.",
-    "freshAdd": "Apple + latte"
+    "freshAdd": "Apple + latte",
+    "perPortionNutrients": {
+      "sugar": 13.8,
+      "sodium": 246.6,
+      "calcium": 250.1,
+      "iron": 6.7,
+      "potassium": 488.6,
+      "magnesium": 89.9,
+      "zinc": 2.3,
+      "vitaminA": 298,
+      "vitaminC": 24.5,
+      "vitaminD": 2,
+      "vitaminE": 0.3,
+      "vitaminK": 10,
+      "vitaminB1": 1.5,
+      "vitaminB2": 1.2,
+      "vitaminB3": 7.4,
+      "vitaminB5": 1,
+      "vitaminB6": 0.8,
+      "vitaminB9": 245,
+      "vitaminB12": 3
+    }
   },
   {
     "id": "overnight-oats",
     "emoji": "🥣",
     "type": "cold-bowl",
-    "tags": ["breakfast-dinner", "no-cooking", "prep-evening"],
+    "tags": [
+      "breakfast-dinner",
+      "no-cooking",
+      "prep-evening"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 526, "protein": 33, "fat": 22, "carbs": 54, "fiber": 10 },
+    "perPortion": {
+      "kcal": 477,
+      "protein": 31,
+      "fat": 21.1,
+      "carbs": 45.3,
+      "fiber": 13
+    },
     "ingredients": [
-      { "id": "greek-yogurt", "amount": 200, "unit": "g" },
-      { "id": "oats", "amount": 4, "unit": "tbsp" },
-      { "id": "chia-seeds", "amount": 2, "unit": "tbsp" },
-      { "id": "berries", "amount": 1, "unit": "handful", "note": "add in the morning" },
-      { "id": "nuts", "amount": 20, "unit": "g", "note": "add in the morning" }
+      {
+        "id": "greek-yogurt",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "oats",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 4 tbsp"
+      },
+      {
+        "id": "chia-seeds",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 2 tbsp"
+      },
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 handful; add in the morning"
+      },
+      {
+        "id": "nuts",
+        "amount": 20,
+        "unit": "g",
+        "note": "add in the morning"
+      }
     ],
     "name": "Overnight Oats with Yogurt and Chia",
     "description": "Mix the night before, grab from the fridge in the morning — done. Thick creamy texture, more filling than a regular yogurt bowl.",
@@ -832,23 +2540,75 @@
       "Done"
     ],
     "tips": "Chia fully swells overnight — the texture will be like pudding. If you forgot to prep the night before — you can do it in the morning, but wait 15–20 minutes. Always add berries and nuts in the morning so they stay crunchy.",
-    "freshAdd": "Apple + latte"
+    "freshAdd": "Apple + latte",
+    "perPortionNutrients": {
+      "sugar": 11.7,
+      "sodium": 80,
+      "calcium": 408.1,
+      "iron": 3.7,
+      "potassium": 613.9,
+      "magnesium": 188.7,
+      "zinc": 4,
+      "vitaminA": 4,
+      "vitaminC": 5.3,
+      "vitaminD": 0,
+      "vitaminE": 0.5,
+      "vitaminK": 10,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.8,
+      "vitaminB3": 3.4,
+      "vitaminB5": 1.2,
+      "vitaminB6": 0.2,
+      "vitaminB9": 48,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "avocado-egg-toast",
     "emoji": "🥑",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "quick", "10-min"],
+    "tags": [
+      "breakfast-dinner",
+      "quick",
+      "10-min"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 460, "protein": 20, "fat": 29, "carbs": 33, "fiber": 7 },
+    "perPortion": {
+      "kcal": 483,
+      "protein": 19.3,
+      "fat": 29.6,
+      "carbs": 36.2,
+      "fiber": 6.2
+    },
     "ingredients": [
-      { "id": "toast-bread", "amount": 2, "unit": "slice" },
-      { "id": "avocado", "amount": 0.5, "unit": "pcs" },
-      { "id": "egg", "amount": 2, "unit": "pcs", "note": "hard-boiled or fried" },
-      { "id": "butter", "amount": 1, "unit": "small-piece", "optional": true }
+      {
+        "id": "toast-bread",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 2 slices"
+      },
+      {
+        "id": "avocado",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 0.5 pcs"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 pcs; hard-boiled or fried"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "optional": true,
+        "note": "≈ 1 small piece"
+      }
     ],
     "name": "Avocado and Egg Toast",
     "description": "Toast + mashed avocado + egg. For staying full for 5 hours — use 2 eggs, not one.",
@@ -861,24 +2621,80 @@
       "Place eggs on toast"
     ],
     "tips": "2 eggs instead of one — that's the key difference between a 'snack' and a 'proper breakfast.' You can add a tomato slice on top. Fry in butter on medium heat so it doesn't burn.",
-    "freshAdd": "Tomato, green onion. Apple + latte on the side."
+    "freshAdd": "Tomato, green onion. Apple + latte on the side.",
+    "perPortionNutrients": {
+      "sugar": 4.2,
+      "sodium": 505.1,
+      "calcium": 153,
+      "iron": 4.3,
+      "potassium": 545.8,
+      "magnesium": 45.7,
+      "zinc": 2.2,
+      "vitaminA": 233,
+      "vitaminC": 6.8,
+      "vitaminD": 2,
+      "vitaminE": 2.8,
+      "vitaminK": 15,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.7,
+      "vitaminB3": 4.1,
+      "vitaminB5": 2.8,
+      "vitaminB6": 0.4,
+      "vitaminB9": 169,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "cheese-meat-toast",
     "emoji": "🥪",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "quick", "no-cooking"],
+    "tags": [
+      "breakfast-dinner",
+      "quick",
+      "no-cooking"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 357, "protein": 24, "fat": 15, "carbs": 33, "fiber": 3 },
+    "perPortion": {
+      "kcal": 398,
+      "protein": 18.2,
+      "fat": 21.5,
+      "carbs": 32.8,
+      "fiber": 1.9
+    },
     "ingredients": [
-      { "id": "toast-bread", "amount": 2, "unit": "slice" },
-      { "id": "cream-cheese", "amount": 1, "unit": "tbsp" },
-      { "id": "hard-cheese", "amount": 1, "unit": "slice" },
-      { "id": "smoked-turkey", "amount": 3, "unit": "slice" },
-      { "id": "tomato", "amount": 1, "unit": "slice" }
+      {
+        "id": "toast-bread",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 2 slices"
+      },
+      {
+        "id": "cream-cheese",
+        "amount": 15,
+        "unit": "g",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "hard-cheese",
+        "amount": 20,
+        "unit": "g",
+        "note": "≈ 1 slice"
+      },
+      {
+        "id": "smoked-turkey",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 3 slices"
+      },
+      {
+        "id": "tomato",
+        "amount": 20,
+        "unit": "g",
+        "note": "≈ 1 slice"
+      }
     ],
     "name": "Cheese and Meat Toast",
     "description": "Your classic dinner: toast + cream cheese + hard cheese + smoked turkey/ham + tomato.",
@@ -891,22 +2707,68 @@
       "Cover with the second toast or eat open-faced"
     ],
     "tips": "To avoid being hungry by 10 PM: load up on meat (2–3 slices instead of one), or add a boiled egg on the side. If you know you've got calls until 10 PM — plan a snack for 8:30 PM.",
-    "freshAdd": "You can add lettuce leaves, cucumber."
+    "freshAdd": "You can add lettuce leaves, cucumber.",
+    "perPortionNutrients": {
+      "sugar": 4.6,
+      "sodium": 953.8,
+      "calcium": 281,
+      "iron": 2.9,
+      "potassium": 315,
+      "magnesium": 29.9,
+      "zinc": 2.4,
+      "vitaminA": 127,
+      "vitaminC": 2.7,
+      "vitaminD": 0,
+      "vitaminE": 0.6,
+      "vitaminK": 2,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.4,
+      "vitaminB3": 4.8,
+      "vitaminB5": 0.8,
+      "vitaminB6": 0.2,
+      "vitaminB9": 81,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "nut-butter-toast",
     "emoji": "🍌",
     "type": "cold-bowl",
-    "tags": ["snack", "quick", "no-cooking"],
+    "tags": [
+      "snack",
+      "quick",
+      "no-cooking"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 2,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 350, "protein": 11, "fat": 10, "carbs": 56, "fiber": 4 },
+    "perPortion": {
+      "kcal": 360,
+      "protein": 10.1,
+      "fat": 10.6,
+      "carbs": 60.2,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "toast-bread", "amount": 2, "unit": "slice" },
-      { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
-      { "id": "banana", "amount": 1, "unit": "pcs" }
+      {
+        "id": "toast-bread",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 2 slices"
+      },
+      {
+        "id": "nut-butter",
+        "amount": 16,
+        "unit": "g",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      }
     ],
     "name": "Nut Butter Toast with Banana",
     "description": "Quick snack between breakfast and lunch, or in the evening between dinner and calls.",
@@ -918,21 +2780,62 @@
       "Slice banana on top"
     ],
     "tips": "A good option for 8:30 PM when you still have 1.5 hours of calls and crave something sweet. More filling than a pancake and higher in protein.",
-    "freshAdd": "Black coffee, if it's not too late."
+    "freshAdd": "Black coffee, if it's not too late.",
+    "perPortionNutrients": {
+      "sugar": 19.5,
+      "sodium": 297.9,
+      "calcium": 100.1,
+      "iron": 2.8,
+      "potassium": 587.3,
+      "magnesium": 72.5,
+      "zinc": 1,
+      "vitaminA": 4,
+      "vitaminC": 10.3,
+      "vitaminD": 0,
+      "vitaminE": 1.7,
+      "vitaminK": 1,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.3,
+      "vitaminB3": 5.8,
+      "vitaminB5": 0.9,
+      "vitaminB6": 0.6,
+      "vitaminB9": 104,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "cottage-cheese-berries",
     "emoji": "🍓",
     "type": "cold-bowl",
-    "tags": ["snack", "quick", "no-cooking", "high-protein"],
+    "tags": [
+      "snack",
+      "quick",
+      "no-cooking",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 1,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 187, "protein": 17, "fat": 7, "carbs": 15, "fiber": 2 },
+    "perPortion": {
+      "kcal": 176,
+      "protein": 17.1,
+      "fat": 6.6,
+      "carbs": 12.3,
+      "fiber": 1.2
+    },
     "ingredients": [
-      { "id": "cottage-cheese", "amount": 150, "unit": "g" },
-      { "id": "berries", "amount": 1, "unit": "handful" }
+      {
+        "id": "cottage-cheese",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 handful"
+      }
     ],
     "name": "Cottage Cheese with Berries",
     "description": "Grab from the fridge, toss on some berries — done. The highest-protein snack: ~15 g protein, zero effort.",
@@ -944,24 +2847,82 @@
       "Done"
     ],
     "tips": "The perfect late-night snack: light but high in protein. If you want it sweeter — add a teaspoon of honey. You can swap berries for banana.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 9,
+      "sodium": 473,
+      "calcium": 127.5,
+      "iron": 0.2,
+      "potassium": 194.5,
+      "magnesium": 15,
+      "zinc": 0.7,
+      "vitaminA": 57,
+      "vitaminC": 4.9,
+      "vitaminD": 0,
+      "vitaminE": 0.4,
+      "vitaminK": 10,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0.3,
+      "vitaminB3": 0.4,
+      "vitaminB5": 0.9,
+      "vitaminB6": 0.1,
+      "vitaminB9": 21,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "smoothie-banana-pb",
     "emoji": "🥤",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "no-cooking",
+      "quick",
+      "calorie-dense"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 456, "protein": 18, "fat": 19, "carbs": 60, "fiber": 6 },
+    "perPortion": {
+      "kcal": 472,
+      "protein": 12.7,
+      "fat": 22.3,
+      "carbs": 62.1,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs", "note": "frozen works too" },
-      { "id": "nut-butter", "amount": 1.5, "unit": "tbsp" },
-      { "id": "milk", "amount": 250, "unit": "ml" },
-      { "id": "oats", "amount": 2, "unit": "tbsp" },
-      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 pc; frozen works too"
+      },
+      {
+        "id": "nut-butter",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 1.5 tbsp"
+      },
+      {
+        "id": "milk",
+        "amount": 250,
+        "unit": "ml"
+      },
+      {
+        "id": "oats",
+        "amount": 12,
+        "unit": "g",
+        "note": "≈ 2 tbsp"
+      },
+      {
+        "id": "honey",
+        "amount": 7,
+        "unit": "g",
+        "optional": true,
+        "note": "≈ 1 tsp"
+      }
     ],
     "name": "Banana + Peanut Butter Smoothie",
     "description": "The most calorie-dense smoothie: banana, peanut butter, milk, oats. Sip it between meals, even when you're not hungry.",
@@ -973,25 +2934,87 @@
       "If too thick — add more milk"
     ],
     "tips": "Oats make the smoothie more calorie-dense and filling without adding obvious bulk. A frozen banana gives a milkshake-like texture. Sip it slowly over an hour or two — that way it's easier to add calories without feeling overstuffed.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 22.8,
+      "sodium": 207.1,
+      "calcium": 109.3,
+      "iron": 2.3,
+      "potassium": 897,
+      "magnesium": 104.3,
+      "zinc": 4.3,
+      "vitaminA": 4,
+      "vitaminC": 10.3,
+      "vitaminD": 0,
+      "vitaminE": 2.4,
+      "vitaminK": 1,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.4,
+      "vitaminB3": 4.1,
+      "vitaminB5": 0.8,
+      "vitaminB6": 0.6,
+      "vitaminB9": 48,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "smoothie-cocoa-protein",
     "emoji": "🍫",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "to-go", "no-cooking", "calorie-dense", "high-protein"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "to-go",
+      "no-cooking",
+      "calorie-dense",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 460, "protein": 27, "fat": 16, "carbs": 60, "fiber": 6 },
+    "perPortion": {
+      "kcal": 474,
+      "protein": 22.1,
+      "fat": 19.2,
+      "carbs": 61,
+      "fiber": 6.9
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs" },
-      { "id": "cocoa-powder", "amount": 1, "unit": "tbsp" },
-      { "id": "milk", "amount": 250, "unit": "ml" },
-      { "id": "greek-yogurt", "amount": 100, "unit": "g" },
-      { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
-      { "id": "oats", "amount": 2, "unit": "tbsp" }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      },
+      {
+        "id": "cocoa-powder",
+        "amount": 5,
+        "unit": "g",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "milk",
+        "amount": 250,
+        "unit": "ml"
+      },
+      {
+        "id": "greek-yogurt",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "nut-butter",
+        "amount": 16,
+        "unit": "g",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "oats",
+        "amount": 12,
+        "unit": "g",
+        "note": "≈ 2 tbsp"
+      }
     ],
     "name": "Chocolate Smoothie To Go",
     "description": "A calorie-dense smoothie with cocoa and protein in a bottle to take with you. Make it in the morning, grab it for the commute — drink it before or during the ride.",
@@ -1003,24 +3026,80 @@
       "Drink before heading out or at the start of the ride"
     ],
     "tips": "This is your \"safety net\" smoothie for days when you eat breakfast at work. Drink it at home or at the start of the commute — don't leave on an empty stomach. The yogurt and peanut butter add protein and fat so the calories absorb evenly.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 19.6,
+      "sodium": 242.5,
+      "calcium": 221.4,
+      "iron": 2.9,
+      "potassium": 1065.9,
+      "magnesium": 126.7,
+      "zinc": 4.9,
+      "vitaminA": 5,
+      "vitaminC": 10.3,
+      "vitaminD": 0,
+      "vitaminE": 1.6,
+      "vitaminK": 1,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.7,
+      "vitaminB3": 3.3,
+      "vitaminB5": 1.1,
+      "vitaminB6": 0.6,
+      "vitaminB9": 50,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "smoothie-mango-yogurt",
     "emoji": "🥭",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "no-cooking", "quick"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "no-cooking",
+      "quick"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 326, "protein": 22, "fat": 5, "carbs": 54, "fiber": 5 },
+    "perPortion": {
+      "kcal": 347,
+      "protein": 19.9,
+      "fat": 6.6,
+      "carbs": 56.6,
+      "fiber": 3.9
+    },
     "ingredients": [
-      { "id": "mango", "amount": 150, "unit": "g", "note": "fresh or frozen" },
-      { "id": "banana", "amount": 0.5, "unit": "pcs" },
-      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
-      { "id": "milk", "amount": 150, "unit": "ml" },
-      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+      {
+        "id": "mango",
+        "amount": 150,
+        "unit": "g",
+        "note": "fresh or frozen"
+      },
+      {
+        "id": "banana",
+        "amount": 59,
+        "unit": "g",
+        "note": "≈ 0.5 pcs"
+      },
+      {
+        "id": "greek-yogurt",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "milk",
+        "amount": 150,
+        "unit": "ml"
+      },
+      {
+        "id": "honey",
+        "amount": 7,
+        "unit": "g",
+        "optional": true,
+        "note": "≈ 1 tsp"
+      }
     ],
     "name": "Mango + Yogurt Smoothie",
     "description": "A tropical yogurt-based smoothie: mango, banana, yogurt. A refreshing option when you want something lighter but still calorie-dense.",
@@ -1032,25 +3111,86 @@
       "If too thick — add more milk"
     ],
     "tips": "Frozen mango makes the smoothie cold and thick without ice. The yogurt adds protein. Great as a midday top-up when your last meal was a while ago and the next one is still far off.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 38.3,
+      "sodium": 176.9,
+      "calcium": 235.9,
+      "iron": 1.1,
+      "potassium": 854.5,
+      "magnesium": 56.8,
+      "zinc": 2.8,
+      "vitaminA": 84,
+      "vitaminC": 59.8,
+      "vitaminD": 0,
+      "vitaminE": 1.4,
+      "vitaminK": 7,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0.7,
+      "vitaminB3": 1.7,
+      "vitaminB5": 1,
+      "vitaminB6": 0.5,
+      "vitaminB9": 87,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "smoothie-berry-oat",
     "emoji": "🫐",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "no-cooking",
+      "quick",
+      "calorie-dense"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 494, "protein": 28, "fat": 14, "carbs": 70, "fiber": 7 },
+    "perPortion": {
+      "kcal": 477,
+      "protein": 24.3,
+      "fat": 16,
+      "carbs": 64.6,
+      "fiber": 6.9
+    },
     "ingredients": [
-      { "id": "berries", "amount": 1, "unit": "handful", "note": "blueberry, raspberry; frozen works too" },
-      { "id": "banana", "amount": 1, "unit": "pcs" },
-      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
-      { "id": "oats", "amount": 3, "unit": "tbsp" },
-      { "id": "milk", "amount": 150, "unit": "ml" },
-      { "id": "nuts", "amount": 15, "unit": "g", "optional": true }
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 handful; blueberry, raspberry; frozen works too"
+      },
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 pc"
+      },
+      {
+        "id": "greek-yogurt",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "oats",
+        "amount": 18,
+        "unit": "g",
+        "note": "≈ 3 tbsp"
+      },
+      {
+        "id": "milk",
+        "amount": 150,
+        "unit": "ml"
+      },
+      {
+        "id": "nuts",
+        "amount": 15,
+        "unit": "g",
+        "optional": true
+      }
     ],
     "name": "Berry-Oat Smoothie",
     "description": "Berries, yogurt, oats, banana. A dense smoothie in the spirit of your favorite yogurt bowl, just in liquid form.",
@@ -1062,24 +3202,81 @@
       "Add more milk if too thick"
     ],
     "tips": "Oats and nuts bump up the calories. This smoothie tastes close to your yogurt bowl, so it goes down easily. Frozen berries are cheaper and always on hand.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 24.4,
+      "sodium": 178.9,
+      "calcium": 250.1,
+      "iron": 2.3,
+      "potassium": 995.3,
+      "magnesium": 123.1,
+      "zinc": 4.2,
+      "vitaminA": 7,
+      "vitaminC": 15.2,
+      "vitaminD": 0,
+      "vitaminE": 0.5,
+      "vitaminK": 11,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.8,
+      "vitaminB3": 1.8,
+      "vitaminB5": 1.3,
+      "vitaminB6": 0.6,
+      "vitaminB9": 51,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "banana-oat-pancakes",
     "emoji": "🥞",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "flour-free", "quick"],
+    "tags": [
+      "breakfast-dinner",
+      "flour-free",
+      "quick"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 424, "protein": 18, "fat": 19, "carbs": 51, "fiber": 6 },
+    "perPortion": {
+      "kcal": 430,
+      "protein": 17.6,
+      "fat": 20.6,
+      "carbs": 45.8,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs", "note": "ripe, with brown spots" },
-      { "id": "egg", "amount": 2, "unit": "pcs" },
-      { "id": "oats", "amount": 4, "unit": "tbsp" },
-      { "id": "milk", "amount": 2, "unit": "tbsp", "note": "if batter is thick", "optional": true },
-      { "id": "butter", "amount": 1, "unit": "small-piece", "note": "for frying" }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 pc; ripe, with brown spots"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 pcs"
+      },
+      {
+        "id": "oats",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 4 tbsp"
+      },
+      {
+        "id": "milk",
+        "amount": 30,
+        "unit": "ml",
+        "note": "≈ 2 tbsp; if batter is thick",
+        "optional": true
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 small piece; for frying"
+      }
     ],
     "name": "Banana Oat Pancakes",
     "description": "Flour-free pancakes made with banana and oats. Held together by egg — simple, sweet from the banana, no sugar needed.",
@@ -1093,24 +3290,80 @@
       "1.5–2 min per side, flip once a crust forms"
     ],
     "tips": "The batter is thicker than usual; the pancakes come out small and dense. A ripe banana provides sweetness — no sugar needed. Keep them small (a tablespoon of batter per pancake) and don't flip too early or they'll fall apart. Serve with berries, yogurt, nut butter or honey — adds calories.",
-    "freshAdd": "Berries, a spoon of yogurt, nut butter or a drizzle of honey on top."
+    "freshAdd": "Berries, a spoon of yogurt, nut butter or a drizzle of honey on top.",
+    "perPortionNutrients": {
+      "sugar": 15,
+      "sodium": 233,
+      "calcium": 87,
+      "iron": 3.2,
+      "potassium": 684.9,
+      "magnesium": 79,
+      "zinc": 2.7,
+      "vitaminA": 232,
+      "vitaminC": 10.3,
+      "vitaminD": 2,
+      "vitaminE": 1.5,
+      "vitaminK": 2,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.6,
+      "vitaminB3": 1.1,
+      "vitaminB5": 2.2,
+      "vitaminB6": 0.6,
+      "vitaminB9": 79,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "banana-cottage-pancakes",
     "emoji": "🥞",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "flour-free", "quick", "high-protein"],
+    "tags": [
+      "breakfast-dinner",
+      "flour-free",
+      "quick",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 489, "protein": 28, "fat": 22, "carbs": 48, "fiber": 5 },
+    "perPortion": {
+      "kcal": 486,
+      "protein": 27.4,
+      "fat": 23.5,
+      "carbs": 43.2,
+      "fiber": 4.9
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs", "note": "ripe" },
-      { "id": "cottage-cheese", "amount": 100, "unit": "g" },
-      { "id": "egg", "amount": 2, "unit": "pcs" },
-      { "id": "oats", "amount": 3, "unit": "tbsp" },
-      { "id": "butter", "amount": 1, "unit": "small-piece", "note": "for frying" }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 pc; ripe"
+      },
+      {
+        "id": "cottage-cheese",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 pcs"
+      },
+      {
+        "id": "oats",
+        "amount": 18,
+        "unit": "g",
+        "note": "≈ 3 tbsp"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 small piece; for frying"
+      }
     ],
     "name": "Banana Cottage Cheese Pancakes",
     "description": "Banana pancakes with cottage cheese — 28 g of protein. Cottage cheese makes them softer and helps them hold shape better than plain banana pancakes.",
@@ -1124,23 +3377,75 @@
       "2 min per side, flip once a crust forms"
     ],
     "tips": "Cottage cheese adds protein (28 g — almost like a lunch bowl) and makes the pancakes softer and sturdier. A good option when you want a sweet breakfast but need protein. Works great as a filling breakfast on commuting days.",
-    "freshAdd": "Berries, yogurt, nut butter or honey on top."
+    "freshAdd": "Berries, yogurt, nut butter or honey on top.",
+    "perPortionNutrients": {
+      "sugar": 17.7,
+      "sodium": 523.6,
+      "calcium": 156.7,
+      "iron": 2.9,
+      "potassium": 732,
+      "magnesium": 76.9,
+      "zinc": 2.5,
+      "vitaminA": 269,
+      "vitaminC": 10.3,
+      "vitaminD": 2,
+      "vitaminE": 1.6,
+      "vitaminK": 2,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.7,
+      "vitaminB3": 1.2,
+      "vitaminB5": 2.7,
+      "vitaminB6": 0.7,
+      "vitaminB9": 89,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "tahini-sauce",
     "emoji": "🥄",
     "type": "sauce",
-    "tags": ["add-on", "no-cooking", "quick", "calorie-dense"],
+    "tags": [
+      "add-on",
+      "no-cooking",
+      "quick",
+      "calorie-dense"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 2,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 153, "protein": 1, "fat": 17, "carbs": 2, "fiber": 1 },
+    "perPortion": {
+      "kcal": 151,
+      "protein": 0.9,
+      "fat": 16.3,
+      "carbs": 1.4,
+      "fiber": 0.3
+    },
     "ingredients": [
-      { "id": "tahini", "amount": 1, "unit": "tsp", "note": "heaping" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-or-sesame-oil", "amount": 1, "unit": "tbsp" },
-      { "id": "water", "amount": 1, "unit": "splash", "note": "to desired consistency" }
+      {
+        "id": "tahini",
+        "amount": 5,
+        "unit": "g",
+        "note": "≈ 1 tsp; heaping"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      },
+      {
+        "id": "olive-or-sesame-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "water",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 splash; to desired consistency"
+      }
     ],
     "name": "Tahini Sauce (bowl add-on)",
     "description": "A universal calorie-dense add-on for any lunch bowl. Adds ~160 kcal of dense calories with barely any volume.",
@@ -1152,6 +3457,27 @@
       "Drizzle over the bowl before eating"
     ],
     "tips": "Add it to rice, buckwheat, lentils, quinoa, couscous. Delivers dense calories without volume — exactly what you need when large portions don't fit. Tahini contains calcium and iron; lemon (vitamin C) helps iron absorption.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 0.1,
+      "sodium": 2.1,
+      "calcium": 7.5,
+      "iron": 0.3,
+      "potassium": 28.4,
+      "magnesium": 5.1,
+      "zinc": 0.2,
+      "vitaminA": 0,
+      "vitaminC": 2.2,
+      "vitaminD": 0,
+      "vitaminE": 2,
+      "vitaminK": 8,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0,
+      "vitaminB3": 0.3,
+      "vitaminB5": 0,
+      "vitaminB6": 0,
+      "vitaminB9": 6,
+      "vitaminB12": 0
+    }
   }
 ]
