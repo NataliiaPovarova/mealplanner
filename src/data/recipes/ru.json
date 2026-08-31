@@ -3,20 +3,65 @@
     "id": "tomato-egg-noodles",
     "emoji": "🍜",
     "type": "noodle",
-    "tags": ["lunch", "no-rice-cooker", "favorite"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "favorite"
+    ],
     "batchDays": 1,
     "portions": 2,
     "prepMinutes": 15,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 476, "protein": 24, "fat": 18, "carbs": 60, "fiber": 4 },
+    "perPortion": {
+      "kcal": 482,
+      "protein": 24.7,
+      "fat": 16.3,
+      "carbs": 59.6,
+      "fiber": 5.1
+    },
     "ingredients": [
-      { "id": "egg-noodles", "amount": 140, "unit": "g" },
-      { "id": "tomato", "amount": 3, "unit": "medium" },
-      { "id": "egg", "amount": 4, "unit": "pcs" },
-      { "id": "green-onion", "amount": 3, "unit": "stalks" },
-      { "id": "vegetable-oil", "amount": 1, "unit": "dash" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tsp", "optional": true },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "egg-noodles",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "tomato",
+        "amount": 369,
+        "unit": "g",
+        "note": "≈ 3 средних"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт."
+      },
+      {
+        "id": "green-onion",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 3 пера"
+      },
+      {
+        "id": "vegetable-oil",
+        "amount": 2,
+        "unit": "ml",
+        "note": "≈ 1 капля"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Лапша с томатом и яйцом",
     "description": "Твой проверенный фаворит — 西红柿鸡蛋面. Быстро, сытно, с минимальной заморочкой.",
@@ -30,27 +75,96 @@
       "Посыпать зелёным луком"
     ],
     "tips": "Вторую порцию убрать в контейнер — на завтра разогреть. Помидоры дают сочность, масла нужен минимум.",
-    "freshAdd": "Сырые огурцы палочками сбоку — хрустит и освежает"
+    "freshAdd": "Сырые огурцы палочками сбоку — хрустит и освежает",
+    "perPortionNutrients": {
+      "sugar": 7.1,
+      "sodium": 327.4,
+      "calcium": 116.1,
+      "iron": 5.4,
+      "potassium": 820.7,
+      "magnesium": 79.5,
+      "zinc": 3.1,
+      "vitaminA": 261,
+      "vitaminC": 29.5,
+      "vitaminD": 2,
+      "vitaminE": 2.9,
+      "vitaminK": 62,
+      "vitaminB1": 0.9,
+      "vitaminB2": 0.8,
+      "vitaminB3": 7.2,
+      "vitaminB5": 2.4,
+      "vitaminB6": 0.5,
+      "vitaminB9": 250,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "lentil-chicken-bowl",
     "emoji": "🥘",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "high-protein"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "high-protein"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 470, "protein": 47, "fat": 13, "carbs": 43, "fiber": 12 },
+    "perPortion": {
+      "kcal": 423,
+      "protein": 37.8,
+      "fat": 11.8,
+      "carbs": 43.3,
+      "fiber": 8.9
+    },
     "ingredients": [
-      { "id": "red-lentils", "amount": 100, "unit": "g" },
-      { "id": "chicken-breast", "amount": 200, "unit": "g" },
-      { "id": "water", "amount": 300, "unit": "ml" },
-      { "id": "carrot", "amount": 1, "unit": "pcs", "note": "сырая, в боул" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "bell-pepper", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
+      {
+        "id": "red-lentils",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "chicken-breast",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 300,
+        "unit": "ml"
+      },
+      {
+        "id": "carrot",
+        "amount": 61,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырая, в боул"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 119,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, в боул"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      }
     ],
     "name": "Чечевичный боул с курицей",
     "description": "Красная чечевица в рисоварке (режим simmered soup) + куриная грудка сверху. Чашу заполнять максимум наполовину, чтобы пена не полезла.",
@@ -64,26 +178,92 @@
       "Разложить по контейнерам: чечевица + курица"
     ],
     "tips": "Важно: не заполняй чашу больше чем наполовину — чечевица сильно пенится и разбухает. 100 г сухой чечевицы + 300 мл воды — безопасный объём. Если нужно 3 порции, лучше сделать в кастрюле на плите (40 мин).",
-    "freshAdd": "Нарезать сырые: морковь палочками, перец полосками, помидор дольками. Положить сверху на тёплую чечевицу."
+    "freshAdd": "Нарезать сырые: морковь палочками, перец полосками, помидор дольками. Положить сверху на тёплую чечевицу.",
+    "perPortionNutrients": {
+      "sugar": 7.2,
+      "sodium": 551.8,
+      "calcium": 57.4,
+      "iron": 4.5,
+      "potassium": 1217.5,
+      "magnesium": 83.6,
+      "zinc": 2.8,
+      "vitaminA": 327,
+      "vitaminC": 69.8,
+      "vitaminD": 0,
+      "vitaminE": 2.9,
+      "vitaminK": 25,
+      "vitaminB1": 0.7,
+      "vitaminB2": 0.4,
+      "vitaminB3": 12.6,
+      "vitaminB5": 2.8,
+      "vitaminB6": 1.4,
+      "vitaminB9": 283,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "rice-chicken-bowl",
     "emoji": "🍚",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "basic"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "basic"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 444, "protein": 31, "fat": 17, "carbs": 41, "fiber": 3 },
+    "perPortion": {
+      "kcal": 374,
+      "protein": 26.6,
+      "fat": 10.7,
+      "carbs": 40.4,
+      "fiber": 0.1
+    },
     "ingredients": [
-      { "id": "rice", "amount": 150, "unit": "g" },
-      { "id": "chicken-breast-or-thigh", "amount": 300, "unit": "g" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 2 по левой шкале 东北米" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp", "optional": true },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "rice",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "chicken-breast-or-thigh",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "до отметки 2 по левой шкале 东北米"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 2.5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 0.5 ч. л."
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Рисовый боул с курицей",
     "description": "Самый простой вариант: рис + курица прямо в рисоварке. Классика хайнаньского куриного риса, упрощённая до предела.",
@@ -97,25 +277,84 @@
       "Достать курицу, нарезать, вернуть сверху"
     ],
     "tips": "Курица варится на пару от риса — получается нежная и сочная. Три контейнера на 3 дня.",
-    "freshAdd": "Огурец + помидор + зелёный лук. Или салат айсберг с каплей соевого соуса."
+    "freshAdd": "Огурец + помидор + зелёный лук. Или салат айсберг с каплей соевого соуса.",
+    "perPortionNutrients": {
+      "sugar": 0.1,
+      "sodium": 362,
+      "calcium": 13.9,
+      "iron": 1,
+      "potassium": 411.5,
+      "magnesium": 51.5,
+      "zinc": 1.4,
+      "vitaminA": 9,
+      "vitaminC": 0.7,
+      "vitaminD": 0,
+      "vitaminE": 1.2,
+      "vitaminK": 3,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.2,
+      "vitaminB3": 10.6,
+      "vitaminB5": 2.2,
+      "vitaminB6": 0.9,
+      "vitaminB9": 16,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "buckwheat-turkey-bowl",
     "emoji": "🫘",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "high-protein"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "high-protein"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 30,
-    "perPortion": { "kcal": 455, "protein": 44, "fat": 10, "carbs": 50, "fiber": 6 },
+    "perPortion": {
+      "kcal": 414,
+      "protein": 37,
+      "fat": 9.4,
+      "carbs": 49.1,
+      "fiber": 7.4
+    },
     "ingredients": [
-      { "id": "buckwheat", "amount": 180, "unit": "g" },
-      { "id": "turkey-fillet", "amount": 350, "unit": "g" },
-      { "id": "water", "amount": 360, "unit": "ml" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
+      {
+        "id": "buckwheat",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "id": "turkey-fillet",
+        "amount": 350,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 360,
+        "unit": "ml"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, в боул"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      }
     ],
     "name": "Гречка с индейкой",
     "description": "Гречка в рисоварке получается рассыпчатой. Стейк из индейки обжариваешь отдельно за 5 минут или кладёшь в рисоварку вместе.",
@@ -129,29 +368,109 @@
       "Разложить по контейнерам"
     ],
     "tips": "Гречка и индейка — максимально нейтральный вкус, как ты любишь. Свежие продукты = свежий вкус.",
-    "freshAdd": "Помидор + огурец + пара листьев салата"
+    "freshAdd": "Помидор + огурец + пара листьев салата",
+    "perPortionNutrients": {
+      "sugar": 3.4,
+      "sodium": 138.6,
+      "calcium": 45,
+      "iron": 2.7,
+      "potassium": 860.1,
+      "magnesium": 190.7,
+      "zinc": 3.3,
+      "vitaminA": 45,
+      "vitaminC": 13.8,
+      "vitaminD": 0,
+      "vitaminE": 1.2,
+      "vitaminK": 20,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.5,
+      "vitaminB3": 16.4,
+      "vitaminB5": 1.9,
+      "vitaminB6": 1.2,
+      "vitaminB9": 45,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "cold-grain-bowl",
     "emoji": "🥗",
     "type": "cold-bowl",
-    "tags": ["lunch", "rice-cooker-for-grain", "batch-2", "no-reheating"],
+    "tags": [
+      "lunch",
+      "rice-cooker-for-grain",
+      "batch-2",
+      "no-reheating"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 666, "protein": 26, "fat": 40, "carbs": 57, "fiber": 8 },
+    "perPortion": {
+      "kcal": 618,
+      "protein": 26.7,
+      "fat": 32.1,
+      "carbs": 59.2,
+      "fiber": 13.7
+    },
     "ingredients": [
-      { "id": "quinoa", "amount": 100, "unit": "g" },
-      { "id": "water", "amount": 200, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "варить отдельно или на пару в рисоварке" },
-      { "id": "cucumber", "amount": 1, "unit": "large" },
-      { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
-      { "id": "avocado", "amount": 1, "unit": "pcs" },
-      { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "промыть" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "quinoa",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт.; варить отдельно или на пару в рисоварке"
+      },
+      {
+        "id": "cucumber",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 1 большой"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 170,
+        "unit": "g",
+        "note": "≈ 10 шт."
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      },
+      {
+        "id": "canned-chickpeas",
+        "amount": 100,
+        "unit": "g",
+        "note": "промыть"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Холодный боул с киноа и яйцом",
     "description": "Всё комнатной температуры или из холодильника. Идеально на лето или когда лень разогревать.",
@@ -165,26 +484,90 @@
       "Собрать боул: киноа → нут → яйца → овощи → капля масла и лимона"
     ],
     "tips": "Хранить крупу и яйца отдельно от овощей. Собирать боул перед едой, чтобы овощи были хрустящими.",
-    "freshAdd": "Всё и так свежее! Можно добавить кукурузу или эдамаме."
+    "freshAdd": "Всё и так свежее! Можно добавить кукурузу или эдамаме.",
+    "perPortionNutrients": {
+      "sugar": 5.6,
+      "sodium": 276.2,
+      "calcium": 134.9,
+      "iron": 6.3,
+      "potassium": 1374.5,
+      "magnesium": 185.7,
+      "zinc": 4.2,
+      "vitaminA": 208,
+      "vitaminC": 23.6,
+      "vitaminD": 2,
+      "vitaminE": 5.5,
+      "vitaminK": 51,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.8,
+      "vitaminB3": 3,
+      "vitaminB5": 3.6,
+      "vitaminB6": 0.8,
+      "vitaminB9": 293,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "noodle-broth-bowl",
     "emoji": "🍲",
     "type": "noodle",
-    "tags": ["lunch", "rice-cooker-for-broth", "batch-2"],
+    "tags": [
+      "lunch",
+      "rice-cooker-for-broth",
+      "batch-2"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 40,
-    "perPortion": { "kcal": 519, "protein": 35, "fat": 18, "carbs": 56, "fiber": 3 },
+    "perPortion": {
+      "kcal": 716,
+      "protein": 42.1,
+      "fat": 33.2,
+      "carbs": 59.4,
+      "fiber": 3.2
+    },
     "ingredients": [
-      { "id": "chicken-thigh-bone-in", "amount": 2, "unit": "pcs" },
-      { "id": "water", "amount": 800, "unit": "ml" },
-      { "id": "noodles", "amount": 150, "unit": "g" },
-      { "id": "egg", "amount": 2, "unit": "pcs", "note": "сварить отдельно, в бульон разрезать пополам" },
-      { "id": "green-onion", "amount": 4, "unit": "stalks" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "chicken-thigh-bone-in",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 2 шт."
+      },
+      {
+        "id": "water",
+        "amount": 800,
+        "unit": "ml"
+      },
+      {
+        "id": "noodles",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 шт.; сварить отдельно, в бульон разрезать пополам"
+      },
+      {
+        "id": "green-onion",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 4 пера"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Лапша в бульоне с курицей",
     "description": "Мягкий куриный бульон из рисоварки + лапша + свежие овощи. Не острый рамён по духу, но без пакетиков.",
@@ -198,29 +581,111 @@
       "Собрать: лапша → бульон → мясо → яйцо пополам → лук"
     ],
     "tips": "Бульон хранится 2 дня в холодильнике. Лапшу лучше варить свежую перед едой (5 мин), иначе раскиснет.",
-    "freshAdd": "Зелёный лук, ростки маша, тонко нарезанный огурец"
+    "freshAdd": "Зелёный лук, ростки маша, тонко нарезанный огурец",
+    "perPortionNutrients": {
+      "sugar": 2.9,
+      "sodium": 675.6,
+      "calcium": 78.7,
+      "iron": 4.9,
+      "potassium": 662.6,
+      "magnesium": 85.1,
+      "zinc": 3.8,
+      "vitaminA": 130,
+      "vitaminC": 5.6,
+      "vitaminD": 1,
+      "vitaminE": 1.1,
+      "vitaminK": 65,
+      "vitaminB1": 0.8,
+      "vitaminB2": 0.8,
+      "vitaminB3": 12.7,
+      "vitaminB5": 1.4,
+      "vitaminB6": 0.7,
+      "vitaminB9": 226,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "chickpea-rice-bowl",
     "emoji": "🧆",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "plant-protein"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "plant-protein"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 448, "protein": 17, "fat": 25, "carbs": 41, "fiber": 10 },
+    "perPortion": {
+      "kcal": 524,
+      "protein": 23.5,
+      "fat": 21.9,
+      "carbs": 58.9,
+      "fiber": 8.1
+    },
     "ingredients": [
-      { "id": "rice", "amount": 120, "unit": "g" },
-      { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "слить жидкость" },
-      { "id": "egg", "amount": 6, "unit": "pcs", "note": "сварить отдельно" },
-      { "id": "tomato", "amount": 3, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "между отметками 1 и 2 по левой шкале 东北米" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "rice",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "id": "canned-chickpeas",
+        "amount": 240,
+        "unit": "g",
+        "note": "≈ 1 банка; слить жидкость"
+      },
+      {
+        "id": "egg",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 6 шт.; сварить отдельно"
+      },
+      {
+        "id": "tomato",
+        "amount": 369,
+        "unit": "g",
+        "note": "≈ 3 шт.; сырые, в боул"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, в боул"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "между отметками 1 и 2 по левой шкале 东北米"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Рис с нутом и яйцом",
     "description": "Рис в рисоварке, нут из банки, яйца сварить. Двойной белок, много клетчатки, ноль усилий.",
@@ -234,28 +699,103 @@
       "Перед едой: разогреть, сверху свежие овощи"
     ],
     "tips": "Нут из банки — спасение: не замачивать, не варить. Открыть, промыть, подмешать. Даёт сразу и белок, и клетчатку.",
-    "freshAdd": "Помидор + огурец + капля лимона и оливкового масла сверху"
+    "freshAdd": "Помидор + огурец + капля лимона и оливкового масла сверху",
+    "perPortionNutrients": {
+      "sugar": 4.8,
+      "sodium": 341.9,
+      "calcium": 108.4,
+      "iron": 4.6,
+      "potassium": 894,
+      "magnesium": 92.4,
+      "zinc": 3,
+      "vitaminA": 215,
+      "vitaminC": 20.1,
+      "vitaminD": 2,
+      "vitaminE": 3.3,
+      "vitaminK": 27,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.6,
+      "vitaminB3": 2.1,
+      "vitaminB5": 2.7,
+      "vitaminB6": 0.4,
+      "vitaminB9": 196,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "bean-turkey-bowl",
     "emoji": "🫛",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-3", "high-fiber"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-3",
+      "high-fiber"
+    ],
     "batchDays": 3,
     "portions": 3,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 430, "protein": 35, "fat": 13, "carbs": 43, "fiber": 11 },
+    "perPortion": {
+      "kcal": 489,
+      "protein": 35.2,
+      "fat": 12.9,
+      "carbs": 58.3,
+      "fiber": 7.4
+    },
     "ingredients": [
-      { "id": "rice", "amount": 120, "unit": "g" },
-      { "id": "turkey-fillet", "amount": 300, "unit": "g" },
-      { "id": "canned-beans", "amount": 1, "unit": "can", "note": "слить и промыть" },
-      { "id": "tomato", "amount": 3, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "между отметками 1 и 2 по левой шкале 东北米" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "rice",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "id": "turkey-fillet",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "id": "canned-beans",
+        "amount": 240,
+        "unit": "g",
+        "note": "≈ 1 банка; слить и промыть"
+      },
+      {
+        "id": "tomato",
+        "amount": 369,
+        "unit": "g",
+        "note": "≈ 3 шт.; сырые, в боул"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 238,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "между отметками 1 и 2 по левой шкале 东北米"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Фасоль с индейкой и рисом",
     "description": "Рис + индейка в рисоварке, фасоль из банки подмешать после. Burrito bowl без специй и острого.",
@@ -269,27 +809,97 @@
       "Разложить по контейнерам: рис с фасолью + индейка"
     ],
     "tips": "Фасоль из банки: открыть, промыть, подмешать. Красная плотнее, белая нежнее — обе работают.",
-    "freshAdd": "Перец полосками + помидор + листья салата. Можно каплю лимона."
+    "freshAdd": "Перец полосками + помидор + листья салата. Можно каплю лимона.",
+    "perPortionNutrients": {
+      "sugar": 8.3,
+      "sodium": 623.4,
+      "calcium": 84.9,
+      "iron": 3.1,
+      "potassium": 962.9,
+      "magnesium": 93.4,
+      "zinc": 2.8,
+      "vitaminA": 72,
+      "vitaminC": 81.5,
+      "vitaminD": 0,
+      "vitaminE": 2.3,
+      "vitaminK": 21,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.2,
+      "vitaminB3": 12.3,
+      "vitaminB5": 1.5,
+      "vitaminB6": 1.2,
+      "vitaminB9": 62,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "shrimp-noodle-bowl",
     "emoji": "🦐",
     "type": "noodle",
-    "tags": ["lunch", "no-rice-cooker", "quick", "15-min"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "15-min"
+    ],
     "batchDays": 1,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 510, "protein": 37, "fat": 6, "carbs": 80, "fiber": 4 },
+    "perPortion": {
+      "kcal": 541,
+      "protein": 36.8,
+      "fat": 8.8,
+      "carbs": 80.2,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "noodles-udon", "amount": 200, "unit": "g" },
-      { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, палочками" },
-      { "id": "green-onion", "amount": 4, "unit": "stalks" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "sesame-oil", "amount": 0.5, "unit": "tsp" },
-      { "id": "sesame-oil", "amount": 1, "unit": "tsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "noodles-udon",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "frozen-shrimp",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, пополам"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, палочками"
+      },
+      {
+        "id": "green-onion",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 4 пера"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 ч. л."
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Лапша с креветками",
     "description": "Креветки размораживаются 5 мин, жарятся 3 мин. Лапша параллельно. Лёгкий, свежий, быстрый.",
@@ -303,30 +913,116 @@
       "Собрать: лапша → креветки → свежие овощи → зелёный лук"
     ],
     "tips": "Держи пакет очищенных креветок в морозилке — самый быстрый белок после яиц. Не переготавливай: 2–3 мин, иначе резиновые.",
-    "freshAdd": "Черри пополам, огурец палочками, зелёный лук. Можно ростки маша."
+    "freshAdd": "Черри пополам, огурец палочками, зелёный лук. Можно ростки маша.",
+    "perPortionNutrients": {
+      "sugar": 6.1,
+      "sodium": 624,
+      "calcium": 146.2,
+      "iron": 5.6,
+      "potassium": 936.5,
+      "magnesium": 125.9,
+      "zinc": 3.8,
+      "vitaminA": 66,
+      "vitaminC": 17.8,
+      "vitaminD": 0,
+      "vitaminE": 0.9,
+      "vitaminK": 84,
+      "vitaminB1": 1.2,
+      "vitaminB2": 0.5,
+      "vitaminB3": 9.2,
+      "vitaminB5": 1.3,
+      "vitaminB6": 0.3,
+      "vitaminB9": 268,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "shrimp-rice-bowl",
     "emoji": "🍤",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker-and-pan", "batch-2", "light"],
+    "tags": [
+      "lunch",
+      "rice-cooker-and-pan",
+      "batch-2",
+      "light"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 499, "protein": 32, "fat": 20, "carbs": 52, "fiber": 3 },
+    "perPortion": {
+      "kcal": 478,
+      "protein": 26.9,
+      "fat": 19.2,
+      "carbs": 51.6,
+      "fiber": 4.4
+    },
     "ingredients": [
-      { "id": "rice", "amount": 100, "unit": "g" },
-      { "id": "frozen-shrimp", "amount": 200, "unit": "g" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "butter", "amount": 1, "unit": "small-piece" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "green-onion", "amount": 3, "unit": "stalks" },
-      { "id": "sesame-oil", "amount": 1, "unit": "dash", "optional": true },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 1 по левой шкале 东北米" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" },
-      { "id": "avocado", "amount": 0.5, "unit": "pcs", "note": "в боул" }
+      {
+        "id": "rice",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "frozen-shrimp",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 кусочек"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, в боул"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, в боул"
+      },
+      {
+        "id": "green-onion",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 3 пера"
+      },
+      {
+        "id": "sesame-oil",
+        "amount": 2,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 1 капля"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "до отметки 1 по левой шкале 东北米"
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      },
+      {
+        "id": "avocado",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 0.5 шт.; в боул"
+      }
     ],
     "name": "Рис с креветками",
     "description": "Рис в рисоварке, креветки отдельно на сковороде за 3 минуты. Два шага, оба простые.",
@@ -340,26 +1036,94 @@
       "Перед едой: разогреть, сверху свежие овощи и зелёный лук"
     ],
     "tips": "Креветки не клади в рисоварку — они переварятся за 35 минут и станут резиновыми. 3 минуты на сковороде — идеально. На сливочном масле получаются особенно вкусными.",
-    "freshAdd": "Черри пополам, огурец палочками, зелёный лук. Пару капель кунжутного масла сверху."
+    "freshAdd": "Черри пополам, огурец палочками, зелёный лук. Пару капель кунжутного масла сверху.",
+    "perPortionNutrients": {
+      "sugar": 4.3,
+      "sodium": 637.9,
+      "calcium": 119.4,
+      "iron": 2.2,
+      "potassium": 895.1,
+      "magnesium": 96.4,
+      "zinc": 2.7,
+      "vitaminA": 81,
+      "vitaminC": 20.8,
+      "vitaminD": 0,
+      "vitaminE": 2.3,
+      "vitaminK": 80,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.1,
+      "vitaminB3": 2.4,
+      "vitaminB5": 1.5,
+      "vitaminB6": 0.3,
+      "vitaminB9": 68,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "chickpea-avocado-cold-bowl",
     "emoji": "🥑",
     "type": "cold-bowl",
-    "tags": ["lunch", "no-rice-cooker", "no-cooking", "quick", "high-fiber"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "no-cooking",
+      "quick",
+      "high-fiber"
+    ],
     "batchDays": 1,
     "portions": 2,
     "prepMinutes": 10,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 352, "protein": 15, "fat": 28, "carbs": 14, "fiber": 14 },
+    "perPortion": {
+      "kcal": 461,
+      "protein": 25.3,
+      "fat": 22.6,
+      "carbs": 43.4,
+      "fiber": 15.6
+    },
     "ingredients": [
-      { "id": "canned-chickpeas", "amount": 1, "unit": "can", "note": "слить и промыть" },
-      { "id": "avocado", "amount": 1, "unit": "pcs" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить вкрутую" },
-      { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs" },
-      { "id": "cucumber", "amount": 1, "unit": "large" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      {
+        "id": "canned-chickpeas",
+        "amount": 240,
+        "unit": "g",
+        "note": "≈ 1 банка; слить и промыть"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт.; сварить вкрутую"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 170,
+        "unit": "g",
+        "note": "≈ 10 шт."
+      },
+      {
+        "id": "cucumber",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 1 большой"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      }
     ],
     "name": "Холодный боул с нутом и авокадо",
     "description": "Полностью холодный боул: нут из банки, авокадо, свежие овощи, варёное яйцо. Ноль готовки кроме яиц. Собирается за 10 минут.",
@@ -373,30 +1137,116 @@
       "Капля оливкового масла и лимонного сока"
     ],
     "tips": "Авокадо нарезать только перед едой, иначе потемнеет. Яйца и нут можно подготовить заранее и хранить в холодильнике. Если хочешь сытнее — добавь тост с авокадо сбоку (размять вилкой на хлеб).",
-    "freshAdd": "Всё и так свежее! Можно добавить зелёный лук или петрушку, если любишь."
+    "freshAdd": "Всё и так свежее! Можно добавить зелёный лук или петрушку, если любишь.",
+    "perPortionNutrients": {
+      "sugar": 5.6,
+      "sodium": 440.9,
+      "calcium": 131.6,
+      "iron": 5.7,
+      "potassium": 1373.6,
+      "magnesium": 124.3,
+      "zinc": 3.4,
+      "vitaminA": 208,
+      "vitaminC": 23.6,
+      "vitaminD": 2,
+      "vitaminE": 3.3,
+      "vitaminK": 47,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.7,
+      "vitaminB3": 2.7,
+      "vitaminB5": 3.5,
+      "vitaminB6": 0.6,
+      "vitaminB9": 306,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "greek-chicken-rice-bowl",
     "emoji": "🧀",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "with-cheese"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "with-cheese"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 783, "protein": 45, "fat": 37, "carbs": 71, "fiber": 5 },
+    "perPortion": {
+      "kcal": 688,
+      "protein": 35.2,
+      "fat": 30.2,
+      "carbs": 70,
+      "fiber": 6.1
+    },
     "ingredients": [
-      { "id": "rice", "amount": 140, "unit": "g" },
-      { "id": "chicken-breast", "amount": 200, "unit": "g" },
-      { "id": "water", "amount": 1, "unit": "pcs", "note": "до отметки 1 по левой шкале 东北米" },
-      { "id": "soy-sauce", "amount": 1, "unit": "tbsp" },
-      { "id": "feta", "amount": 60, "unit": "g", "note": "нарезать кубиками, в боул" },
-      { "id": "avocado", "amount": 1, "unit": "pcs", "note": "нарезать, в боул" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp", "optional": true },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
+      {
+        "id": "rice",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "chicken-breast",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 1,
+        "unit": "pcs",
+        "note": "до отметки 1 по левой шкале 东北米"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "feta",
+        "amount": 60,
+        "unit": "g",
+        "note": "нарезать кубиками, в боул"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 шт.; нарезать, в боул"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, в боул"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, пополам"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "optional": true,
+        "note": "≈ 0.5 ч. л."
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      }
     ],
     "name": "Рис с курицей, фетой и авокадо",
     "description": "Рис + курица в рисоварке, сверху свежие овощи, авокадо и кубики феты. Средиземноморский боул без специй и лишнего.",
@@ -410,27 +1260,97 @@
       "Разложить по контейнерам: рис + курица"
     ],
     "tips": "Фету, авокадо и овощи добавлять только перед едой — не в контейнер на хранение. Авокадо темнеет, фета сохнет, овощи мокнут. В контейнере храни только рис + курица.",
-    "freshAdd": "Перед едой: разогреть рис с курицей, сверху нарезать огурец, черри, авокадо, раскрошить фету, капля оливкового масла."
+    "freshAdd": "Перед едой: разогреть рис с курицей, сверху нарезать огурец, черри, авокадо, раскрошить фету, капля оливкового масла.",
+    "perPortionNutrients": {
+      "sugar": 4,
+      "sodium": 872.4,
+      "calcium": 196.9,
+      "iron": 2.3,
+      "potassium": 1103.8,
+      "magnesium": 107.4,
+      "zinc": 3.3,
+      "vitaminA": 85,
+      "vitaminC": 20.5,
+      "vitaminD": 0,
+      "vitaminE": 3.7,
+      "vitaminK": 42,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.6,
+      "vitaminB3": 13,
+      "vitaminB5": 4,
+      "vitaminB6": 1.3,
+      "vitaminB9": 102,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "buckwheat-egg-bowl",
     "emoji": "🥚",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "meat-free"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "meat-free"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 692, "protein": 34, "fat": 34, "carbs": 72, "fiber": 10 },
+    "perPortion": {
+      "kcal": 650,
+      "protein": 34.3,
+      "fat": 27.6,
+      "carbs": 71.9,
+      "fiber": 13
+    },
     "ingredients": [
-      { "id": "buckwheat", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 280, "unit": "ml" },
-      { "id": "egg", "amount": 6, "unit": "pcs", "note": "сварить отдельно" },
-      { "id": "canned-chickpeas", "amount": 100, "unit": "g", "note": "слить и промыть" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, в боул" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
+      {
+        "id": "buckwheat",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 280,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 300,
+        "unit": "g",
+        "note": "≈ 6 шт.; сварить отдельно"
+      },
+      {
+        "id": "canned-chickpeas",
+        "amount": 100,
+        "unit": "g",
+        "note": "слить и промыть"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, в боул"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      }
     ],
     "name": "Гречка с яйцом и овощами",
     "description": "Вегетарианская версия гречки с индейкой. Гречка в рисоварке, яйца сварить отдельно. Для белка — 3 яйца на порцию + нут из банки.",
@@ -444,27 +1364,98 @@
       "Перед едой: разогреть, сверху свежие овощи"
     ],
     "tips": "Без мяса белок набирается через яйца (3 шт = 18 г) + нут (ещё ~7 г). Если мало — добавь кубики феты сверху (+4 г на 30 г сыра). Железо из гречки + витамин С из свежих помидоров помогают усвоению.",
-    "freshAdd": "Помидор + огурец + капля оливкового масла. Можно добавить фету."
+    "freshAdd": "Помидор + огурец + капля оливкового масла. Можно добавить фету.",
+    "perPortionNutrients": {
+      "sugar": 5.5,
+      "sodium": 342.4,
+      "calcium": 143.2,
+      "iron": 6.1,
+      "potassium": 1182.2,
+      "magnesium": 235.3,
+      "zinc": 4.6,
+      "vitaminA": 297,
+      "vitaminC": 20.8,
+      "vitaminD": 3,
+      "vitaminE": 3.6,
+      "vitaminK": 32,
+      "vitaminB1": 0.3,
+      "vitaminB2": 1.1,
+      "vitaminB3": 6.3,
+      "vitaminB5": 3.8,
+      "vitaminB6": 0.6,
+      "vitaminB9": 195,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "couscous-tuna-bowl",
     "emoji": "🐟",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "quick", "10-min", "meat-free"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "10-min",
+      "meat-free"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 401, "protein": 10, "fat": 15, "carbs": 60, "fiber": 4 },
+    "perPortion": {
+      "kcal": 423,
+      "protein": 21.9,
+      "fat": 10.4,
+      "carbs": 60.7,
+      "fiber": 4.8
+    },
     "ingredients": [
-      { "id": "couscous", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 200, "unit": "ml" },
-      { "id": "canned-tuna", "amount": 1, "unit": "can", "note": "слить жидкость" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, кубиками" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "couscous",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "id": "canned-tuna",
+        "amount": 120,
+        "unit": "g",
+        "note": "≈ 1 банка; слить жидкость"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, пополам"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, кубиками"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Кус-кус с тунцом и овощами",
     "description": "Самый быстрый рецепт: кус-кус залить кипятком на 5 минут, открыть банку тунца, нарезать овощи. Всё.",
@@ -478,26 +1469,94 @@
       "Перед едой: сверху свежие овощи, масло и лимон"
     ],
     "tips": "Кус-кус не варят — только заливают кипятком. Это буквально самая быстрая крупа. Тунец в собственном соку (не в масле) — меньше жира и дешевле. Хранится в контейнере 2 дня.",
-    "freshAdd": "Черри пополам, огурец кубиками, капля оливкового масла и лимона. Можно добавить авокадо."
+    "freshAdd": "Черри пополам, огурец кубиками, капля оливкового масла и лимона. Можно добавить авокадо.",
+    "perPortionNutrients": {
+      "sugar": 3.5,
+      "sodium": 160.8,
+      "calcium": 50,
+      "iron": 2.3,
+      "potassium": 534.5,
+      "magnesium": 65.2,
+      "zinc": 1.3,
+      "vitaminA": 44,
+      "vitaminC": 13.1,
+      "vitaminD": 1,
+      "vitaminE": 1.9,
+      "vitaminK": 27,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.2,
+      "vitaminB3": 9,
+      "vitaminB5": 1.3,
+      "vitaminB6": 0.4,
+      "vitaminB9": 34,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "cold-pasta-salad",
     "emoji": "🍝",
     "type": "cold-bowl",
-    "tags": ["lunch", "no-rice-cooker", "batch-2", "meat-free", "no-reheating", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "batch-2",
+      "meat-free",
+      "no-reheating",
+      "with-cheese"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 766, "protein": 40, "fat": 32, "carbs": 84, "fiber": 4 },
+    "perPortion": {
+      "kcal": 792,
+      "protein": 40.9,
+      "fat": 32,
+      "carbs": 84,
+      "fiber": 4.7
+    },
     "ingredients": [
-      { "id": "short-pasta", "amount": 200, "unit": "g" },
-      { "id": "mozzarella", "amount": 125, "unit": "g", "note": "1 шарик, нарезать кубиками" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить вкрутую" },
-      { "id": "cherry-tomatoes", "amount": 10, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs", "note": "сырой, кубиками" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" }
+      {
+        "id": "short-pasta",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "mozzarella",
+        "amount": 125,
+        "unit": "g",
+        "note": "1 шарик, нарезать кубиками"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт.; сварить вкрутую"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 170,
+        "unit": "g",
+        "note": "≈ 10 шт.; сырые, пополам"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт.; сырой, кубиками"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      }
     ],
     "name": "Холодный салат с макаронами и моцареллой",
     "description": "Холодный салат из макарон с моцареллой, яйцом и свежими овощами. Едят комнатной температуры или из холодильника — разогревать не надо.",
@@ -511,28 +1570,104 @@
       "Разложить по контейнерам. Овощи добавлять перед едой"
     ],
     "tips": "Промыть макароны холодной водой — обязательно, иначе слипнутся к завтрашнему дню. Моцарелла хранится в салате нормально 2 дня. Овощи нарезать перед едой, чтобы были хрустящими.",
-    "freshAdd": "Черри пополам, огурец кубиками, оливковое масло и лимон. Можно добавить рукколу."
+    "freshAdd": "Черри пополам, огурец кубиками, оливковое масло и лимон. Можно добавить рукколу.",
+    "perPortionNutrients": {
+      "sugar": 7,
+      "sodium": 458.2,
+      "calcium": 417.3,
+      "iron": 5.9,
+      "potassium": 759.7,
+      "magnesium": 100,
+      "zinc": 4.9,
+      "vitaminA": 313,
+      "vitaminC": 15.4,
+      "vitaminD": 2,
+      "vitaminE": 2.8,
+      "vitaminK": 29,
+      "vitaminB1": 1,
+      "vitaminB2": 1.1,
+      "vitaminB3": 7.9,
+      "vitaminB5": 2.4,
+      "vitaminB6": 0.4,
+      "vitaminB9": 309,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "quinoa-egg-avocado-bowl",
     "emoji": "🌿",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker-for-grain", "batch-2", "meat-free", "high-fiber"],
+    "tags": [
+      "lunch",
+      "rice-cooker-for-grain",
+      "batch-2",
+      "meat-free",
+      "high-fiber"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 20,
-    "perPortion": { "kcal": 666, "protein": 25, "fat": 39, "carbs": 58, "fiber": 9 },
+    "perPortion": {
+      "kcal": 618,
+      "protein": 25.1,
+      "fat": 33.1,
+      "carbs": 57.9,
+      "fiber": 10.8
+    },
     "ingredients": [
-      { "id": "quinoa", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 280, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить отдельно" },
-      { "id": "avocado", "amount": 1, "unit": "pcs", "note": "нарезать перед едой" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "cucumber", "amount": 1, "unit": "pcs" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tbsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "quinoa",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 280,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт.; сварить отдельно"
+      },
+      {
+        "id": "avocado",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 1 шт.; нарезать перед едой"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, пополам"
+      },
+      {
+        "id": "cucumber",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Киноа с яйцом и авокадо",
     "description": "Киноа в рисоварке (режим «Рис»), яйца сварить отдельно. Перед едой — авокадо и свежие овощи. Полный набор аминокислот без мяса.",
@@ -546,27 +1681,99 @@
       "Перед едой: сверху авокадо, овощи, масло и лимон"
     ],
     "tips": "Киноа — одна из немногих круп с полным набором незаменимых аминокислот, поэтому идеальна для недель без мяса. Промыть перед варкой обязательно — на поверхности сапонины, которые горчат. Варится быстрее риса.",
-    "freshAdd": "Авокадо + черри + огурец + оливковое масло и лимон. Можно фету."
+    "freshAdd": "Авокадо + черри + огурец + оливковое масло и лимон. Можно фету.",
+    "perPortionNutrients": {
+      "sugar": 4.3,
+      "sodium": 155.9,
+      "calcium": 120.1,
+      "iron": 5.8,
+      "potassium": 1172.8,
+      "magnesium": 190.3,
+      "zinc": 4.2,
+      "vitaminA": 199,
+      "vitaminC": 19.9,
+      "vitaminD": 2,
+      "vitaminE": 5.9,
+      "vitaminK": 42,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.8,
+      "vitaminB3": 2.8,
+      "vitaminB5": 3.3,
+      "vitaminB6": 0.8,
+      "vitaminB9": 249,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "lentil-egg-bowl-iron",
     "emoji": "💪",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "meat-free", "iron-rich", "high-fiber"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "meat-free",
+      "iron-rich",
+      "high-fiber"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 90,
-    "perPortion": { "kcal": 505, "protein": 28, "fat": 26, "carbs": 45, "fiber": 14 },
+    "perPortion": {
+      "kcal": 461,
+      "protein": 27.4,
+      "fat": 20.9,
+      "carbs": 43.6,
+      "fiber": 9
+    },
     "ingredients": [
-      { "id": "red-lentils", "amount": 100, "unit": "g" },
-      { "id": "water", "amount": 300, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить отдельно" },
-      { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "tomato", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
+      {
+        "id": "red-lentils",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 300,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт.; сварить отдельно"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 238,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "tomato",
+        "amount": 246,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      }
     ],
     "name": "Чечевица с яйцом и болгарским перцем",
     "description": "Чечевица — один из лучших растительных источников железа. Болгарский перец и помидоры (витамин С) помогают усвоению. Без молочных продуктов.",
@@ -580,27 +1787,98 @@
       "Перед едой: разогреть, сверху перец, помидоры, лимонный сок"
     ],
     "tips": "Для максимального усвоения железа: не пей чай, кофе и не ешь молочные продукты за 30–40 минут до и после этого блюда. Болгарский перец содержит в 2 раза больше витамина С, чем апельсин — идеальный партнёр для железа.",
-    "freshAdd": "Болгарский перец полосками + помидор дольками + лимонный сок. Без сыра!"
+    "freshAdd": "Болгарский перец полосками + помидор дольками + лимонный сок. Без сыра!",
+    "perPortionNutrients": {
+      "sugar": 7.6,
+      "sodium": 155.8,
+      "calcium": 101.6,
+      "iron": 5.9,
+      "potassium": 993.1,
+      "magnesium": 63.6,
+      "zinc": 3.4,
+      "vitaminA": 234,
+      "vitaminC": 116.9,
+      "vitaminD": 2,
+      "vitaminE": 3.7,
+      "vitaminK": 27,
+      "vitaminB1": 0.6,
+      "vitaminB2": 0.6,
+      "vitaminB3": 2.8,
+      "vitaminB5": 2.8,
+      "vitaminB6": 0.8,
+      "vitaminB9": 320,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "buckwheat-egg-pepper-iron",
     "emoji": "🔥",
     "type": "warm-bowl",
-    "tags": ["lunch", "rice-cooker", "batch-2", "meat-free", "iron-rich"],
+    "tags": [
+      "lunch",
+      "rice-cooker",
+      "batch-2",
+      "meat-free",
+      "iron-rich"
+    ],
     "batchDays": 2,
     "portions": 2,
     "prepMinutes": 5,
     "cookMinutes": 35,
-    "perPortion": { "kcal": 558, "protein": 24, "fat": 28, "carbs": 63, "fiber": 8 },
+    "perPortion": {
+      "kcal": 515,
+      "protein": 23.9,
+      "fat": 22.7,
+      "carbs": 59.8,
+      "fiber": 10
+    },
     "ingredients": [
-      { "id": "buckwheat", "amount": 140, "unit": "g" },
-      { "id": "water", "amount": 280, "unit": "ml" },
-      { "id": "egg", "amount": 4, "unit": "pcs", "note": "сварить отдельно" },
-      { "id": "bell-pepper", "amount": 2, "unit": "pcs", "note": "сырые, в боул" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "tahini-sauce-portion", "amount": 1, "unit": "portion", "note": "см. рецепт тахинного соуса" }
+      {
+        "id": "buckwheat",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 280,
+        "unit": "ml"
+      },
+      {
+        "id": "egg",
+        "amount": 200,
+        "unit": "g",
+        "note": "≈ 4 шт.; сварить отдельно"
+      },
+      {
+        "id": "bell-pepper",
+        "amount": 238,
+        "unit": "g",
+        "note": "≈ 2 шт.; сырые, в боул"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, пополам"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "tahini-sauce-portion",
+        "amount": 1,
+        "unit": "portion",
+        "note": "см. рецепт тахинного соуса"
+      }
     ],
     "name": "Гречка с яйцом и перцем (для железа)",
     "description": "Гречка — рекордсмен по железу среди круп. Вместе с перцем и помидорами (витамин С) железо усваивается максимально. Без молочных.",
@@ -614,27 +1892,98 @@
       "Перед едой: разогреть, сверху перец, черри, лимонный сок"
     ],
     "tips": "Гречка + чечевица — два главных источника железа в твоей системе. Чередуй их в недели без мяса. Важно: кофе и чай блокируют усвоение железа, поэтому латте лучше пить за завтраком, а не в обед с этим боулом.",
-    "freshAdd": "Перец полосками + черри пополам + лимонный сок + оливковое масло. Без сыра и без йогурта!"
+    "freshAdd": "Перец полосками + черри пополам + лимонный сок + оливковое масло. Без сыра и без йогурта!",
+    "perPortionNutrients": {
+      "sugar": 5.1,
+      "sodium": 150.8,
+      "calcium": 91.2,
+      "iron": 4,
+      "potassium": 846.3,
+      "magnesium": 195.8,
+      "zinc": 3.3,
+      "vitaminA": 210,
+      "vitaminC": 107.1,
+      "vitaminD": 2,
+      "vitaminE": 3.2,
+      "vitaminK": 20,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.8,
+      "vitaminB3": 6.1,
+      "vitaminB5": 2.6,
+      "vitaminB6": 0.6,
+      "vitaminB9": 94,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "couscous-halloumi-bowl",
     "emoji": "🧀",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "quick", "10-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "10-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 760, "protein": 30, "fat": 42, "carbs": 71, "fiber": 4 },
+    "perPortion": {
+      "kcal": 648,
+      "protein": 23.1,
+      "fat": 29.4,
+      "carbs": 73,
+      "fiber": 5.7
+    },
     "ingredients": [
-      { "id": "couscous", "amount": 80, "unit": "g" },
-      { "id": "water", "amount": 110, "unit": "ml" },
-      { "id": "halloumi", "amount": 80, "unit": "g" },
-      { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "сырой, кубиками" },
-      { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "olive-oil", "amount": 0.5, "unit": "tbsp", "note": "дополнительно, в готовое" }
+      {
+        "id": "couscous",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "water",
+        "amount": 110,
+        "unit": "ml"
+      },
+      {
+        "id": "halloumi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "cucumber",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 0.5 шт.; сырой, кубиками"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 шт.; сырые, пополам"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-oil",
+        "amount": 7.5,
+        "unit": "ml",
+        "note": "≈ 0.5 ст. л.; дополнительно, в готовое"
+      }
     ],
     "name": "Кус-кус с халуми и овощами",
     "description": "Кус-кус залить кипятком, халуми обжарить на сухой сковороде за 3 минуты. Свежие овощи сверху. Как на фото из Pinterest — только проще.",
@@ -647,25 +1996,86 @@
       "Полить лимонным соком и оливковым маслом"
     ],
     "tips": "Халуми жарится на сухой сковороде — масло не нужно, в нём достаточно своего жира. Есть лучше сразу, пока халуми тёплый и хрустящий. На следующий день он станет плотным — можно подогреть на сковороде 30 секунд.",
-    "freshAdd": "Огурец кубиками, черри пополам, лимонный сок. Можно добавить шпинат."
+    "freshAdd": "Огурец кубиками, черри пополам, лимонный сок. Можно добавить шпинат.",
+    "perPortionNutrients": {
+      "sugar": 4.5,
+      "sodium": 926.6,
+      "calcium": 440.2,
+      "iron": 2,
+      "potassium": 576.6,
+      "magnesium": 74.9,
+      "zinc": 3.3,
+      "vitaminA": 148,
+      "vitaminC": 18.8,
+      "vitaminD": 0,
+      "vitaminE": 2.4,
+      "vitaminK": 33,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.8,
+      "vitaminB3": 4.3,
+      "vitaminB5": 2.1,
+      "vitaminB6": 0.6,
+      "vitaminB9": 65,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "pasta-halloumi-bowl",
     "emoji": "🍝",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "15-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "15-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 776, "protein": 32, "fat": 36, "carbs": 85, "fiber": 4 },
+    "perPortion": {
+      "kcal": 663,
+      "protein": 26.3,
+      "fat": 23.6,
+      "carbs": 86.9,
+      "fiber": 5.3
+    },
     "ingredients": [
-      { "id": "short-pasta", "amount": 100, "unit": "g" },
-      { "id": "halloumi", "amount": 80, "unit": "g" },
-      { "id": "cherry-tomatoes", "amount": 8, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "сырой, кубиками" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp" }
+      {
+        "id": "short-pasta",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "halloumi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 136,
+        "unit": "g",
+        "note": "≈ 8 шт.; сырые, пополам"
+      },
+      {
+        "id": "cucumber",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 0.5 шт.; сырой, кубиками"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 ч. л."
+      }
     ],
     "name": "Паста с халуми и черри",
     "description": "Короткие макароны + жареный халуми + свежие овощи. Просто, сытно, без специй — только качественные продукты.",
@@ -678,25 +2088,88 @@
       "Сверху халуми, огурец, оливковое масло и лимон"
     ],
     "tips": "Халуми лучше есть свежеобжаренным. Если готовишь на два дня — макароны и овощи храни в контейнере, а халуми обжарь перед едой (3 минуты). Макароны промой холодной водой после варки, чтобы не слиплись.",
-    "freshAdd": "Черри пополам, огурец кубиками. Можно добавить рукколу или шпинат."
+    "freshAdd": "Черри пополам, огурец кубиками. Можно добавить рукколу или шпинат.",
+    "perPortionNutrients": {
+      "sugar": 8,
+      "sodium": 926.1,
+      "calcium": 445.2,
+      "iron": 4.5,
+      "potassium": 744.6,
+      "magnesium": 96.3,
+      "zinc": 4.1,
+      "vitaminA": 162,
+      "vitaminC": 22.4,
+      "vitaminD": 0,
+      "vitaminE": 1.7,
+      "vitaminK": 31,
+      "vitaminB1": 1.1,
+      "vitaminB2": 1.1,
+      "vitaminB3": 8.9,
+      "vitaminB5": 1.6,
+      "vitaminB6": 0.6,
+      "vitaminB9": 291,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "gnocchi-tuna-mozzarella",
     "emoji": "🥔",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "quick", "10-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "quick",
+      "10-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 568, "protein": 22, "fat": 30, "carbs": 59, "fiber": 3 },
+    "perPortion": {
+      "kcal": 560,
+      "protein": 30.8,
+      "fat": 31.3,
+      "carbs": 40,
+      "fiber": 3.2
+    },
     "ingredients": [
-      { "id": "gnocchi", "amount": 200, "unit": "g" },
-      { "id": "canned-tuna", "amount": 0.5, "unit": "can", "note": "слить жидкость" },
-      { "id": "mozzarella", "amount": 60, "unit": "g", "note": "нарезать кубиками" },
-      { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp" }
+      {
+        "id": "gnocchi",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "canned-tuna",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 0.5 банки; слить жидкость"
+      },
+      {
+        "id": "mozzarella",
+        "amount": 60,
+        "unit": "g",
+        "note": "нарезать кубиками"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 шт.; сырые, пополам"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 ч. л."
+      }
     ],
     "name": "Ньокки с тунцом и моцареллой",
     "description": "Ньокки варятся 2–3 минуты, тунец из банки, моцарелла кубиками, свежие черри. Нежная картофельная текстура + белок без готовки.",
@@ -709,25 +2182,86 @@
       "Полить оливковым маслом и лимонным соком"
     ],
     "tips": "Ньокки продаются порционно в вакуумной упаковке — ничего не пропадёт. Не переваривай: всплыли = готовы, дальше становятся рыхлыми. Моцарелла на тёплых ньокки слегка подтает — это вкусно.",
-    "freshAdd": "Черри пополам. Можно добавить рукколу или шпинат, огурец кубиками."
+    "freshAdd": "Черри пополам. Можно добавить рукколу или шпинат, огурец кубиками.",
+    "perPortionNutrients": {
+      "sugar": 4.7,
+      "sodium": 1003,
+      "calcium": 367.6,
+      "iron": 3.2,
+      "potassium": 675.4,
+      "magnesium": 61.2,
+      "zinc": 2.8,
+      "vitaminA": 284,
+      "vitaminC": 18.8,
+      "vitaminD": 1,
+      "vitaminE": 1.6,
+      "vitaminK": 15,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.4,
+      "vitaminB3": 9.2,
+      "vitaminB5": 0.3,
+      "vitaminB6": 0.5,
+      "vitaminB9": 56,
+      "vitaminB12": 3
+    }
   },
   {
     "id": "gnocchi-halloumi-bowl",
     "emoji": "🧈",
     "type": "warm-bowl",
-    "tags": ["lunch", "no-rice-cooker", "10-min", "meat-free", "with-cheese"],
+    "tags": [
+      "lunch",
+      "no-rice-cooker",
+      "10-min",
+      "meat-free",
+      "with-cheese"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 3,
-    "perPortion": { "kcal": 670, "protein": 27, "fat": 37, "carbs": 63, "fiber": 3 },
+    "perPortion": {
+      "kcal": 556,
+      "protein": 17.8,
+      "fat": 34.7,
+      "carbs": 45.3,
+      "fiber": 3.7
+    },
     "ingredients": [
-      { "id": "gnocchi", "amount": 200, "unit": "g" },
-      { "id": "halloumi", "amount": 80, "unit": "g" },
-      { "id": "cherry-tomatoes", "amount": 6, "unit": "pcs", "note": "сырые, пополам" },
-      { "id": "cucumber", "amount": 0.5, "unit": "pcs", "note": "сырой, кубиками" },
-      { "id": "olive-oil", "amount": 1, "unit": "tsp" },
-      { "id": "lemon-juice", "amount": 0.5, "unit": "tsp" }
+      {
+        "id": "gnocchi",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "halloumi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 шт.; сырые, пополам"
+      },
+      {
+        "id": "cucumber",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 0.5 шт.; сырой, кубиками"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 2.5,
+        "unit": "ml",
+        "note": "≈ 0.5 ч. л."
+      }
     ],
     "name": "Ньокки с халуми и овощами",
     "description": "Два тёплых компонента — нежные ньокки и хрустящий халуми — плюс свежие овощи сверху. Параллельная готовка: пока ньокки варятся, халуми жарится.",
@@ -741,27 +2275,98 @@
       "Оливковое масло и лимонный сок"
     ],
     "tips": "Готовь параллельно: пока вода закипает — жарь халуми. Всё будет готово одновременно за 5–6 минут. Халуми есть сразу, пока хрустящий.",
-    "freshAdd": "Черри пополам, огурец кубиками, лимонный сок. Можно шпинат."
+    "freshAdd": "Черри пополам, огурец кубиками, лимонный сок. Можно шпинат.",
+    "perPortionNutrients": {
+      "sugar": 6.4,
+      "sodium": 1476.4,
+      "calcium": 464.8,
+      "iron": 2.8,
+      "potassium": 719,
+      "magnesium": 63.6,
+      "zinc": 3.2,
+      "vitaminA": 272,
+      "vitaminC": 21.6,
+      "vitaminD": 1,
+      "vitaminE": 1.4,
+      "vitaminK": 31,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.9,
+      "vitaminB3": 3.9,
+      "vitaminB5": 1.1,
+      "vitaminB6": 0.7,
+      "vitaminB9": 82,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "tortilla-scramble-wrap",
     "emoji": "🌯",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "quick", "10-min", "high-protein"],
+    "tags": [
+      "breakfast-dinner",
+      "quick",
+      "10-min",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 5,
-    "perPortion": { "kcal": 532, "protein": 26, "fat": 35, "carbs": 31, "fiber": 5 },
+    "perPortion": {
+      "kcal": 517,
+      "protein": 26.9,
+      "fat": 32.5,
+      "carbs": 30.5,
+      "fiber": 3.8
+    },
     "ingredients": [
-      { "id": "tortilla", "amount": 1, "unit": "pcs" },
-      { "id": "egg", "amount": 2, "unit": "pcs" },
-      { "id": "cream-cheese", "amount": 1, "unit": "tbsp" },
-      { "id": "smoked-fish", "amount": 40, "unit": "g" },
-      { "id": "avocado", "amount": 0.25, "unit": "pcs" },
-      { "id": "spinach", "amount": 1, "unit": "handful" },
-      { "id": "cherry-tomatoes", "amount": 4, "unit": "pcs", "note": "пополам" },
-      { "id": "butter", "amount": 1, "unit": "small-piece" }
+      {
+        "id": "tortilla",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 шт."
+      },
+      {
+        "id": "cream-cheese",
+        "amount": 15,
+        "unit": "g",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "smoked-fish",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "id": "avocado",
+        "amount": 34,
+        "unit": "g",
+        "note": "≈ 0.25 шт."
+      },
+      {
+        "id": "spinach",
+        "amount": 30,
+        "unit": "g",
+        "note": "≈ 1 горсть"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 4 шт.; пополам"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 кусочек"
+      }
     ],
     "name": "Тортилья со скрэмблом и рыбой",
     "description": "Тортилья + скрэмбл + творожный сыр + копчёная рыба + авокадо + шпинат + черри. Сытно, сочно, красиво.",
@@ -775,23 +2380,71 @@
       "Свернуть: сложить пополам, потом ещё раз, или скрутить как ролл"
     ],
     "tips": "Черри дают сочность и кислинку, которая балансирует жирность авокадо и рыбы. Скрэмбл должен быть мягким и чуть влажным — не пересуши. Шпинат не надо готовить, он идёт свежим.",
-    "freshAdd": "Яблоко + латте сбоку."
+    "freshAdd": "Яблоко + латте сбоку.",
+    "perPortionNutrients": {
+      "sugar": 3.1,
+      "sodium": 955.8,
+      "calcium": 203.9,
+      "iron": 4.2,
+      "potassium": 723.7,
+      "magnesium": 61.8,
+      "zinc": 2,
+      "vitaminA": 457,
+      "vitaminC": 21.1,
+      "vitaminD": 9,
+      "vitaminE": 3.6,
+      "vitaminK": 159,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0.6,
+      "vitaminB3": 3.2,
+      "vitaminB5": 2.5,
+      "vitaminB6": 0.5,
+      "vitaminB9": 145,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "yogurt-berry-bowl",
     "emoji": "🫐",
     "type": "cold-bowl",
-    "tags": ["breakfast-dinner", "no-cooking", "quick"],
+    "tags": [
+      "breakfast-dinner",
+      "no-cooking",
+      "quick"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 422, "protein": 28, "fat": 14, "carbs": 47, "fiber": 5 },
+    "perPortion": {
+      "kcal": 415,
+      "protein": 26.4,
+      "fat": 15.3,
+      "carbs": 46.4,
+      "fiber": 3.4
+    },
     "ingredients": [
-      { "id": "greek-yogurt", "amount": 200, "unit": "g" },
-      { "id": "berries", "amount": 1, "unit": "handful" },
-      { "id": "nuts", "amount": 25, "unit": "g" },
-      { "id": "corn-flakes", "amount": 30, "unit": "g" }
+      {
+        "id": "greek-yogurt",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 горсть"
+      },
+      {
+        "id": "nuts",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "id": "corn-flakes",
+        "amount": 30,
+        "unit": "g"
+      }
     ],
     "name": "Йогуртовый боул с ягодами и орехами",
     "description": "Твой go-to завтрак. Греческий йогурт + ягоды + орехи + хлопья. Быстро, вкусно, не надоедает.",
@@ -803,24 +2456,79 @@
       "Готово"
     ],
     "tips": "Для дополнительной сытости: добавь 1–2 ст.л. семян чиа (замочить в йогурте с вечера или за 15–20 мин). Это +4 г белка и +8 г клетчатки. Можно также заменить часть хлопьев на овсянку для более долгого насыщения.",
-    "freshAdd": "Яблоко + латте"
+    "freshAdd": "Яблоко + латте",
+    "perPortionNutrients": {
+      "sugar": 13.8,
+      "sodium": 246.6,
+      "calcium": 250.1,
+      "iron": 6.7,
+      "potassium": 488.6,
+      "magnesium": 89.9,
+      "zinc": 2.3,
+      "vitaminA": 298,
+      "vitaminC": 24.5,
+      "vitaminD": 2,
+      "vitaminE": 0.3,
+      "vitaminK": 10,
+      "vitaminB1": 1.5,
+      "vitaminB2": 1.2,
+      "vitaminB3": 7.4,
+      "vitaminB5": 1,
+      "vitaminB6": 0.8,
+      "vitaminB9": 245,
+      "vitaminB12": 3
+    }
   },
   {
     "id": "overnight-oats",
     "emoji": "🥣",
     "type": "cold-bowl",
-    "tags": ["breakfast-dinner", "no-cooking", "prep-evening"],
+    "tags": [
+      "breakfast-dinner",
+      "no-cooking",
+      "prep-evening"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 526, "protein": 33, "fat": 22, "carbs": 54, "fiber": 10 },
+    "perPortion": {
+      "kcal": 477,
+      "protein": 31,
+      "fat": 21.1,
+      "carbs": 45.3,
+      "fiber": 13
+    },
     "ingredients": [
-      { "id": "greek-yogurt", "amount": 200, "unit": "g" },
-      { "id": "oats", "amount": 4, "unit": "tbsp" },
-      { "id": "chia-seeds", "amount": 2, "unit": "tbsp" },
-      { "id": "berries", "amount": 1, "unit": "handful", "note": "добавить утром" },
-      { "id": "nuts", "amount": 20, "unit": "g", "note": "добавить утром" }
+      {
+        "id": "greek-yogurt",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "id": "oats",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 4 ст. л."
+      },
+      {
+        "id": "chia-seeds",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 2 ст. л."
+      },
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 горсть; добавить утром"
+      },
+      {
+        "id": "nuts",
+        "amount": 20,
+        "unit": "g",
+        "note": "добавить утром"
+      }
     ],
     "name": "Овсянка с йогуртом и чиа (overnight)",
     "description": "Смешать с вечера, утром достать из холодильника — готово. Густая кремовая текстура, сытнее обычного йогуртового боула.",
@@ -832,23 +2540,75 @@
       "Готово"
     ],
     "tips": "Чиа полностью разбухают за ночь — текстура будет как пудинг. Если забыла с вечера — можно утром, но тогда подождать 15–20 минут. Ягоды и орехи всегда добавлять утром, чтобы были хрустящими.",
-    "freshAdd": "Яблоко + латте"
+    "freshAdd": "Яблоко + латте",
+    "perPortionNutrients": {
+      "sugar": 11.7,
+      "sodium": 80,
+      "calcium": 408.1,
+      "iron": 3.7,
+      "potassium": 613.9,
+      "magnesium": 188.7,
+      "zinc": 4,
+      "vitaminA": 4,
+      "vitaminC": 5.3,
+      "vitaminD": 0,
+      "vitaminE": 0.5,
+      "vitaminK": 10,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.8,
+      "vitaminB3": 3.4,
+      "vitaminB5": 1.2,
+      "vitaminB6": 0.2,
+      "vitaminB9": 48,
+      "vitaminB12": 2
+    }
   },
   {
     "id": "avocado-egg-toast",
     "emoji": "🥑",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "quick", "10-min"],
+    "tags": [
+      "breakfast-dinner",
+      "quick",
+      "10-min"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 10,
-    "perPortion": { "kcal": 460, "protein": 20, "fat": 29, "carbs": 33, "fiber": 7 },
+    "perPortion": {
+      "kcal": 483,
+      "protein": 19.3,
+      "fat": 29.6,
+      "carbs": 36.2,
+      "fiber": 6.2
+    },
     "ingredients": [
-      { "id": "toast-bread", "amount": 2, "unit": "slice" },
-      { "id": "avocado", "amount": 0.5, "unit": "pcs" },
-      { "id": "egg", "amount": 2, "unit": "pcs", "note": "сварить вкрутую или пожарить" },
-      { "id": "butter", "amount": 1, "unit": "small-piece", "optional": true }
+      {
+        "id": "toast-bread",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 2 ломтика"
+      },
+      {
+        "id": "avocado",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 0.5 шт."
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 шт.; сварить вкрутую или пожарить"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "optional": true,
+        "note": "≈ 1 кусочек"
+      }
     ],
     "name": "Тост с авокадо и яйцом",
     "description": "Тост + размятое авокадо + яйцо. Для сытости на 5 часов — класть 2 яйца, не одно.",
@@ -861,24 +2621,80 @@
       "Положить яйца на тосты"
     ],
     "tips": "2 яйца вместо одного — ключевое отличие между «перекус» и «полноценный завтрак». Можно добавить кружок помидора сверху. На сливочном масле жарить на среднем огне, чтобы не горело.",
-    "freshAdd": "Помидор, зелёный лук. Яблоко + латте сбоку."
+    "freshAdd": "Помидор, зелёный лук. Яблоко + латте сбоку.",
+    "perPortionNutrients": {
+      "sugar": 4.2,
+      "sodium": 505.1,
+      "calcium": 153,
+      "iron": 4.3,
+      "potassium": 545.8,
+      "magnesium": 45.7,
+      "zinc": 2.2,
+      "vitaminA": 233,
+      "vitaminC": 6.8,
+      "vitaminD": 2,
+      "vitaminE": 2.8,
+      "vitaminK": 15,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.7,
+      "vitaminB3": 4.1,
+      "vitaminB5": 2.8,
+      "vitaminB6": 0.4,
+      "vitaminB9": 169,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "cheese-meat-toast",
     "emoji": "🥪",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "quick", "no-cooking"],
+    "tags": [
+      "breakfast-dinner",
+      "quick",
+      "no-cooking"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 357, "protein": 24, "fat": 15, "carbs": 33, "fiber": 3 },
+    "perPortion": {
+      "kcal": 398,
+      "protein": 18.2,
+      "fat": 21.5,
+      "carbs": 32.8,
+      "fiber": 1.9
+    },
     "ingredients": [
-      { "id": "toast-bread", "amount": 2, "unit": "slice" },
-      { "id": "cream-cheese", "amount": 1, "unit": "tbsp" },
-      { "id": "hard-cheese", "amount": 1, "unit": "slice" },
-      { "id": "smoked-turkey", "amount": 3, "unit": "slice" },
-      { "id": "tomato", "amount": 1, "unit": "slice" }
+      {
+        "id": "toast-bread",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 2 ломтика"
+      },
+      {
+        "id": "cream-cheese",
+        "amount": 15,
+        "unit": "g",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "hard-cheese",
+        "amount": 20,
+        "unit": "g",
+        "note": "≈ 1 ломтик"
+      },
+      {
+        "id": "smoked-turkey",
+        "amount": 45,
+        "unit": "g",
+        "note": "≈ 3 ломтика"
+      },
+      {
+        "id": "tomato",
+        "amount": 20,
+        "unit": "g",
+        "note": "≈ 1 ломтик"
+      }
     ],
     "name": "Тост с сыром и мясом",
     "description": "Твой классический ужин: тосты + творожный сыр + твёрдый сыр + копчёная индейка/карбонад + помидор.",
@@ -891,22 +2707,68 @@
       "Накрыть вторым тостом или есть открытым"
     ],
     "tips": "Чтобы не быть голодной к 22:00: клади больше мяса (2–3 кусочка вместо одного), или добавь варёное яйцо сбоку. Если знаешь, что впереди созвоны до 22:00 — запланируй перекус на 20:30.",
-    "freshAdd": "Можно добавить листья салата, огурец."
+    "freshAdd": "Можно добавить листья салата, огурец.",
+    "perPortionNutrients": {
+      "sugar": 4.6,
+      "sodium": 953.8,
+      "calcium": 281,
+      "iron": 2.9,
+      "potassium": 315,
+      "magnesium": 29.9,
+      "zinc": 2.4,
+      "vitaminA": 127,
+      "vitaminC": 2.7,
+      "vitaminD": 0,
+      "vitaminE": 0.6,
+      "vitaminK": 2,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.4,
+      "vitaminB3": 4.8,
+      "vitaminB5": 0.8,
+      "vitaminB6": 0.2,
+      "vitaminB9": 81,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "nut-butter-toast",
     "emoji": "🍌",
     "type": "cold-bowl",
-    "tags": ["snack", "quick", "no-cooking"],
+    "tags": [
+      "snack",
+      "quick",
+      "no-cooking"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 2,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 350, "protein": 11, "fat": 10, "carbs": 56, "fiber": 4 },
+    "perPortion": {
+      "kcal": 360,
+      "protein": 10.1,
+      "fat": 10.6,
+      "carbs": 60.2,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "toast-bread", "amount": 2, "unit": "slice" },
-      { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
-      { "id": "banana", "amount": 1, "unit": "pcs" }
+      {
+        "id": "toast-bread",
+        "amount": 60,
+        "unit": "g",
+        "note": "≈ 2 ломтика"
+      },
+      {
+        "id": "nut-butter",
+        "amount": 16,
+        "unit": "g",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      }
     ],
     "name": "Тост с ореховой пастой и бананом",
     "description": "Быстрый перекус между завтраком и обедом, или вечером между ужином и созвонами.",
@@ -918,21 +2780,62 @@
       "Нарезать банан сверху"
     ],
     "tips": "Хороший вариант на 20:30, когда до конца созвонов ещё 1.5 часа и тянет на сладкое. Сытнее, чем блинчик, и белка больше.",
-    "freshAdd": "Чёрный кофе, если не поздно."
+    "freshAdd": "Чёрный кофе, если не поздно.",
+    "perPortionNutrients": {
+      "sugar": 19.5,
+      "sodium": 297.9,
+      "calcium": 100.1,
+      "iron": 2.8,
+      "potassium": 587.3,
+      "magnesium": 72.5,
+      "zinc": 1,
+      "vitaminA": 4,
+      "vitaminC": 10.3,
+      "vitaminD": 0,
+      "vitaminE": 1.7,
+      "vitaminK": 1,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.3,
+      "vitaminB3": 5.8,
+      "vitaminB5": 0.9,
+      "vitaminB6": 0.6,
+      "vitaminB9": 104,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "cottage-cheese-berries",
     "emoji": "🍓",
     "type": "cold-bowl",
-    "tags": ["snack", "quick", "no-cooking", "high-protein"],
+    "tags": [
+      "snack",
+      "quick",
+      "no-cooking",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 1,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 187, "protein": 17, "fat": 7, "carbs": 15, "fiber": 2 },
+    "perPortion": {
+      "kcal": 176,
+      "protein": 17.1,
+      "fat": 6.6,
+      "carbs": 12.3,
+      "fiber": 1.2
+    },
     "ingredients": [
-      { "id": "cottage-cheese", "amount": 150, "unit": "g" },
-      { "id": "berries", "amount": 1, "unit": "handful" }
+      {
+        "id": "cottage-cheese",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 горсть"
+      }
     ],
     "name": "Творог с ягодами",
     "description": "Достать из холодильника, насыпать ягод — всё. Самый белковый перекус: ~15 г белка, ноль усилий.",
@@ -944,24 +2847,82 @@
       "Готово"
     ],
     "tips": "Идеальный поздний перекус: лёгкий, но белковый. Если хочется послаще — добавь чайную ложку мёда. Можно заменить ягоды на банан.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 9,
+      "sodium": 473,
+      "calcium": 127.5,
+      "iron": 0.2,
+      "potassium": 194.5,
+      "magnesium": 15,
+      "zinc": 0.7,
+      "vitaminA": 57,
+      "vitaminC": 4.9,
+      "vitaminD": 0,
+      "vitaminE": 0.4,
+      "vitaminK": 10,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0.3,
+      "vitaminB3": 0.4,
+      "vitaminB5": 0.9,
+      "vitaminB6": 0.1,
+      "vitaminB9": 21,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "smoothie-banana-pb",
     "emoji": "🥤",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "no-cooking",
+      "quick",
+      "calorie-dense"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 456, "protein": 18, "fat": 19, "carbs": 60, "fiber": 6 },
+    "perPortion": {
+      "kcal": 472,
+      "protein": 12.7,
+      "fat": 22.3,
+      "carbs": 62.1,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs", "note": "можно замороженный" },
-      { "id": "nut-butter", "amount": 1.5, "unit": "tbsp" },
-      { "id": "milk", "amount": 250, "unit": "ml" },
-      { "id": "oats", "amount": 2, "unit": "tbsp" },
-      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 шт.; можно замороженный"
+      },
+      {
+        "id": "nut-butter",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 1.5 ст. л."
+      },
+      {
+        "id": "milk",
+        "amount": 250,
+        "unit": "ml"
+      },
+      {
+        "id": "oats",
+        "amount": 12,
+        "unit": "g",
+        "note": "≈ 2 ст. л."
+      },
+      {
+        "id": "honey",
+        "amount": 7,
+        "unit": "g",
+        "optional": true,
+        "note": "≈ 1 ч. л."
+      }
     ],
     "name": "Смузи банан + арахисовая паста",
     "description": "Самый калорийный смузи: банан, арахисовая паста, молоко, овсянка. Можно пить между приёмами пищи, даже когда не голодна.",
@@ -973,25 +2934,87 @@
       "Если густо — добавить молока"
     ],
     "tips": "Овсянка делает смузи более калорийным и сытным, не добавляя объёма «на глаз». Замороженный банан даёт текстуру как у милкшейка. Пей медленно в течение часа-двух — так проще добрать калории без чувства переедания.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 22.8,
+      "sodium": 207.1,
+      "calcium": 109.3,
+      "iron": 2.3,
+      "potassium": 897,
+      "magnesium": 104.3,
+      "zinc": 4.3,
+      "vitaminA": 4,
+      "vitaminC": 10.3,
+      "vitaminD": 0,
+      "vitaminE": 2.4,
+      "vitaminK": 1,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.4,
+      "vitaminB3": 4.1,
+      "vitaminB5": 0.8,
+      "vitaminB6": 0.6,
+      "vitaminB9": 48,
+      "vitaminB12": 0
+    }
   },
   {
     "id": "smoothie-cocoa-protein",
     "emoji": "🍫",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "to-go", "no-cooking", "calorie-dense", "high-protein"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "to-go",
+      "no-cooking",
+      "calorie-dense",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 460, "protein": 27, "fat": 16, "carbs": 60, "fiber": 6 },
+    "perPortion": {
+      "kcal": 474,
+      "protein": 22.1,
+      "fat": 19.2,
+      "carbs": 61,
+      "fiber": 6.9
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs" },
-      { "id": "cocoa-powder", "amount": 1, "unit": "tbsp" },
-      { "id": "milk", "amount": 250, "unit": "ml" },
-      { "id": "greek-yogurt", "amount": 100, "unit": "g" },
-      { "id": "nut-butter", "amount": 1, "unit": "tbsp" },
-      { "id": "oats", "amount": 2, "unit": "tbsp" }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      },
+      {
+        "id": "cocoa-powder",
+        "amount": 5,
+        "unit": "g",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "milk",
+        "amount": 250,
+        "unit": "ml"
+      },
+      {
+        "id": "greek-yogurt",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "nut-butter",
+        "amount": 16,
+        "unit": "g",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "oats",
+        "amount": 12,
+        "unit": "g",
+        "note": "≈ 2 ст. л."
+      }
     ],
     "name": "Шоколадный смузи на дорогу",
     "description": "Калорийный смузи с какао и протеином в бутылку с собой. Сделать утром, взять в транспорт — выпить до или во время поездки.",
@@ -1003,24 +3026,80 @@
       "Выпить до выхода или в начале поездки"
     ],
     "tips": "Это твой «страховочный» смузи на дни, когда завтракаешь на работе. Выпей дома или в начале дороги — не выезжай натощак. Йогурт и арахисовая паста дают белок и жир, чтобы калории усваивались равномерно.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 19.6,
+      "sodium": 242.5,
+      "calcium": 221.4,
+      "iron": 2.9,
+      "potassium": 1065.9,
+      "magnesium": 126.7,
+      "zinc": 4.9,
+      "vitaminA": 5,
+      "vitaminC": 10.3,
+      "vitaminD": 0,
+      "vitaminE": 1.6,
+      "vitaminK": 1,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.7,
+      "vitaminB3": 3.3,
+      "vitaminB5": 1.1,
+      "vitaminB6": 0.6,
+      "vitaminB9": 50,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "smoothie-mango-yogurt",
     "emoji": "🥭",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "no-cooking", "quick"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "no-cooking",
+      "quick"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 326, "protein": 22, "fat": 5, "carbs": 54, "fiber": 5 },
+    "perPortion": {
+      "kcal": 347,
+      "protein": 19.9,
+      "fat": 6.6,
+      "carbs": 56.6,
+      "fiber": 3.9
+    },
     "ingredients": [
-      { "id": "mango", "amount": 150, "unit": "g", "note": "свежее или замороженное" },
-      { "id": "banana", "amount": 0.5, "unit": "pcs" },
-      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
-      { "id": "milk", "amount": 150, "unit": "ml" },
-      { "id": "honey", "amount": 1, "unit": "tsp", "optional": true }
+      {
+        "id": "mango",
+        "amount": 150,
+        "unit": "g",
+        "note": "свежее или замороженное"
+      },
+      {
+        "id": "banana",
+        "amount": 59,
+        "unit": "g",
+        "note": "≈ 0.5 шт."
+      },
+      {
+        "id": "greek-yogurt",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "milk",
+        "amount": 150,
+        "unit": "ml"
+      },
+      {
+        "id": "honey",
+        "amount": 7,
+        "unit": "g",
+        "optional": true,
+        "note": "≈ 1 ч. л."
+      }
     ],
     "name": "Смузи манго + йогурт",
     "description": "Тропический смузи на йогурте: манго, банан, йогурт. Освежающий вариант, когда хочется чего-то полегче, но всё ещё калорийного.",
@@ -1032,25 +3111,86 @@
       "Если густо — добавить молока"
     ],
     "tips": "Замороженное манго делает смузи холодным и густым без льда. Йогурт даёт белок. Хорош как дозаправка днём, когда основной приём был давно, а до следующего ещё далеко.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 38.3,
+      "sodium": 176.9,
+      "calcium": 235.9,
+      "iron": 1.1,
+      "potassium": 854.5,
+      "magnesium": 56.8,
+      "zinc": 2.8,
+      "vitaminA": 84,
+      "vitaminC": 59.8,
+      "vitaminD": 0,
+      "vitaminE": 1.4,
+      "vitaminK": 7,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0.7,
+      "vitaminB3": 1.7,
+      "vitaminB5": 1,
+      "vitaminB6": 0.5,
+      "vitaminB9": 87,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "smoothie-berry-oat",
     "emoji": "🫐",
     "type": "smoothie",
-    "tags": ["snack", "smoothie", "no-cooking", "quick", "calorie-dense"],
+    "tags": [
+      "snack",
+      "smoothie",
+      "no-cooking",
+      "quick",
+      "calorie-dense"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 3,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 494, "protein": 28, "fat": 14, "carbs": 70, "fiber": 7 },
+    "perPortion": {
+      "kcal": 477,
+      "protein": 24.3,
+      "fat": 16,
+      "carbs": 64.6,
+      "fiber": 6.9
+    },
     "ingredients": [
-      { "id": "berries", "amount": 1, "unit": "handful", "note": "голубика, малина; можно замороженные" },
-      { "id": "banana", "amount": 1, "unit": "pcs" },
-      { "id": "greek-yogurt", "amount": 150, "unit": "g" },
-      { "id": "oats", "amount": 3, "unit": "tbsp" },
-      { "id": "milk", "amount": 150, "unit": "ml" },
-      { "id": "nuts", "amount": 15, "unit": "g", "optional": true }
+      {
+        "id": "berries",
+        "amount": 50,
+        "unit": "g",
+        "note": "≈ 1 горсть; голубика, малина; можно замороженные"
+      },
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 шт."
+      },
+      {
+        "id": "greek-yogurt",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "id": "oats",
+        "amount": 18,
+        "unit": "g",
+        "note": "≈ 3 ст. л."
+      },
+      {
+        "id": "milk",
+        "amount": 150,
+        "unit": "ml"
+      },
+      {
+        "id": "nuts",
+        "amount": 15,
+        "unit": "g",
+        "optional": true
+      }
     ],
     "name": "Ягодно-овсяный смузи",
     "description": "Ягоды, йогурт, овсянка, банан. Плотный смузи в духе твоего любимого йогуртового боула, только в жидком виде.",
@@ -1062,24 +3202,81 @@
       "Добавить молока, если густо"
     ],
     "tips": "Овсянка и орехи поднимают калорийность. Этот смузи близок по вкусу к твоему йогуртовому боулу, так что зайдёт легко. Замороженные ягоды дешевле и всегда под рукой.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 24.4,
+      "sodium": 178.9,
+      "calcium": 250.1,
+      "iron": 2.3,
+      "potassium": 995.3,
+      "magnesium": 123.1,
+      "zinc": 4.2,
+      "vitaminA": 7,
+      "vitaminC": 15.2,
+      "vitaminD": 0,
+      "vitaminE": 0.5,
+      "vitaminK": 11,
+      "vitaminB1": 0.3,
+      "vitaminB2": 0.8,
+      "vitaminB3": 1.8,
+      "vitaminB5": 1.3,
+      "vitaminB6": 0.6,
+      "vitaminB9": 51,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "banana-oat-pancakes",
     "emoji": "🥞",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "flour-free", "quick"],
+    "tags": [
+      "breakfast-dinner",
+      "flour-free",
+      "quick"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 424, "protein": 18, "fat": 19, "carbs": 51, "fiber": 6 },
+    "perPortion": {
+      "kcal": 430,
+      "protein": 17.6,
+      "fat": 20.6,
+      "carbs": 45.8,
+      "fiber": 5.5
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs", "note": "спелый, с коричневыми точками" },
-      { "id": "egg", "amount": 2, "unit": "pcs" },
-      { "id": "oats", "amount": 4, "unit": "tbsp" },
-      { "id": "milk", "amount": 2, "unit": "tbsp", "note": "если тесто густое", "optional": true },
-      { "id": "butter", "amount": 1, "unit": "small-piece", "note": "для жарки" }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 шт.; спелый, с коричневыми точками"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 шт."
+      },
+      {
+        "id": "oats",
+        "amount": 24,
+        "unit": "g",
+        "note": "≈ 4 ст. л."
+      },
+      {
+        "id": "milk",
+        "amount": 30,
+        "unit": "ml",
+        "note": "≈ 2 ст. л.; если тесто густое",
+        "optional": true
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 кусочек; для жарки"
+      }
     ],
     "name": "Банановые оладьи с овсянкой",
     "description": "Оладьи на банане и овсянке без муки. Держатся на яйце — просто, сладко за счёт банана, без сахара.",
@@ -1093,24 +3290,80 @@
       "По 1.5–2 мин с каждой стороны, переворачивать после появления корочки"
     ],
     "tips": "Тесто гуще обычного, оладьи выходят небольшими и плотными. Спелый банан даёт сладость — сахар не нужен. Делай маленькие оладьи (столовая ложка теста на штуку) и не переворачивай рано, иначе развалятся. Подавать с ягодами, йогуртом, ореховой пастой или мёдом — добавит калорий.",
-    "freshAdd": "Ягоды, ложка йогурта, ореховая паста или мёд сверху."
+    "freshAdd": "Ягоды, ложка йогурта, ореховая паста или мёд сверху.",
+    "perPortionNutrients": {
+      "sugar": 15,
+      "sodium": 233,
+      "calcium": 87,
+      "iron": 3.2,
+      "potassium": 684.9,
+      "magnesium": 79,
+      "zinc": 2.7,
+      "vitaminA": 232,
+      "vitaminC": 10.3,
+      "vitaminD": 2,
+      "vitaminE": 1.5,
+      "vitaminK": 2,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.6,
+      "vitaminB3": 1.1,
+      "vitaminB5": 2.2,
+      "vitaminB6": 0.6,
+      "vitaminB9": 79,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "banana-cottage-pancakes",
     "emoji": "🥞",
     "type": "warm-bowl",
-    "tags": ["breakfast-dinner", "flour-free", "quick", "high-protein"],
+    "tags": [
+      "breakfast-dinner",
+      "flour-free",
+      "quick",
+      "high-protein"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 5,
     "cookMinutes": 8,
-    "perPortion": { "kcal": 489, "protein": 28, "fat": 22, "carbs": 48, "fiber": 5 },
+    "perPortion": {
+      "kcal": 486,
+      "protein": 27.4,
+      "fat": 23.5,
+      "carbs": 43.2,
+      "fiber": 4.9
+    },
     "ingredients": [
-      { "id": "banana", "amount": 1, "unit": "pcs", "note": "спелый" },
-      { "id": "cottage-cheese", "amount": 100, "unit": "g" },
-      { "id": "egg", "amount": 2, "unit": "pcs" },
-      { "id": "oats", "amount": 3, "unit": "tbsp" },
-      { "id": "butter", "amount": 1, "unit": "small-piece", "note": "для жарки" }
+      {
+        "id": "banana",
+        "amount": 118,
+        "unit": "g",
+        "note": "≈ 1 шт.; спелый"
+      },
+      {
+        "id": "cottage-cheese",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 шт."
+      },
+      {
+        "id": "oats",
+        "amount": 18,
+        "unit": "g",
+        "note": "≈ 3 ст. л."
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 кусочек; для жарки"
+      }
     ],
     "name": "Банановые оладьи с творогом",
     "description": "Банановые оладьи с творогом — 28 г белка. Творог делает их нежнее и держит форму лучше банановых.",
@@ -1124,23 +3377,75 @@
       "По 2 мин с каждой стороны, переворачивать после появления корочки"
     ],
     "tips": "Творог добавляет белок (28 г — почти как обеденный боул) и делает оладьи нежнее и прочнее. Хороший вариант, когда хочется сладкого завтрака, но нужен белок. Отлично идёт как сытный завтрак в дни с транспортом.",
-    "freshAdd": "Ягоды, йогурт, ореховая паста или мёд сверху."
+    "freshAdd": "Ягоды, йогурт, ореховая паста или мёд сверху.",
+    "perPortionNutrients": {
+      "sugar": 17.7,
+      "sodium": 523.6,
+      "calcium": 156.7,
+      "iron": 2.9,
+      "potassium": 732,
+      "magnesium": 76.9,
+      "zinc": 2.5,
+      "vitaminA": 269,
+      "vitaminC": 10.3,
+      "vitaminD": 2,
+      "vitaminE": 1.6,
+      "vitaminK": 2,
+      "vitaminB1": 0.2,
+      "vitaminB2": 0.7,
+      "vitaminB3": 1.2,
+      "vitaminB5": 2.7,
+      "vitaminB6": 0.7,
+      "vitaminB9": 89,
+      "vitaminB12": 1
+    }
   },
   {
     "id": "tahini-sauce",
     "emoji": "🥄",
     "type": "sauce",
-    "tags": ["add-on", "no-cooking", "quick", "calorie-dense"],
+    "tags": [
+      "add-on",
+      "no-cooking",
+      "quick",
+      "calorie-dense"
+    ],
     "batchDays": 1,
     "portions": 1,
     "prepMinutes": 2,
     "cookMinutes": 0,
-    "perPortion": { "kcal": 153, "protein": 1, "fat": 17, "carbs": 2, "fiber": 1 },
+    "perPortion": {
+      "kcal": 151,
+      "protein": 0.9,
+      "fat": 16.3,
+      "carbs": 1.4,
+      "fiber": 0.3
+    },
     "ingredients": [
-      { "id": "tahini", "amount": 1, "unit": "tsp", "note": "с горкой" },
-      { "id": "lemon-juice", "amount": 1, "unit": "tsp" },
-      { "id": "olive-or-sesame-oil", "amount": 1, "unit": "tbsp" },
-      { "id": "water", "amount": 1, "unit": "splash", "note": "до нужной консистенции" }
+      {
+        "id": "tahini",
+        "amount": 5,
+        "unit": "g",
+        "note": "≈ 1 ч. л.; с горкой"
+      },
+      {
+        "id": "lemon-juice",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 ч. л."
+      },
+      {
+        "id": "olive-or-sesame-oil",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 ст. л."
+      },
+      {
+        "id": "water",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 брызги; до нужной консистенции"
+      }
     ],
     "name": "Тахинный соус (добавка к боулам)",
     "description": "Универсальная калорийная добавка к любому обеденному боулу. Добавляет ~160 ккал плотных калорий, почти не увеличивая объём.",
@@ -1152,6 +3457,27 @@
       "Полить боул перед едой"
     ],
     "tips": "Добавляй к рису, гречке, чечевице, киноа, кус-кусу. Даёт плотные калории без объёма — именно то, что нужно, когда большие порции не влезают. Тахини содержит кальций и железо, лимон (витамин С) помогает усвоению железа.",
-    "freshAdd": ""
+    "freshAdd": "",
+    "perPortionNutrients": {
+      "sugar": 0.1,
+      "sodium": 2.1,
+      "calcium": 7.5,
+      "iron": 0.3,
+      "potassium": 28.4,
+      "magnesium": 5.1,
+      "zinc": 0.2,
+      "vitaminA": 0,
+      "vitaminC": 2.2,
+      "vitaminD": 0,
+      "vitaminE": 2,
+      "vitaminK": 8,
+      "vitaminB1": 0.1,
+      "vitaminB2": 0,
+      "vitaminB3": 0.3,
+      "vitaminB5": 0,
+      "vitaminB6": 0,
+      "vitaminB9": 6,
+      "vitaminB12": 0
+    }
   }
 ]

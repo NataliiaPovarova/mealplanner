@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ingredientCatalog } from "../constants";
+import { resolveShoppingMeasure } from "../utils/shoppingMeasure";
 
 const CATEGORY_ORDER = ["produce", "protein", "dairy", "legumes", "grains", "pantry"];
 
@@ -35,9 +36,11 @@ export default function useShoppingList(weekPlan, meals, weekAddOns = {}) {
   });
 
   const map = {};
+  const usesById = {};
   Object.entries(batchCounts).forEach(([mealId, batches]) => {
     const meal = meals.find(m => m.id === mealId);
     if (!meal) return;
+    const countedInMeal = new Set();
     meal.ingredients.forEach(ing => {
       if (ingredientCatalog[ing.id]?.shopping === false) return;
       const key = `${ing.id}|${ing.unit}`;
@@ -52,12 +55,22 @@ export default function useShoppingList(weekPlan, meals, weekAddOns = {}) {
         };
       }
       map[key].amount += (ing.amount || 0) * batches;
+      if (!countedInMeal.has(ing.id)) {
+        countedInMeal.add(ing.id);
+        usesById[ing.id] = (usesById[ing.id] || 0) + batches;
+      }
     });
   });
 
   const items = Object.values(map).map(item => {
+    const measure = resolveShoppingMeasure({
+      ingredientId: item.ingredientId,
+      amount: item.amount,
+      unit: item.unit,
+      uses: usesById[item.ingredientId] || 0,
+    });
     const { amount, unit } = normalizeAmount(item.amount, item.unit);
-    return { ...item, amount, unit };
+    return { ...item, amount, unit, measure };
   });
 
   const grouped = {};

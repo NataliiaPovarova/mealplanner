@@ -74,8 +74,10 @@ export default function AboutOverlay({ onClose }) {
               <li><strong>Контроль батчей</strong>: предупреждения, если количество порций не совпадает с рецептом</li>
               <li><strong>Рецепты-добавки</strong>: соусы и другие сопровождения (тег <code>add-on</code>) прикрепляются к любому выбранному приёму пищи через chip под ним. Их калории учитываются в КБЖУ дня, а ингредиенты попадают в список закупки. Также добавки можно упоминать в других рецептах как «ссылку-ингредиент»</li>
               <li><strong>Умный список закупки</strong>: ингредиенты агрегируются во вкладке «Закупка» и группируются по категориям (овощи, белок, молочное, бобовые, крупы, прочее); ингредиенты-ссылки (например, порция тахинного соуса) исключаются из списка</li>
+              <li><strong>Примерные мерки</strong>: в закупке сначала идёт примерная мера из рецептов (штуки, банки, ломтики, ложки, горсти), а граммы и миллилитры — в скобках: «2 шт. (272 г)». Если у продукта нет естественной «штуки», считается количество использований за неделю: «4 шт. (650 г)» йогурта — это четыре порции. Крупы и молоко остаются в граммах и миллилитрах</li>
               <li><strong>PDF на неделю</strong>: скачай план и все рецепты одним файлом — открывай на телефоне прямо на кухне</li>
               <li><strong>Фильтрация по тегам</strong>: обед, завтрак/ужин, перекус, без мяса, богато железом и другие</li>
+              <li><strong>Питательная ценность</strong>: КБЖУ и микронутриенты (клетчатка, минералы, витамины) пересчитаны по <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; в плане недели и закупке — сводка за день</li>
             </ul>
             <h3 style={sectionTitle}>Философия</h3>
             <p style={{ ...bodyText, fontStyle: "italic", opacity: 0.75 }}>Если продукт качественный и свежий, добавки и специи ему не нужны.</p>
@@ -86,7 +88,7 @@ export default function AboutOverlay({ onClose }) {
               <li>Теги для фильтрации (например, <code>lunch</code>, <code>snack</code>, <code>meat-free</code>, <code>add-on</code>)</li>
               <li>Количество порций и дней хранения (batch)</li>
               <li>Время подготовки и готовки</li>
-              <li>КБЖУ на порцию — <em>очень грубая оценка, не полагайтесь на неё</em></li>
+              <li>КБЖУ и микронутриенты на порцию — оценка по USDA (количества в г/мл; кулинарные эквиваленты в заметках). Бренды и «щепотки» дают погрешность — не медицинский расчёт</li>
               <li>Список ингредиентов и пошаговая инструкция — ингредиенты могут быть «ссылками» на другие рецепты (например, порция тахинного соуса) и автоматически исключаются из списка закупки</li>
               <li>Советы и рекомендации</li>
             </ul>
@@ -106,8 +108,10 @@ export default function AboutOverlay({ onClose }) {
               <li><strong>Batch validation</strong>: warnings when portion counts do not match the recipe</li>
               <li><strong>Add-on recipes</strong>: sauces and other extras (tagged <code>add-on</code>) can be attached to any filled meal slot via a chip below the meal. Their calories are counted in the daily totals and their ingredients are included in the shopping list. They can also be referenced from other recipes as a "reference ingredient"</li>
               <li><strong>Smart shopping list</strong>: ingredients are aggregated on the Shopping tab and grouped by category (produce, protein, dairy, legumes, grains, pantry); reference ingredients (like a tahini-sauce portion) are excluded so you only see what to actually buy</li>
+              <li><strong>Household measures</strong>: every shopping line starts with an approximate measure from the recipes (pieces, cans, slices, spoons, handfuls) and keeps grams or millilitres in parentheses: "2 pcs (272 g)". Ingredients without a natural piece size show how many times they are used during the week — "4 pcs (650 g)" of yogurt means four servings. Grains and milk stay in grams and millilitres</li>
               <li><strong>Downloadable PDF</strong>: export the weekly plan and all recipes as a single file — open it on your phone right in the kitchen</li>
               <li><strong>Tag filtering</strong>: lunch, breakfast/dinner, snack, meat-free, iron-rich, and more</li>
+              <li><strong>Nutrition</strong>: macros and micronutrients (fiber, minerals, vitamins) recalculated from <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; the week plan and shopping tab show a daily summary</li>
             </ul>
             <h3 style={sectionTitle}>Philosophy</h3>
             <p style={{ ...bodyText, fontStyle: "italic", opacity: 0.75 }}>If the product is high quality and fresh, it does not need additives or spices.</p>
@@ -118,7 +122,7 @@ export default function AboutOverlay({ onClose }) {
               <li>Tags for filtering (e.g. <code>lunch</code>, <code>snack</code>, <code>meat-free</code>, <code>add-on</code>)</li>
               <li>Servings and storage days (batch)</li>
               <li>Prep and cook time</li>
-              <li>Macros per serving — <em>very rough estimate, do not rely on it</em></li>
+              <li>Macros and micronutrients per serving — USDA-based estimates (amounts in g/ml; culinary equivalents in notes). Brands and “pinches” introduce error — not medical advice</li>
               <li>Ingredient list and step-by-step instructions — ingredients can be "references" to other recipes (e.g. a portion of tahini sauce) and are automatically excluded from the shopping list</li>
               <li>Tips and recommendations</li>
             </ul>

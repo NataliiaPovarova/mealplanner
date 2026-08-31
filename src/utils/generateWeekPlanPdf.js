@@ -115,7 +115,19 @@ export default async function generateWeekPlanPdf({
       margin,
       y
     );
-    y += 7;
+    y += 4;
+    const micros = meal.perPortionNutrients || {};
+    const microBits = ["iron", "calcium", "potassium", "sodium", "vitaminC"]
+      .filter((k) => micros[k] != null && micros[k] !== 0)
+      .map((k) => `${t(`nutrition.${k}`)} ${micros[k]}`);
+    if (microBits.length) {
+      checkPageBreak(6);
+      doc.setFontSize(8);
+      doc.text(microBits.join(" · "), margin, y);
+      y += 3;
+      doc.setFontSize(9);
+    }
+    y += 3;
 
     // Ingredients
     doc.setFont(fontName, "bold");

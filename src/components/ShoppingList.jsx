@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { DAYS } from "../constants";
 import useShoppingList from "../hooks/useShoppingList";
 import useShoppingChecks, { itemKey } from "../hooks/useShoppingChecks";
+import NutrientSummary from "./NutrientSummary";
+import { formatShoppingAmount } from "../utils/shoppingMeasure";
 
 export default function ShoppingList({ weekPlan, weekAddOns, getDayKBJU, filledSlots, meals }) {
   const { t, i18n } = useTranslation();
@@ -78,7 +80,7 @@ export default function ShoppingList({ weekPlan, weekAddOns, getDayKBJU, filledS
                     fontWeight: 500, opacity: checked ? 0.35 : 0.7, flexShrink: 0, marginLeft: 12,
                     textDecoration: checked ? "line-through" : "none",
                   }}>
-                    {item.amount > 0 ? `${item.amount} ${t(`units.${item.unit}`, { defaultValue: item.unit })}` : '—'}
+                    {formatShoppingAmount(item, t, i18n.language)}
                   </span>
                 </label>
               );
@@ -88,21 +90,27 @@ export default function ShoppingList({ weekPlan, weekAddOns, getDayKBJU, filledS
       ))}
 
       <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 10px" }}>{t("shopping.kbjuTitle")}</h3>
+      <p style={{ fontSize: 12, opacity: 0.5, margin: "0 0 10px" }}>{t("nutrition.sourceNote")}</p>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {DAYS.map(day => {
           const k = getDayKBJU(day);
           if (k.kcal === 0) return null;
           return (
             <div key={day} style={{
-              display: "flex", justifyContent: "space-between", padding: "8px 14px",
+              padding: "8px 14px",
               border: "1px solid var(--border-color, #e0dcd4)", borderRadius: 8,
               background: k.kcal < 1800 ? "rgba(212,167,106,0.08)" : "var(--bg-surface, rgba(255,252,247,0.6))",
               fontSize: 13,
             }}>
-              <span style={{ fontWeight: 600, width: 28 }}>{t(`days.${day}`)}</span>
-              <span>{k.kcal} {t("week.kcal")}</span>
-              <span>{k.protein}{t("shopping.proteinLabel")}</span>
-              <span>{k.fiber}{t("shopping.fiberLabel")}</span>
+              <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 6 }}>
+                <span style={{ fontWeight: 600, width: 28 }}>{t(`days.${day}`)}</span>
+                <span>{k.kcal} {t("week.kcal")}</span>
+                <span>{k.protein}{t("shopping.proteinLabel")}</span>
+                <span>{k.fat}{t("shopping.fatLabel")}</span>
+                <span>{k.carbs}{t("shopping.carbsLabel")}</span>
+                <span>{k.fiber}{t("shopping.fiberLabel")}</span>
+              </div>
+              <NutrientSummary nutrients={k.nutrients} t={t} compact />
             </div>
           );
         })}

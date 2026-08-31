@@ -1,0 +1,283 @@
+{
+  "_comment": "Approximate culinary → g/ml conversions for nutrition estimates and shopping-list measures. Sources: USDA household measures, common cooking references.",
+  "volumeToMl": {
+    "tsp": 5,
+    "tbsp": 15,
+    "dash": 2,
+    "splash": 5
+  },
+  "densityGPerMl": {
+    "default": 1,
+    "olive-oil": 0.91,
+    "vegetable-oil": 0.92,
+    "sesame-oil": 0.92,
+    "olive-or-sesame-oil": 0.91,
+    "soy-sauce": 1.15,
+    "lemon-juice": 1.03,
+    "honey": 1.42,
+    "milk": 1.03,
+    "butter": 0.911,
+    "nut-butter": 1.08,
+    "tahini": 1.1,
+    "cream-cheese": 1.01
+  },
+  "skipNormalize": {
+    "water": {
+      "pcs": true,
+      "_reason": "Rice-cooker scale marks; nutrition is zero; keep unit pcs + note"
+    },
+    "tahini-sauce-portion": {
+      "portion": true,
+      "_reason": "Reference ingredient; nutrition from tahini-sauce recipe"
+    }
+  },
+  "ingredients": {
+    "egg": {
+      "pcs": { "amount": 50, "unit": "g" }
+    },
+    "tomato": {
+      "pcs": { "amount": 123, "unit": "g" },
+      "medium": { "amount": 123, "unit": "g" },
+      "large": { "amount": 182, "unit": "g" },
+      "slice": { "amount": 20, "unit": "g" }
+    },
+    "hard-cheese": {
+      "slice": { "amount": 20, "unit": "g" },
+      "pcs": { "amount": 20, "unit": "g" }
+    },
+    "smoked-turkey": {
+      "slice": { "amount": 15, "unit": "g" },
+      "pcs": { "amount": 15, "unit": "g" }
+    },
+    "smoked-fish": {
+      "slice": { "amount": 20, "unit": "g" }
+    },
+    "cherry-tomatoes": {
+      "pcs": { "amount": 17, "unit": "g" }
+    },
+    "cucumber": {
+      "pcs": { "amount": 200, "unit": "g" },
+      "large": { "amount": 300, "unit": "g" },
+      "medium": { "amount": 200, "unit": "g" }
+    },
+    "bell-pepper": {
+      "pcs": { "amount": 119, "unit": "g" },
+      "medium": { "amount": 119, "unit": "g" }
+    },
+    "carrot": {
+      "pcs": { "amount": 61, "unit": "g" },
+      "medium": { "amount": 61, "unit": "g" }
+    },
+    "avocado": {
+      "pcs": { "amount": 136, "unit": "g" },
+      "medium": { "amount": 136, "unit": "g" }
+    },
+    "green-onion": {
+      "stalks": { "amount": 15, "unit": "g" },
+      "pcs": { "amount": 15, "unit": "g" }
+    },
+    "banana": {
+      "pcs": { "amount": 118, "unit": "g" },
+      "medium": { "amount": 118, "unit": "g" }
+    },
+    "mango": {
+      "pcs": { "amount": 200, "unit": "g" }
+    },
+    "spinach": {
+      "handful": { "amount": 30, "unit": "g" },
+      "pcs": { "amount": 30, "unit": "g" }
+    },
+    "berries": {
+      "handful": { "amount": 50, "unit": "g" }
+    },
+    "nuts": {
+      "handful": { "amount": 30, "unit": "g" }
+    },
+    "chicken-thigh-bone-in": {
+      "pcs": { "amount": 150, "unit": "g" }
+    },
+    "canned-chickpeas": {
+      "can": { "amount": 240, "unit": "g" }
+    },
+    "canned-beans": {
+      "can": { "amount": 240, "unit": "g" }
+    },
+    "canned-tuna": {
+      "can": { "amount": 120, "unit": "g" }
+    },
+    "butter": {
+      "small-piece": { "amount": 10, "unit": "g" },
+      "tsp": { "amount": 5, "unit": "g" },
+      "tbsp": { "amount": 14, "unit": "g" }
+    },
+    "cream-cheese": {
+      "tsp": { "amount": 5, "unit": "g" },
+      "tbsp": { "amount": 15, "unit": "g" }
+    },
+    "tortilla": {
+      "pcs": { "amount": 45, "unit": "g" }
+    },
+    "toast-bread": {
+      "pcs": { "amount": 30, "unit": "g" },
+      "slice": { "amount": 30, "unit": "g" }
+    },
+    "mozzarella": {
+      "ball": { "amount": 125, "unit": "g" }
+    },
+    "oats": {
+      "tsp": { "amount": 2, "unit": "g" },
+      "tbsp": { "amount": 6, "unit": "g" },
+      "handful": { "amount": 25, "unit": "g" }
+    },
+    "corn-flakes": {
+      "handful": { "amount": 15, "unit": "g" }
+    },
+    "chia-seeds": {
+      "tsp": { "amount": 4, "unit": "g" },
+      "tbsp": { "amount": 12, "unit": "g" }
+    },
+    "cocoa-powder": {
+      "tsp": { "amount": 2, "unit": "g" },
+      "tbsp": { "amount": 5, "unit": "g" }
+    },
+    "olive-oil": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" },
+      "dash": { "amount": 2, "unit": "ml" }
+    },
+    "vegetable-oil": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" },
+      "dash": { "amount": 2, "unit": "ml" }
+    },
+    "sesame-oil": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" },
+      "dash": { "amount": 2, "unit": "ml" }
+    },
+    "olive-or-sesame-oil": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" },
+      "dash": { "amount": 2, "unit": "ml" }
+    },
+    "soy-sauce": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" },
+      "dash": { "amount": 2, "unit": "ml" }
+    },
+    "lemon-juice": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" }
+    },
+    "honey": {
+      "tsp": { "amount": 7, "unit": "g" },
+      "tbsp": { "amount": 21, "unit": "g" }
+    },
+    "nut-butter": {
+      "tsp": { "amount": 5, "unit": "g" },
+      "tbsp": { "amount": 16, "unit": "g" }
+    },
+    "tahini": {
+      "tsp": { "amount": 5, "unit": "g" },
+      "tbsp": { "amount": 15, "unit": "g" }
+    },
+    "milk": {
+      "tsp": { "amount": 5, "unit": "ml" },
+      "tbsp": { "amount": 15, "unit": "ml" }
+    }
+  },
+  "_shoppingUnitsComment": "Preferred household measure shown first in the shopping list; grams/ml go in parentheses.",
+  "shoppingUnits": {
+    "egg": "pcs",
+    "tomato": "pcs",
+    "cherry-tomatoes": "pcs",
+    "cucumber": "pcs",
+    "bell-pepper": "pcs",
+    "carrot": "pcs",
+    "avocado": "pcs",
+    "green-onion": "stalks",
+    "banana": "pcs",
+    "mango": "pcs",
+    "spinach": "handful",
+    "berries": "handful",
+    "nuts": "handful",
+    "chicken-thigh-bone-in": "pcs",
+    "canned-chickpeas": "can",
+    "canned-beans": "can",
+    "canned-tuna": "can",
+    "butter": "tbsp",
+    "cream-cheese": "tbsp",
+    "tortilla": "pcs",
+    "toast-bread": "slice",
+    "mozzarella": "ball",
+    "hard-cheese": "slice",
+    "smoked-turkey": "slice",
+    "chia-seeds": "tbsp",
+    "cocoa-powder": "tbsp",
+    "olive-oil": "tbsp",
+    "vegetable-oil": "tbsp",
+    "sesame-oil": "tbsp",
+    "olive-or-sesame-oil": "tbsp",
+    "soy-sauce": "tbsp",
+    "lemon-juice": "tbsp",
+    "honey": "tbsp",
+    "nut-butter": "tbsp",
+    "tahini": "tbsp"
+  },
+  "_bulkByWeightComment": "Bought by weight/volume: the shopping list shows only grams or millilitres, no household measure.",
+  "bulkByWeight": [
+    "rice",
+    "buckwheat",
+    "quinoa",
+    "couscous",
+    "short-pasta",
+    "noodles",
+    "egg-noodles",
+    "noodles-udon",
+    "oats",
+    "corn-flakes",
+    "red-lentils",
+    "milk"
+  ],
+  "_legacyUnitLabelsComment": "Older note wordings, kept so `nutrition:normalize-units --refresh` still recognises them.",
+  "legacyUnitLabels": {
+    "ru": {
+      "пёрышко": "stalks",
+      "пёрышка": "stalks",
+      "пёрышек": "stalks"
+    }
+  },
+  "_unitLabelsComment": "Plural forms used to write the ≈ culinary equivalent into recipe notes.",
+  "unitLabels": {
+    "en": {
+      "tsp": { "one": "tsp", "other": "tsp" },
+      "tbsp": { "one": "tbsp", "other": "tbsp" },
+      "dash": { "one": "dash", "other": "dashes" },
+      "splash": { "one": "splash", "other": "splashes" },
+      "pcs": { "one": "pc", "other": "pcs" },
+      "medium": { "one": "medium", "other": "medium" },
+      "large": { "one": "large", "other": "large" },
+      "stalks": { "one": "stalk", "other": "stalks" },
+      "can": { "one": "can", "other": "cans" },
+      "small-piece": { "one": "small piece", "other": "small pieces" },
+      "handful": { "one": "handful", "other": "handfuls" },
+      "slice": { "one": "slice", "other": "slices" },
+      "ball": { "one": "ball", "other": "balls" }
+    },
+    "ru": {
+      "tsp": { "one": "ч. л.", "few": "ч. л.", "many": "ч. л.", "other": "ч. л." },
+      "tbsp": { "one": "ст. л.", "few": "ст. л.", "many": "ст. л.", "other": "ст. л." },
+      "dash": { "one": "капля", "few": "капли", "many": "капель", "other": "капли" },
+      "splash": { "one": "брызги", "few": "брызги", "many": "брызг", "other": "брызг" },
+      "pcs": { "one": "шт.", "few": "шт.", "many": "шт.", "other": "шт." },
+      "medium": { "one": "средний", "few": "средних", "many": "средних", "other": "средних" },
+      "large": { "one": "большой", "few": "больших", "many": "больших", "other": "больших" },
+      "stalks": { "one": "перо", "few": "пера", "many": "перьев", "other": "пера" },
+      "can": { "one": "банка", "few": "банки", "many": "банок", "other": "банки" },
+      "small-piece": { "one": "кусочек", "few": "кусочка", "many": "кусочков", "other": "кусочка" },
+      "handful": { "one": "горсть", "few": "горсти", "many": "горстей", "other": "горсти" },
+      "slice": { "one": "ломтик", "few": "ломтика", "many": "ломтиков", "other": "ломтика" },
+      "ball": { "one": "шарик", "few": "шарика", "many": "шариков", "other": "шарика" }
+    }
+  }
+}
