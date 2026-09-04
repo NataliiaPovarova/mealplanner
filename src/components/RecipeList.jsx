@@ -2,20 +2,55 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useRecipes from "../hooks/useRecipes";
 import RecipeDetail from "./RecipeDetail";
+import RecipeEditor from "./RecipeEditor";
+import { useUserData } from "../contexts/UserDataContext";
+import { primaryButtonStyle } from "./ui";
+
+function Badge({ children }) {
+  return (
+    <span style={{
+      fontSize: 10.5, padding: "2px 7px", borderRadius: 20, marginLeft: 6,
+      border: "1px solid var(--border-color, #d5d0c8)",
+      color: "var(--text-color-secondary, #8a8478)", whiteSpace: "nowrap",
+    }}>{children}</span>
+  );
+}
 
 export default function RecipeList() {
   const { t } = useTranslation();
   const meals = useRecipes();
-  const [selectedMeal, setSelectedMeal] = useState(null);
+  const { enabled } = useUserData();
+  const [selectedId, setSelectedId] = useState(null);
+  const [editorTarget, setEditorTarget] = useState(null);
   const [activeTags, setActiveTags] = useState([]);
 
   const allTags = [...new Set(meals.flatMap(m => m.tags))];
   const toggleTag = (tag) => setActiveTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
   const filteredMeals = activeTags.length === 0 ? meals : meals.filter(m => activeTags.every(tg => m.tags.includes(tg)));
 
+  // Resolving by id keeps the detail view in sync after an edit and falls back
+  // to the list when the recipe was deleted or hidden.
+  const selectedMeal = selectedId ? meals.find(m => m.id === selectedId) : null;
+
+  const editor = editorTarget && (
+    <RecipeEditor
+      meal={editorTarget === "new" ? null : editorTarget}
+      meals={meals}
+      onClose={() => setEditorTarget(null)}
+    />
+  );
+
   if (selectedMeal) {
-    const currentMeal = meals.find(m => m.id === selectedMeal.id) || selectedMeal;
-    return <RecipeDetail meal={currentMeal} onBack={() => setSelectedMeal(null)} />;
+    return (
+      <>
+        <RecipeDetail
+          meal={selectedMeal}
+          onBack={() => setSelectedId(null)}
+          onEdit={enabled ? () => setEditorTarget(selectedMeal) : null}
+        />
+        {editor}
+      </>
+    );
   }
 
   return (
@@ -23,6 +58,13 @@ export default function RecipeList() {
       <p style={{ fontSize: 14, marginBottom: 14, opacity: 0.7 }}>
         {t("recipes.count", { count: meals.length })}
       </p>
+
+      {enabled && (
+        <button onClick={() => setEditorTarget("new")} style={{ ...primaryButtonStyle, marginBottom: 18 }}>
+          {t("recipes.create")}
+        </button>
+      )}
+
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 18 }}>
         {allTags.map(tag => {
           const isActive = activeTags.includes(tag);
@@ -52,7 +94,7 @@ export default function RecipeList() {
       )}
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {filteredMeals.map(meal => (
-          <button key={meal.id} onClick={() => setSelectedMeal(meal)}
+          <button key={meal.id} onClick={() => setSelectedId(meal.id)}
             style={{
               display: "flex", alignItems: "flex-start", gap: 14, padding: "16px 18px",
               border: "1px solid var(--border-color, #e0dcd4)", borderRadius: 10,
@@ -65,7 +107,11 @@ export default function RecipeList() {
           >
             <span style={{ fontSize: 28, lineHeight: 1, flexShrink: 0, marginTop: 2 }}>{meal.emoji}</span>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>{meal.name}</div>
+              <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>
+                {meal.name}
+                {meal.isUserRecipe && <Badge>{t("recipes.ownBadge")}</Badge>}
+                {meal.isEditedBaseRecipe && <Badge>{t("recipes.editedBadge")}</Badge>}
+              </div>
               <div style={{ fontSize: 12.5, opacity: 0.6, marginBottom: 6 }}>{meal.description}</div>
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                 {meal.tags.map(tag => (
@@ -81,6 +127,8 @@ export default function RecipeList() {
           </button>
         ))}
       </div>
+
+      {editor}
     </div>
   );
 }

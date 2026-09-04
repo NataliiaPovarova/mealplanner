@@ -12,6 +12,7 @@
     "nutrition:recalc": "node scripts/recalculate-recipe-nutrition.mjs"
   },
   "dependencies": {
+    "firebase": "^12.18.0",
     "i18next": "^26.2.0",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.8",
