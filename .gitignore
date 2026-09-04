@@ -3,9 +3,9 @@ dist
 .DS_Store
 *.local
 .cursor
-
-# OpenMemory - IDE/Assistant specific rules
-.cursor\rules\openmemory.mdc
-.cursor\rules\openmemory.mdc
 .env
 scripts/
+
+
+# OpenMemory - IDE/Assistant specific rules
+.cursor/rules/openmemory.mdc

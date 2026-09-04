@@ -10,6 +10,10 @@ Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bi
 
 
 
+Optional user accounts run on Firebase (Auth + Firestore, free Spark tier, no auto-pause). Signed-in users get a strictly private space: own recipes, edits and hides of the shipped ones, brand products with label nutrition, and a saved week plan. The app still works fully anonymously when Firebase env vars are absent — see [FIREBASE_SETUP.md](FIREBASE_SETUP.md).
+
+
+
 ## Architecture
 
 
@@ -18,11 +22,19 @@ Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bi
 
 src/
 
-  main.jsx                          # Entry point, initializes i18n
+  main.jsx                          # Entry point, initializes i18n, wraps App in Auth + UserData providers
 
-  App.jsx                           # Shell: header, language switcher, tab routing
+  App.jsx                           # Shell: header, language switcher, auth button, tab routing
+
+  firebase.js                       # Modular SDK init; exports isFirebaseConfigured (null services without env vars)
 
   constants.js                      # DAYS, SLOTS, SLOT_TAG_MAP, formatIngredient()
+
+  contexts/
+
+    AuthContext.jsx                 # onAuthStateChanged, sign in/up/out, password reset
+
+    UserDataContext.jsx             # Firestore subscriptions + mutators for users/{uid}/**
 
   i18n/
 
@@ -54,17 +66,25 @@ src/
 
   hooks/
 
-    useWeekPlan.js                  # Week plan + getDayKBJU via utils/nutrition
+    useWeekPlan.js                  # Week plan + getDayKBJU; persists to Firestore (signed in) or localStorage
 
     useShoppingList.js              # Aggregation with category grouping + unit normalization
 
     useShoppingChecks.js            # Interactive checkbox state for shopping items (localStorage)
 
-    useRecipes.js                   # Returns language-specific recipe array
+    useRecipes.js                   # Base catalog + user overlay, with nutrition recalculated where needed
 
   utils/
 
     nutrition.js                    # sumDayNutrition, knownMicros
+
+    computeNutrition.js             # Browser port of the offline recalc; applyNutrition, computeRecipeNutrition
+
+    userRecipes.js                  # mergeRecipeOverlay, brandOverridesFor, overlay document shapes
+
+    userDataExport.js               # buildExport, parseImport, downloadJson
+
+    authErrors.js                   # Firebase auth error code → i18n key
 
     shoppingMeasure.js              # resolveShoppingMeasure + formatShoppingAmount (household measure first)
 
@@ -87,6 +107,16 @@ src/
     NutrientSummary.jsx             # Collapsible micro list
 
     AboutOverlay.jsx
+
+    AuthPanel.jsx                   # Sign in / sign up / password reset modal
+
+    AccountPanel.jsx                # Account summary, JSON export/import, sign out
+
+    BrandProducts.jsx               # CRUD for brand products + "my default" per ingredient
+
+    RecipeEditor.jsx                # Create/edit/hide recipes with live nutrition preview
+
+    ui.jsx                          # Shared Overlay, Field, Notice and button styles for the forms
 
 scripts/
 
@@ -126,6 +156,22 @@ scripts/
 
 - **Recipe data duplicated per locale** (ru.json/en.json): structural fields (amounts, perPortion*) must stay in sync.
 
+- **User data is an overlay, never a copy of the catalog**: `users/{uid}/recipes` holds three document shapes — own recipe (`baseId: null`), edited shipped recipe (doc id === base id), and hidden shipped recipe (`deleted: true`). Fixes to the shipped catalog therefore still reach everyone, and per-user storage stays in the kilobytes. Merge lives in `utils/userRecipes.js`.
+
+- **Overlay stores prose per language, structure once**: `text: { ru, en }` plus language-independent `ingredients`/`portions`/`tags`, preserving the ru/en structural-sync invariant. Editing in one language and viewing in the other falls back to the language that was written, because a rename should be visible everywhere.
+
+- **Brand products attach to a canonical ingredient**, they are never new catalog entries: `{ ingredientId, brand, name, per100g }` plus `settings.ingredientDefaults` mapping ingredient → chosen product. This keeps the 59-ingredient catalog from growing, keeps shopping-list aggregation and unit conversion working, and lets one brand choice re-cost every recipe at once, shipped ones included.
+
+- **Blank label fields fall back to USDA**: labels list macros only, so `per100gFor()` merges the user's values over the baseline instead of replacing it — otherwise picking your own yogurt would zero out every vitamin.
+
+- **Nutrition is recalculated only where needed**: `applyNutrition()` marks a recipe dirty when it is user-created, edited, uses a branded ingredient, or borrows a portion from a dirty recipe; everything else keeps its offline-computed values untouched.
+
+- **USDA payload stripped at build time**: the `virtual:nutrition-baseline` Vite plugin in `vite.config.js` reads `ingredients-usda.json` and emits only the `per100g` blocks, keeping the ~125k-line raw FDC payload out of the bundle without a separate generated file to keep in sync.
+
+- **Privacy by construction**: every document lives under `users/{uid}`, so `firestore.rules` is a single rule and there is no shared writable space — three users adding three yogurts never see each other's.
+
+- **App degrades gracefully without Firebase**: `isFirebaseConfigured` returns false when env vars are missing, services stay null, and the UI hides all account features rather than crashing.
+
 
 
 ## Components
@@ -146,6 +192,14 @@ scripts/
 
 - **AboutOverlay**: bilingual about (documents USDA nutrition)
 
+- **AuthPanel**: email/password sign in, sign up, reset; maps Firebase error codes to translated messages
+
+- **AccountPanel**: counts of own/edited/hidden recipes and products, JSON export/import, sign out
+
+- **BrandProducts**: per-ingredient grouping, label form (kcal/protein/fat/carbs/fiber/sugar/sodium), default toggle
+
+- **RecipeEditor**: shared by create, edit-own and edit-base flows; live per-portion preview plus warnings for ingredients that could not be costed
+
 
 
 ## Patterns
@@ -159,5 +213,11 @@ scripts/
 - All UI strings via `t()` from react-i18next
 
 - `formatIngredient(ing, t, lang)` builds display strings from structured data
+
+- Contexts for remote state (`AuthContext`, `UserDataContext`); components never touch Firestore directly, they call mutators from `useUserData()`
+
+- Firestore subscriptions are `onSnapshot`-based, so an edit in one tab updates every view without manual refetching
+
+- `useWeekPlan` treats stored data as authoritative only at hydration, then local edits win and are written back debounced; pruning of deleted recipes waits until the overlay has loaded, and an anonymous plan is carried into a newly created account rather than overwritten
 
 

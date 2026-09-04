@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { formatIngredient } from "../constants";
 import { knownMicros } from "../utils/nutrition";
 import NutrientSummary from "./NutrientSummary";
+import { ghostButtonStyle } from "./ui";
 
 function Section({ title, children }) {
   return (
@@ -12,17 +13,24 @@ function Section({ title, children }) {
   );
 }
 
-export default function RecipeDetail({ meal, onBack }) {
+export default function RecipeDetail({ meal, onBack, onEdit }) {
   const { t, i18n } = useTranslation();
   const micros = knownMicros(meal);
   const nutrientMap = Object.fromEntries(micros.map((m) => [m.key, m.value]));
 
   return (
     <div>
-      <button onClick={onBack}
-        style={{ background: "none", border: "none", cursor: "pointer", fontSize: 13, fontFamily: "inherit", color: "var(--text-color-secondary, #8a8478)", padding: "0 0 16px", display: "flex", alignItems: "center", gap: 4 }}>
-        {t("recipes.back")}
-      </button>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 0 16px", gap: 12 }}>
+        <button onClick={onBack}
+          style={{ background: "none", border: "none", cursor: "pointer", fontSize: 13, fontFamily: "inherit", color: "var(--text-color-secondary, #8a8478)", padding: 0, display: "flex", alignItems: "center", gap: 4 }}>
+          {t("recipes.back")}
+        </button>
+        {onEdit && (
+          <button onClick={onEdit} style={{ ...ghostButtonStyle, padding: "5px 14px", fontSize: 12.5 }}>
+            {t("common.edit")}
+          </button>
+        )}
+      </div>
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
         <span style={{ fontSize: 36 }}>{meal.emoji}</span>
         <div>
@@ -43,7 +51,9 @@ export default function RecipeDetail({ meal, onBack }) {
           <div key={i} style={{ flex: seg.flex, background: seg.color, color: "#fff", padding: "8px 10px", textAlign: "center", whiteSpace: "nowrap", fontSize: 11 }}>{seg.label}</div>
         ))}
       </div>
-      <p style={{ fontSize: 11, opacity: 0.45, margin: "0 0 16px" }}>{t("nutrition.sourceNote")}</p>
+      <p style={{ fontSize: 11, opacity: 0.45, margin: "0 0 16px" }}>
+        {meal.nutritionRecomputed ? t("nutrition.recomputedNote") : t("nutrition.sourceNote")}
+      </p>
       {micros.length > 0 && (
         <Section title={t("nutrition.microsTitle")}>
           <NutrientSummary nutrients={nutrientMap} t={t} alwaysOpen />

@@ -20,6 +20,9 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 - **Downloadable PDF**: export the weekly plan and all referenced recipes as a single PDF — no account needed, works offline once downloaded
 - **Tag filtering**: lunch, breakfast/dinner, snack, meat-free, iron-rich, with cheese, and more
 - **USDA nutrition**: macros (kcal, protein, fat, carbs, fiber) and curated micronutrients recalculated from [FoodData Central](https://fdc.nal.usda.gov/api-guide); daily totals appear on the week plan and shopping tab
+- **Optional accounts** (Firebase Auth + Firestore, free tier): sign in to write your own recipes, edit or hide the built-in ones, and save your week plan. Everything is strictly private — there is no shared writable space, so the catalog never fills up with other people's entries. Passwords are never stored by this app. Without an account the base catalog works exactly as before; see [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
+- **Brand products**: record the yogurt or bread you actually buy as your own variant of a catalog ingredient, enter the label values per 100 g, and mark it as your default — every recipe, built-in ones included, is re-costed from your products. Fields you leave blank keep their USDA values, so vitamins are not zeroed out
+- **Export your data**: one JSON file with your recipes, products, settings, and week plan, importable back — the free Firebase tier has no automatic backups
 
 > Nutrition values are **approximate** estimates from USDA FDC (CC0). Culinary units were converted to g/ml with household averages; branded products (e.g. mozzarella, Greek yogurt) use a typical SR Legacy / Foundation entry, not your specific brand. Not for medical use.
 
@@ -140,7 +143,7 @@ Each recipe includes:
 ## Planned Updates
 
 - [ ] Add ability to manually add, remove, and edit tags
-- [ ] Add the same for recipes and allow changing calorie values
+- [x] ~~Add the same for recipes and allow changing calorie values~~ (done — user accounts with private recipes and brand products)
 - [x] ~~Add English translation~~ (done — full bilingual support)
 - [x] ~~Move the recipes to a database and improve produce count~~ (done — structured JSON data + categorized shopping list)
 - [x] ~~Publish the app on GitHub Pages~~ (published on Vercel)
@@ -172,6 +175,9 @@ MIT
 - **PDF на неделю**: скачайте план и все рецепты одним файлом
 - **Фильтрация по тегам**: обед, завтрак/ужин, перекус, без мяса, богато железом, с сыром и другие
 - **Питательная ценность USDA**: КБЖУ и курируемые микронутриенты пересчитаны по [FoodData Central](https://fdc.nal.usda.gov/api-guide); дневные итоги — в плане недели и на вкладке закупки
+- **Аккаунты (по желанию)** на Firebase Auth + Firestore, бесплатный тариф: после входа можно записывать свои рецепты, править и скрывать базовые, а план недели сохраняется. Всё строго приватно — общего пространства для записи нет, поэтому каталог не засоряется чужими записями. Пароли приложение не хранит. Без аккаунта базовый каталог работает как раньше; настройка — в [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
+- **Брендовые продукты**: заведите тот йогурт или хлеб, который реально покупаете, как свой вариант ингредиента из каталога, перепишите значения с этикетки на 100 г и назначьте продуктом по умолчанию — КБЖУ пересчитается во всех рецептах сразу, включая базовые. Незаполненные поля останутся по данным USDA, чтобы витамины не обнулились
+- **Выгрузка данных**: один JSON-файл с вашими рецептами, продуктами, настройками и планом недели, который можно загрузить обратно — автоматических бэкапов на бесплатном тарифе Firebase нет
 
 > Значения **приблизительные**, источник — USDA FDC (CC0). Кулинарные единицы переведены в г/мл по бытовым средним; брендовые продукты (моцарелла, греческий йогурт) взяты как типичная запись SR Legacy / Foundation, не ваш конкретный бренд. Не для медицинских целей.
 
@@ -292,7 +298,7 @@ src/
 ## Планируемые доработки
 
 - [ ] Добавить возможность вручную добавлять, удалять и изменять теги
-- [ ] Добавить возможность то же самое делать с рецептами и менять для них калорийность
+- [x] ~~Добавить возможность то же самое делать с рецептами и менять для них калорийность~~ (готово — аккаунты с приватными рецептами и брендовыми продуктами)
 - [x] ~~Сделать перевод на английский язык~~ (готово — полная двуязычная поддержка)
 - [x] ~~Перенести рецепты в базу данных и уточнить сборку списка продуктов в Закупке~~ (готово — структурированные JSON-данные + список по категориям)
 - [x] ~~Сделать приложение доступным по ссылке на GitHub Pages~~ (опубликовано на Vercel)
