@@ -52,7 +52,8 @@ function SegmentedControl({ value, options, onChange }) {
       border: "1px solid var(--border-color, #d5d0c8)",
     }}>
       {options.map((option) => (
-        <button key={option.id} type="button" onClick={() => onChange(option.id)}
+        <button key={option.id} type="button" data-tour={option.tour}
+          onClick={() => onChange(option.id)}
           style={{
             flex: 1, padding: "7px 10px", fontSize: 13, fontFamily: "inherit", cursor: "pointer",
             border: "none",
@@ -198,28 +199,31 @@ export default function DishPicker({
         value={source}
         onChange={setSource}
         options={[
-          { id: SOURCE_RECIPES, label: t("picker.recipes") },
-          { id: SOURCE_INGREDIENTS, label: t("picker.ingredients") },
+          { id: SOURCE_RECIPES, label: t("picker.recipes"), tour: "picker-recipes" },
+          { id: SOURCE_INGREDIENTS, label: t("picker.ingredients"), tour: "picker-products" },
         ]}
       />
 
       <input
         autoFocus
+        data-tour="picker-search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={t("picker.search")}
         style={{ ...inputStyle, margin: "10px 0" }}
       />
 
-      <TagFilterBar
-        tags={availableTags}
-        active={effectiveTags}
-        onToggle={toggleTag}
-        onReset={() => setActiveTags([])}
-        groups={allFilters ? TAG_GROUPS : PICKER_TAG_GROUPS}
-        labelFor={(tag) => (dishTags.customTagIds.includes(tag) ? dishTags.labelFor(tag) : null)}
-        small
-      />
+      <div data-tour="picker-tags">
+        <TagFilterBar
+          tags={availableTags}
+          active={effectiveTags}
+          onToggle={toggleTag}
+          onReset={() => setActiveTags([])}
+          groups={allFilters ? TAG_GROUPS : PICKER_TAG_GROUPS}
+          labelFor={(tag) => (dishTags.customTagIds.includes(tag) ? dishTags.labelFor(tag) : null)}
+          small
+        />
+      </div>
 
       <div style={{ display: "flex", gap: 10, margin: "10px 0 14px", flexWrap: "wrap" }}>
         <button type="button" onClick={() => setAllFilters((prev) => !prev)}
@@ -246,7 +250,7 @@ export default function DishPicker({
         </p>
       )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div data-tour="picker-list" style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {visible.map((option) => {
           const isIngredient = option.kind === KIND_INGREDIENT;
           const amount = amountFor(option);
@@ -284,7 +288,8 @@ export default function DishPicker({
                 )}
               </div>
               {isIngredient && !tagMode && (
-                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, flexShrink: 0 }}>
+                <span data-tour="picker-amount"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 4, flexShrink: 0 }}>
                   <input
                     type="number"
                     min="1"

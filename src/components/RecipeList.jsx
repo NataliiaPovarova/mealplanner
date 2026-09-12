@@ -84,19 +84,19 @@ export default function RecipeList({ dishTags }) {
       </p>
 
       {enabled && (
-        <button onClick={() => setEditorTarget("new")} style={{ ...primaryButtonStyle, marginBottom: 18 }}>
+        <button data-tour="recipes-create" onClick={() => setEditorTarget("new")}
+          style={{ ...primaryButtonStyle, marginBottom: 18 }}>
           {t("recipes.create")}
         </button>
       )}
 
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder={t("picker.search")}
-        style={{ ...inputStyle, marginBottom: 12 }}
-      />
-
-      <div style={{ marginBottom: 18 }}>
+      <div data-tour="recipes-filters" style={{ marginBottom: 18 }}>
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t("picker.search")}
+          style={{ ...inputStyle, marginBottom: 12 }}
+        />
         <TagFilterBar
           tags={availableTags}
           active={effectiveTags}
@@ -113,7 +113,7 @@ export default function RecipeList({ dishTags }) {
       )}
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {filteredMeals.map(meal => (
-          <button key={meal.id} onClick={() => setSelectedId(meal.id)}
+          <button key={meal.id} data-tour="recipe-card" onClick={() => setSelectedId(meal.id)}
             style={{
               display: "flex", alignItems: "flex-start", gap: 14, padding: "16px 18px",
               border: "1px solid var(--border-color, #e0dcd4)", borderRadius: 10,

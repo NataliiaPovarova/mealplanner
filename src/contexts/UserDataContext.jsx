@@ -13,7 +13,7 @@ import { PLAN_VERSION } from "../utils/planEntries";
 import { useAuth } from "./AuthContext";
 
 const EMPTY = {
-  recipeOverlay: [], products: [], ingredientDefaults: {}, plan: null, dishTags: null,
+  recipeOverlay: [], products: [], ingredientDefaults: {}, plan: null, dishTags: null, tour: null,
 };
 
 const UserDataContext = createContext(null);
@@ -32,6 +32,7 @@ export function UserDataProvider({ children }) {
   const [ingredientDefaults, setIngredientDefaults] = useState(EMPTY.ingredientDefaults);
   const [plan, setPlan] = useState(EMPTY.plan);
   const [dishTags, setDishTags] = useState(EMPTY.dishTags);
+  const [tour, setTour] = useState(EMPTY.tour);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -41,6 +42,7 @@ export function UserDataProvider({ children }) {
       setIngredientDefaults(EMPTY.ingredientDefaults);
       setPlan(EMPTY.plan);
       setDishTags(EMPTY.dishTags);
+      setTour(EMPTY.tour);
       setLoading(false);
       return undefined;
     }
@@ -59,6 +61,7 @@ export function UserDataProvider({ children }) {
         setIngredientDefaults(settings?.ingredientDefaults || {});
         // Null means "not read yet"; an empty object means "read, nothing stored".
         setDishTags(settings?.dishTags || {});
+        setTour(settings?.tour || {});
       }),
       onSnapshot(doc(db, "users", uid, "plans", PLAN_DOC_ID), (snap) => {
         setPlan(snap.exists() ? snap.data() : { weekPlan: {} });
@@ -82,6 +85,7 @@ export function UserDataProvider({ children }) {
       ingredientDefaults,
       plan,
       dishTags,
+      tour,
 
       /** Own recipe: no baseId. Override of a base recipe: doc id === base id. */
       saveOwnRecipe: (id, data) =>
@@ -115,6 +119,10 @@ export function UserDataProvider({ children }) {
       saveDishTags: (nextDishTags) =>
         setDoc(userDoc(), { settings: { dishTags: nextDishTags } }, { mergeFields: ["settings.dishTags"] }),
 
+      /** Which onboarding tours this account has already been through. */
+      saveTour: (nextTour) =>
+        setDoc(userDoc(), { settings: { tour: nextTour } }, { mergeFields: ["settings.tour"] }),
+
       /** Restores an exported backup. Existing documents with the same id are overwritten. */
       importData: async (payload) => {
         const recipes = payload.recipes || [];
@@ -138,7 +146,7 @@ export function UserDataProvider({ children }) {
         await batch.commit();
       },
     };
-  }, [uid, loading, recipeOverlay, products, ingredientDefaults, plan, dishTags]);
+  }, [uid, loading, recipeOverlay, products, ingredientDefaults, plan, dishTags, tour]);
 
   return <UserDataContext.Provider value={value}>{children}</UserDataContext.Provider>;
 }

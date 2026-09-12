@@ -73,6 +73,7 @@ src/
     useWeekPlan.js                  # Week plan v2 (dishes + nested add-ons) + getDayKBJU; Firestore (signed in) or localStorage
 
     useDishTags.js                  # Personal tags: definitions + per-dish assignments; settings.dishTags or localStorage
+    useTourState.js                 # Which onboarding tours were seen; localStorage ∪ settings.tour
 
     useShoppingList.js              # Aggregation with category grouping + unit normalization
 
@@ -131,6 +132,14 @@ src/
     RecipeEditor.jsx                # Create/edit/hide recipes with live nutrition preview
 
     ui.jsx                          # Shared Overlay, Field, Notice and button styles for the forms
+
+  tour/
+
+    steps.js                        # Four tours (week / shopping / recipes / account) as anchor + placement + exit; TAB_TOURS
+
+    TourContext.jsx                 # One tour at a time: request queue, anchor polling, auto-skip of missing steps
+
+    TourBubble.jsx                  # The bubble itself: placement, highlight ring, counter, skip / next
 
 scripts/
 
@@ -200,6 +209,22 @@ scripts/
 
 - **USDA payload stripped at build time**: the `virtual:nutrition-baseline` Vite plugin in `vite.config.js` reads `ingredients-usda.json` and emits only the `per100g` blocks, keeping the ~125k-line raw FDC payload out of the bundle without a separate generated file to keep in sync.
 
+- **The onboarding tour waits for the user instead of driving the app**: a step ends when the *next* anchor appears (`advance: "appear"`), so "press + dish" is a real press and whatever lands in the plan is genuinely the user's. Driving the UI from the tour — auto-opening the picker, planting a demo dish — would have meant writing to and then cleaning up `weekPlan`, which is synced to Firestore and exported to JSON; a demo entry surviving a reload is a worse bug than a tour the user ignores.
+
+- **"Appeared" means appeared since the step began, not merely present**: the picker remembers its source per slot, so the amount field is often already on screen when the tour reaches "and here are the products" — and a step that checked mere presence skipped the one bubble explaining how to get there. The same trap hid the "open the Recipes tab" step from anyone already on it. The step records what was there when it started and only reacts to a change.
+
+- **A queued tour waits for its opening anchor**: starting is not "the tour is due", it is "the first anchor is on screen". Switching tabs while one tour runs used to hand the next one a page with none of its anchors, and it raced through every step in silence and marked itself seen. As a second line of defence a tour is only recorded as seen if it actually showed a bubble or was explicitly skipped. Waiting is per-entry, not head-of-line: the shopping tour waits on a plan that is still empty, and must not hold up the tour for the tab the user is actually looking at.
+
+- **Anchors are `data-tour` attributes, not refs**: the targets sit in five components three levels apart, two of them inside overlays that mount and unmount, so a ref would have to be threaded through every prop list in between. `querySelector` also takes the first match in document order for free — exactly the Monday-breakfast `+ dish` and the first recipe card — so the attribute goes on every instance with no conditionals.
+
+- **A missing anchor drops its step rather than stalling the tour**: the reset-tags button only exists once a tag is active, the amount field only when the picker shows products, and the add-on `＋` only once a dish is in the plan. One rule — gone for longer than ~400 ms means the user went elsewhere — covers all three, plus closing an overlay mid-tour. That is also how the "pick a dish" step ends: the picker unmounting takes the anchor with it.
+
+- **Four short tours, not one**: `week` on first page open, `shopping` and `recipes` on first visit to those tabs, `account` on first sign-in (signing in is when the products tab, own recipes and the export appear at all). Each records itself separately, so abandoning one does not silently burn the others. `shopping` is a single bubble on the PDF button — the counter and "skip" are hidden when a tour has one step, since there is no progress to report and nothing to skip ahead of.
+
+- **Replaying works with what is on screen; an offer waits for its cue**: `startTour` needs only *some* anchor present, so pressing 💡 inside a recipe picks up at the tag steps instead of demanding the list first. It returns `false` when the tour has no anchor at all — an empty shopping list — and the header falls back to the planner, which is what fills it.
+
+- **Tour flags merge as a union**: `localStorage` keeps this browser's record and `settings.tour` the account's, and hydration takes `{...account, ...local}`. Flags are only ever written as `true`, so a union is the whole merge — a tour watched on a laptop stays quiet on a phone, one watched before signing up stays quiet after, and one watched while signed in stays quiet after signing out.
+
 - **Privacy by construction**: every document lives under `users/{uid}`, so `firestore.rules` is a single rule and there is no shared writable space — three users adding three yogurts never see each other's.
 
 - **App degrades gracefully without Firebase**: `isFirebaseConfigured` returns false when env vars are missing, services stay null, and the UI hides all account features rather than crashing.
@@ -238,6 +263,8 @@ scripts/
 
 - **RecipeEditor**: shared by create, edit-own and edit-base flows; live per-portion preview plus warnings for ingredients that could not be costed
 
+- **TourProvider / TourBubble**: the onboarding tour — a bubble beside a highlighted control, with a counter, "skip" and "next". The layer is `pointer-events: none` except the bubble itself, so the highlighted button stays clickable, which it has to be: the tour advances by watching the user press it. A 💡 button in the header replays the tour of the current tab
+
 
 
 ## Patterns
@@ -261,5 +288,7 @@ scripts/
 - `useDishTags` follows the same hydrate-then-local-wins pattern as `useWeekPlan`, and lives in `App.jsx` (one instance passed down), so the planner and the recipes tab can't drift apart
 
 - Nested Firestore maps are replaced wholesale with `setDoc(..., { mergeFields: ["settings.dishTags"] })`, otherwise a plain merge would resurrect deleted tags and assignments
+
+- Tours are offered from `App.jsx` with `requestTour(TAB_TOURS[currentTab])` whenever their subject is on screen; the provider owns the decisions (already seen? one already running? is the first anchor there yet?) so the trigger sites stay one line each and cannot double-start. An offer that cannot start yet stays queued and begins the moment its anchor shows up, without blocking the others behind it
 
 
