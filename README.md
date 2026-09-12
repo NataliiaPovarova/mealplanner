@@ -9,16 +9,18 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 
 ## Features
 
-- **36 recipes** (35 meals + 1 add-on sauce) with step-by-step instructions and tips
+- **A starter catalog of recipes** with step-by-step instructions and tips — extend it with your own recipes, or edit and hide the shipped ones
 - **Recipe types**: warm bowl, cold bowl, noodles, smoothie, sauce
-- **Weekly planner**: breakfast, lunch, dinner, and snack for each day
+- **Weekly planner**: breakfast, lunch, dinner, and snack for each day, each holding as many dishes as the meal needs
+- **A dish is a recipe or a single product**: plan "cottage cheese with berries" as a recipe, or plain cottage cheese with an amount in grams. Amounts default to one sensible portion (with a household measure such as `≈ 5 tbsp` on hover) and can be edited inline; nutrition and the shopping list follow immediately. Which products may stand alone comes from the catalog: the big nutrient sources (grains, pasta, eggs, meat, fish, seafood, cottage cheese) can be a dish, accents (vegetables, fruit, berries, greens, cheese, nuts, honey, oils, sauces, bread) come as add-ons, and many products do both
+- **Add-ons per dish**: berries, nuts, honey, sauces, cheese, oils, bread and other products — plus sauce recipes tagged `add-on` — attach to a specific dish rather than to the slot. Their calories are added to that day's totals, their ingredients flow into the shopping list, and they appear indented in the corresponding cell of the PDF plan. Add-on recipes can also be referenced from other recipes as a virtual "reference ingredient"
 - **Batch cooking**: dishes for 2–3 days automatically fill the following days
 - **Batch validation**: warnings when portion counts do not match the recipe
-- **Add-on recipes**: sauces and other extras (tagged `add-on`) can be attached to any filled meal slot in the week plan via a nested chip below the meal (e.g. tahini sauce for a bowl). Their calories are added to that day's totals, their ingredients flow into the shopping list, and they appear inside the corresponding cell of the PDF plan. They can also be referenced from other recipes as a virtual "reference ingredient" that points at the standalone add-on recipe
 - **Categorized shopping list**: ingredients grouped by category (produce, protein, dairy, legumes, grains, pantry) with automatic unit normalization (1000g → 1kg); reference ingredients are excluded from the list so you only see what to actually buy
 - **Household measures in the shopping list**: each line starts with an approximate measure (pieces, cans, slices, spoons, handfuls) derived from the recipe conversion table, with grams or millilitres in parentheses — e.g. `2 pcs (272 g)`. Ingredients without a natural piece size fall back to how many times they are used during the week (`4 pcs (650 g)` of yogurt = four servings), and goods bought by weight (grains, milk) keep grams only
 - **Downloadable PDF**: export the weekly plan and all referenced recipes as a single PDF — no account needed, works offline once downloaded
-- **Tag filtering**: lunch, breakfast/dinner, snack, meat-free, iron-rich, with cheese, and more
+- **Grouped tag filtering**: one vocabulary shared by recipes and products, split into what's in it (`grain`, `meat`, `veg`…), what it is (`warm-bowl`, `toast`, `smoothie`…), cooking (`quick`, `batch`, `rice-cooker`…) and accents (`meat-free`, `iron-rich`…). The same filter bar serves the recipes tab and the dish picker, and the picker remembers the filter per meal
+- **Your own meal tags**: meal times are deliberately absent from the catalog, because everyone draws the line between lunch and dinner somewhere else. Mark yourself what counts as breakfast, lunch, dinner or a snack — and add any tags of your own, which you can rename or delete at any time (including the four suggested meals: rename "snack" into "second breakfast" if that is your day). They live beside the catalog, so tagging a shipped recipe never turns it into an edited copy
 - **USDA nutrition**: macros (kcal, protein, fat, carbs, fiber) and curated micronutrients recalculated from [FoodData Central](https://fdc.nal.usda.gov/api-guide); daily totals appear on the week plan and shopping tab
 - **Optional accounts** (Firebase Auth + Firestore, free tier): sign in to write your own recipes, edit or hide the built-in ones, and save your week plan. Everything is strictly private — there is no shared writable space, so the catalog never fills up with other people's entries. Passwords are never stored by this app. Without an account the base catalog works exactly as before; see [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
 - **Brand products**: record the yogurt or bread you actually buy as your own variant of a catalog ingredient, enter the label values per 100 g, and mark it as your default — every recipe, built-in ones included, is re-costed from your products. Fields you leave blank keep their USDA values, so vitamins are not zeroed out
@@ -99,15 +101,16 @@ src/
     locales/ru/ui.json     # Russian UI strings
     locales/en/ui.json     # English UI strings
   data/
-    ingredients.json       # Ingredient catalog (id → names, categories)
+    ingredients.json       # Ingredient catalog (id → names, category, tags, roles, default portions)
     unit-conversions.json  # Culinary unit → g/ml estimates
     nutrition/             # USDA FDC mapping + cached nutrients
-    tags.json              # Tag ID → display names per language
+    tags.json              # Tag vocabulary: tag ID → group (labels live in i18n)
     recipes/
       ru.json              # 36 recipes in Russian (35 meals + 1 add-on sauce)
       en.json              # 36 recipes in English (35 meals + 1 add-on sauce)
   hooks/
-    useWeekPlan.js         # Weekly plan state and batch logic
+    useWeekPlan.js         # Weekly plan state (dishes + add-ons) and batch logic
+    useDishTags.js         # Personal tags: definitions and per-dish assignments
     useShoppingList.js     # Shopping list aggregation with categories
     useRecipes.js          # Language-aware recipe loader
   utils/
@@ -132,7 +135,7 @@ src/
 Each recipe includes:
 
 - Name, emoji icon, type (warm bowl, cold bowl, noodles, smoothie, sauce)
-- Tags for filtering (e.g. `lunch`, `snack`, `meat-free`, `add-on`)
+- Tags from the shared vocabulary in `tags.json` (e.g. `grain`, `meat`, `cold-bowl`, `quick`, `meat-free`) — never a meal time, that is the user's own call
 - Servings and storage days (batch)
 - Prep and cook time
 - Macros per serving (`perPortion`: kcal, protein, fat, carbs, fiber) and micronutrients (`perPortionNutrients`), recalculated from USDA FDC
@@ -142,7 +145,7 @@ Each recipe includes:
 
 ## Planned Updates
 
-- [ ] Add ability to manually add, remove, and edit tags
+- [x] ~~Add ability to manually add, remove, and edit tags~~ (done — your own tags on any dish: create, rename, delete)
 - [x] ~~Add the same for recipes and allow changing calorie values~~ (done — user accounts with private recipes and brand products)
 - [x] ~~Add English translation~~ (done — full bilingual support)
 - [x] ~~Move the recipes to a database and improve produce count~~ (done — structured JSON data + categorized shopping list)
@@ -164,16 +167,18 @@ MIT
 
 ## Возможности
 
-- **36 рецептов** (35 блюд + 1 соус-добавка) с пошаговыми инструкциями и советами
+- **Базовый каталог рецептов** с пошаговыми инструкциями и советами — его можно дополнять своими рецептами, а базовые править или скрывать
 - **Типы рецептов**: тёплый боул, холодный боул, лапша, смузи, соус
-- **Планировщик недели**: завтрак, обед, ужин и перекус на каждый день
+- **Планировщик недели**: завтрак, обед, ужин и перекус на каждый день, в каждом приёме пищи — сколько блюд нужно
+- **Блюдо — это рецепт или отдельный продукт**: можно поставить в план и «творог с ягодами» как рецепт, и просто творог с количеством в граммах. Количество по умолчанию — одна разумная порция (бытовая мерка вида `≈ 5 ст. л.` показывается при наведении), его можно поменять прямо в плане: КБЖУ и закупка пересчитаются сразу
+- **Добавки у каждого блюда**: ягоды, орехи, мёд, соусы, сыр, масла, хлеб и другие продукты, а также рецепты-соусы с тегом `add-on`, прикрепляются к конкретному блюду, а не к слоту. Калории добавки прибавляются к дневному итогу, её ингредиенты попадают в закупку, и она отображается с отступом в соответствующей ячейке PDF-плана. Рецепты-добавки также можно упоминать в других рецептах как «ингредиент-ссылку»
 - **Batch cooking**: блюда на 2–3 дня автоматически заполняют следующие дни
 - **Контроль батчей**: предупреждения, если количество порций не совпадает с рецептом
-- **Рецепты-добавки**: соусы и другие сопровождения (с тегом `add-on`) можно прикрепить к любому занятому приёму пищи в плане недели — под выбранным блюдом появляется отдельный chip выбора добавки (например, тахинный соус к боулу). Калории добавки прибавляются к дневному итогу, её ингредиенты попадают в закупку, и она отображается в соответствующей ячейке PDF-плана. Добавки также можно упоминать в других рецептах как «ингредиент-ссылку» на отдельный рецепт добавки
 - **Список закупки по категориям**: ингредиенты сгруппированы (овощи, белок, молочное, бобовые, крупы, прочее) с автоматической нормализацией единиц (1000г → 1кг); ингредиенты-ссылки исключаются из списка, чтобы вы видели только то, что нужно реально купить
 - **Примерные мерки в закупке**: в каждой строке сначала идёт примерная мера (штуки, банки, ломтики, ложки, горсти) из таблицы пересчёта рецептов, а граммы или миллилитры — в скобках, например `2 шт. (272 г)`. Для продуктов без естественной «штуки» считается количество использований за неделю (`4 шт. (650 г)` йогурта — это четыре порции), а весовые товары (крупы, молоко) остаются в граммах и миллилитрах
 - **PDF на неделю**: скачайте план и все рецепты одним файлом
-- **Фильтрация по тегам**: обед, завтрак/ужин, перекус, без мяса, богато железом, с сыром и другие
+- **Теги по группам**: единый словарь для рецептов и продуктов, разбитый на «из чего» (`grain`, `meat`, `veg`…), «что это» (`warm-bowl`, `toast`, `smoothie`…), «готовка» (`quick`, `batch`, `rice-cooker`…) и «акценты» (`meat-free`, `iron-rich`…). Одна и та же панель фильтров работает на вкладке рецептов и в выборе блюда, а выбранный фильтр запоминается для каждого приёма пищи
+- **Свои теги приёмов пищи**: в каталоге их намеренно нет — каждый по-своему решает, что считать обедом, а что ужином. Помечайте сами, что для вас завтрак, обед, ужин или перекус, и добавляйте любые собственные теги — их можно в любой момент переименовать или удалить, включая четыре предложенных (переименуйте «перекус» во «второй завтрак», если у вас день устроен так). Они лежат рядом с каталогом, поэтому тег на базовом рецепте не превращает его в отредактированную копию
 - **Питательная ценность USDA**: КБЖУ и курируемые микронутриенты пересчитаны по [FoodData Central](https://fdc.nal.usda.gov/api-guide); дневные итоги — в плане недели и на вкладке закупки
 - **Аккаунты (по желанию)** на Firebase Auth + Firestore, бесплатный тариф: после входа можно записывать свои рецепты, править и скрывать базовые, а план недели сохраняется. Всё строго приватно — общего пространства для записи нет, поэтому каталог не засоряется чужими записями. Пароли приложение не хранит. Без аккаунта базовый каталог работает как раньше; настройка — в [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
 - **Брендовые продукты**: заведите тот йогурт или хлеб, который реально покупаете, как свой вариант ингредиента из каталога, перепишите значения с этикетки на 100 г и назначьте продуктом по умолчанию — КБЖУ пересчитается во всех рецептах сразу, включая базовые. Незаполненные поля останутся по данным USDA, чтобы витамины не обнулились
@@ -254,15 +259,16 @@ src/
     locales/ru/ui.json     # Русские строки интерфейса
     locales/en/ui.json     # Английские строки интерфейса
   data/
-    ingredients.json       # Каталог ингредиентов (id → названия, категории)
+    ingredients.json       # Каталог ингредиентов (id → названия, категория, теги, роли, порции)
     unit-conversions.json  # Кулинарные единицы → г/мл
     nutrition/             # Маппинг USDA FDC + кэш нутриентов
-    tags.json              # ID тегов → названия на каждом языке
+    tags.json              # Словарь тегов: ID тега → группа (названия — в i18n)
     recipes/
       ru.json              # 36 рецептов на русском (35 блюд + 1 соус-добавка)
       en.json              # 36 рецептов на английском (35 блюд + 1 соус-добавка)
   hooks/
-    useWeekPlan.js         # Состояние плана и batch-логика
+    useWeekPlan.js         # Состояние плана (блюда + добавки) и batch-логика
+    useDishTags.js         # Личные теги: словарь и привязка к блюдам
     useShoppingList.js     # Агрегация списка закупки по категориям
     useRecipes.js          # Загрузка рецептов с учётом языка
   utils/
@@ -287,7 +293,7 @@ src/
 Каждый рецепт включает:
 
 - Название, эмодзи-иконку, тип (тёплый боул, холодный боул, лапша, смузи, соус)
-- Теги для фильтрации (например, `lunch`, `snack`, `meat-free`, `add-on`)
+- Теги из общего словаря в `tags.json` (например, `grain`, `meat`, `cold-bowl`, `quick`, `meat-free`) — без приёмов пищи: их пользователь расставляет сам
 - Количество порций и дней хранения (batch)
 - Время подготовки и готовки
 - КБЖУ на порцию (`perPortion`) и микронутриенты (`perPortionNutrients`), пересчитанные по USDA FDC
@@ -297,7 +303,7 @@ src/
 
 ## Планируемые доработки
 
-- [ ] Добавить возможность вручную добавлять, удалять и изменять теги
+- [x] ~~Добавить возможность вручную добавлять, удалять и изменять теги~~ (готово — свои теги на любом блюде: создание, переименование, удаление)
 - [x] ~~Добавить возможность то же самое делать с рецептами и менять для них калорийность~~ (готово — аккаунты с приватными рецептами и брендовыми продуктами)
 - [x] ~~Сделать перевод на английский язык~~ (готово — полная двуязычная поддержка)
 - [x] ~~Перенести рецепты в базу данных и уточнить сборку списка продуктов в Закупке~~ (готово — структурированные JSON-данные + список по категориям)

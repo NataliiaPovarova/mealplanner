@@ -9,9 +9,12 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import { PLAN_VERSION } from "../utils/planEntries";
 import { useAuth } from "./AuthContext";
 
-const EMPTY = { recipeOverlay: [], products: [], ingredientDefaults: {}, plan: null };
+const EMPTY = {
+  recipeOverlay: [], products: [], ingredientDefaults: {}, plan: null, dishTags: null,
+};
 
 const UserDataContext = createContext(null);
 
@@ -28,6 +31,7 @@ export function UserDataProvider({ children }) {
   const [products, setProducts] = useState(EMPTY.products);
   const [ingredientDefaults, setIngredientDefaults] = useState(EMPTY.ingredientDefaults);
   const [plan, setPlan] = useState(EMPTY.plan);
+  const [dishTags, setDishTags] = useState(EMPTY.dishTags);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -36,6 +40,7 @@ export function UserDataProvider({ children }) {
       setProducts(EMPTY.products);
       setIngredientDefaults(EMPTY.ingredientDefaults);
       setPlan(EMPTY.plan);
+      setDishTags(EMPTY.dishTags);
       setLoading(false);
       return undefined;
     }
@@ -50,10 +55,13 @@ export function UserDataProvider({ children }) {
       }),
       onSnapshot(collection(db, "users", uid, "products"), (snap) => setProducts(withIds(snap))),
       onSnapshot(doc(db, "users", uid), (snap) => {
-        setIngredientDefaults(snap.data()?.settings?.ingredientDefaults || {});
+        const settings = snap.data()?.settings;
+        setIngredientDefaults(settings?.ingredientDefaults || {});
+        // Null means "not read yet"; an empty object means "read, nothing stored".
+        setDishTags(settings?.dishTags || {});
       }),
       onSnapshot(doc(db, "users", uid, "plans", PLAN_DOC_ID), (snap) => {
-        setPlan(snap.exists() ? snap.data() : { weekPlan: {}, weekAddOns: {} });
+        setPlan(snap.exists() ? snap.data() : { weekPlan: {} });
       }),
     ];
 
@@ -73,6 +81,7 @@ export function UserDataProvider({ children }) {
       products,
       ingredientDefaults,
       plan,
+      dishTags,
 
       /** Own recipe: no baseId. Override of a base recipe: doc id === base id. */
       saveOwnRecipe: (id, data) =>
@@ -94,8 +103,17 @@ export function UserDataProvider({ children }) {
           { merge: true },
         ),
 
-      savePlan: (weekPlan, weekAddOns) =>
-        setDoc(doc(db, "users", uid, "plans", PLAN_DOC_ID), { weekPlan, weekAddOns }),
+      /** Replaces the document, so the pre-v2 `weekAddOns` map disappears on first save. */
+      savePlan: (weekPlan) =>
+        setDoc(doc(db, "users", uid, "plans", PLAN_DOC_ID), { version: PLAN_VERSION, weekPlan }),
+
+      /**
+       * Personal tags: the definitions plus which dish carries which tag.
+       * `mergeFields` replaces the whole map, otherwise a removed tag would
+       * survive as a leftover key of a deep merge.
+       */
+      saveDishTags: (nextDishTags) =>
+        setDoc(userDoc(), { settings: { dishTags: nextDishTags } }, { mergeFields: ["settings.dishTags"] }),
 
       /** Restores an exported backup. Existing documents with the same id are overwritten. */
       importData: async (payload) => {
@@ -108,12 +126,11 @@ export function UserDataProvider({ children }) {
         const batch = writeBatch(db);
         for (const { id, ...data } of recipes) batch.set(recipeDoc(id), data);
         for (const { id, ...data } of importedProducts) batch.set(productDoc(id), data);
-        if (payload.ingredientDefaults) {
-          batch.set(
-            userDoc(),
-            { settings: { ingredientDefaults: payload.ingredientDefaults } },
-            { merge: true },
-          );
+        const settings = {};
+        if (payload.ingredientDefaults) settings.ingredientDefaults = payload.ingredientDefaults;
+        if (payload.dishTags) settings.dishTags = payload.dishTags;
+        if (Object.keys(settings).length) {
+          batch.set(userDoc(), { settings }, { merge: true });
         }
         if (payload.plan) {
           batch.set(doc(db, "users", uid, "plans", PLAN_DOC_ID), payload.plan);
@@ -121,7 +138,7 @@ export function UserDataProvider({ children }) {
         await batch.commit();
       },
     };
-  }, [uid, loading, recipeOverlay, products, ingredientDefaults, plan]);
+  }, [uid, loading, recipeOverlay, products, ingredientDefaults, plan, dishTags]);
 
   return <UserDataContext.Provider value={value}>{children}</UserDataContext.Provider>;
 }

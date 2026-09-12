@@ -1,9 +1,11 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ingredientCatalog } from "../constants";
+import { ingredientCatalog, tagCatalog } from "../constants";
 import { useUserData } from "../contexts/UserDataContext";
 import { computeRecipeNutrition } from "../utils/computeNutrition";
+import { ingredientTags } from "../utils/planEntries";
 import { brandOverridesFor } from "../utils/userRecipes";
+import TagFilterBar from "./TagFilterBar";
 import {
   Field, Notice, Overlay,
   dangerButtonStyle, ghostButtonStyle, inputStyle, labelStyle, primaryButtonStyle, sectionTitleStyle,
@@ -11,8 +13,6 @@ import {
 
 /** Units the nutrition engine can convert reliably for any ingredient. */
 const UNITS = ["g", "ml", "pcs"];
-
-const SLOT_TAGS = ["breakfast-dinner", "lunch", "snack", "add-on"];
 
 function draftFromMeal(meal) {
   return {
@@ -78,14 +78,14 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
       .sort((a, b) => a.name.localeCompare(b.name, lang))
   ), [lang]);
 
-  const allTags = useMemo(() => {
-    const tags = new Set(SLOT_TAGS);
-    for (const item of meals) for (const tag of item.tags || []) tags.add(tag);
-    return [
-      ...SLOT_TAGS,
-      ...[...tags].filter((tag) => !SLOT_TAGS.includes(tag)).sort(),
-    ];
-  }, [meals]);
+  // The vocabulary plus anything a recipe already carries, so an unknown tag from
+  // an older version stays visible instead of silently disappearing on save.
+  const allTags = useMemo(() => [
+    ...Object.keys(tagCatalog),
+    ...[...new Set(meals.flatMap((item) => item.tags || []))]
+      .filter((tag) => !tagCatalog[tag])
+      .sort(),
+  ], [meals]);
 
   const overrides = useMemo(
     () => brandOverridesFor(products, ingredientDefaults),
@@ -124,6 +124,16 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
     ...prev,
     tags: prev.tags.includes(tag) ? prev.tags.filter((item) => item !== tag) : [...prev.tags, tag],
   }));
+
+  /** Food tags follow straight from the ingredients, so offer them instead of asking. */
+  const suggestFoodTags = () => setDraft((prev) => {
+    const suggested = new Set(prev.tags);
+    for (const row of prev.ingredients) {
+      if (!row.id) continue;
+      for (const tag of ingredientTags(row.id)) suggested.add(tag);
+    }
+    return { ...prev, tags: [...suggested] };
+  });
 
   const buildPayload = () => {
     const existing = recipeOverlay.find((entry) => entry.id === meal?.id);
@@ -200,8 +210,6 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
     }
   };
 
-  const hasSlotTag = draft.tags.some((tag) => SLOT_TAGS.includes(tag));
-
   return (
     <Overlay onClose={onClose} maxWidth={640}>
       <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 6px", letterSpacing: "-0.02em" }}>
@@ -212,7 +220,6 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
       </p>
 
       {error && <Notice tone="error">{error}</Notice>}
-      {!hasSlotTag && <Notice tone="info">{t("editor.noSlotTagWarning")}</Notice>}
 
       <div style={{ display: "flex", gap: 12 }}>
         <div style={{ width: 70 }}>
@@ -252,20 +259,12 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
       </div>
 
       <h3 style={sectionTitleStyle}>{t("editor.tags")}</h3>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 6 }}>
-        {allTags.map((tag) => {
-          const isActive = draft.tags.includes(tag);
-          return (
-            <button key={tag} type="button" onClick={() => toggleTag(tag)} style={{
-              fontSize: 12, padding: "5px 12px", borderRadius: 20,
-              border: isActive ? "1.5px solid var(--text-color, #2d2a24)" : "1px solid var(--border-color, #d5d0c8)",
-              background: isActive ? "var(--text-color, #2d2a24)" : "transparent",
-              color: isActive ? "var(--bg-color, #fffcf7)" : "var(--text-color-secondary, #6b6560)",
-              cursor: "pointer", fontFamily: "inherit", fontWeight: isActive ? 600 : 400,
-            }}>{t(`tags.${tag}`, { defaultValue: tag })}</button>
-          );
-        })}
-      </div>
+      <p style={{ fontSize: 12, opacity: 0.5, margin: "0 0 8px" }}>{t("editor.tagsHint")}</p>
+      <TagFilterBar tags={allTags} active={draft.tags} onToggle={toggleTag} small />
+      <button type="button" onClick={suggestFoodTags}
+        style={{ ...ghostButtonStyle, marginTop: 8, padding: "5px 12px", fontSize: 12.5 }}>
+        {t("editor.suggestTags")}
+      </button>
 
       <h3 style={sectionTitleStyle}>{t("editor.ingredients")}</h3>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>

@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { formatIngredient } from "../constants";
 import { knownMicros } from "../utils/nutrition";
+import { KIND_RECIPE } from "../utils/planEntries";
+import DishTagChips from "./DishTagChips";
 import NutrientSummary from "./NutrientSummary";
 import { ghostButtonStyle } from "./ui";
 
@@ -13,7 +15,7 @@ function Section({ title, children }) {
   );
 }
 
-export default function RecipeDetail({ meal, onBack, onEdit }) {
+export default function RecipeDetail({ meal, onBack, onEdit, dishTags }) {
   const { t, i18n } = useTranslation();
   const micros = knownMicros(meal);
   const nutrientMap = Object.fromEntries(micros.map((m) => [m.key, m.value]));
@@ -54,6 +56,12 @@ export default function RecipeDetail({ meal, onBack, onEdit }) {
       <p style={{ fontSize: 11, opacity: 0.45, margin: "0 0 16px" }}>
         {meal.nutritionRecomputed ? t("nutrition.recomputedNote") : t("nutrition.sourceNote")}
       </p>
+      {dishTags && (
+        <Section title={t("dishTags.title")}>
+          <DishTagChips dishTags={dishTags} kind={KIND_RECIPE} id={meal.id} />
+          <p style={{ fontSize: 11.5, opacity: 0.45, margin: "8px 0 0" }}>{t("picker.tagModeHint")}</p>
+        </Section>
+      )}
       {micros.length > 0 && (
         <Section title={t("nutrition.microsTitle")}>
           <NutrientSummary nutrients={nutrientMap} t={t} alwaysOpen />

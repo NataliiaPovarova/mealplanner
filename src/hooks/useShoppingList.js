@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { ingredientCatalog } from "../constants";
+import { KIND_INGREDIENT, forEachPlanEntry, mealsById } from "../utils/planEntries";
 import { resolveShoppingMeasure } from "../utils/shoppingMeasure";
 
 const CATEGORY_ORDER = ["produce", "protein", "dairy", "legumes", "grains", "pantry"];
@@ -17,49 +18,69 @@ function normalizeAmount(amount, unit) {
   return { amount, unit };
 }
 
-export default function useShoppingList(weekPlan, meals, weekAddOns = {}) {
+/**
+ * Recipes are bought by the number of preparations, ingredients planned as a dish
+ * or an add-on by their own amount; both land in the same line per ingredient.
+ */
+export default function useShoppingList(weekPlan, meals) {
   const { i18n } = useTranslation();
   const lang = i18n.language;
+  const byId = mealsById(meals);
 
-  const mealCounts = {};
-  Object.values(weekPlan).forEach(mealId => {
-    mealCounts[mealId] = (mealCounts[mealId] || 0) + 1;
-  });
-  Object.values(weekAddOns).forEach(addOnId => {
-    mealCounts[addOnId] = (mealCounts[addOnId] || 0) + 1;
-  });
+  const portionsByRecipe = {};
+  const plannedIngredients = {};
 
-  const batchCounts = {};
-  Object.entries(mealCounts).forEach(([mealId, count]) => {
-    const meal = meals.find(m => m.id === mealId);
-    if (meal) batchCounts[mealId] = Math.ceil(count / meal.portions);
+  forEachPlanEntry(weekPlan, (entry) => {
+    if (entry.kind === KIND_INGREDIENT) {
+      if (ingredientCatalog[entry.id]?.shopping === false) return;
+      const key = `${entry.id}|${entry.unit}`;
+      if (!plannedIngredients[key]) {
+        plannedIngredients[key] = { id: entry.id, unit: entry.unit, amount: 0, uses: 0 };
+      }
+      plannedIngredients[key].amount += entry.amount || 0;
+      plannedIngredients[key].uses += 1;
+      return;
+    }
+    const portions = entry.amount > 0 ? entry.amount : 1;
+    portionsByRecipe[entry.id] = (portionsByRecipe[entry.id] || 0) + portions;
   });
 
   const map = {};
   const usesById = {};
-  Object.entries(batchCounts).forEach(([mealId, batches]) => {
-    const meal = meals.find(m => m.id === mealId);
+
+  const lineFor = (ingredientId, unit) => {
+    const key = `${ingredientId}|${unit}`;
+    if (!map[key]) {
+      const info = ingredientCatalog[ingredientId];
+      map[key] = {
+        ingredientId,
+        name: info?.[lang] || info?.ru || ingredientId,
+        amount: 0,
+        unit,
+        category: info?.category || "pantry",
+      };
+    }
+    return map[key];
+  };
+
+  Object.entries(portionsByRecipe).forEach(([mealId, portions]) => {
+    const meal = byId.get(mealId);
     if (!meal) return;
+    const batches = Math.ceil(portions / meal.portions);
     const countedInMeal = new Set();
-    meal.ingredients.forEach(ing => {
+    meal.ingredients.forEach((ing) => {
       if (ingredientCatalog[ing.id]?.shopping === false) return;
-      const key = `${ing.id}|${ing.unit}`;
-      const info = ingredientCatalog[ing.id];
-      if (!map[key]) {
-        map[key] = {
-          ingredientId: ing.id,
-          name: info?.[lang] || info?.ru || ing.id,
-          amount: 0,
-          unit: ing.unit,
-          category: info?.category || "pantry",
-        };
-      }
-      map[key].amount += (ing.amount || 0) * batches;
+      lineFor(ing.id, ing.unit).amount += (ing.amount || 0) * batches;
       if (!countedInMeal.has(ing.id)) {
         countedInMeal.add(ing.id);
         usesById[ing.id] = (usesById[ing.id] || 0) + batches;
       }
     });
+  });
+
+  Object.values(plannedIngredients).forEach(({ id, unit, amount, uses }) => {
+    lineFor(id, unit).amount += amount;
+    usesById[id] = (usesById[id] || 0) + uses;
   });
 
   const items = Object.values(map).map(item => {

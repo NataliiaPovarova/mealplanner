@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useRecipes from "../hooks/useRecipes";
 import RecipeDetail from "./RecipeDetail";
 import RecipeEditor from "./RecipeEditor";
+import TagFilterBar from "./TagFilterBar";
 import { useUserData } from "../contexts/UserDataContext";
-import { primaryButtonStyle } from "./ui";
+import { isCustomTag } from "../hooks/useDishTags";
+import { KIND_RECIPE } from "../utils/planEntries";
+import { inputStyle, primaryButtonStyle } from "./ui";
 
 function Badge({ children }) {
   return (
@@ -16,17 +19,37 @@ function Badge({ children }) {
   );
 }
 
-export default function RecipeList() {
+export default function RecipeList({ dishTags }) {
   const { t } = useTranslation();
   const meals = useRecipes();
   const { enabled } = useUserData();
   const [selectedId, setSelectedId] = useState(null);
   const [editorTarget, setEditorTarget] = useState(null);
   const [activeTags, setActiveTags] = useState([]);
+  const [query, setQuery] = useState("");
 
-  const allTags = [...new Set(meals.flatMap(m => m.tags))];
-  const toggleTag = (tag) => setActiveTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
-  const filteredMeals = activeTags.length === 0 ? meals : meals.filter(m => activeTags.every(tg => m.tags.includes(tg)));
+  const availableTags = useMemo(() => [
+    ...dishTags.customTagIds,
+    ...new Set(meals.flatMap((meal) => meal.tags)),
+  ], [meals, dishTags.customTagIds]);
+
+  const toggleTag = (tag) => setActiveTags(prev => (
+    prev.includes(tag) ? prev.filter(item => item !== tag) : [...prev, tag]
+  ));
+
+  // A personal tag can be deleted while it filters the list; ignoring it beats
+  // showing nothing with no chip left to un-click.
+  const effectiveTags = activeTags.filter((tag) => (
+    !isCustomTag(tag) || dishTags.customTagIds.includes(tag)
+  ));
+
+  const search = query.trim().toLowerCase();
+  const filteredMeals = meals.filter((meal) => {
+    if (search && !meal.name.toLowerCase().includes(search)) return false;
+    if (!effectiveTags.length) return true;
+    const own = dishTags.tagsFor(KIND_RECIPE, meal.id);
+    return effectiveTags.every((tag) => meal.tags.includes(tag) || own.includes(tag));
+  });
 
   // Resolving by id keeps the detail view in sync after an edit and falls back
   // to the list when the recipe was deleted or hidden.
@@ -47,6 +70,7 @@ export default function RecipeList() {
           meal={selectedMeal}
           onBack={() => setSelectedId(null)}
           onEdit={enabled ? () => setEditorTarget(selectedMeal) : null}
+          dishTags={dishTags}
         />
         {editor}
       </>
@@ -65,28 +89,23 @@ export default function RecipeList() {
         </button>
       )}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 18 }}>
-        {allTags.map(tag => {
-          const isActive = activeTags.includes(tag);
-          return (
-            <button key={tag} onClick={() => toggleTag(tag)}
-              style={{
-                fontSize: 12, padding: "5px 12px", borderRadius: 20,
-                border: isActive ? "1.5px solid var(--text-color, #2d2a24)" : "1px solid var(--border-color, #d5d0c8)",
-                background: isActive ? "var(--text-color, #2d2a24)" : "transparent",
-                color: isActive ? "var(--bg-color, #fffcf7)" : "var(--text-color-secondary, #6b6560)",
-                cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s ease",
-                fontWeight: isActive ? 600 : 400,
-              }}>{t(`tags.${tag}`, { defaultValue: tag })}</button>
-          );
-        })}
-        {activeTags.length > 0 && (
-          <button onClick={() => setActiveTags([])}
-            style={{ fontSize: 12, padding: "5px 12px", borderRadius: 20, border: "1px dashed var(--border-color, #d5d0c8)", background: "transparent", color: "var(--text-color-secondary, #8a8478)", cursor: "pointer", fontFamily: "inherit", fontStyle: "italic" }}>
-            {t("recipes.resetTags")}
-          </button>
-        )}
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={t("picker.search")}
+        style={{ ...inputStyle, marginBottom: 12 }}
+      />
+
+      <div style={{ marginBottom: 18 }}>
+        <TagFilterBar
+          tags={availableTags}
+          active={effectiveTags}
+          onToggle={toggleTag}
+          onReset={() => setActiveTags([])}
+          labelFor={(tag) => (dishTags.customTagIds.includes(tag) ? dishTags.labelFor(tag) : null)}
+        />
       </div>
+
       {filteredMeals.length === 0 && (
         <p style={{ fontSize: 14, opacity: 0.5, fontStyle: "italic", textAlign: "center", padding: "32px 0" }}>
           {t("recipes.noMatch")}
@@ -114,6 +133,9 @@ export default function RecipeList() {
               </div>
               <div style={{ fontSize: 12.5, opacity: 0.6, marginBottom: 6 }}>{meal.description}</div>
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                {dishTags.tagsFor(KIND_RECIPE, meal.id).map(tag => (
+                  <span key={tag} style={{ fontSize: 11, padding: "2px 8px", borderRadius: 20, border: "1px solid var(--border-color, #d5d0c8)", opacity: 0.8 }}>{dishTags.labelFor(tag)}</span>
+                ))}
                 {meal.tags.map(tag => (
                   <span key={tag} style={{ fontSize: 11, padding: "2px 8px", borderRadius: 20, background: "var(--bg-tag, rgba(0,0,0,0.05))", opacity: 0.7 }}>{t(`tags.${tag}`, { defaultValue: tag })}</span>
                 ))}

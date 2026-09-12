@@ -1,15 +1,28 @@
 import autoTable from "jspdf-autotable";
 import { DAYS, SLOTS, formatIngredient } from "../constants";
+import {
+  KIND_RECIPE,
+  dishesInSlot,
+  entryAmountLabel,
+  entryName,
+  forEachPlanEntry,
+  mealsById,
+} from "./planEntries";
 import { initPdfDoc } from "./pdfFonts";
 
 export default async function generateWeekPlanPdf({
   weekPlan,
-  weekAddOns = {},
   meals,
   t,
   language,
 }) {
   const { doc, fontName } = await initPdfDoc();
+  const byId = mealsById(meals);
+  const labelFor = (entry) => {
+    const amount = entryAmountLabel(entry, t);
+    const name = entryName(entry, { byId, lang: language });
+    return amount ? `${name} — ${amount}` : name;
+  };
 
   const margin = 15;
   const pageWidth = doc.internal.pageSize.getWidth();
@@ -37,18 +50,17 @@ export default async function generateWeekPlanPdf({
   ];
 
   const body = DAYS.map((day) => {
-    const dayLabel = t(`days.${day}`);
     const cells = SLOTS.map((slot) => {
-      const key = `${day}-${slot}`;
-      const mealId = weekPlan[key];
-      if (!mealId) return t("pdf.empty");
-      const meal = meals.find((m) => m.id === mealId);
-      const mealName = meal ? meal.name : t("pdf.empty");
-      const addOnId = weekAddOns[key];
-      const addOn = addOnId ? meals.find((m) => m.id === addOnId) : null;
-      return addOn ? `${mealName}\n+ ${addOn.name}` : mealName;
+      const dishes = dishesInSlot(weekPlan, `${day}-${slot}`);
+      if (!dishes.length) return t("pdf.empty");
+      return dishes
+        .map((dish) => [
+          labelFor(dish),
+          ...(dish.addOns || []).map((addOn) => `+ ${labelFor(addOn)}`),
+        ].join("\n"))
+        .join("\n");
     });
-    return [dayLabel, ...cells];
+    return [t(`days.${day}`), ...cells];
   });
 
   autoTable(doc, {
@@ -63,12 +75,11 @@ export default async function generateWeekPlanPdf({
 
   // ── Recipes section ─────────────────────────────────────────
 
-  const uniqueIds = [
-    ...new Set([...Object.values(weekPlan), ...Object.values(weekAddOns)]),
-  ];
-  const uniqueMeals = uniqueIds
-    .map((id) => meals.find((m) => m.id === id))
-    .filter(Boolean);
+  const plannedRecipeIds = new Set();
+  forEachPlanEntry(weekPlan, (entry) => {
+    if (entry.kind === KIND_RECIPE) plannedRecipeIds.add(entry.id);
+  });
+  const uniqueMeals = [...plannedRecipeIds].map((id) => byId.get(id)).filter(Boolean);
 
   if (uniqueMeals.length === 0) {
     doc.save(language === "ru" ? "план-недели.pdf" : "week-plan.pdf");

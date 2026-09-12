@@ -1,298 +1,473 @@
 {
+  "_comment": "Ingredient catalog. `category` groups the shopping list, `tags` come from the shared vocabulary in tags.json, `roles` say whether the product can be planned as a standalone dish and/or as an add-on, and `portion` holds the default amount for each role (grams unless `unit` says otherwise).",
   "egg-noodles": {
     "category": "grains",
+    "tags": ["pasta"],
+    "roles": ["dish"],
+    "portion": { "dish": 70 },
     "ru": "Лапша (яичная или пшеничная)",
     "en": "Egg noodles"
   },
   "noodles": {
     "category": "grains",
+    "tags": ["pasta"],
+    "roles": ["dish"],
+    "portion": { "dish": 70 },
     "ru": "Лапша",
     "en": "Noodles"
   },
   "noodles-udon": {
     "category": "grains",
+    "tags": ["pasta"],
+    "roles": ["dish"],
+    "portion": { "dish": 90 },
     "ru": "Лапша (удон, пшеничная или рисовая)",
     "en": "Noodles (udon, wheat, or rice)"
   },
   "rice": {
     "category": "grains",
+    "tags": ["grain"],
+    "roles": ["dish"],
+    "portion": { "dish": 60 },
     "ru": "Рис",
     "en": "Rice"
   },
   "buckwheat": {
     "category": "grains",
+    "tags": ["grain"],
+    "roles": ["dish"],
+    "portion": { "dish": 60 },
     "ru": "Гречка",
     "en": "Buckwheat"
   },
   "quinoa": {
     "category": "grains",
+    "tags": ["grain"],
+    "roles": ["dish"],
+    "portion": { "dish": 60 },
     "ru": "Киноа",
     "en": "Quinoa"
   },
   "couscous": {
     "category": "grains",
+    "tags": ["grain"],
+    "roles": ["dish"],
+    "portion": { "dish": 60 },
     "ru": "Кус-кус",
     "en": "Couscous"
   },
   "short-pasta": {
     "category": "grains",
+    "tags": ["pasta"],
+    "roles": ["dish"],
+    "portion": { "dish": 80 },
     "ru": "Макароны короткие (фузилли, пенне)",
     "en": "Short pasta (fusilli, penne)"
   },
   "gnocchi": {
     "category": "grains",
+    "tags": ["pasta"],
+    "roles": ["dish"],
+    "portion": { "dish": 150 },
     "ru": "Ньокки",
     "en": "Gnocchi"
   },
   "oats": {
     "category": "grains",
+    "tags": ["grain"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 50, "addon": 15 },
     "ru": "Овсяные хлопья",
     "en": "Oats"
   },
   "corn-flakes": {
     "category": "grains",
+    "tags": ["grain"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 30, "addon": 15 },
     "ru": "Кукурузные хлопья без сахара",
     "en": "Sugar-free corn flakes"
   },
   "toast-bread": {
     "category": "grains",
+    "tags": ["bread"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 60, "addon": 30 },
     "ru": "Хлеб для тостов",
     "en": "Toast bread"
   },
   "tortilla": {
     "category": "grains",
+    "tags": ["bread"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 45, "addon": 45 },
     "ru": "Тортилья",
     "en": "Tortilla"
   },
   "egg": {
     "category": "protein",
+    "tags": ["egg"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 100, "addon": 50 },
     "ru": "Яйца",
     "en": "Eggs"
   },
   "chicken-breast": {
     "category": "protein",
+    "tags": ["meat"],
+    "roles": ["dish"],
+    "portion": { "dish": 150 },
     "ru": "Куриная грудка",
     "en": "Chicken breast"
   },
   "chicken-breast-or-thigh": {
     "category": "protein",
+    "tags": ["meat"],
+    "roles": ["dish"],
+    "portion": { "dish": 150 },
     "ru": "Куриная грудка или бедро без кожи",
     "en": "Chicken breast or boneless thigh"
   },
   "chicken-thigh-bone-in": {
     "category": "protein",
+    "tags": ["meat"],
+    "roles": ["dish"],
+    "portion": { "dish": 150 },
     "ru": "Куриное бедро на кости (или голень)",
     "en": "Bone-in chicken thigh (or drumstick)"
   },
   "turkey-fillet": {
     "category": "protein",
+    "tags": ["meat"],
+    "roles": ["dish"],
+    "portion": { "dish": 150 },
     "ru": "Филе индейки",
     "en": "Turkey fillet"
   },
   "frozen-shrimp": {
     "category": "protein",
+    "tags": ["fish"],
+    "roles": ["dish"],
+    "portion": { "dish": 120 },
     "ru": "Креветки очищенные замороженные",
     "en": "Frozen peeled shrimp"
   },
   "canned-tuna": {
     "category": "protein",
+    "tags": ["fish"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 120, "addon": 60 },
     "ru": "Тунец консервированный в собственном соку",
     "en": "Canned tuna in water"
   },
   "smoked-fish": {
     "category": "protein",
+    "tags": ["fish"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 80, "addon": 20 },
     "ru": "Копчёная рыба (лосось, форель)",
     "en": "Smoked fish (salmon, trout)"
   },
   "smoked-turkey": {
     "category": "protein",
+    "tags": ["meat"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 60, "addon": 15 },
     "ru": "Копчёная индейка или карбонад",
     "en": "Smoked turkey or ham"
   },
   "cottage-cheese": {
     "category": "dairy",
+    "tags": ["dairy"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 150, "addon": 50 },
     "ru": "Творог",
     "en": "Cottage cheese"
   },
   "greek-yogurt": {
     "category": "dairy",
+    "tags": ["dairy"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 150, "addon": 50 },
     "ru": "Греческий йогурт",
     "en": "Greek yogurt"
   },
   "cream-cheese": {
     "category": "dairy",
+    "tags": ["cheese"],
+    "roles": ["addon"],
+    "portion": { "addon": 20 },
     "ru": "Творожный сыр",
     "en": "Cream cheese"
   },
   "hard-cheese": {
     "category": "dairy",
+    "tags": ["cheese"],
+    "roles": ["addon"],
+    "portion": { "addon": 20 },
     "ru": "Твёрдый сыр (хорошо плавится)",
     "en": "Hard cheese (melting)"
   },
   "feta": {
     "category": "dairy",
+    "tags": ["cheese"],
+    "roles": ["addon"],
+    "portion": { "addon": 30 },
     "ru": "Фета",
     "en": "Feta cheese"
   },
   "mozzarella": {
     "category": "dairy",
+    "tags": ["cheese"],
+    "roles": ["addon"],
+    "portion": { "addon": 60 },
     "ru": "Моцарелла",
     "en": "Mozzarella"
   },
   "halloumi": {
     "category": "dairy",
+    "tags": ["cheese"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 100, "addon": 40 },
     "ru": "Халуми",
     "en": "Halloumi"
   },
   "butter": {
     "category": "dairy",
+    "tags": ["sauce"],
+    "roles": ["addon"],
+    "portion": { "addon": 10 },
     "ru": "Сливочное масло",
     "en": "Butter"
   },
   "milk": {
     "category": "dairy",
+    "tags": ["dairy"],
+    "roles": ["addon"],
+    "portion": { "addon": 150, "unit": "ml" },
     "ru": "Молоко (обычное или растительное)",
     "en": "Milk (dairy or plant)"
   },
   "red-lentils": {
     "category": "legumes",
+    "tags": ["legume"],
+    "roles": ["dish"],
+    "portion": { "dish": 60 },
     "ru": "Красная чечевица",
     "en": "Red lentils"
   },
   "canned-chickpeas": {
     "category": "legumes",
+    "tags": ["legume"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 120, "addon": 60 },
     "ru": "Нут консервированный",
     "en": "Canned chickpeas"
   },
   "canned-beans": {
     "category": "legumes",
+    "tags": ["legume"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 120, "addon": 60 },
     "ru": "Фасоль консервированная (красная или белая)",
     "en": "Canned beans (red or white)"
   },
   "tomato": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 120 },
     "ru": "Помидоры",
     "en": "Tomatoes"
   },
   "cherry-tomatoes": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 85 },
     "ru": "Помидоры черри",
     "en": "Cherry tomatoes"
   },
   "cucumber": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 100 },
     "ru": "Огурец",
     "en": "Cucumber"
   },
   "bell-pepper": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 120 },
     "ru": "Болгарский перец",
     "en": "Bell pepper"
   },
   "carrot": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 60 },
     "ru": "Морковь",
     "en": "Carrot"
   },
   "avocado": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 70 },
     "ru": "Авокадо",
     "en": "Avocado"
   },
   "green-onion": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 15 },
     "ru": "Зелёный лук",
     "en": "Green onion"
   },
   "spinach": {
     "category": "produce",
+    "tags": ["veg"],
+    "roles": ["addon"],
+    "portion": { "addon": 30 },
     "ru": "Шпинат",
     "en": "Spinach"
   },
   "banana": {
     "category": "produce",
+    "tags": ["fruit"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 118, "addon": 60 },
     "ru": "Банан",
     "en": "Banana"
   },
   "mango": {
     "category": "produce",
+    "tags": ["fruit"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 150, "addon": 100 },
     "ru": "Манго",
     "en": "Mango"
   },
   "berries": {
     "category": "produce",
+    "tags": ["fruit"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 150, "addon": 80 },
     "ru": "Ягоды (голубика, малина, клубника)",
     "en": "Berries (blueberry, raspberry, strawberry)"
   },
   "nuts": {
     "category": "pantry",
+    "tags": ["nuts-seeds"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 30, "addon": 20 },
     "ru": "Орехи (миндаль, кешью, кедровые)",
     "en": "Nuts (almond, cashew, pine)"
   },
   "nut-butter": {
     "category": "pantry",
+    "tags": ["nuts-seeds"],
+    "roles": ["addon"],
+    "portion": { "addon": 16 },
     "ru": "Ореховая паста (арахисовая, миндальная)",
     "en": "Nut butter (peanut, almond)"
   },
   "tahini": {
     "category": "pantry",
+    "tags": ["nuts-seeds"],
+    "roles": ["addon"],
+    "portion": { "addon": 15 },
     "ru": "Тахини (кунжутная паста)",
     "en": "Tahini (sesame paste)"
   },
   "chia-seeds": {
     "category": "pantry",
+    "tags": ["nuts-seeds"],
+    "roles": ["addon"],
+    "portion": { "addon": 12 },
     "ru": "Семена чиа",
     "en": "Chia seeds"
   },
   "cocoa-powder": {
     "category": "pantry",
+    "tags": ["sweet"],
+    "roles": ["addon"],
+    "portion": { "addon": 5 },
     "ru": "Какао-порошок",
     "en": "Cocoa powder"
   },
   "honey": {
     "category": "pantry",
+    "tags": ["sweet"],
+    "roles": ["addon"],
+    "portion": { "addon": 10 },
     "ru": "Мёд",
     "en": "Honey"
   },
   "soy-sauce": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": ["addon"],
+    "portion": { "addon": 15, "unit": "ml" },
     "ru": "Соевый соус",
     "en": "Soy sauce"
   },
   "olive-oil": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": ["addon"],
+    "portion": { "addon": 10, "unit": "ml" },
     "ru": "Оливковое масло",
     "en": "Olive oil"
   },
   "vegetable-oil": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": ["addon"],
+    "portion": { "addon": 10, "unit": "ml" },
     "ru": "Растительное масло",
     "en": "Vegetable oil"
   },
   "sesame-oil": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": ["addon"],
+    "portion": { "addon": 5, "unit": "ml" },
     "ru": "Кунжутное масло",
     "en": "Sesame oil"
   },
   "olive-or-sesame-oil": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": [],
     "shopping": false,
     "ru": "Оливковое или кунжутное масло",
     "en": "Olive or sesame oil"
   },
   "lemon-juice": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": ["addon"],
+    "portion": { "addon": 10, "unit": "ml" },
     "ru": "Лимонный сок",
     "en": "Lemon juice"
   },
   "water": {
     "category": "pantry",
+    "tags": [],
+    "roles": [],
     "shopping": false,
     "ru": "Вода",
     "en": "Water"
   },
   "tahini-sauce-portion": {
     "category": "pantry",
+    "tags": ["sauce"],
+    "roles": [],
     "shopping": false,
     "ru": "Тахинный соус (порция, см. отдельный рецепт)",
     "en": "Tahini sauce (portion, see separate recipe)"

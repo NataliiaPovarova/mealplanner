@@ -1,11 +1,12 @@
 export const EXPORT_FORMAT = "mealplanner-user-data";
-export const EXPORT_VERSION = 1;
+/** v2 adds personal dish tags and the list-per-slot week plan. v1 files still import. */
+export const EXPORT_VERSION = 2;
 
 /**
  * The free Firebase tier has no automatic backups, so the export is the user's
  * only copy of their data — and doubles as a way off the platform.
  */
-export function buildExport({ recipeOverlay, products, ingredientDefaults, plan }) {
+export function buildExport({ recipeOverlay, products, ingredientDefaults, plan, dishTags }) {
   return {
     format: EXPORT_FORMAT,
     version: EXPORT_VERSION,
@@ -13,6 +14,7 @@ export function buildExport({ recipeOverlay, products, ingredientDefaults, plan 
     recipes: recipeOverlay,
     products,
     ingredientDefaults: ingredientDefaults || {},
+    dishTags: dishTags || {},
     plan: plan || null,
   };
 }
@@ -38,6 +40,7 @@ export function parseImport(text) {
     recipes: Array.isArray(payload.recipes) ? payload.recipes.filter((r) => r?.id) : [],
     products: Array.isArray(payload.products) ? payload.products.filter((p) => p?.id) : [],
     ingredientDefaults: payload.ingredientDefaults || {},
+    dishTags: payload.dishTags || null,
     plan: payload.plan || null,
   };
 }
