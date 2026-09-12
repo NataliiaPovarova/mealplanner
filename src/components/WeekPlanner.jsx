@@ -100,7 +100,7 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
         <p style={{ fontSize: 13, opacity: 0.6, margin: 0 }}>{t("week.hint")}</p>
         {plannedDishes > 0 && (
           <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: 12 }}>
-            <button onClick={handleDownloadPdf} disabled={pdfBusy}
+            <button data-tour="week-pdf" onClick={handleDownloadPdf} disabled={pdfBusy}
               style={{ fontSize: 12, padding: "4px 10px", borderRadius: 16, border: "1px solid var(--border-color, #d5d0c8)", background: "transparent", cursor: pdfBusy ? "wait" : "pointer", fontFamily: "inherit", color: "var(--text-color-secondary, #8a8478)", flexShrink: 0, opacity: pdfBusy ? 0.5 : 1 }}>
               {pdfBusy ? t("pdf.generating") : t("pdf.download")}
             </button>
@@ -182,6 +182,7 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
                                 {entryKcal(dish, nutritionContext) ?? "—"} {t("week.kcal")}
                               </span>
                               <button
+                                data-tour="week-add-addon"
                                 onClick={() => setPicker({
                                   day, slot, role: ROLE_ADDON, dishKey: dish.key, dishName: nameOf(dish),
                                 })}
@@ -213,7 +214,8 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
                           </div>
                         ))}
 
-                        <button onClick={() => setPicker({ day, slot, role: ROLE_DISH })} style={addButtonStyle}>
+                        <button data-tour="week-add-dish"
+                          onClick={() => setPicker({ day, slot, role: ROLE_DISH })} style={addButtonStyle}>
                           {t("week.addDish")}
                         </button>
                       </div>

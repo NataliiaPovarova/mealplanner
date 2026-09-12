@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useDishTags from "./hooks/useDishTags";
 import useRecipes from "./hooks/useRecipes";
@@ -12,6 +12,9 @@ import AuthPanel from "./components/AuthPanel";
 import AccountPanel from "./components/AccountPanel";
 import { useAuth } from "./contexts/AuthContext";
 import { useUserData } from "./contexts/UserDataContext";
+import TourBubble from "./tour/TourBubble";
+import { useTour } from "./tour/TourContext";
+import { TAB_TOURS, TOUR_ACCOUNT, TOUR_WEEK } from "./tour/steps";
 
 const headerButtonStyle = {
   padding: "4px 10px", borderRadius: 16, fontSize: 12, fontFamily: "inherit", cursor: "pointer",
@@ -19,6 +22,13 @@ const headerButtonStyle = {
   background: "transparent", color: "var(--text-color, #2d2a24)",
   fontWeight: 600, transition: "all 0.15s ease", letterSpacing: "0.03em",
   maxWidth: 140, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+};
+
+const headerCircleStyle = {
+  width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
+  fontFamily: "inherit", cursor: "pointer",
+  display: "flex", alignItems: "center", justifyContent: "center",
+  transition: "opacity 0.15s ease",
 };
 
 function App() {
@@ -33,6 +43,7 @@ function App() {
   const plan = useWeekPlan(meals);
   // One instance for the whole app: the planner and the recipes tab edit the same tags.
   const dishTags = useDishTags();
+  const { requestTour, startTour } = useTour();
 
   const plannedDishes = plan.plannedDishes;
   const toggleLang = () => i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
@@ -46,6 +57,27 @@ function App() {
 
   // Signing out removes the products tab; fall back instead of rendering nothing.
   const currentTab = tabs.some((tab) => tab.id === activeTab) ? activeTab : "week";
+
+  // Each tour is offered the first time its subject is on screen; the provider
+  // drops the ones already seen, waits for the opening anchor, and never runs
+  // two at once. Signing in is its own trigger because that is when the account
+  // features appear, whichever tab you happen to be on.
+  useEffect(() => {
+    const tourId = TAB_TOURS[currentTab];
+    if (tourId) requestTour(tourId);
+  }, [currentTab, requestTour]);
+
+  useEffect(() => {
+    if (user) requestTour(TOUR_ACCOUNT);
+  }, [user, requestTour]);
+
+  // Replaying teaches the tab you are looking at, unless there is nothing on it
+  // to point at — an empty shopping list, say, which the planner is what fixes.
+  const replayTour = () => {
+    if (startTour(TAB_TOURS[currentTab])) return;
+    setActiveTab("week");
+    startTour(TOUR_WEEK);
+  };
 
   return (
     <div style={{
@@ -62,6 +94,7 @@ function App() {
           {configured && !authLoading && (
             user ? (
               <button
+                data-tour="account"
                 onClick={() => setShowAccount(true)}
                 title={user.email}
                 style={headerButtonStyle}
@@ -86,14 +119,25 @@ function App() {
             onMouseOut={e => e.currentTarget.style.opacity = "1"}
           >{i18n.language === "ru" ? "EN" : "РУ"}</button>
           <button
+            onClick={replayTour}
+            title={t("tour.replay")}
+            style={{
+              ...headerCircleStyle,
+              border: "2px solid var(--text-color, #2d2a24)",
+              background: "transparent", fontSize: 15,
+            }}
+            onMouseOver={e => e.currentTarget.style.opacity = "0.6"}
+            onMouseOut={e => e.currentTarget.style.opacity = "1"}
+          >💡</button>
+          <button
+            data-tour="about"
             onClick={() => setShowAbout(true)}
             title={t("app.about")}
             style={{
-              width: 36, height: 36, borderRadius: "50%", border: "2px solid var(--text-color, #2d2a24)",
+              ...headerCircleStyle,
+              border: "2px solid var(--text-color, #2d2a24)",
               background: "var(--text-color, #2d2a24)", color: "#fff",
-              fontSize: 18, fontWeight: 700, fontFamily: "inherit", cursor: "pointer",
-              display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-              transition: "opacity 0.15s ease",
+              fontSize: 18, fontWeight: 700,
             }}
             onMouseOver={e => e.currentTarget.style.opacity = "0.75"}
             onMouseOut={e => e.currentTarget.style.opacity = "1"}
@@ -102,9 +146,9 @@ function App() {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: "flex", gap: 4, marginBottom: 24, borderBottom: "1.5px solid var(--border-color, #e0dcd4)" }}>
+      <div data-tour="tabs" style={{ display: "flex", gap: 4, marginBottom: 24, borderBottom: "1.5px solid var(--border-color, #e0dcd4)" }}>
         {tabs.map(tab => (
-          <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+          <button key={tab.id} data-tour={`tab-${tab.id}`} onClick={() => setActiveTab(tab.id)}
             style={{
               padding: "10px 16px", border: "none", background: "none", cursor: "pointer",
               fontSize: 13, fontFamily: "inherit",
@@ -125,6 +169,7 @@ function App() {
       {showAbout && <AboutOverlay onClose={() => setShowAbout(false)} />}
       {showAuth && <AuthPanel onClose={() => setShowAuth(false)} />}
       {showAccount && <AccountPanel onClose={() => setShowAccount(false)} />}
+      <TourBubble />
     </div>
   );
 }

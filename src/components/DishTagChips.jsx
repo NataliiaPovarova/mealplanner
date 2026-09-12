@@ -114,7 +114,8 @@ export default function DishTagChips({ dishTags, kind, id, small = false }) {
           onCancel={() => setCreating(false)}
         />
       ) : (
-        <button type="button" onClick={() => { setCreating(true); leaveEditing(); }}
+        <button type="button" data-tour="dishtags-new"
+          onClick={() => { setCreating(true); leaveEditing(); }}
           style={{ ...tagChipStyle(false, { small }), borderStyle: "dashed", fontStyle: "italic" }}>
           {t("dishTags.new")}
         </button>
@@ -122,7 +123,8 @@ export default function DishTagChips({ dishTags, kind, id, small = false }) {
 
       {dishTags.customTags.length > 0 && (
         <>
-          <button type="button" onClick={() => (editing ? leaveEditing() : setEditing(true))}
+          <button type="button" data-tour="dishtags-edit"
+            onClick={() => (editing ? leaveEditing() : setEditing(true))}
             style={linkButtonStyle}>
             {editing ? t("dishTags.editDone") : t("dishTags.edit")}
           </button>

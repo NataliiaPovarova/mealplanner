@@ -25,6 +25,7 @@ Deployed with Vercel here: https://mealplanner-three-coral.vercel.app/
 - **Optional accounts** (Firebase Auth + Firestore, free tier): sign in to write your own recipes, edit or hide the built-in ones, and save your week plan. Everything is strictly private — there is no shared writable space, so the catalog never fills up with other people's entries. Passwords are never stored by this app. Without an account the base catalog works exactly as before; see [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
 - **Brand products**: record the yogurt or bread you actually buy as your own variant of a catalog ingredient, enter the label values per 100 g, and mark it as your default — every recipe, built-in ones included, is re-costed from your products. Fields you leave blank keep their USDA values, so vitamins are not zeroed out
 - **Export your data**: one JSON file with your recipes, products, settings, and week plan, importable back — the free Firebase tier has no automatic backups
+- **Guided tour**: four short runs of bubbles — building a meal on the week plan, taking the shopping list to the shop, personal tags in the recipes, and what an account adds — each played once and skippable at any point. The tour never drives the app for you: it highlights a control, says what it does, and waits for you to press it, so nothing demo-shaped ends up in your plan. The 💡 button in the header replays the tour for the tab you are on
 
 > Nutrition values are **approximate** estimates from USDA FDC (CC0). Culinary units were converted to g/ml with household averages; branded products (e.g. mozzarella, Greek yogurt) use a typical SR Legacy / Foundation entry, not your specific brand. Not for medical use.
 
@@ -111,8 +112,13 @@ src/
   hooks/
     useWeekPlan.js         # Weekly plan state (dishes + add-ons) and batch logic
     useDishTags.js         # Personal tags: definitions and per-dish assignments
+    useTourState.js        # Which onboarding tours have been seen
     useShoppingList.js     # Shopping list aggregation with categories
     useRecipes.js          # Language-aware recipe loader
+  tour/
+    steps.js               # The four tours: anchor, placement, how the step ends
+    TourContext.jsx        # One tour at a time: queue, anchor lookup, auto-skip
+    TourBubble.jsx         # The bubble and the highlight ring
   utils/
     nutrition.js           # Day totals for macros + micronutrients
     shoppingMeasure.js     # Household measure for shopping-list lines
@@ -183,6 +189,7 @@ MIT
 - **Аккаунты (по желанию)** на Firebase Auth + Firestore, бесплатный тариф: после входа можно записывать свои рецепты, править и скрывать базовые, а план недели сохраняется. Всё строго приватно — общего пространства для записи нет, поэтому каталог не засоряется чужими записями. Пароли приложение не хранит. Без аккаунта базовый каталог работает как раньше; настройка — в [FIREBASE_SETUP.md](FIREBASE_SETUP.md)
 - **Брендовые продукты**: заведите тот йогурт или хлеб, который реально покупаете, как свой вариант ингредиента из каталога, перепишите значения с этикетки на 100 г и назначьте продуктом по умолчанию — КБЖУ пересчитается во всех рецептах сразу, включая базовые. Незаполненные поля останутся по данным USDA, чтобы витамины не обнулились
 - **Выгрузка данных**: один JSON-файл с вашими рецептами, продуктами, настройками и планом недели, который можно загрузить обратно — автоматических бэкапов на бесплатном тарифе Firebase нет
+- **Обучающие подсказки**: четыре коротких прохода облачками — как собрать приём пищи в плане недели, как взять закупку с собой в магазин, как работают свои теги в рецептах и что даёт аккаунт. Каждый показывается один раз и в любой момент пропускается. Тур ничего не делает за вас: подсвечивает кнопку, объясняет её и ждёт, пока вы нажмёте сами, — поэтому в плане не остаётся демонстрационного мусора. Кнопка 💡 в шапке запускает тур текущей вкладки заново
 
 > Значения **приблизительные**, источник — USDA FDC (CC0). Кулинарные единицы переведены в г/мл по бытовым средним; брендовые продукты (моцарелла, греческий йогурт) взяты как типичная запись SR Legacy / Foundation, не ваш конкретный бренд. Не для медицинских целей.
 
@@ -269,8 +276,13 @@ src/
   hooks/
     useWeekPlan.js         # Состояние плана (блюда + добавки) и batch-логика
     useDishTags.js         # Личные теги: словарь и привязка к блюдам
+    useTourState.js        # Какие обучающие туры уже показаны
     useShoppingList.js     # Агрегация списка закупки по категориям
     useRecipes.js          # Загрузка рецептов с учётом языка
+  tour/
+    steps.js               # Четыре тура: якорь, сторона, чем заканчивается шаг
+    TourContext.jsx        # Один тур за раз: очередь, поиск якоря, автопропуск
+    TourBubble.jsx         # Само облачко и подсветка
   utils/
     nutrition.js           # Итоги дня: КБЖУ + микронутриенты
     shoppingMeasure.js     # Примерная мерка для строк закупки
