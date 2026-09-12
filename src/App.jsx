@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import useDishTags from "./hooks/useDishTags";
 import useRecipes from "./hooks/useRecipes";
 import useWeekPlan from "./hooks/useWeekPlan";
 import WeekPlanner from "./components/WeekPlanner";
@@ -30,13 +31,15 @@ function App() {
   const [showAccount, setShowAccount] = useState(false);
   const meals = useRecipes();
   const plan = useWeekPlan(meals);
+  // One instance for the whole app: the planner and the recipes tab edit the same tags.
+  const dishTags = useDishTags();
 
-  const filledSlots = Object.keys(plan.weekPlan).length;
+  const plannedDishes = plan.plannedDishes;
   const toggleLang = () => i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
 
   const tabs = [
     { id: "week", label: t("tabs.week"), icon: "📅" },
-    { id: "shopping", label: `${t("tabs.shopping")}${filledSlots ? ` (${filledSlots})` : ''}`, icon: "🛒" },
+    { id: "shopping", label: `${t("tabs.shopping")}${plannedDishes ? ` (${plannedDishes})` : ''}`, icon: "🛒" },
     { id: "recipes", label: t("tabs.recipes"), icon: "📖" },
     ...(enabled ? [{ id: "products", label: t("tabs.products"), icon: "🏷️" }] : []),
   ];
@@ -114,9 +117,9 @@ function App() {
         ))}
       </div>
 
-      {currentTab === "week" && <WeekPlanner plan={plan} meals={meals} />}
-      {currentTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} weekAddOns={plan.weekAddOns} getDayKBJU={plan.getDayKBJU} filledSlots={filledSlots} meals={meals} />}
-      {currentTab === "recipes" && <RecipeList />}
+      {currentTab === "week" && <WeekPlanner plan={plan} meals={meals} dishTags={dishTags} />}
+      {currentTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} getDayKBJU={plan.getDayKBJU} plannedDishes={plannedDishes} meals={meals} />}
+      {currentTab === "recipes" && <RecipeList dishTags={dishTags} />}
       {currentTab === "products" && <BrandProducts />}
 
       {showAbout && <AboutOverlay onClose={() => setShowAbout(false)} />}

@@ -6,9 +6,9 @@ import useShoppingChecks, { itemKey } from "../hooks/useShoppingChecks";
 import NutrientSummary from "./NutrientSummary";
 import { formatShoppingAmount } from "../utils/shoppingMeasure";
 
-export default function ShoppingList({ weekPlan, weekAddOns, getDayKBJU, filledSlots, meals }) {
+export default function ShoppingList({ weekPlan, getDayKBJU, plannedDishes, meals }) {
   const { t, i18n } = useTranslation();
-  const { grouped, sortedCategories } = useShoppingList(weekPlan, meals, weekAddOns);
+  const { grouped, sortedCategories } = useShoppingList(weekPlan, meals);
   const { isChecked, toggle } = useShoppingChecks();
   const [pdfBusy, setPdfBusy] = useState(false);
 
@@ -24,7 +24,7 @@ export default function ShoppingList({ weekPlan, weekAddOns, getDayKBJU, filledS
     }
   };
 
-  if (filledSlots === 0) {
+  if (plannedDishes === 0) {
     return (
       <div>
         <h2 style={{ fontSize: 18, fontWeight: 700, margin: "0 0 6px" }}>{t("shopping.title")}</h2>

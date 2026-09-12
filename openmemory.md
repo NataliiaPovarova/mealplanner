@@ -10,6 +10,10 @@ Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bi
 
 
 
+A meal slot holds any number of dishes, and a dish is either a recipe or a single product with an amount, with add-ons (berries, honey, sauces…) attached to the individual dish. Filtering runs on one grouped tag vocabulary shared by recipes and products; meal times are not part of it — users tag their own breakfasts and dinners.
+
+
+
 Optional user accounts run on Firebase (Auth + Firestore, free Spark tier, no auto-pause). Signed-in users get a strictly private space: own recipes, edits and hides of the shipped ones, brand products with label nutrition, and a saved week plan. The app still works fully anonymously when Firebase env vars are absent — see [FIREBASE_SETUP.md](FIREBASE_SETUP.md).
 
 
@@ -28,7 +32,7 @@ src/
 
   firebase.js                       # Modular SDK init; exports isFirebaseConfigured (null services without env vars)
 
-  constants.js                      # DAYS, SLOTS, SLOT_TAG_MAP, formatIngredient()
+  constants.js                      # DAYS, SLOTS, TAG_GROUPS, tagCatalog + groupTags(), ingredientCatalog, formatIngredient()
 
   contexts/
 
@@ -46,11 +50,11 @@ src/
 
   data/
 
-    ingredients.json                # Ingredient catalog: id -> {category, ru, en, shopping?}
+    ingredients.json                # Ingredient catalog: id -> {category, tags, roles, portion, ru, en, shopping?}
 
     unit-conversions.json           # Culinary units → g/ml (+ density, shoppingUnits, bulkByWeight, plural labels)
 
-    tags.json                       # Tag ID -> {ru, en} display names
+    tags.json                       # Tag vocabulary: tag ID -> {group} (food | form | effort | diet); labels in i18n tags.*
 
     nutrition/
 
@@ -66,7 +70,9 @@ src/
 
   hooks/
 
-    useWeekPlan.js                  # Week plan + getDayKBJU; persists to Firestore (signed in) or localStorage
+    useWeekPlan.js                  # Week plan v2 (dishes + nested add-ons) + getDayKBJU; Firestore (signed in) or localStorage
+
+    useDishTags.js                  # Personal tags: definitions + per-dish assignments; settings.dishTags or localStorage
 
     useShoppingList.js              # Aggregation with category grouping + unit normalization
 
@@ -76,7 +82,9 @@ src/
 
   utils/
 
-    nutrition.js                    # sumDayNutrition, knownMicros
+    nutrition.js                    # MACRO_KEYS/MICRO_KEYS, day-total helpers, knownMicros
+
+    planEntries.js                  # Plan v2 shape: migration, entry nutrition/labels, default portions, household hints, sumDayNutrition
 
     computeNutrition.js             # Browser port of the offline recalc; applyNutrition, computeRecipeNutrition
 
@@ -96,7 +104,13 @@ src/
 
   components/
 
-    WeekPlanner.jsx                 # Day cards; full KBJU + collapsible micros
+    WeekPlanner.jsx                 # Day cards; dishes with nested add-ons, inline amounts, KBJU + collapsible micros
+
+    DishPicker.jsx                  # Overlay: recipes/products switch, grouped filters, amount with household hint
+
+    TagFilterBar.jsx                # Shared grouped tag chips (recipes tab, picker, editor)
+
+    DishTagChips.jsx                # Toggle/create/delete personal tags on a dish
 
     ShoppingList.jsx                # Shopping + daily KBJU/micros
 
@@ -146,7 +160,25 @@ scripts/
 
 - **Reference ingredients for shared components**: `tahini-sauce-portion` (unit: `portion`) points at `tahini-sauce`; nutrition for that line is taken from the sauce recipe’s `perPortion`.
 
-- **Add-on recipes via tag**: Recipes tagged `add-on` don't map to any slot in `SLOT_TAG_MAP`. Nested chip under meal slots; add-on macros/micros included in daily totals.
+- **A slot holds a list of dishes, and add-ons hang off a dish, not off the slot** (plan v2, `utils/planEntries.js`): `weekPlan[cellKey] = [{ key, kind, id, amount?, unit?, addOns: [...] }]`. The old model — one recipe id per slot plus a parallel `weekAddOns` map — could not express "porridge + a boiled egg, honey on the porridge only". Everything that reads the plan (day KBJU, shopping list, PDF, planned count) goes through `forEachPlanEntry`/`entryNutrition`, so there is a single place to teach about new entry kinds.
+
+- **Plan migration is tolerant, not versioned-strict**: `normalizeWeekPlan` accepts v2 arrays, the legacy `{weekPlan, weekAddOns}` pair, and a bare `cellKey → recipeId` map, because the same shapes live in three places written at different times (localStorage, Firestore, exported JSON files users keep on disk). A string value is the migration trigger, so no stored version field has to be trusted.
+
+- **A dish is a recipe or a plain product**: ingredients carry `roles` (`dish` / `addon`) and `portion` defaults, so cottage cheese can be planned on its own with berries, nuts and honey on top instead of forcing a recipe for every combination. Big macro sources (grains, eggs, meat, fish, pasta, seafood) get `dish`; accents (veg, fruit, berries, greens, sauces, honey, cheese, oils, bread, cocoa, chia, nut butter, lemon juice) get `addon`; many get both.
+
+- **Amounts are metric with a household hint, not household units**: an ingredient entry stores `amount` + `unit` in g/ml (a real, recalculable number), and `householdHint()` derives `≈ 1.5 tsp` for display from `unit-conversions.json`. Editing the amount recalculates nutrition and the shopping list live; storing "1 handful" would have made both impossible.
+
+- **Add-on recipes via tag**: recipes tagged `add-on` (sauces) are offered in the add-on picker instead of the dish list. Add-on macros/micros are included in daily totals.
+
+- **One grouped tag vocabulary for recipes and ingredients, with no meal times in it**: `tags.json` maps a tag to a group — `food` (what's in it), `form` (what it is), `effort` (how it's cooked), `diet` (accents) — and the same ids describe both recipes and products, so a single filter bar can offer "grain" and get both buckwheat and a buckwheat bowl. Meal-time tags were removed outright: `SLOT_TAG_MAP` used them to decide what a slot could hold, which quietly imposed one person's idea of lunch on everyone. The point of tags is to avoid scrolling, so groups stay coarse (the picker shows `custom`+`food`+`form` first and expands on demand) and near-duplicates were retired (`no-reheating` folded into `cold-bowl`).
+
+- **Tag labels live in i18n, not in the data file**: `tags.json` holds vocabulary and grouping only. A tag is a UI string like any other, and keeping ru/en in the JSON meant two files to edit for one rename.
+
+- **Personal tags sit beside the catalog, never inside a recipe**: `useDishTags` stores `{ tags, assignments: { "recipe:<id>" | "ingredient:<id>" → [tagId] } }` in `settings.dishTags` (or localStorage). Writing a tag into a recipe override would create an "edited shipped recipe" document and mark it dirty for `needsNutritionRecompute` — a full nutrition recalculation because someone labelled a dish "breakfast". Ids are `my:`-prefixed so they can never collide with the vocabulary, and breakfast/lunch/dinner/snack are seeded so the feature is useful before the user configures anything.
+
+- **The seeded tags are a starting point, not a vocabulary**: `builtin` means only "label comes from i18n", so all four can be renamed and deleted like any other tag. Renaming clears the marker and stores the typed label, because a name the user chose must survive a language switch instead of reverting to the translation. Assignments key on the tag id, so a rename touches nothing else, and an explicitly emptied tag list stays empty instead of being re-seeded on the next load.
+
+- **The picker remembers the filter per slot and role** (`dish-filter:<role>:<slot>` in localStorage) instead of asking the user to pin a tag to a slot. Same effect as the removed `SLOT_TAG_MAP` — opening breakfast shows breakfast-ish things — but learned from behaviour rather than declared, and wrong guesses cost one click.
 
 - **Water for grains follows absorption ratios, not boiling ratios**: dishes are cooked lidded. Water is `shopping: false`.
 
@@ -180,17 +212,23 @@ scripts/
 
 - **App.jsx**: orchestrates tabs, language switcher, hooks
 
-- **WeekPlanner**: 7×4 slots, batch auto-fill, add-on chips, day KBJU + micronutrient toggle
+- **WeekPlanner**: 7×4 slots holding a list of dishes, per-dish add-on rows, inline amount editing, batch auto-fill, day KBJU + micronutrient toggle
+
+- **DishPicker**: one overlay for both roles (dish / add-on); search, recipes ↔ products switch, grouped tag filters remembered per slot+role, amount field with kcal and household hint, and a mode for assigning personal tags
+
+- **TagFilterBar**: grouped tag chips with per-group headings; shared by RecipeList, DishPicker and RecipeEditor so filtering looks the same everywhere
+
+- **DishTagChips**: personal tags on a dish — toggle and inline create; an edit mode turns the same chips into rename (click) and delete (✕, confirmed), because two icons per chip would triple the width of a row that is read far more often than edited
 
 - **ShoppingList**: categorized list with household measure + metric in parentheses, checkboxes, PDF, daily energy + micros
 
-- **RecipeList**: tag filters, kcal + protein on cards
+- **RecipeList**: search, grouped tag filters (vocabulary OR personal), kcal + protein on cards
 
-- **RecipeDetail**: energy bar, micronutrients, ingredients, steps
+- **RecipeDetail**: energy bar, micronutrients, ingredients, steps, personal tags
 
 - **NutrientSummary**: shared collapsible micro list
 
-- **AboutOverlay**: bilingual about (documents USDA nutrition)
+- **AboutOverlay**: bilingual about — a numbered "building a plan" walkthrough (dish vs product, which products can be a dish and which only an add-on, amounts, add-ons, tags) ahead of the feature list; documents USDA nutrition. Deliberately holds no recipe count: the catalog is user-extensible, so a number there is either stale or noise
 
 - **AuthPanel**: email/password sign in, sign up, reset; maps Firebase error codes to translated messages
 
@@ -208,7 +246,7 @@ scripts/
 
 - Hooks for state (`useWeekPlan`) and derived data (`useShoppingList`, `useRecipes`)
 
-- Day nutrition aggregation centralized in `src/utils/nutrition.js`
+- Day nutrition aggregation centralized in `src/utils/planEntries.js` (`sumDayNutrition`), with nutrient keys, units and rounding in `src/utils/nutrition.js`; imports stay one-directional (`planEntries` → `nutrition`)
 
 - All UI strings via `t()` from react-i18next
 
@@ -219,5 +257,9 @@ scripts/
 - Firestore subscriptions are `onSnapshot`-based, so an edit in one tab updates every view without manual refetching
 
 - `useWeekPlan` treats stored data as authoritative only at hydration, then local edits win and are written back debounced; pruning of deleted recipes waits until the overlay has loaded, and an anonymous plan is carried into a newly created account rather than overwritten
+
+- `useDishTags` follows the same hydrate-then-local-wins pattern as `useWeekPlan`, and lives in `App.jsx` (one instance passed down), so the planner and the recipes tab can't drift apart
+
+- Nested Firestore maps are replaced wholesale with `setDoc(..., { mergeFields: ["settings.dishTags"] })`, otherwise a plain merge would resurrect deleted tags and assignments
 
 

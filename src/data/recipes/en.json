@@ -4,9 +4,11 @@
     "emoji": "🍜",
     "type": "noodle",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
-      "favorite"
+      "pasta",
+      "egg",
+      "veg",
+      "warm-bowl",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 2,
@@ -103,9 +105,11 @@
     "emoji": "🥘",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "legume",
+      "meat",
+      "warm-bowl",
       "rice-cooker",
-      "batch-2",
+      "batch",
       "high-protein"
     ],
     "batchDays": 2,
@@ -206,10 +210,11 @@
     "emoji": "🍚",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "meat",
+      "warm-bowl",
       "rice-cooker",
-      "batch-3",
-      "basic"
+      "batch"
     ],
     "batchDays": 3,
     "portions": 3,
@@ -305,9 +310,11 @@
     "emoji": "🫘",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "meat",
+      "warm-bowl",
       "rice-cooker",
-      "batch-3",
+      "batch",
       "high-protein"
     ],
     "batchDays": 3,
@@ -396,10 +403,13 @@
     "emoji": "🥗",
     "type": "cold-bowl",
     "tags": [
-      "lunch",
-      "rice-cooker-for-grain",
-      "batch-2",
-      "no-reheating"
+      "grain",
+      "egg",
+      "legume",
+      "veg",
+      "cold-bowl",
+      "rice-cooker",
+      "batch"
     ],
     "batchDays": 2,
     "portions": 2,
@@ -512,9 +522,12 @@
     "emoji": "🍲",
     "type": "noodle",
     "tags": [
-      "lunch",
-      "rice-cooker-for-broth",
-      "batch-2"
+      "pasta",
+      "meat",
+      "egg",
+      "soup",
+      "rice-cooker",
+      "batch"
     ],
     "batchDays": 2,
     "portions": 2,
@@ -609,10 +622,13 @@
     "emoji": "🧆",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "legume",
+      "egg",
+      "warm-bowl",
       "rice-cooker",
-      "batch-3",
-      "plant-protein"
+      "batch",
+      "meat-free"
     ],
     "batchDays": 3,
     "portions": 3,
@@ -727,9 +743,12 @@
     "emoji": "🫛",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "meat",
+      "legume",
+      "warm-bowl",
       "rice-cooker",
-      "batch-3",
+      "batch",
       "high-fiber"
     ],
     "batchDays": 3,
@@ -837,10 +856,11 @@
     "emoji": "🦐",
     "type": "noodle",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
+      "pasta",
+      "fish",
+      "warm-bowl",
       "quick",
-      "15-min"
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 2,
@@ -941,10 +961,13 @@
     "emoji": "🍤",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "rice-cooker-and-pan",
-      "batch-2",
-      "light"
+      "grain",
+      "fish",
+      "warm-bowl",
+      "rice-cooker",
+      "batch",
+      "light",
+      "meat-free"
     ],
     "batchDays": 2,
     "portions": 2,
@@ -1064,11 +1087,14 @@
     "emoji": "🥑",
     "type": "cold-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
+      "legume",
+      "egg",
+      "veg",
+      "cold-bowl",
       "no-cooking",
       "quick",
-      "high-fiber"
+      "high-fiber",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 2,
@@ -1165,10 +1191,12 @@
     "emoji": "🧀",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "meat",
+      "cheese",
+      "warm-bowl",
       "rice-cooker",
-      "batch-2",
-      "with-cheese"
+      "batch"
     ],
     "batchDays": 2,
     "portions": 2,
@@ -1288,9 +1316,12 @@
     "emoji": "🥚",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "egg",
+      "legume",
+      "warm-bowl",
       "rice-cooker",
-      "batch-2",
+      "batch",
       "meat-free"
     ],
     "batchDays": 2,
@@ -1392,10 +1423,11 @@
     "emoji": "🐟",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
+      "grain",
+      "fish",
+      "warm-bowl",
       "quick",
-      "10-min",
+      "batch",
       "meat-free"
     ],
     "batchDays": 2,
@@ -1497,12 +1529,13 @@
     "emoji": "🍝",
     "type": "cold-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
-      "batch-2",
-      "meat-free",
-      "no-reheating",
-      "with-cheese"
+      "pasta",
+      "cheese",
+      "egg",
+      "veg",
+      "cold-bowl",
+      "batch",
+      "meat-free"
     ],
     "batchDays": 2,
     "portions": 2,
@@ -1598,9 +1631,12 @@
     "emoji": "🌿",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "rice-cooker-for-grain",
-      "batch-2",
+      "grain",
+      "egg",
+      "veg",
+      "warm-bowl",
+      "rice-cooker",
+      "batch",
       "meat-free",
       "high-fiber"
     ],
@@ -1709,9 +1745,11 @@
     "emoji": "💪",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "legume",
+      "egg",
+      "warm-bowl",
       "rice-cooker",
-      "batch-2",
+      "batch",
       "meat-free",
       "iron-rich",
       "high-fiber"
@@ -1815,9 +1853,11 @@
     "emoji": "🔥",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
+      "grain",
+      "egg",
+      "warm-bowl",
       "rice-cooker",
-      "batch-2",
+      "batch",
       "meat-free",
       "iron-rich"
     ],
@@ -1920,12 +1960,11 @@
     "emoji": "🧀",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
+      "grain",
+      "cheese",
+      "warm-bowl",
       "quick",
-      "10-min",
-      "meat-free",
-      "with-cheese"
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2024,11 +2063,11 @@
     "emoji": "🍝",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
-      "15-min",
-      "meat-free",
-      "with-cheese"
+      "pasta",
+      "cheese",
+      "warm-bowl",
+      "quick",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2116,12 +2155,12 @@
     "emoji": "🥔",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
+      "pasta",
+      "fish",
+      "cheese",
+      "warm-bowl",
       "quick",
-      "10-min",
-      "meat-free",
-      "with-cheese"
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2210,11 +2249,11 @@
     "emoji": "🧈",
     "type": "warm-bowl",
     "tags": [
-      "lunch",
-      "no-rice-cooker",
-      "10-min",
-      "meat-free",
-      "with-cheese"
+      "pasta",
+      "cheese",
+      "warm-bowl",
+      "quick",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2303,10 +2342,13 @@
     "emoji": "🌯",
     "type": "warm-bowl",
     "tags": [
-      "breakfast-dinner",
+      "bread",
+      "egg",
+      "fish",
+      "toast",
       "quick",
-      "10-min",
-      "high-protein"
+      "high-protein",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2408,9 +2450,13 @@
     "emoji": "🫐",
     "type": "cold-bowl",
     "tags": [
-      "breakfast-dinner",
+      "dairy",
+      "fruit",
+      "nuts-seeds",
+      "cold-bowl",
       "no-cooking",
-      "quick"
+      "quick",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2484,9 +2530,14 @@
     "emoji": "🥣",
     "type": "cold-bowl",
     "tags": [
-      "breakfast-dinner",
+      "grain",
+      "dairy",
+      "fruit",
+      "nuts-seeds",
+      "cold-bowl",
       "no-cooking",
-      "prep-evening"
+      "prep-evening",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2568,9 +2619,12 @@
     "emoji": "🥑",
     "type": "warm-bowl",
     "tags": [
-      "breakfast-dinner",
+      "bread",
+      "egg",
+      "veg",
+      "toast",
       "quick",
-      "10-min"
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2649,7 +2703,10 @@
     "emoji": "🥪",
     "type": "warm-bowl",
     "tags": [
-      "breakfast-dinner",
+      "bread",
+      "cheese",
+      "meat",
+      "toast",
       "quick",
       "no-cooking"
     ],
@@ -2735,9 +2792,13 @@
     "emoji": "🍌",
     "type": "cold-bowl",
     "tags": [
-      "snack",
+      "bread",
+      "nuts-seeds",
+      "fruit",
+      "toast",
+      "no-cooking",
       "quick",
-      "no-cooking"
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2808,10 +2869,13 @@
     "emoji": "🍓",
     "type": "cold-bowl",
     "tags": [
-      "snack",
-      "quick",
+      "dairy",
+      "fruit",
+      "cold-bowl",
       "no-cooking",
-      "high-protein"
+      "quick",
+      "high-protein",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2875,11 +2939,13 @@
     "emoji": "🥤",
     "type": "smoothie",
     "tags": [
-      "snack",
+      "fruit",
+      "nuts-seeds",
       "smoothie",
       "no-cooking",
       "quick",
-      "calorie-dense"
+      "calorie-dense",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -2962,12 +3028,14 @@
     "emoji": "🍫",
     "type": "smoothie",
     "tags": [
-      "snack",
+      "fruit",
+      "dairy",
       "smoothie",
-      "to-go",
       "no-cooking",
+      "to-go",
       "calorie-dense",
-      "high-protein"
+      "high-protein",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -3054,10 +3122,13 @@
     "emoji": "🥭",
     "type": "smoothie",
     "tags": [
-      "snack",
+      "fruit",
+      "dairy",
+      "sweet",
       "smoothie",
       "no-cooking",
-      "quick"
+      "quick",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -3139,11 +3210,14 @@
     "emoji": "🫐",
     "type": "smoothie",
     "tags": [
-      "snack",
+      "fruit",
+      "dairy",
+      "grain",
       "smoothie",
       "no-cooking",
       "quick",
-      "calorie-dense"
+      "calorie-dense",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -3230,9 +3304,12 @@
     "emoji": "🥞",
     "type": "warm-bowl",
     "tags": [
-      "breakfast-dinner",
-      "flour-free",
-      "quick"
+      "fruit",
+      "grain",
+      "egg",
+      "pancakes",
+      "quick",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -3318,10 +3395,13 @@
     "emoji": "🥞",
     "type": "warm-bowl",
     "tags": [
-      "breakfast-dinner",
-      "flour-free",
+      "fruit",
+      "dairy",
+      "egg",
+      "pancakes",
       "quick",
-      "high-protein"
+      "high-protein",
+      "meat-free"
     ],
     "batchDays": 1,
     "portions": 1,
@@ -3405,6 +3485,7 @@
     "emoji": "🥄",
     "type": "sauce",
     "tags": [
+      "sauce",
       "add-on",
       "no-cooking",
       "quick",

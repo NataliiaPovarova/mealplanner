@@ -19,12 +19,25 @@ function roundCount(count) {
   return halves > 0 ? halves : 0.5;
 }
 
-function measureIn(ingredientId, amount, unit, measureUnit) {
+/** Amount expressed in one culinary unit, or null when the table cannot do it. */
+export function measureIn(ingredientId, amount, unit, measureUnit) {
   const perUnit = conversions.ingredients?.[ingredientId]?.[measureUnit];
   if (!(perUnit?.amount > 0)) return null;
   const converted = convertAmount(amount, unit, perUnit.unit, ingredientId);
   if (converted == null) return null;
   return { amount: roundCount(converted / perUnit.amount), unit: measureUnit };
+}
+
+/** Household units the conversion table knows for an ingredient, most tangible first. */
+export function knownMeasureUnits(ingredientId) {
+  const table = conversions.ingredients?.[ingredientId];
+  if (!table) return [];
+  const preferred = conversions.shoppingUnits?.[ingredientId];
+  const order = ["pcs", "slice", "ball", "can", "handful", "stalks", "small-piece", "tbsp", "tsp"];
+  const units = order.filter((unit) => table[unit]);
+  return preferred && table[preferred]
+    ? [preferred, ...units.filter((unit) => unit !== preferred)]
+    : units;
 }
 
 /**

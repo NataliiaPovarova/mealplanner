@@ -1,7 +1,20 @@
-import { useEffect, useRef, useState } from "react";
-import { DAYS, SLOTS, SLOT_TAG_MAP, ADDON_TAG } from "../constants";
-import { sumDayNutrition } from "../utils/nutrition";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { DAYS, SLOTS, ingredientCatalog } from "../constants";
 import { useUserData } from "../contexts/UserDataContext";
+import { brandOverridesFor } from "../utils/userRecipes";
+import {
+  KIND_INGREDIENT,
+  KIND_RECIPE,
+  PLAN_VERSION,
+  ROLE_ADDON,
+  countPlannedDishes,
+  dishesInSlot,
+  makeAddOn,
+  makeDish,
+  mealsById,
+  normalizeWeekPlan,
+  sumDayNutrition,
+} from "../utils/planEntries";
 
 const cellKey = (day, slot) => `${day}-${slot}`;
 
@@ -9,33 +22,67 @@ const STORAGE_KEY = "week-plan";
 const SAVE_DEBOUNCE_MS = 600;
 
 function loadLocalPlan() {
-  if (typeof localStorage === "undefined") return { weekPlan: {}, weekAddOns: {} };
+  if (typeof localStorage === "undefined") return {};
   try {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    return { weekPlan: parsed.weekPlan || {}, weekAddOns: parsed.weekAddOns || {} };
+    // v2 wraps the plan in `{ version, weekPlan }`; older builds stored either
+    // `{ weekPlan, weekAddOns }` or the bare cell map, and both still migrate.
+    return normalizeWeekPlan(parsed.weekPlan || parsed, parsed.weekAddOns);
   } catch {
-    return { weekPlan: {}, weekAddOns: {} };
+    return {};
   }
 }
 
-/** Drops slots pointing at recipes that no longer exist, keeping identity when nothing changed. */
-function pruneMissing(assignments, knownIds) {
-  const kept = Object.entries(assignments).filter(([, mealId]) => knownIds.has(mealId));
-  return kept.length === Object.keys(assignments).length
-    ? assignments
-    : Object.fromEntries(kept);
+function entryExists(entry, knownRecipeIds) {
+  return entry.kind === KIND_INGREDIENT
+    ? Boolean(ingredientCatalog[entry.id])
+    : knownRecipeIds.has(entry.id);
+}
+
+/** Drops dishes and add-ons whose recipe or ingredient is gone, keeping identity when nothing changed. */
+function pruneMissing(weekPlan, knownRecipeIds) {
+  let changed = false;
+  const next = {};
+
+  for (const [cell, dishes] of Object.entries(weekPlan)) {
+    const kept = [];
+    for (const dish of dishes) {
+      if (!entryExists(dish, knownRecipeIds)) {
+        changed = true;
+        continue;
+      }
+      const addOns = (dish.addOns || []).filter((addOn) => entryExists(addOn, knownRecipeIds));
+      if (addOns.length !== (dish.addOns || []).length) {
+        changed = true;
+        kept.push({ ...dish, addOns });
+      } else {
+        kept.push(dish);
+      }
+    }
+    if (kept.length) next[cell] = kept;
+    else if (dishes.length) changed = true;
+  }
+
+  return changed ? next : weekPlan;
 }
 
 export default function useWeekPlan(meals) {
-  const { uid, enabled, loading, plan, savePlan } = useUserData();
+  const { uid, enabled, loading, plan, products, ingredientDefaults, savePlan } = useUserData();
 
-  const [weekPlan, setWeekPlan] = useState(() => loadLocalPlan().weekPlan);
-  const [weekAddOns, setWeekAddOns] = useState(() => loadLocalPlan().weekAddOns);
+  const [weekPlan, setWeekPlan] = useState(loadLocalPlan);
   const [dismissedWarnings, setDismissedWarnings] = useState({});
-  const [openDropdown, setOpenDropdown] = useState(null);
 
   const hydratedUid = useRef(null);
   const persistedRef = useRef(null);
+  const localRef = useRef(weekPlan);
+  localRef.current = weekPlan;
+
+  const byId = useMemo(() => mealsById(meals), [meals]);
+  const overrides = useMemo(
+    () => brandOverridesFor(products, ingredientDefaults),
+    [products, ingredientDefaults],
+  );
+  const nutritionContext = useMemo(() => ({ byId, overrides }), [byId, overrides]);
 
   // The stored plan wins right after sign-in; local edits win from then on.
   useEffect(() => {
@@ -45,34 +92,31 @@ export default function useWeekPlan(meals) {
         hydratedUid.current = null;
         persistedRef.current = null;
         setWeekPlan({});
-        setWeekAddOns({});
       }
       return;
     }
     if (!plan || hydratedUid.current === uid) return;
     hydratedUid.current = uid;
 
-    const nextPlan = plan.weekPlan || {};
-    const nextAddOns = plan.weekAddOns || {};
-    const storedIsEmpty = !Object.keys(nextPlan).length && !Object.keys(nextAddOns).length;
-    const localHasContent = Object.keys(weekPlan).length || Object.keys(weekAddOns).length;
+    const stored = normalizeWeekPlan(plan.weekPlan, plan.weekAddOns);
 
     // Signing up mid-planning should carry the plan into the new account rather
     // than replacing it with an empty stored one.
-    if (storedIsEmpty && localHasContent) return;
+    if (!Object.keys(stored).length && Object.keys(localRef.current).length) return;
 
-    persistedRef.current = JSON.stringify({ weekPlan: nextPlan, weekAddOns: nextAddOns });
-    setWeekPlan(nextPlan);
-    setWeekAddOns(nextAddOns);
-  }, [enabled, uid, plan, weekPlan, weekAddOns]);
+    persistedRef.current = JSON.stringify(stored);
+    setWeekPlan(stored);
+  }, [enabled, uid, plan]);
 
   useEffect(() => {
-    const serialized = JSON.stringify({ weekPlan, weekAddOns });
+    const serialized = JSON.stringify(weekPlan);
     if (serialized === persistedRef.current) return undefined;
 
     if (!enabled) {
       persistedRef.current = serialized;
-      if (typeof localStorage !== "undefined") localStorage.setItem(STORAGE_KEY, serialized);
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: PLAN_VERSION, weekPlan }));
+      }
       return undefined;
     }
 
@@ -82,117 +126,127 @@ export default function useWeekPlan(meals) {
 
     const timer = setTimeout(() => {
       persistedRef.current = serialized;
-      savePlan(weekPlan, weekAddOns).catch(() => {});
+      savePlan(weekPlan).catch(() => {});
     }, SAVE_DEBOUNCE_MS);
     return () => clearTimeout(timer);
-  }, [weekPlan, weekAddOns, enabled, uid, savePlan]);
+  }, [weekPlan, enabled, uid, savePlan]);
 
   // A recipe can disappear when the user deletes or hides it.
   useEffect(() => {
     // While the overlay is still arriving the user's own recipe ids are unknown,
-    // so pruning would drop slots that are actually valid.
+    // so pruning would drop dishes that are actually valid.
     if (enabled && (loading || hydratedUid.current !== uid)) return;
-    const knownIds = new Set(meals.map((meal) => meal.id));
-    setWeekPlan((prev) => pruneMissing(prev, knownIds));
-    setWeekAddOns((prev) => pruneMissing(prev, knownIds));
+    const knownRecipeIds = new Set(meals.map((meal) => meal.id));
+    setWeekPlan((prev) => pruneMissing(prev, knownRecipeIds));
   }, [meals, enabled, loading, uid]);
 
-  const getMealsForSlot = (slot) => {
-    const tag = SLOT_TAG_MAP[slot];
-    return meals.filter(m => m.tags.includes(tag));
+  const updateSlot = (day, slot, updater) => {
+    const key = cellKey(day, slot);
+    setWeekPlan((prev) => {
+      const nextDishes = updater(dishesInSlot(prev, key));
+      const next = { ...prev };
+      if (nextDishes.length) next[key] = nextDishes;
+      else delete next[key];
+      return next;
+    });
   };
 
-  const getAddOns = () => meals.filter(m => m.tags.includes(ADDON_TAG));
+  const updateDish = (day, slot, dishKey, patch) =>
+    updateSlot(day, slot, (dishes) =>
+      dishes.map((dish) => (dish.key === dishKey ? { ...dish, ...patch(dish) } : dish)));
 
-  const setSlot = (day, slot, mealId) => {
-    const key = cellKey(day, slot);
-    setWeekPlan(prev => {
+  /** `draft` is `{ kind, id }` plus an optional amount; portions come from the catalog. */
+  const addDish = (day, slot, draft) => {
+    setWeekPlan((prev) => {
       const next = { ...prev };
-      if (!mealId) {
-        delete next[key];
-        return next;
-      }
-      next[key] = mealId;
-      const meal = meals.find(m => m.id === mealId);
-      if (meal && meal.batchDays > 1) {
-        const dayIdx = DAYS.indexOf(day);
-        for (let i = 1; i < meal.batchDays; i++) {
-          const nextDay = DAYS[dayIdx + i];
-          if (nextDay) {
-            const nextKey = cellKey(nextDay, slot);
-            if (!next[nextKey]) {
-              next[nextKey] = mealId;
-            }
-          }
+      const key = cellKey(day, slot);
+      next[key] = [...dishesInSlot(prev, key), makeDish(draft)];
+
+      // A batch recipe covers several days, so it lands in the same slot ahead —
+      // unless that slot already has it.
+      const meal = draft.kind === KIND_RECIPE ? byId.get(draft.id) : null;
+      if (meal?.batchDays > 1) {
+        const dayIndex = DAYS.indexOf(day);
+        for (let ahead = 1; ahead < meal.batchDays; ahead += 1) {
+          const laterDay = DAYS[dayIndex + ahead];
+          if (!laterDay) break;
+          const laterKey = cellKey(laterDay, slot);
+          const existing = dishesInSlot(next, laterKey);
+          if (existing.some((dish) => dish.kind === KIND_RECIPE && dish.id === meal.id)) continue;
+          next[laterKey] = [...existing, makeDish(draft)];
         }
       }
       return next;
     });
-    setOpenDropdown(null);
   };
 
-  const setAddOn = (day, slot, addOnId) => {
-    const key = cellKey(day, slot);
-    setWeekAddOns(prev => {
-      const next = { ...prev };
-      if (!addOnId) delete next[key];
-      else next[key] = addOnId;
-      return next;
-    });
-    setOpenDropdown(null);
-  };
+  const removeDish = (day, slot, dishKey) =>
+    updateSlot(day, slot, (dishes) => dishes.filter((dish) => dish.key !== dishKey));
 
-  const clearAddOn = (day, slot) => {
-    const key = cellKey(day, slot);
-    setWeekAddOns(prev => { const n = { ...prev }; delete n[key]; return n; });
-  };
+  const setDishAmount = (day, slot, dishKey, amount) =>
+    updateDish(day, slot, dishKey, () => ({ amount }));
 
-  const clearSlot = (day, slot) => {
-    const key = cellKey(day, slot);
-    setWeekPlan(prev => { const n = { ...prev }; delete n[key]; return n; });
-    setWeekAddOns(prev => { const n = { ...prev }; delete n[key]; return n; });
-  };
+  const addAddOn = (day, slot, dishKey, draft) =>
+    updateDish(day, slot, dishKey, (dish) => ({
+      addOns: [...(dish.addOns || []), makeAddOn({ ...draft, role: ROLE_ADDON })],
+    }));
+
+  const removeAddOn = (day, slot, dishKey, addOnKey) =>
+    updateDish(day, slot, dishKey, (dish) => ({
+      addOns: (dish.addOns || []).filter((addOn) => addOn.key !== addOnKey),
+    }));
+
+  const setAddOnAmount = (day, slot, dishKey, addOnKey, amount) =>
+    updateDish(day, slot, dishKey, (dish) => ({
+      addOns: (dish.addOns || []).map((addOn) => (
+        addOn.key === addOnKey ? { ...addOn, amount } : addOn
+      )),
+    }));
+
+  const clearSlot = (day, slot) => updateSlot(day, slot, () => []);
 
   const clearAll = () => {
     setWeekPlan({});
-    setWeekAddOns({});
     setDismissedWarnings({});
   };
 
   const getBatchWarnings = () => {
-    const warnings = [];
     const counted = {};
-    Object.entries(weekPlan).forEach(([key, mealId]) => {
-      const slot = key.split("-").slice(1).join("-");
-      const wKey = `${mealId}-${slot}`;
-      counted[wKey] = (counted[wKey] || 0) + 1;
-    });
-    Object.entries(counted).forEach(([wKey, count]) => {
-      const [mealId, slot] = [wKey.substring(0, wKey.lastIndexOf("-")), wKey.substring(wKey.lastIndexOf("-") + 1)];
-      const meal = meals.find(m => m.id === mealId);
-      if (meal && meal.batchDays > 1 && count !== meal.batchDays) {
-        const dKey = `${wKey}-${count}`;
-        if (!dismissedWarnings[dKey]) {
-          warnings.push({ meal, count, expected: meal.batchDays, dismissKey: dKey, slot });
+    for (const slot of SLOTS) {
+      for (const day of DAYS) {
+        for (const dish of dishesInSlot(weekPlan, cellKey(day, slot))) {
+          if (dish.kind !== KIND_RECIPE) continue;
+          const countKey = `${dish.id}|${slot}`;
+          counted[countKey] = (counted[countKey] || 0) + 1;
         }
       }
-    });
+    }
+
+    const warnings = [];
+    for (const [countKey, count] of Object.entries(counted)) {
+      const [mealId, slot] = countKey.split("|");
+      const meal = byId.get(mealId);
+      if (!meal || !(meal.batchDays > 1) || count === meal.batchDays) continue;
+      const dismissKey = `${countKey}|${count}`;
+      if (dismissedWarnings[dismissKey]) continue;
+      warnings.push({ meal, count, expected: meal.batchDays, dismissKey, slot });
+    }
     return warnings;
   };
 
-  const dismissWarning = (dismissKey) => {
-    setDismissedWarnings(prev => ({ ...prev, [dismissKey]: true }));
-  };
+  const dismissWarning = (dismissKey) =>
+    setDismissedWarnings((prev) => ({ ...prev, [dismissKey]: true }));
 
   const getDayKBJU = (day) =>
-    sumDayNutrition(day, weekPlan, weekAddOns, meals, cellKey, SLOTS);
+    sumDayNutrition(day, weekPlan, { byId, overrides, cellKey, slots: SLOTS });
 
   return {
-    weekPlan, weekAddOns, cellKey,
-    setSlot, clearSlot, clearAll,
-    setAddOn, clearAddOn,
+    weekPlan, cellKey, nutritionContext, overrides,
+    plannedDishes: countPlannedDishes(weekPlan),
+    dishesInSlot: (day, slot) => dishesInSlot(weekPlan, cellKey(day, slot)),
+    addDish, removeDish, setDishAmount,
+    addAddOn, removeAddOn, setAddOnAmount,
+    clearSlot, clearAll,
     getBatchWarnings, dismissWarning, getDayKBJU,
-    openDropdown, setOpenDropdown,
-    getMealsForSlot, getAddOns,
   };
 }

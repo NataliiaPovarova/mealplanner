@@ -1,12 +1,8 @@
 import { useTranslation } from "react-i18next";
-import useRecipes from "../hooks/useRecipes";
 
 export default function AboutOverlay({ onClose }) {
   const { i18n } = useTranslation();
-  const meals = useRecipes();
   const lang = i18n.language;
-  const addOnCount = meals.filter(r => r.tags?.includes("add-on")).length;
-  const mealCount = meals.length - addOnCount;
 
   const sectionTitle = {
     fontSize: 13, textTransform: "uppercase", letterSpacing: "0.06em",
@@ -66,17 +62,25 @@ export default function AboutOverlay({ onClose }) {
         {lang === "ru" ? (
           <div>
             <p style={bodyText}>Приложение для планирования питания на неделю с автоматической генерацией списка продуктов.</p>
+            <h3 style={sectionTitle}>Как собрать план</h3>
+            <ol style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
+              <li><strong>Приём пищи собирается из блюд.</strong> В каждом приёме пищи есть кнопка «+ блюдо», и блюд может быть сколько нужно: например, овсянка и яйцо на завтрак.</li>
+              <li><strong>Блюдо — это рецепт или отдельный продукт.</strong> В окне выбора переключатель «Рецепты / Продукты»: рецепт добавляется порцией, а продукт — с количеством в граммах или миллилитрах. Количество правится прямо в плане, а при наведении на поле видна примерная мерка — ложки, горсти, штуки.</li>
+              <li><strong>Что бывает блюдом, а что добавкой.</strong> Крупные источники нутриентов — крупы, макароны, яйца, мясо, рыба, морепродукты, творог — можно поставить самостоятельным блюдом. Овощи, фрукты, ягоды, зелень, сыр, орехи, мёд, масла, соусы, хлеб — добавкой. Многие продукты доступны и так, и так, поэтому в списке продуктов для блюда и для добавки набор разный.</li>
+              <li><strong>Добавка крепится к блюду, а не к приёму пищи.</strong> Кнопка «＋» в строке блюда открывает выбор добавки, так что мёд попадёт именно в овсянку. Калории добавки идут в КБЖУ дня, а её ингредиенты — в список закупки.</li>
+              <li><strong>Теги нужны, чтобы не листать весь список.</strong> Фильтры в окне выбора сгруппированы, а выбранный фильтр запоминается для этого приёма пищи. Свои теги ставятся кнопкой «мои теги» там же или в карточке рецепта.</li>
+            </ol>
             <h3 style={sectionTitle}>Возможности</h3>
             <ul style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
-              <li><strong>{meals.length} рецептов</strong> ({mealCount} блюд{addOnCount > 0 ? ` + ${addOnCount} соус-добавка` : ""}) с пошаговыми инструкциями и советами</li>
-              <li><strong>Планировщик недели</strong>: завтрак, обед, ужин и перекус на каждый день</li>
+              <li><strong>Планировщик недели</strong>: завтрак, обед, ужин и перекус на каждый день, в каждый приём пищи — сколько блюд нужно</li>
+              <li><strong>Свои рецепты</strong>: базовый каталог с пошаговыми инструкциями и советами можно дополнять своими рецептами, а базовые — править или скрывать (нужен аккаунт)</li>
               <li><strong>Batch cooking</strong>: блюда на 2–3 дня автоматически заполняют следующие дни</li>
               <li><strong>Контроль батчей</strong>: предупреждения, если количество порций не совпадает с рецептом</li>
-              <li><strong>Рецепты-добавки</strong>: соусы и другие сопровождения (тег <code>add-on</code>) прикрепляются к любому выбранному приёму пищи через chip под ним. Их калории учитываются в КБЖУ дня, а ингредиенты попадают в список закупки. Также добавки можно упоминать в других рецептах как «ссылку-ингредиент»</li>
               <li><strong>Умный список закупки</strong>: ингредиенты агрегируются во вкладке «Закупка» и группируются по категориям (овощи, белок, молочное, бобовые, крупы, прочее); ингредиенты-ссылки (например, порция тахинного соуса) исключаются из списка</li>
               <li><strong>Примерные мерки</strong>: в закупке сначала идёт примерная мера из рецептов (штуки, банки, ломтики, ложки, горсти), а граммы и миллилитры — в скобках: «2 шт. (272 г)». Если у продукта нет естественной «штуки», считается количество использований за неделю: «4 шт. (650 г)» йогурта — это четыре порции. Крупы и молоко остаются в граммах и миллилитрах</li>
               <li><strong>PDF на неделю</strong>: скачай план и все рецепты одним файлом — открывай на телефоне прямо на кухне</li>
-              <li><strong>Фильтрация по тегам</strong>: обед, завтрак/ужин, перекус, без мяса, богато железом и другие</li>
+              <li><strong>Фильтрация по тегам</strong>: теги сгруппированы — из чего (крупа, мясо, овощи), что это (тёплый боул, тост, смузи), готовка (быстро, впрок, рисоварка) и акценты (без мяса, богато железом)</li>
+              <li><strong>Свои теги</strong>: приёмы пищи не зашиты в рецепты — пометь, что для тебя завтрак, обед, ужин или перекус, и добавь любые собственные теги. Любой тег можно переименовать или удалить, включая четыре предложенных</li>
               <li><strong>Питательная ценность</strong>: КБЖУ и микронутриенты (клетчатка, минералы, витамины) пересчитаны по <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; в плане недели и закупке — сводка за день</li>
             </ul>
             <h3 style={sectionTitle}>Философия</h3>
@@ -85,7 +89,7 @@ export default function AboutOverlay({ onClose }) {
             <h3 style={sectionTitle}>Структура рецептов</h3>
             <ul style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
               <li>Название, эмодзи-иконка, тип (тёплый боул, холодный боул, лапша, смузи, соус)</li>
-              <li>Теги для фильтрации (например, <code>lunch</code>, <code>snack</code>, <code>meat-free</code>, <code>add-on</code>)</li>
+              <li>Теги для фильтрации из общего словаря (например, <code>grain</code>, <code>meat</code>, <code>cold-bowl</code>, <code>quick</code>, <code>meat-free</code>)</li>
               <li>Количество порций и дней хранения (batch)</li>
               <li>Время подготовки и готовки</li>
               <li>КБЖУ и микронутриенты на порцию — оценка по USDA (количества в г/мл; кулинарные эквиваленты в заметках). Бренды и «щепотки» дают погрешность — не медицинский расчёт</li>
@@ -100,17 +104,25 @@ export default function AboutOverlay({ onClose }) {
         ) : (
           <div>
             <p style={bodyText}>A weekly meal planning app with automatic grocery list generation.</p>
+            <h3 style={sectionTitle}>Building a plan</h3>
+            <ol style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
+              <li><strong>A meal is built from dishes.</strong> Every meal has a “+ dish” button and takes as many dishes as you need — porridge and an egg for breakfast, say.</li>
+              <li><strong>A dish is a recipe or a single product.</strong> The picker has a “Recipes / Products” switch: a recipe is added by the portion, a product with an amount in grams or millilitres. Amounts are editable right in the plan, and hovering the field shows an approximate household measure — spoons, handfuls, pieces.</li>
+              <li><strong>What can be a dish, and what only an add-on.</strong> The big nutrient sources — grains, pasta, eggs, meat, fish, seafood, cottage cheese — can stand on their own as a dish. Vegetables, fruit, berries, greens, cheese, nuts, honey, oils, sauces and bread come as add-ons. Many products do both, which is why the product list differs between a dish and an add-on.</li>
+              <li><strong>An add-on belongs to a dish, not to the meal.</strong> The “＋” button in a dish row opens the add-on picker, so honey lands in the porridge specifically. Its calories count towards the daily totals and its ingredients towards the shopping list.</li>
+              <li><strong>Tags are there to save you the scrolling.</strong> Filters in the picker come in groups, and the chosen filter is remembered for that meal. Your own tags go on from the “my tags” button there or from the recipe card.</li>
+            </ol>
             <h3 style={sectionTitle}>Features</h3>
             <ul style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
-              <li><strong>{meals.length} recipes</strong> ({mealCount} meals{addOnCount > 0 ? ` + ${addOnCount} add-on sauce${addOnCount === 1 ? "" : "s"}` : ""}) with step-by-step instructions and tips</li>
-              <li><strong>Weekly planner</strong>: breakfast, lunch, dinner, and snack for each day</li>
+              <li><strong>Weekly planner</strong>: breakfast, lunch, dinner, and snack for each day, with as many dishes per meal as you need</li>
+              <li><strong>Your own recipes</strong>: the starter catalog comes with step-by-step instructions and tips, and you can add recipes of your own or edit and hide the shipped ones (account needed)</li>
               <li><strong>Batch cooking</strong>: dishes for 2–3 days automatically fill the following days</li>
               <li><strong>Batch validation</strong>: warnings when portion counts do not match the recipe</li>
-              <li><strong>Add-on recipes</strong>: sauces and other extras (tagged <code>add-on</code>) can be attached to any filled meal slot via a chip below the meal. Their calories are counted in the daily totals and their ingredients are included in the shopping list. They can also be referenced from other recipes as a "reference ingredient"</li>
               <li><strong>Smart shopping list</strong>: ingredients are aggregated on the Shopping tab and grouped by category (produce, protein, dairy, legumes, grains, pantry); reference ingredients (like a tahini-sauce portion) are excluded so you only see what to actually buy</li>
               <li><strong>Household measures</strong>: every shopping line starts with an approximate measure from the recipes (pieces, cans, slices, spoons, handfuls) and keeps grams or millilitres in parentheses: "2 pcs (272 g)". Ingredients without a natural piece size show how many times they are used during the week — "4 pcs (650 g)" of yogurt means four servings. Grains and milk stay in grams and millilitres</li>
               <li><strong>Downloadable PDF</strong>: export the weekly plan and all recipes as a single file — open it on your phone right in the kitchen</li>
-              <li><strong>Tag filtering</strong>: lunch, breakfast/dinner, snack, meat-free, iron-rich, and more</li>
+              <li><strong>Tag filtering</strong>: tags come in groups — what's in it (grain, meat, vegetables), what it is (warm bowl, toast, smoothie), cooking (quick, batch, rice cooker) and accents (meat-free, iron-rich)</li>
+              <li><strong>Your own tags</strong>: meals are not baked into the recipes — mark yourself what counts as breakfast, lunch, dinner or a snack, and add any tags of your own. Every tag can be renamed or deleted, the four suggested ones included</li>
               <li><strong>Nutrition</strong>: macros and micronutrients (fiber, minerals, vitamins) recalculated from <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noreferrer">USDA FoodData Central</a>; the week plan and shopping tab show a daily summary</li>
             </ul>
             <h3 style={sectionTitle}>Philosophy</h3>
@@ -119,7 +131,7 @@ export default function AboutOverlay({ onClose }) {
             <h3 style={sectionTitle}>Recipe Structure</h3>
             <ul style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
               <li>Name, emoji icon, type (warm bowl, cold bowl, noodles, smoothie, sauce)</li>
-              <li>Tags for filtering (e.g. <code>lunch</code>, <code>snack</code>, <code>meat-free</code>, <code>add-on</code>)</li>
+              <li>Tags for filtering from the shared vocabulary (e.g. <code>grain</code>, <code>meat</code>, <code>cold-bowl</code>, <code>quick</code>, <code>meat-free</code>)</li>
               <li>Servings and storage days (batch)</li>
               <li>Prep and cook time</li>
               <li>Macros and micronutrients per serving — USDA-based estimates (amounts in g/ml; culinary equivalents in notes). Brands and “pinches” introduce error — not medical advice</li>

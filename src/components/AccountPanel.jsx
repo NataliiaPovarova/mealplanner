@@ -11,7 +11,7 @@ import {
 export default function AccountPanel({ onClose }) {
   const { t } = useTranslation();
   const { user, logOut } = useAuth();
-  const { recipeOverlay, products, ingredientDefaults, plan, importData } = useUserData();
+  const { recipeOverlay, products, ingredientDefaults, plan, dishTags, importData } = useUserData();
   const fileInputRef = useRef(null);
   const [status, setStatus] = useState(null);
   const [busy, setBusy] = useState(false);
@@ -23,7 +23,7 @@ export default function AccountPanel({ onClose }) {
   const handleExport = () => {
     const stamp = new Date().toISOString().slice(0, 10);
     downloadJson(
-      buildExport({ recipeOverlay, products, ingredientDefaults, plan }),
+      buildExport({ recipeOverlay, products, ingredientDefaults, plan, dishTags }),
       `mealplanner-${stamp}.json`,
     );
     setStatus({ tone: "success", text: t("account.exportDone") });
