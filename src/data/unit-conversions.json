@@ -68,6 +68,12 @@
       "pcs": { "amount": 61, "unit": "g" },
       "medium": { "amount": 61, "unit": "g" }
     },
+    "potato": {
+      "pcs": { "amount": 213, "unit": "g" },
+      "small": { "amount": 92, "unit": "g" },
+      "medium": { "amount": 213, "unit": "g" },
+      "large": { "amount": 369, "unit": "g" }
+    },
     "avocado": {
       "pcs": { "amount": 136, "unit": "g" },
       "medium": { "amount": 136, "unit": "g" }
@@ -79,6 +85,12 @@
     "banana": {
       "pcs": { "amount": 118, "unit": "g" },
       "medium": { "amount": 118, "unit": "g" }
+    },
+    "apple": {
+      "pcs": { "amount": 182, "unit": "g" },
+      "small": { "amount": 149, "unit": "g" },
+      "medium": { "amount": 182, "unit": "g" },
+      "large": { "amount": 223, "unit": "g" }
     },
     "mango": {
       "pcs": { "amount": 200, "unit": "g" }
@@ -113,6 +125,10 @@
     "cream-cheese": {
       "tsp": { "amount": 5, "unit": "g" },
       "tbsp": { "amount": 15, "unit": "g" }
+    },
+    "sour-cream": {
+      "tsp": { "amount": 4, "unit": "g" },
+      "tbsp": { "amount": 12, "unit": "g" }
     },
     "tortilla": {
       "pcs": { "amount": 45, "unit": "g" }
@@ -194,8 +210,10 @@
     "cucumber": "pcs",
     "bell-pepper": "pcs",
     "carrot": "pcs",
+    "potato": "pcs",
     "avocado": "pcs",
     "green-onion": "stalks",
+    "apple": "pcs",
     "banana": "pcs",
     "mango": "pcs",
     "spinach": "handful",
@@ -207,6 +225,7 @@
     "canned-tuna": "can",
     "butter": "tbsp",
     "cream-cheese": "tbsp",
+    "sour-cream": "tbsp",
     "tortilla": "pcs",
     "toast-bread": "slice",
     "mozzarella": "ball",
@@ -237,6 +256,7 @@
     "oats",
     "corn-flakes",
     "red-lentils",
+    "cabbage",
     "milk"
   ],
   "_legacyUnitLabelsComment": "Older note wordings, kept so `nutrition:normalize-units --refresh` still recognises them.",
