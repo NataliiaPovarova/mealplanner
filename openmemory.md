@@ -6,7 +6,7 @@ This file is meant for tracking changes in the app. If you want to contribute, p
 
 
 
-Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bilingual (ru/en) with 36 recipes (35 meals + 1 add-on sauce), structured ingredient data, automated shopping list with category grouping. Nutrition (macros + curated micronutrients) is recalculated offline from USDA FoodData Central.
+Weekly meal planner (React 18 + Vite) deployed on Vercel Hobby (free static). Bilingual (ru/en) with 38 recipes (37 meals + 1 add-on sauce), structured ingredient data, automated shopping list with category grouping. Nutrition (macros + curated micronutrients) is recalculated offline from USDA FoodData Central.
 
 
 
@@ -64,9 +64,9 @@ src/
 
     recipes/
 
-      ru.json                       # 36 recipes (amounts in g/ml; perPortion + perPortionNutrients)
+      ru.json                       # 38 recipes (amounts in g/ml; perPortion + perPortionNutrients)
 
-      en.json                       # 36 recipes (English text)
+      en.json                       # 38 recipes (English text)
 
   hooks/
 
@@ -157,9 +157,11 @@ scripts/
 
 
 
-- **JSON data files** instead of a database: 36 recipes don't justify infrastructure. JSON is bundled at build time by Vite. Zero runtime cost.
+- **JSON data files** instead of a database: 38 recipes don't justify infrastructure. JSON is bundled at build time by Vite. Zero runtime cost.
 
-- **USDA offline pipeline**: fetch caches nutrients locally; the app never calls USDA at runtime. Prefer SR Legacy fdcIds; halloumi uses feta as proxy.
+- **USDA offline pipeline**: fetch caches nutrients locally; the app never calls USDA at runtime. Prefer SR Legacy fdcIds; halloumi uses feta as proxy. A nutrient the source food simply does not list stays `null` rather than `0` (`chicken-mince` has no vitamin D in SR Legacy), because the recalculation skips nulls and a zero would assert a measurement nobody made.
+
+- **Potato carries both `veg` and `grain`**: it is the starch base of its bowls, so the `grain` filter has to reach it the way it reaches rice and buckwheat, while the shopping list still groups it under produce. Amounts are raw weight, like the grains and meats — boiled potato is weighed before it goes in the pot.
 
 - **Amounts in g/ml**: recipes store metric amounts; culinary equivalents live in `note` (e.g. `≈ 1 tbsp`). Rice-cooker water scale marks stay `unit: pcs` (0 kcal).
 
@@ -201,7 +203,7 @@ scripts/
 
 - **Overlay stores prose per language, structure once**: `text: { ru, en }` plus language-independent `ingredients`/`portions`/`tags`, preserving the ru/en structural-sync invariant. Editing in one language and viewing in the other falls back to the language that was written, because a rename should be visible everywhere.
 
-- **Brand products attach to a canonical ingredient**, they are never new catalog entries: `{ ingredientId, brand, name, per100g }` plus `settings.ingredientDefaults` mapping ingredient → chosen product. This keeps the 59-ingredient catalog from growing, keeps shopping-list aggregation and unit conversion working, and lets one brand choice re-cost every recipe at once, shipped ones included.
+- **Brand products attach to a canonical ingredient**, they are never new catalog entries: `{ ingredientId, brand, name, per100g }` plus `settings.ingredientDefaults` mapping ingredient → chosen product. This keeps the 64-ingredient catalog from growing, keeps shopping-list aggregation and unit conversion working, and lets one brand choice re-cost every recipe at once, shipped ones included.
 
 - **Blank label fields fall back to USDA**: labels list macros only, so `per100gFor()` merges the user's values over the baseline instead of replacing it — otherwise picking your own yogurt would zero out every vitamin.
 

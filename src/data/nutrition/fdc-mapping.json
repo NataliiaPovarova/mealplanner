@@ -126,6 +126,14 @@
     "fdcId": 172385,
     "notes": "edible portion estimate; bone-in weight approximate"
   },
+  "chicken-mince": {
+    "query": "Chicken, ground, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171116,
+    "notes": "SR Legacy has no vitamin D for this food; the key stays null"
+  },
   "turkey-fillet": {
     "query": "Turkey, whole, breast, meat only, raw",
     "dataType": [
@@ -178,6 +186,14 @@
     ],
     "fdcId": 170894,
     "notes": "averaged Greek yogurt; brands vary"
+  },
+  "sour-cream": {
+    "query": "Cream, sour, cultured",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171257,
+    "notes": "regular ~20% fat sour cream; brands vary"
   },
   "cream-cheese": {
     "query": "Cheese, cream",
@@ -253,6 +269,14 @@
     ],
     "fdcId": 174285
   },
+  "potato": {
+    "query": "Potatoes, white, flesh and skin, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 170028,
+    "notes": "raw weight; recipes weigh potatoes before boiling"
+  },
   "tomato": {
     "query": "Tomatoes, red, ripe, raw, year round average",
     "dataType": [
@@ -289,6 +313,14 @@
     ],
     "fdcId": 170393
   },
+  "cabbage": {
+    "query": "Cabbage, raw",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 169975,
+    "notes": "white/green head cabbage"
+  },
   "avocado": {
     "query": "Avocados, raw, all commercial varieties",
     "dataType": [
@@ -309,6 +341,13 @@
       "SR Legacy"
     ],
     "fdcId": 168462
+  },
+  "apple": {
+    "query": "Apples, raw, with skin",
+    "dataType": [
+      "SR Legacy"
+    ],
+    "fdcId": 171688
   },
   "banana": {
     "query": "Bananas, raw",

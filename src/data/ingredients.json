@@ -136,6 +136,14 @@
     "ru": "Куриное бедро на кости (или голень)",
     "en": "Bone-in chicken thigh (or drumstick)"
   },
+  "chicken-mince": {
+    "category": "protein",
+    "tags": ["meat"],
+    "roles": ["dish"],
+    "portion": { "dish": 150 },
+    "ru": "Куриный фарш",
+    "en": "Chicken mince"
+  },
   "turkey-fillet": {
     "category": "protein",
     "tags": ["meat"],
@@ -191,6 +199,14 @@
     "portion": { "dish": 150, "addon": 50 },
     "ru": "Греческий йогурт",
     "en": "Greek yogurt"
+  },
+  "sour-cream": {
+    "category": "dairy",
+    "tags": ["dairy"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 100, "addon": 30 },
+    "ru": "Сметана",
+    "en": "Sour cream"
   },
   "cream-cheese": {
     "category": "dairy",
@@ -272,6 +288,14 @@
     "ru": "Фасоль консервированная (красная или белая)",
     "en": "Canned beans (red or white)"
   },
+  "potato": {
+    "category": "produce",
+    "tags": ["veg", "grain"],
+    "roles": ["dish"],
+    "portion": { "dish": 300 },
+    "ru": "Картофель",
+    "en": "Potatoes"
+  },
   "tomato": {
     "category": "produce",
     "tags": ["veg"],
@@ -307,10 +331,18 @@
   "carrot": {
     "category": "produce",
     "tags": ["veg"],
-    "roles": ["addon"],
-    "portion": { "addon": 60 },
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 122, "addon": 60 },
     "ru": "Морковь",
     "en": "Carrot"
+  },
+  "cabbage": {
+    "category": "produce",
+    "tags": ["veg"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 150, "addon": 60 },
+    "ru": "Капуста белокочанная",
+    "en": "White cabbage"
   },
   "avocado": {
     "category": "produce",
@@ -335,6 +367,14 @@
     "portion": { "addon": 30 },
     "ru": "Шпинат",
     "en": "Spinach"
+  },
+  "apple": {
+    "category": "produce",
+    "tags": ["fruit"],
+    "roles": ["dish", "addon"],
+    "portion": { "dish": 182, "addon": 80 },
+    "ru": "Яблоко",
+    "en": "Apple"
   },
   "banana": {
     "category": "produce",

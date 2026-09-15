@@ -3481,6 +3481,193 @@
     }
   },
   {
+    "id": "potato-egg-cheese",
+    "emoji": "🥔",
+    "type": "warm-bowl",
+    "tags": [
+      "grain",
+      "egg",
+      "cheese",
+      "veg",
+      "warm-bowl",
+      "meat-free",
+      "quick"
+    ],
+    "batchDays": 1,
+    "portions": 1,
+    "prepMinutes": 5,
+    "cookMinutes": 15,
+    "perPortion": {
+      "kcal": 611,
+      "protein": 25.5,
+      "fat": 24.9,
+      "carbs": 73.1,
+      "fiber": 11.8
+    },
+    "ingredients": [
+      {
+        "id": "potato",
+        "amount": 426,
+        "unit": "g",
+        "note": "≈ 2 medium"
+      },
+      {
+        "id": "egg",
+        "amount": 100,
+        "unit": "g",
+        "note": "≈ 2 pcs"
+      },
+      {
+        "id": "hard-cheese",
+        "amount": 20,
+        "unit": "g",
+        "note": "≈ 1 slice; grated or diced"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 68,
+        "unit": "g",
+        "note": "≈ 4 pcs; raw, halved"
+      },
+      {
+        "id": "green-onion",
+        "amount": 30,
+        "unit": "g",
+        "note": "≈ 2 stalks"
+      },
+      {
+        "id": "butter",
+        "amount": 10,
+        "unit": "g",
+        "note": "≈ 1 small piece; for the scramble"
+      }
+    ],
+    "name": "Potatoes with Egg and Cheese",
+    "description": "Potatoes boil on the stove, scrambled eggs in the pan, cheese and fresh vegetables on top. A simple, filling bowl with no oven involved.",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "steps": [
+      "Wash the potatoes, peel them (or leave the skin on), cut into cubes. Boil in salted water for 12–15 minutes until soft, drain",
+      "While the potatoes boil, make the scramble: beat the eggs with a fork, pour into a pan with a small piece of butter over medium heat, stir with a spatula for 2–3 minutes until softly set",
+      "Mash the potatoes with a fork, top with the scramble, cheese, halved cherry tomatoes and green onion"
+    ],
+    "tips": "The cheese goes onto the hot potatoes and melts a little. Cherry tomatoes add juiciness. Quick potato option: wash, prick with a fork in 4–5 places, put in a bowl with 2–3 tbsp of water, cover with a plate and microwave on full power for 5–7 minutes (test with a knife — it should slide in easily). No waiting for water to boil.",
+    "freshAdd": "Halved cherry tomatoes, green onion. Cucumber or lettuce leaves work too.",
+    "perPortionNutrients": {
+      "sugar": 7.9,
+      "sodium": 413.3,
+      "calcium": 267.1,
+      "iron": 4.6,
+      "potassium": 2133.4,
+      "magnesium": 120.5,
+      "zinc": 3.5,
+      "vitaminA": 339,
+      "vitaminC": 53.7,
+      "vitaminD": 2,
+      "vitaminE": 2,
+      "vitaminK": 76,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.7,
+      "vitaminB3": 5.2,
+      "vitaminB5": 2.9,
+      "vitaminB6": 1.1,
+      "vitaminB9": 159,
+      "vitaminB12": 1
+    }
+  },
+  {
+    "id": "potato-chicken-mince",
+    "emoji": "🥔",
+    "type": "warm-bowl",
+    "tags": [
+      "grain",
+      "meat",
+      "veg",
+      "warm-bowl",
+      "batch"
+    ],
+    "batchDays": 2,
+    "portions": 2,
+    "prepMinutes": 5,
+    "cookMinutes": 20,
+    "perPortion": {
+      "kcal": 438,
+      "protein": 28.5,
+      "fat": 12.9,
+      "carbs": 53.7,
+      "fiber": 8.7
+    },
+    "ingredients": [
+      {
+        "id": "potato",
+        "amount": 639,
+        "unit": "g",
+        "note": "≈ 3 medium"
+      },
+      {
+        "id": "chicken-mince",
+        "amount": 250,
+        "unit": "g"
+      },
+      {
+        "id": "soy-sauce",
+        "amount": 15,
+        "unit": "ml",
+        "note": "≈ 1 tbsp"
+      },
+      {
+        "id": "cherry-tomatoes",
+        "amount": 102,
+        "unit": "g",
+        "note": "≈ 6 pcs; raw, or 1 regular tomato"
+      },
+      {
+        "id": "green-onion",
+        "amount": 30,
+        "unit": "g",
+        "note": "≈ 2 stalks"
+      },
+      {
+        "id": "olive-oil",
+        "amount": 5,
+        "unit": "ml",
+        "note": "≈ 1 tsp"
+      }
+    ],
+    "name": "Potatoes with Chicken Mince",
+    "description": "Potatoes on the stove, chicken mince in the pan. A filling bowl for two days, fresh vegetables on top.",
+    "prepTime": "5 min",
+    "cookTime": "20 min",
+    "steps": [
+      "Wash the potatoes, peel, cut into cubes. Boil in salted water for 12–15 minutes until soft, drain",
+      "Fry the mince in a pan with a spoon of oil over medium heat, breaking it into small pieces with a spatula, 5–7 minutes. Add the soy sauce towards the end. Make sure no pink is left inside",
+      "Mash the potatoes, top with the mince, fresh vegetables and green onion"
+    ],
+    "tips": "Break the mince up with a spatula right away, while it is still raw — that way it won't clump. Portion for 2 days: potatoes and mince keep in a container, add the vegetables just before eating. Quick potato option: prick with a fork and microwave for 5–7 minutes in a bowl with a spoon of water under a plate — faster than boiling.",
+    "freshAdd": "Cherry tomatoes or a tomato in wedges, green onion. Cucumber works too.",
+    "perPortionNutrients": {
+      "sugar": 5.4,
+      "sodium": 604.9,
+      "calcium": 55,
+      "iron": 3.2,
+      "potassium": 2152.7,
+      "magnesium": 108.3,
+      "zinc": 3,
+      "vitaminA": 29,
+      "vitaminC": 38.9,
+      "vitaminD": 0,
+      "vitaminE": 1.1,
+      "vitaminK": 43,
+      "vitaminB1": 0.4,
+      "vitaminB2": 0.4,
+      "vitaminB3": 11,
+      "vitaminB5": 2.3,
+      "vitaminB6": 1.4,
+      "vitaminB9": 77,
+      "vitaminB12": 1
+    }
+  },
+  {
     "id": "tahini-sauce",
     "emoji": "🥄",
     "type": "sauce",
