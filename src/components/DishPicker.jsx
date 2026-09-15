@@ -7,6 +7,7 @@ import {
   ingredientCatalog,
   ingredientName,
 } from "../constants";
+import { useUserData } from "../contexts/UserDataContext";
 import { isCustomTag } from "../hooks/useDishTags";
 import {
   KIND_INGREDIENT,
@@ -20,6 +21,7 @@ import {
   ingredientHasRole,
   ingredientTags,
 } from "../utils/planEntries";
+import CustomIngredientForm from "./CustomIngredientForm";
 import DishTagChips from "./DishTagChips";
 import TagFilterBar, { tagChipStyle } from "./TagFilterBar";
 import { Overlay, inputStyle } from "./ui";
@@ -92,6 +94,7 @@ export default function DishPicker({
 }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const { enabled, customIngredients } = useUserData();
 
   const defaultSource = role === ROLE_ADDON ? SOURCE_INGREDIENTS : SOURCE_RECIPES;
   const [memo] = useState(() => loadFilterMemo(role, slot, defaultSource));
@@ -101,6 +104,7 @@ export default function DishPicker({
   const [allFilters, setAllFilters] = useState(false);
   const [tagMode, setTagMode] = useState(false);
   const [amounts, setAmounts] = useState({});
+  const [creating, setCreating] = useState(false);
 
   useEffect(() => {
     if (typeof localStorage === "undefined") return;
@@ -139,7 +143,9 @@ export default function DishPicker({
         portion: defaultPortionFor(id, role),
       }))
       .sort((a, b) => a.name.localeCompare(b.name, lang))
-  ), [role, lang]);
+    // The catalog is merged in place, so a new personal ingredient changes the
+    // list without changing the reference this memo watches.
+  ), [role, lang, customIngredients]);
 
   const options = source === SOURCE_RECIPES ? recipeOptions : ingredientOptions;
 
@@ -185,6 +191,7 @@ export default function DishPicker({
   ));
 
   return (
+    <>
     <Overlay onClose={onClose} maxWidth={560}>
       <h2 style={{ fontSize: 19, fontWeight: 700, margin: "0 0 4px", letterSpacing: "-0.02em" }}>
         {role === ROLE_ADDON
@@ -238,6 +245,13 @@ export default function DishPicker({
           style={{ ...tagChipStyle(tagMode, { small: true }) }}>
           {tagMode ? t("picker.tagModeDone") : t("picker.tagMode")}
         </button>
+        {/* Missing products are noticed here, while planning, not on a settings tab. */}
+        {enabled && source === SOURCE_INGREDIENTS && !tagMode && (
+          <button type="button" onClick={() => setCreating(true)}
+            style={{ ...tagChipStyle(false, { small: true }), borderStyle: "dashed" }}>
+            {t("picker.createIngredient")}
+          </button>
+        )}
       </div>
 
       {tagMode && (
@@ -313,5 +327,17 @@ export default function DishPicker({
         })}
       </div>
     </Overlay>
+
+    {/* Outside the picker's overlay: a `position: fixed` dialog nested inside a
+        scrolling, backdrop-filtered one is at the mercy of containing blocks. */}
+    {creating && (
+      <CustomIngredientForm
+        // A filter that hid every match is also what hides the new product, so
+        // picking it should not take another round of resetting chips.
+        onSaved={() => setActiveTags([])}
+        onClose={() => setCreating(false)}
+      />
+    )}
+    </>
   );
 }

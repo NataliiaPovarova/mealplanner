@@ -7,6 +7,7 @@ import WeekPlanner from "./components/WeekPlanner";
 import ShoppingList from "./components/ShoppingList";
 import RecipeList from "./components/RecipeList";
 import BrandProducts from "./components/BrandProducts";
+import CustomIngredients from "./components/CustomIngredients";
 import AboutOverlay from "./components/AboutOverlay";
 import AuthPanel from "./components/AuthPanel";
 import AccountPanel from "./components/AccountPanel";
@@ -164,7 +165,16 @@ function App() {
       {currentTab === "week" && <WeekPlanner plan={plan} meals={meals} dishTags={dishTags} />}
       {currentTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} getDayKBJU={plan.getDayKBJU} plannedDishes={plannedDishes} meals={meals} />}
       {currentTab === "recipes" && <RecipeList dishTags={dishTags} />}
-      {currentTab === "products" && <BrandProducts />}
+      {/* Two ways to make the catalog yours: a product it never had, and your
+          brand of one it already has. */}
+      {currentTab === "products" && (
+        <>
+          <CustomIngredients />
+          <div style={{ borderTop: "1px solid var(--border-color, #e0dcd4)", paddingTop: 24 }}>
+            <BrandProducts />
+          </div>
+        </>
+      )}
 
       {showAbout && <AboutOverlay onClose={() => setShowAbout(false)} />}
       {showAuth && <AuthPanel onClose={() => setShowAuth(false)} />}

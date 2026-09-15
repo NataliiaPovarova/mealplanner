@@ -74,6 +74,7 @@ export default function AboutOverlay({ onClose }) {
             <ul style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
               <li><strong>Планировщик недели</strong>: завтрак, обед, ужин и перекус на каждый день, в каждый приём пищи — сколько блюд нужно</li>
               <li><strong>Свои рецепты</strong>: базовый каталог с пошаговыми инструкциями и советами можно дополнять своими рецептами, а базовые — править или скрывать (нужен аккаунт)</li>
+              <li><strong>Свои продукты</strong>: продукта нет в каталоге — свёкла, хлеб из соседней пекарни — заведите свой, и он появится в выборе блюда, в редакторе рецептов и в закупке наравне с остальными. КБЖУ по желанию: данных USDA для него нет, а планировать то, что вы действительно едите, важнее цифр. Для продукта, который в каталоге есть, можно указать свой бренд с этикетки — пересчитается во всех рецептах сразу (нужен аккаунт)</li>
               <li><strong>Batch cooking</strong>: блюда на 2–3 дня автоматически заполняют следующие дни</li>
               <li><strong>Контроль батчей</strong>: предупреждения, если количество порций не совпадает с рецептом</li>
               <li><strong>Умный список закупки</strong>: ингредиенты агрегируются во вкладке «Закупка» и группируются по категориям (овощи, белок, молочное, бобовые, крупы, прочее); ингредиенты-ссылки (например, порция тахинного соуса) исключаются из списка</li>
@@ -116,6 +117,7 @@ export default function AboutOverlay({ onClose }) {
             <ul style={{ fontSize: 14, paddingLeft: 18, margin: 0, lineHeight: 1.8 }}>
               <li><strong>Weekly planner</strong>: breakfast, lunch, dinner, and snack for each day, with as many dishes per meal as you need</li>
               <li><strong>Your own recipes</strong>: the starter catalog comes with step-by-step instructions and tips, and you can add recipes of your own or edit and hide the shipped ones (account needed)</li>
+              <li><strong>Your own products</strong>: a product the catalog does not have — beetroot, bread from the bakery down the road — you add yourself, and it shows up in the dish picker, the recipe editor and the shopping list like every other ingredient. Nutrition is optional: there is no USDA row behind it, and planning what you actually eat matters more than the numbers. For a product the catalog does have, name your brand and copy its label — every recipe is recalculated at once (account needed)</li>
               <li><strong>Batch cooking</strong>: dishes for 2–3 days automatically fill the following days</li>
               <li><strong>Batch validation</strong>: warnings when portion counts do not match the recipe</li>
               <li><strong>Smart shopping list</strong>: ingredients are aggregated on the Shopping tab and grouped by category (produce, protein, dairy, legumes, grains, pantry); reference ingredients (like a tahini-sauce portion) are excluded so you only see what to actually buy</li>

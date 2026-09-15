@@ -1,43 +1,25 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ingredientCatalog } from "../constants";
+import { ingredientCatalog, isCustomIngredient } from "../constants";
 import { useUserData } from "../contexts/UserDataContext";
+import { LABEL_KEYS, NUTRIENT_UNITS, labelFromPer100g, per100gFromLabel } from "../utils/nutrition";
 import {
-  Field, Notice, Overlay,
+  Field, Notice, NutritionLabelFields, Overlay,
   dangerButtonStyle, ghostButtonStyle, inputStyle, primaryButtonStyle, sectionTitleStyle,
 } from "./ui";
 
-/** Fields a supermarket label actually prints. Anything left blank keeps the USDA value. */
-const LABEL_KEYS = ["kcal", "protein", "fat", "carbs", "fiber", "sugar", "sodium"];
-
-const UNIT_BY_KEY = { kcal: "kcal", protein: "g", fat: "g", carbs: "g", fiber: "g", sugar: "g", sodium: "mg" };
-
 const emptyDraft = () => ({
   ingredientId: "", brand: "", name: "",
-  ...Object.fromEntries(LABEL_KEYS.map((key) => [key, ""])),
+  ...labelFromPer100g(null),
 });
 
 function draftFromProduct(product) {
-  const draft = emptyDraft();
-  draft.ingredientId = product.ingredientId || "";
-  draft.brand = product.brand || "";
-  draft.name = product.name || "";
-  for (const key of LABEL_KEYS) {
-    const value = product.per100g?.[key];
-    if (value != null) draft[key] = String(value);
-  }
-  return draft;
-}
-
-function per100gFromDraft(draft) {
-  const per100g = {};
-  for (const key of LABEL_KEYS) {
-    const raw = String(draft[key] ?? "").trim().replace(",", ".");
-    if (raw === "") continue;
-    const value = Number(raw);
-    if (!Number.isNaN(value)) per100g[key] = value;
-  }
-  return per100g;
+  return {
+    ingredientId: product.ingredientId || "",
+    brand: product.brand || "",
+    name: product.name || "",
+    ...labelFromPer100g(product.per100g),
+  };
 }
 
 function ProductForm({ draft, setDraft, ingredientOptions, onSave, onCancel, busy, error }) {
@@ -82,16 +64,7 @@ function ProductForm({ draft, setDraft, ingredientOptions, onSave, onCancel, bus
       <h3 style={{ ...sectionTitleStyle, marginTop: 12 }}>{t("products.per100g")}</h3>
       <p style={{ fontSize: 12, opacity: 0.5, margin: "0 0 12px" }}>{t("products.per100gHint")}</p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))", gap: 10 }}>
-        {LABEL_KEYS.map((key) => (
-          <Field key={key} label={`${t(`products.field.${key}`)}, ${t(`units.${UNIT_BY_KEY[key]}`)}`}>
-            <input
-              type="number" min="0" step="any" inputMode="decimal"
-              value={draft[key]} onChange={(e) => update(key, e.target.value)} style={inputStyle}
-            />
-          </Field>
-        ))}
-      </div>
+      <NutritionLabelFields values={draft} onChange={update} />
 
       <div style={{ display: "flex", gap: 10, marginTop: 12 }}>
         <button onClick={onSave} disabled={busy} style={{ ...primaryButtonStyle, opacity: busy ? 0.6 : 1 }}>
@@ -115,8 +88,10 @@ export default function BrandProducts() {
 
   const ingredientOptions = useMemo(() => (
     Object.entries(ingredientCatalog)
-      // Reference ingredients point at other recipes, so a brand makes no sense there.
-      .filter(([id]) => id !== "water" && !id.endsWith("-portion"))
+      // Reference ingredients point at other recipes, so a brand makes no sense
+      // there; an ingredient of the user's own already carries its own numbers,
+      // and two places to edit the same figure is one place too many.
+      .filter(([id]) => id !== "water" && !id.endsWith("-portion") && !isCustomIngredient(id))
       .map(([id, info]) => ({ id, name: info[lang] || info.ru || id }))
       .sort((a, b) => a.name.localeCompare(b.name, lang))
   ), [lang]);
@@ -157,7 +132,7 @@ export default function BrandProducts() {
       setError(t("products.errorNoIngredient"));
       return;
     }
-    const per100g = per100gFromDraft(draft);
+    const per100g = per100gFromLabel(draft);
     if (Object.keys(per100g).length === 0) {
       setError(t("products.errorNoNutrition"));
       return;
@@ -194,6 +169,9 @@ export default function BrandProducts() {
 
   return (
     <div>
+      <h2 style={{ fontSize: 17, fontWeight: 700, margin: "0 0 6px", letterSpacing: "-0.02em" }}>
+        {t("products.title")}
+      </h2>
       <p style={{ fontSize: 14, marginBottom: 6, opacity: 0.7 }}>{t("products.intro")}</p>
       <p style={{ fontSize: 12.5, marginBottom: 18, opacity: 0.5 }}>{t("products.privacyNote")}</p>
 
@@ -231,7 +209,7 @@ export default function BrandProducts() {
                       <div style={{ fontSize: 12.5, opacity: 0.6, marginTop: 3 }}>
                         {LABEL_KEYS
                           .filter((key) => product.per100g?.[key] != null)
-                          .map((key) => `${t(`products.field.${key}`)} ${product.per100g[key]}${t(`units.${UNIT_BY_KEY[key]}`)}`)
+                          .map((key) => `${t(`products.field.${key}`)} ${product.per100g[key]}${t(`units.${NUTRIENT_UNITS[key]}`)}`)
                           .join(" · ")}
                       </div>
                     </div>

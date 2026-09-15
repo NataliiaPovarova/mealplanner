@@ -1,18 +1,26 @@
+import { isCustomIngredient } from "../constants";
+
 export const EXPORT_FORMAT = "mealplanner-user-data";
-/** v2 adds personal dish tags and the list-per-slot week plan. v1 files still import. */
-export const EXPORT_VERSION = 2;
+/**
+ * v2 adds personal dish tags and the list-per-slot week plan, v3 the user's own
+ * ingredients. Older files still import: a missing key reads as "none of those".
+ */
+export const EXPORT_VERSION = 3;
 
 /**
  * The free Firebase tier has no automatic backups, so the export is the user's
  * only copy of their data — and doubles as a way off the platform.
  */
-export function buildExport({ recipeOverlay, products, ingredientDefaults, plan, dishTags }) {
+export function buildExport({
+  recipeOverlay, products, customIngredients, ingredientDefaults, plan, dishTags,
+}) {
   return {
     format: EXPORT_FORMAT,
     version: EXPORT_VERSION,
     exportedAt: new Date().toISOString(),
     recipes: recipeOverlay,
     products,
+    ingredients: customIngredients || [],
     ingredientDefaults: ingredientDefaults || {},
     dishTags: dishTags || {},
     plan: plan || null,
@@ -39,6 +47,9 @@ export function parseImport(text) {
   return {
     recipes: Array.isArray(payload.recipes) ? payload.recipes.filter((r) => r?.id) : [],
     products: Array.isArray(payload.products) ? payload.products.filter((p) => p?.id) : [],
+    ingredients: Array.isArray(payload.ingredients)
+      ? payload.ingredients.filter((i) => isCustomIngredient(i?.id))
+      : [],
     ingredientDefaults: payload.ingredientDefaults || {},
     dishTags: payload.dishTags || null,
     plan: payload.plan || null,

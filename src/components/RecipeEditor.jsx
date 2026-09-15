@@ -1,10 +1,11 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ingredientCatalog, tagCatalog } from "../constants";
+import { ingredientCatalog, ingredientName, isCustomIngredient, tagCatalog } from "../constants";
 import { useUserData } from "../contexts/UserDataContext";
 import { computeRecipeNutrition } from "../utils/computeNutrition";
-import { ingredientTags } from "../utils/planEntries";
+import { defaultPortionFor, ingredientTags } from "../utils/planEntries";
 import { brandOverridesFor } from "../utils/userRecipes";
+import CustomIngredientForm from "./CustomIngredientForm";
 import TagFilterBar from "./TagFilterBar";
 import {
   Field, Notice, Overlay,
@@ -58,13 +59,14 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language === "en" ? "en" : "ru";
   const {
-    products, ingredientDefaults, recipeOverlay,
+    products, ingredientDefaults, recipeOverlay, customIngredients,
     saveOwnRecipe, saveBaseOverride, hideBaseRecipe, removeRecipeOverlay,
   } = useUserData();
 
   const [draft, setDraft] = useState(() => draftFromMeal(meal));
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
+  const [creatingIngredient, setCreatingIngredient] = useState(false);
 
   const isNew = !meal;
   const isBaseRecipe = Boolean(meal && !meal.isUserRecipe);
@@ -72,11 +74,17 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
 
   const update = (key, value) => setDraft((prev) => ({ ...prev, [key]: value }));
 
-  const ingredientOptions = useMemo(() => (
-    Object.entries(ingredientCatalog)
-      .map(([id, info]) => ({ id, name: info[lang] || info.ru || id }))
-      .sort((a, b) => a.name.localeCompare(b.name, lang))
-  ), [lang]);
+  // Two lists rather than one: an ingredient you invented is easier to find
+  // among the five of your own than among seventy.
+  const ingredientGroups = useMemo(() => {
+    const options = Object.keys(ingredientCatalog)
+      .map((id) => ({ id, name: ingredientName(id, lang), mine: isCustomIngredient(id) }))
+      .sort((a, b) => a.name.localeCompare(b.name, lang));
+    return [
+      { key: "catalog", options: options.filter((option) => !option.mine) },
+      { key: "mine", options: options.filter((option) => option.mine) },
+    ].filter((group) => group.options.length > 0);
+  }, [lang, customIngredients]);
 
   // The vocabulary plus anything a recipe already carries, so an unknown tag from
   // an older version stays visible instead of silently disappearing on save.
@@ -119,6 +127,26 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
     ...prev,
     ingredients: prev.ingredients.filter((_, i) => i !== index),
   }));
+
+  /** A just-created ingredient lands in the recipe straight away: the reason to
+   * add one from here is that the recipe needs it. */
+  const insertNewIngredient = (id) => setDraft((prev) => {
+    const portion = defaultPortionFor(id);
+    const row = {
+      id,
+      amount: portion ? String(portion.amount) : "",
+      unit: portion?.unit || "g",
+      note: "",
+      optional: false,
+    };
+    const blank = prev.ingredients.findIndex((item) => !item.id);
+    return {
+      ...prev,
+      ingredients: blank >= 0
+        ? prev.ingredients.map((item, i) => (i === blank ? row : item))
+        : [...prev.ingredients, row],
+    };
+  });
 
   const toggleTag = (tag) => setDraft((prev) => ({
     ...prev,
@@ -211,6 +239,7 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
   };
 
   return (
+    <>
     <Overlay onClose={onClose} maxWidth={640}>
       <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 6px", letterSpacing: "-0.02em" }}>
         {isNew ? t("editor.createTitle") : t("editor.editTitle")}
@@ -277,8 +306,12 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
                 <label style={labelStyle}>{t("editor.ingredient")}</label>
                 <select value={row.id} onChange={(e) => setIngredientRow(index, { id: e.target.value })} style={inputStyle}>
                   <option value="">{t("editor.pickIngredient")}</option>
-                  {ingredientOptions.map((option) => (
-                    <option key={option.id} value={option.id}>{option.name}</option>
+                  {ingredientGroups.map((group) => (
+                    <optgroup key={group.key} label={t(`editor.ingredientGroup.${group.key}`)}>
+                      {group.options.map((option) => (
+                        <option key={option.id} value={option.id}>{option.name}</option>
+                      ))}
+                    </optgroup>
                   ))}
                 </select>
               </div>
@@ -311,9 +344,15 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
           </div>
         ))}
       </div>
-      <button type="button" onClick={addIngredientRow} style={{ ...ghostButtonStyle, marginTop: 10, padding: "6px 14px", fontSize: 13 }}>
-        {t("editor.addIngredient")}
-      </button>
+      <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
+        <button type="button" onClick={addIngredientRow} style={{ ...ghostButtonStyle, padding: "6px 14px", fontSize: 13 }}>
+          {t("editor.addIngredient")}
+        </button>
+        <button type="button" onClick={() => setCreatingIngredient(true)}
+          style={{ ...ghostButtonStyle, padding: "6px 14px", fontSize: 13, borderStyle: "dashed" }}>
+          {t("editor.createIngredient")}
+        </button>
+      </div>
 
       <h3 style={sectionTitleStyle}>{t("editor.previewTitle")}</h3>
       <div style={{
@@ -339,7 +378,7 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
           <ul style={{ margin: "6px 0 0", paddingLeft: 18 }}>
             {preview.warnings.map((warning, i) => (
               <li key={i} style={{ fontSize: 12.5 }}>
-                {ingredientCatalog[warning.ingredientId]?.[lang] || warning.ingredientId}
+                {ingredientName(warning.ingredientId, lang)}
                 {" — "}
                 {t(`editor.warning.${warning.reason}`)}
               </li>
@@ -382,5 +421,13 @@ export default function RecipeEditor({ meal, meals, onClose, onSaved }) {
         )}
       </div>
     </Overlay>
+
+    {creatingIngredient && (
+      <CustomIngredientForm
+        onSaved={insertNewIngredient}
+        onClose={() => setCreatingIngredient(false)}
+      />
+    )}
+    </>
   );
 }
