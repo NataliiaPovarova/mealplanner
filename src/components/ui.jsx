@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { LABEL_KEYS, NUTRIENT_UNITS } from "../utils/nutrition";
 
 /** Shared inline styles for the forms added with user accounts. */
 
@@ -70,12 +72,50 @@ export function Notice({ tone = "info", children }) {
   );
 }
 
+/**
+ * The per-100 g grid, shared by the brand-product form and the one for an
+ * ingredient of your own, so the same seven numbers are typed the same way.
+ */
+export function NutritionLabelFields({ values, onChange }) {
+  const { t } = useTranslation();
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))", gap: 10 }}>
+      {LABEL_KEYS.map((key) => (
+        <Field key={key} label={`${t(`products.field.${key}`)}, ${t(`units.${NUTRIENT_UNITS[key]}`)}`}>
+          <input
+            type="number" min="0" step="any" inputMode="decimal"
+            value={values[key]} onChange={(e) => onChange(key, e.target.value)} style={inputStyle}
+          />
+        </Field>
+      ))}
+    </div>
+  );
+}
+
+/** Overlays stack (a new ingredient is created from inside the dish picker), so
+ * Escape has to close the topmost one only, not the whole pile. */
+const overlayStack = [];
+
 export function Overlay({ onClose, maxWidth = 520, children }) {
+  // Registration happens once: callers pass an inline `onClose`, and re-running
+  // the effect on every render would push the outer overlay back on top.
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    const id = {};
+    overlayStack.push(id);
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      if (overlayStack[overlayStack.length - 1] !== id) return;
+      onCloseRef.current();
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+    return () => {
+      overlayStack.splice(overlayStack.indexOf(id), 1);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   return (
     <div

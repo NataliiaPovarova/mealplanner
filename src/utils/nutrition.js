@@ -52,6 +52,33 @@ export const NUTRIENT_UNITS = {
   vitaminB12: "ug",
 };
 
+/**
+ * What a supermarket label actually prints, and therefore all a user can be
+ * asked to copy. Everything else stays with USDA (a brand product) or stays
+ * unknown (an ingredient of the user's own).
+ */
+export const LABEL_KEYS = ["kcal", "protein", "fat", "carbs", "fiber", "sugar", "sodium"];
+
+/** Form strings → per100g numbers, dropping whatever was left blank. */
+export function per100gFromLabel(values) {
+  const per100g = {};
+  for (const key of LABEL_KEYS) {
+    const raw = String(values?.[key] ?? "").trim().replace(",", ".");
+    if (raw === "") continue;
+    const value = Number(raw);
+    if (!Number.isNaN(value)) per100g[key] = value;
+  }
+  return per100g;
+}
+
+/** per100g → form strings; a nutrient that is not there stays an empty field. */
+export function labelFromPer100g(per100g) {
+  return Object.fromEntries(LABEL_KEYS.map((key) => {
+    const value = per100g?.[key];
+    return [key, value == null ? "" : String(value)];
+  }));
+}
+
 /** Micros stored as whole numbers; the rest keep one decimal. */
 export const WHOLE_NUMBER_MICROS = [
   "vitaminA", "vitaminD", "vitaminK", "vitaminB9", "vitaminB12",

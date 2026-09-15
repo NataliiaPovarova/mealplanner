@@ -8,12 +8,14 @@ import {
   setDoc,
   writeBatch,
 } from "firebase/firestore";
+import { setUserIngredients } from "../constants";
 import { db } from "../firebase";
 import { PLAN_VERSION } from "../utils/planEntries";
 import { useAuth } from "./AuthContext";
 
 const EMPTY = {
-  recipeOverlay: [], products: [], ingredientDefaults: {}, plan: null, dishTags: null, tour: null,
+  recipeOverlay: [], products: [], customIngredients: [],
+  ingredientDefaults: {}, plan: null, dishTags: null, tour: null,
 };
 
 const UserDataContext = createContext(null);
@@ -29,6 +31,7 @@ export function UserDataProvider({ children }) {
 
   const [recipeOverlay, setRecipeOverlay] = useState(EMPTY.recipeOverlay);
   const [products, setProducts] = useState(EMPTY.products);
+  const [customIngredients, setCustomIngredients] = useState(EMPTY.customIngredients);
   const [ingredientDefaults, setIngredientDefaults] = useState(EMPTY.ingredientDefaults);
   const [plan, setPlan] = useState(EMPTY.plan);
   const [dishTags, setDishTags] = useState(EMPTY.dishTags);
@@ -39,6 +42,10 @@ export function UserDataProvider({ children }) {
     if (!uid || !db) {
       setRecipeOverlay(EMPTY.recipeOverlay);
       setProducts(EMPTY.products);
+      // Signing out must take the previous account's ingredients out of the
+      // shared catalog too, not just out of this provider's state.
+      setUserIngredients(EMPTY.customIngredients);
+      setCustomIngredients(EMPTY.customIngredients);
       setIngredientDefaults(EMPTY.ingredientDefaults);
       setPlan(EMPTY.plan);
       setDishTags(EMPTY.dishTags);
@@ -50,10 +57,25 @@ export function UserDataProvider({ children }) {
     setLoading(true);
     const withIds = (snap) => snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 
+    // The week plan is pruned of entries the catalog cannot resolve, so loading
+    // is only over once both the recipes and the ingredients have arrived.
+    const pending = new Set(["recipes", "ingredients"]);
+    const arrived = (collectionName) => {
+      pending.delete(collectionName);
+      if (!pending.size) setLoading(false);
+    };
+
     const unsubscribers = [
       onSnapshot(collection(db, "users", uid, "recipes"), (snap) => {
         setRecipeOverlay(withIds(snap));
-        setLoading(false);
+        arrived("recipes");
+      }),
+      onSnapshot(collection(db, "users", uid, "ingredients"), (snap) => {
+        const docs = withIds(snap);
+        // Into the catalog first: every consumer re-renders off the state below.
+        setUserIngredients(docs);
+        setCustomIngredients(docs);
+        arrived("ingredients");
       }),
       onSnapshot(collection(db, "users", uid, "products"), (snap) => setProducts(withIds(snap))),
       onSnapshot(doc(db, "users", uid), (snap) => {
@@ -75,6 +97,7 @@ export function UserDataProvider({ children }) {
     const userDoc = () => doc(db, "users", uid);
     const recipeDoc = (id) => doc(db, "users", uid, "recipes", id);
     const productDoc = (id) => doc(db, "users", uid, "products", id);
+    const ingredientDoc = (id) => doc(db, "users", uid, "ingredients", id);
 
     return {
       uid,
@@ -82,6 +105,7 @@ export function UserDataProvider({ children }) {
       loading,
       recipeOverlay,
       products,
+      customIngredients,
       ingredientDefaults,
       plan,
       dishTags,
@@ -99,6 +123,14 @@ export function UserDataProvider({ children }) {
 
       saveProduct: (id, data) => setDoc(productDoc(id || crypto.randomUUID()), data),
       deleteProduct: (id) => deleteDoc(productDoc(id)),
+
+      /**
+       * An ingredient of the user's own. The document id *is* the ingredient id
+       * the plan and the recipes store, so it is generated with the `my:` prefix
+       * by the caller rather than left to Firestore.
+       */
+      saveCustomIngredient: (id, data) => setDoc(ingredientDoc(id), data),
+      deleteCustomIngredient: (id) => deleteDoc(ingredientDoc(id)),
 
       setIngredientDefault: (ingredientId, productId) =>
         setDoc(
@@ -127,13 +159,16 @@ export function UserDataProvider({ children }) {
       importData: async (payload) => {
         const recipes = payload.recipes || [];
         const importedProducts = payload.products || [];
-        if (recipes.length + importedProducts.length + 2 > MAX_BATCH_WRITES) {
+        const importedIngredients = payload.ingredients || [];
+        const writes = recipes.length + importedProducts.length + importedIngredients.length;
+        if (writes + 2 > MAX_BATCH_WRITES) {
           throw new Error("import-too-large");
         }
 
         const batch = writeBatch(db);
         for (const { id, ...data } of recipes) batch.set(recipeDoc(id), data);
         for (const { id, ...data } of importedProducts) batch.set(productDoc(id), data);
+        for (const { id, ...data } of importedIngredients) batch.set(ingredientDoc(id), data);
         const settings = {};
         if (payload.ingredientDefaults) settings.ingredientDefaults = payload.ingredientDefaults;
         if (payload.dishTags) settings.dishTags = payload.dishTags;
@@ -146,7 +181,7 @@ export function UserDataProvider({ children }) {
         await batch.commit();
       },
     };
-  }, [uid, loading, recipeOverlay, products, ingredientDefaults, plan, dishTags, tour]);
+  }, [uid, loading, recipeOverlay, products, customIngredients, ingredientDefaults, plan, dishTags, tour]);
 
   return <UserDataContext.Provider value={value}>{children}</UserDataContext.Provider>;
 }

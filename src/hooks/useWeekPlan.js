@@ -67,7 +67,9 @@ function pruneMissing(weekPlan, knownRecipeIds) {
 }
 
 export default function useWeekPlan(meals) {
-  const { uid, enabled, loading, plan, products, ingredientDefaults, savePlan } = useUserData();
+  const {
+    uid, enabled, loading, plan, products, ingredientDefaults, customIngredients, savePlan,
+  } = useUserData();
 
   const [weekPlan, setWeekPlan] = useState(loadLocalPlan);
   const [dismissedWarnings, setDismissedWarnings] = useState({});
@@ -82,7 +84,12 @@ export default function useWeekPlan(meals) {
     () => brandOverridesFor(products, ingredientDefaults),
     [products, ingredientDefaults],
   );
-  const nutritionContext = useMemo(() => ({ byId, overrides }), [byId, overrides]);
+  // `customIngredients` is not read here: it is a signal that the merged catalog
+  // behind `entryNutrition` changed, which the context object has to reflect.
+  const nutritionContext = useMemo(
+    () => ({ byId, overrides }),
+    [byId, overrides, customIngredients],
+  );
 
   // The stored plan wins right after sign-in; local edits win from then on.
   useEffect(() => {
@@ -131,14 +138,14 @@ export default function useWeekPlan(meals) {
     return () => clearTimeout(timer);
   }, [weekPlan, enabled, uid, savePlan]);
 
-  // A recipe can disappear when the user deletes or hides it.
+  // A recipe or an ingredient can disappear when the user deletes or hides it.
   useEffect(() => {
-    // While the overlay is still arriving the user's own recipe ids are unknown,
-    // so pruning would drop dishes that are actually valid.
+    // While the overlay is still arriving the user's own recipe and ingredient
+    // ids are unknown, so pruning would drop dishes that are actually valid.
     if (enabled && (loading || hydratedUid.current !== uid)) return;
     const knownRecipeIds = new Set(meals.map((meal) => meal.id));
     setWeekPlan((prev) => pruneMissing(prev, knownRecipeIds));
-  }, [meals, enabled, loading, uid]);
+  }, [meals, enabled, loading, uid, customIngredients]);
 
   const updateSlot = (day, slot, updater) => {
     const key = cellKey(day, slot);

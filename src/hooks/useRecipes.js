@@ -14,11 +14,13 @@ const recipesByLang = { ru: ruRecipes, en: enRecipes };
  */
 export default function useRecipes() {
   const { t, i18n } = useTranslation();
-  const { recipeOverlay, products, ingredientDefaults } = useUserData();
+  const { recipeOverlay, products, ingredientDefaults, customIngredients } = useUserData();
   const lang = recipesByLang[i18n.language] ? i18n.language : "ru";
 
   return useMemo(() => {
     const merged = mergeRecipeOverlay(recipesByLang[lang], recipeOverlay, lang, t);
     return applyNutrition(merged, brandOverridesFor(products, ingredientDefaults));
-  }, [lang, t, recipeOverlay, products, ingredientDefaults]);
+    // A user recipe built on a user ingredient is recalculated from the merged
+    // catalog, so editing that ingredient's label has to invalidate this memo.
+  }, [lang, t, recipeOverlay, products, ingredientDefaults, customIngredients]);
 }

@@ -1,4 +1,5 @@
 import baseline from "virtual:nutrition-baseline";
+import { ingredientCatalog } from "../constants";
 import conversions from "../data/unit-conversions.json";
 import { MACRO_KEYS, MICRO_KEYS } from "./nutrition";
 
@@ -77,9 +78,13 @@ export function gramsForIngredient({ id, amount, unit }) {
  * Nutrition per 100 g for one ingredient, with the user's brand layered on top.
  * Labels normally list macros only, so keys the user left blank keep the USDA
  * values instead of zeroing out the whole micronutrient profile.
+ *
+ * An ingredient the user invented has no USDA row to fall back on: its own
+ * `per100g` is the baseline, and when it has none the answer is null — "no data",
+ * which every caller already tells apart from a measured zero.
  */
 export function per100gFor(ingredientId, overrides = {}) {
-  const base = baseline[ingredientId] || null;
+  const base = baseline[ingredientId] || ingredientCatalog[ingredientId]?.per100g || null;
   const override = overrides[ingredientId];
   if (!override) return base;
 

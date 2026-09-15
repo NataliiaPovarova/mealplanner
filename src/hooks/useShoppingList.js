@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
-import { ingredientCatalog } from "../constants";
+import { INGREDIENT_CATEGORIES, ingredientCatalog } from "../constants";
 import { KIND_INGREDIENT, forEachPlanEntry, mealsById } from "../utils/planEntries";
 import { resolveShoppingMeasure } from "../utils/shoppingMeasure";
 
-const CATEGORY_ORDER = ["produce", "protein", "dairy", "legumes", "grains", "pantry"];
+const CATEGORY_ORDER = INGREDIENT_CATEGORIES;
 
 const UNIT_CONVERSIONS = {
   g:  { threshold: 1000, target: "kg",  factor: 0.001 },

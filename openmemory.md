@@ -14,7 +14,7 @@ A meal slot holds any number of dishes, and a dish is either a recipe or a singl
 
 
 
-Optional user accounts run on Firebase (Auth + Firestore, free Spark tier, no auto-pause). Signed-in users get a strictly private space: own recipes, edits and hides of the shipped ones, brand products with label nutrition, and a saved week plan. The app still works fully anonymously when Firebase env vars are absent — see [FIREBASE_SETUP.md](FIREBASE_SETUP.md).
+Optional user accounts run on Firebase (Auth + Firestore, free Spark tier, no auto-pause). Signed-in users get a strictly private space: own recipes, edits and hides of the shipped ones, ingredients the catalog never had, brand products with label nutrition, and a saved week plan. The app still works fully anonymously when Firebase env vars are absent — see [FIREBASE_SETUP.md](FIREBASE_SETUP.md).
 
 
 
@@ -32,7 +32,7 @@ src/
 
   firebase.js                       # Modular SDK init; exports isFirebaseConfigured (null services without env vars)
 
-  constants.js                      # DAYS, SLOTS, TAG_GROUPS, tagCatalog + groupTags(), ingredientCatalog, formatIngredient()
+  constants.js                      # DAYS, SLOTS, TAG_GROUPS, tagCatalog + groupTags(), ingredientCatalog + setUserIngredients(), formatIngredient()
 
   contexts/
 
@@ -48,9 +48,9 @@ src/
 
     locales/en/ui.json              # English UI strings
 
-  data/
+    data/
 
-    ingredients.json                # Ingredient catalog: id -> {category, tags, roles, portion, ru, en, shopping?}
+    ingredients.json                # Shipped ingredient catalog: id -> {category, tags, roles, portion, ru, en, shopping?}
 
     unit-conversions.json           # Culinary units → g/ml (+ density, shoppingUnits, bulkByWeight, plural labels)
 
@@ -81,9 +81,9 @@ src/
 
     useRecipes.js                   # Base catalog + user overlay, with nutrition recalculated where needed
 
-  utils/
+    utils/
 
-    nutrition.js                    # MACRO_KEYS/MICRO_KEYS, day-total helpers, knownMicros
+    nutrition.js                    # MACRO_KEYS/MICRO_KEYS/LABEL_KEYS, day-total helpers, knownMicros
 
     planEntries.js                  # Plan v2 shape: migration, entry nutrition/labels, default portions, household hints, sumDayNutrition
 
@@ -129,9 +129,13 @@ src/
 
     BrandProducts.jsx               # CRUD for brand products + "my default" per ingredient
 
+    CustomIngredients.jsx           # List + CRUD for ingredients the shipped catalog has not got
+
+    CustomIngredientForm.jsx        # The form behind them; opened from the products tab, the picker and the editor
+
     RecipeEditor.jsx                # Create/edit/hide recipes with live nutrition preview
 
-    ui.jsx                          # Shared Overlay, Field, Notice and button styles for the forms
+    ui.jsx                          # Shared Overlay (stacked), Field, Notice, NutritionLabelFields and button styles
 
   tour/
 
@@ -205,6 +209,12 @@ scripts/
 
 - **Brand products attach to a canonical ingredient**, they are never new catalog entries: `{ ingredientId, brand, name, per100g }` plus `settings.ingredientDefaults` mapping ingredient → chosen product. This keeps the 64-ingredient catalog from growing, keeps shopping-list aggregation and unit conversion working, and lets one brand choice re-cost every recipe at once, shipped ones included.
 
+- **An ingredient the catalog lacks is a real catalog entry, merged in place**: `users/{uid}/ingredients/{my:uuid}` holds `{ ru?, en?, category, tags, roles, portion, per100g? }` and `setUserIngredients()` swaps those keys inside the exported `ingredientCatalog` object. A brand product refines an entry that exists; beetroot does not exist at all, so it has to arrive as an entry — otherwise the picker, the recipe editor, the shopping list and the PDF would each need a second lookup path. The catalog is read by a dozen non-React functions (`planEntries`, `useShoppingList`, the PDF writers), so passing a merged copy would have meant an extra parameter on every one of them; instead the provider mutates the shared object before it publishes the state that re-renders everybody, and hooks that memoise over the catalog take `customIngredients` as their invalidation signal. The `my:` prefix is the same trick as personal tags: a personal id can never collide with a shipped one, and `isCustomIngredient()` is a string test rather than a lookup.
+
+- **Nutrition is optional for an ingredient of your own**: it has no USDA row to fall back on, so `per100gFor()` treats its `per100g` as the baseline and returns null when there is none. Null is already the app's word for "nobody measured this" — the picker prints "no nutrition data", the day total simply does not include it, the recipe editor warns — so a product worth planning is never blocked on numbers the user does not have. Demanding the label would have been a nutrition tracker's answer to a planner's question: the point is to write down what you eat.
+
+- **The week plan is pruned only once both overlays have arrived**: `loading` stays true until the recipes *and* the ingredients snapshots land, because `pruneMissing` drops any entry the catalog cannot resolve — and a plan full of `my:` ids read before the ingredients arrived would have been silently emptied.
+
 - **Blank label fields fall back to USDA**: labels list macros only, so `per100gFor()` merges the user's values over the baseline instead of replacing it — otherwise picking your own yogurt would zero out every vitamin.
 
 - **Nutrition is recalculated only where needed**: `applyNutrition()` marks a recipe dirty when it is user-created, edited, uses a branded ingredient, or borrows a portion from a dirty recipe; everything else keeps its offline-computed values untouched.
@@ -259,9 +269,11 @@ scripts/
 
 - **AuthPanel**: email/password sign in, sign up, reset; maps Firebase error codes to translated messages
 
-- **AccountPanel**: counts of own/edited/hidden recipes and products, JSON export/import, sign out
+- **AccountPanel**: counts of own/edited/hidden recipes, own ingredients and brand products, JSON export/import, sign out
 
-- **BrandProducts**: per-ingredient grouping, label form (kcal/protein/fat/carbs/fiber/sugar/sodium), default toggle
+- **BrandProducts**: per-ingredient grouping, label form (kcal/protein/fat/carbs/fiber/sugar/sodium), default toggle. Ingredients of the user's own are left out of its picker — their numbers live on the ingredient, and two places to edit one figure is one too many
+
+- **CustomIngredients / CustomIngredientForm**: the other half of the products tab — name (either language), shopping category, food tags, which roles it can take with a default portion each, and an optional label. The form saves itself and hands back the new id, so its three entry points (the tab, the dish picker's "+ own product", the recipe editor's) only say what to do next: nothing, clear the filters, or drop it into the recipe being written
 
 - **RecipeEditor**: shared by create, edit-own and edit-base flows; live per-portion preview plus warnings for ingredients that could not be costed
 
@@ -290,6 +302,8 @@ scripts/
 - `useDishTags` follows the same hydrate-then-local-wins pattern as `useWeekPlan`, and lives in `App.jsx` (one instance passed down), so the planner and the recipes tab can't drift apart
 
 - Nested Firestore maps are replaced wholesale with `setDoc(..., { mergeFields: ["settings.dishTags"] })`, otherwise a plain merge would resurrect deleted tags and assignments
+
+- Overlays stack (the ingredient form opens from inside the dish picker): `ui.jsx` keeps a module-level stack so Escape closes the topmost one only, registered once per mount rather than per render, and a nested overlay is rendered as a sibling of the outer one — `position: fixed` inside a scrolling, backdrop-filtered dialog is at the mercy of containing blocks
 
 - Tours are offered from `App.jsx` with `requestTour(TAB_TOURS[currentTab])` whenever their subject is on screen; the provider owns the decisions (already seen? one already running? is the first anchor there yet?) so the trigger sites stay one line each and cannot double-start. An offer that cannot start yet stays queued and begins the moment its anchor shows up, without blocking the others behind it
 
