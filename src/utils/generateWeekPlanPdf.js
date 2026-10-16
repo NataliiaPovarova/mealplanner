@@ -1,5 +1,6 @@
 import autoTable from "jspdf-autotable";
-import { DAYS, SLOTS, formatIngredient } from "../constants";
+import { SLOTS, formatIngredient } from "../constants";
+import { dayLabel } from "./planDays";
 import {
   KIND_RECIPE,
   dishesInSlot,
@@ -12,6 +13,7 @@ import { initPdfDoc } from "./pdfFonts";
 
 export default async function generateWeekPlanPdf({
   weekPlan,
+  days,
   meals,
   t,
   language,
@@ -49,9 +51,9 @@ export default async function generateWeekPlanPdf({
     ["", ...SLOTS.map((s) => t(`slots.${s}`))],
   ];
 
-  const body = DAYS.map((day) => {
+  const body = days.map((day) => {
     const cells = SLOTS.map((slot) => {
-      const dishes = dishesInSlot(weekPlan, `${day}-${slot}`);
+      const dishes = dishesInSlot(weekPlan, `${day.id}-${slot}`);
       if (!dishes.length) return t("pdf.empty");
       return dishes
         .map((dish) => [
@@ -60,7 +62,7 @@ export default async function generateWeekPlanPdf({
         ].join("\n"))
         .join("\n");
     });
-    return [t(`days.${day}`), ...cells];
+    return [dayLabel(day.date, t, language, "\n"), ...cells];
   });
 
   autoTable(doc, {
@@ -70,7 +72,7 @@ export default async function generateWeekPlanPdf({
     margin: { left: margin, right: margin },
     styles: { font: fontName, fontSize: 9, cellPadding: 4 },
     headStyles: { fillColor: [45, 42, 36], fontStyle: "bold" },
-    columnStyles: { 0: { fontStyle: "bold", cellWidth: 18 } },
+    columnStyles: { 0: { fontStyle: "bold", cellWidth: 22 } },
   });
 
   // ── Recipes section ─────────────────────────────────────────

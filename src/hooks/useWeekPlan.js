@@ -1,7 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { DAYS, SLOTS, ingredientCatalog } from "../constants";
+import { SLOTS, ingredientCatalog } from "../constants";
 import { useUserData } from "../contexts/UserDataContext";
 import { brandOverridesFor } from "../utils/userRecipes";
+import {
+  defaultPlanDays,
+  dropOrphanCells,
+  newDayId,
+  normalizePlanDays,
+  parseIsoDate,
+  shiftIsoDate,
+} from "../utils/planDays";
 import {
   KIND_INGREDIENT,
   KIND_RECIPE,
@@ -21,15 +29,23 @@ const cellKey = (day, slot) => `${day}-${slot}`;
 const STORAGE_KEY = "week-plan";
 const SAVE_DEBOUNCE_MS = 600;
 
+/** Cells and day blocks from any stored shape; a missing `days` means the default week. */
+function readPlan({ weekPlan, weekAddOns, days }) {
+  const cells = normalizeWeekPlan(weekPlan, weekAddOns);
+  const planDays = normalizePlanDays(days, cells);
+  return { weekPlan: dropOrphanCells(cells, planDays), days: planDays };
+}
+
 function loadLocalPlan() {
-  if (typeof localStorage === "undefined") return {};
+  const empty = { weekPlan: {}, days: defaultPlanDays() };
+  if (typeof localStorage === "undefined") return empty;
   try {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    // v2 wraps the plan in `{ version, weekPlan }`; older builds stored either
+    // v2 wraps the plan in `{ version, weekPlan, days }`; older builds stored either
     // `{ weekPlan, weekAddOns }` or the bare cell map, and both still migrate.
-    return normalizeWeekPlan(parsed.weekPlan || parsed, parsed.weekAddOns);
+    return readPlan({ weekPlan: parsed.weekPlan || parsed, weekAddOns: parsed.weekAddOns, days: parsed.days });
   } catch {
-    return {};
+    return empty;
   }
 }
 
@@ -71,7 +87,9 @@ export default function useWeekPlan(meals) {
     uid, enabled, loading, plan, products, ingredientDefaults, customIngredients, savePlan,
   } = useUserData();
 
-  const [weekPlan, setWeekPlan] = useState(loadLocalPlan);
+  const [initialPlan] = useState(loadLocalPlan);
+  const [weekPlan, setWeekPlan] = useState(initialPlan.weekPlan);
+  const [days, setDays] = useState(initialPlan.days);
   const [dismissedWarnings, setDismissedWarnings] = useState({});
 
   const hydratedUid = useRef(null);
@@ -99,30 +117,32 @@ export default function useWeekPlan(meals) {
         hydratedUid.current = null;
         persistedRef.current = null;
         setWeekPlan({});
+        setDays(defaultPlanDays());
       }
       return;
     }
     if (!plan || hydratedUid.current === uid) return;
     hydratedUid.current = uid;
 
-    const stored = normalizeWeekPlan(plan.weekPlan, plan.weekAddOns);
+    const stored = readPlan(plan);
 
     // Signing up mid-planning should carry the plan into the new account rather
     // than replacing it with an empty stored one.
-    if (!Object.keys(stored).length && Object.keys(localRef.current).length) return;
+    if (!Object.keys(stored.weekPlan).length && Object.keys(localRef.current).length) return;
 
     persistedRef.current = JSON.stringify(stored);
-    setWeekPlan(stored);
+    setWeekPlan(stored.weekPlan);
+    setDays(stored.days);
   }, [enabled, uid, plan]);
 
   useEffect(() => {
-    const serialized = JSON.stringify(weekPlan);
+    const serialized = JSON.stringify({ weekPlan, days });
     if (serialized === persistedRef.current) return undefined;
 
     if (!enabled) {
       persistedRef.current = serialized;
       if (typeof localStorage !== "undefined") {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: PLAN_VERSION, weekPlan }));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: PLAN_VERSION, weekPlan, days }));
       }
       return undefined;
     }
@@ -133,10 +153,10 @@ export default function useWeekPlan(meals) {
 
     const timer = setTimeout(() => {
       persistedRef.current = serialized;
-      savePlan(weekPlan).catch(() => {});
+      savePlan({ weekPlan, days }).catch(() => {});
     }, SAVE_DEBOUNCE_MS);
     return () => clearTimeout(timer);
-  }, [weekPlan, enabled, uid, savePlan]);
+  }, [weekPlan, days, enabled, uid, savePlan]);
 
   // A recipe or an ingredient can disappear when the user deletes or hides it.
   useEffect(() => {
@@ -173,9 +193,9 @@ export default function useWeekPlan(meals) {
       // unless that slot already has it.
       const meal = draft.kind === KIND_RECIPE ? byId.get(draft.id) : null;
       if (meal?.batchDays > 1) {
-        const dayIndex = DAYS.indexOf(day);
+        const dayIndex = days.findIndex((planDay) => planDay.id === day);
         for (let ahead = 1; ahead < meal.batchDays; ahead += 1) {
-          const laterDay = DAYS[dayIndex + ahead];
+          const laterDay = days[dayIndex + ahead]?.id;
           if (!laterDay) break;
           const laterKey = cellKey(laterDay, slot);
           const existing = dishesInSlot(next, laterKey);
@@ -212,15 +232,37 @@ export default function useWeekPlan(meals) {
 
   const clearSlot = (day, slot) => updateSlot(day, slot, () => []);
 
+  /** A fresh plan starts over from the default week, not from the last layout. */
   const clearAll = () => {
     setWeekPlan({});
+    setDays(defaultPlanDays());
     setDismissedWarnings({});
+  };
+
+  const addDay = () =>
+    setDays((prev) => {
+      const last = prev[prev.length - 1];
+      const date = last ? shiftIsoDate(last.date, 1) : defaultPlanDays()[0].date;
+      return [...prev, { id: newDayId(), date }];
+    });
+
+  /** Its dishes go with it, so the shopping list stops counting them. */
+  const removeDay = (dayId) => {
+    if (days.length <= 1) return;
+    const remaining = days.filter((day) => day.id !== dayId);
+    setDays(remaining);
+    setWeekPlan((prev) => dropOrphanCells(prev, remaining));
+  };
+
+  const setDayDate = (dayId, date) => {
+    if (!parseIsoDate(date)) return;
+    setDays((prev) => prev.map((day) => (day.id === dayId ? { ...day, date } : day)));
   };
 
   const getBatchWarnings = () => {
     const counted = {};
     for (const slot of SLOTS) {
-      for (const day of DAYS) {
+      for (const { id: day } of days) {
         for (const dish of dishesInSlot(weekPlan, cellKey(day, slot))) {
           if (dish.kind !== KIND_RECIPE) continue;
           const countKey = `${dish.id}|${slot}`;
@@ -248,9 +290,10 @@ export default function useWeekPlan(meals) {
     sumDayNutrition(day, weekPlan, { byId, overrides, cellKey, slots: SLOTS });
 
   return {
-    weekPlan, cellKey, nutritionContext, overrides,
+    weekPlan, days, cellKey, nutritionContext, overrides,
     plannedDishes: countPlannedDishes(weekPlan),
     dishesInSlot: (day, slot) => dishesInSlot(weekPlan, cellKey(day, slot)),
+    addDay, removeDay, setDayDate,
     addDish, removeDish, setDishAmount,
     addAddOn, removeAddOn, setAddOnAmount,
     clearSlot, clearAll,

@@ -70,7 +70,7 @@ src/
 
   hooks/
 
-    useWeekPlan.js                  # Week plan v2 (dishes + nested add-ons) + getDayKBJU; Firestore (signed in) or localStorage
+    useWeekPlan.js                  # Week plan v2 (dishes + nested add-ons) + day blocks (add/remove/date) + getDayKBJU; Firestore (signed in) or localStorage
 
     useDishTags.js                  # Personal tags: definitions + per-dish assignments; settings.dishTags or localStorage
     useTourState.js                 # Which onboarding tours were seen; localStorage ∪ settings.tour
@@ -86,6 +86,8 @@ src/
     nutrition.js                    # MACRO_KEYS/MICRO_KEYS/LABEL_KEYS, day-total helpers, knownMicros
 
     planEntries.js                  # Plan v2 shape: migration, entry nutrition/labels, default portions, household hints, sumDayNutrition
+
+    planDays.js                     # Day blocks [{ id, date }]: default Mon–Fri of the current week, legacy migration, orphan-cell pruning, dayLabel/weekdayKey
 
     computeNutrition.js             # Browser port of the offline recalc; applyNutrition, computeRecipeNutrition
 
@@ -177,6 +179,8 @@ scripts/
 
 - **A slot holds a list of dishes, and add-ons hang off a dish, not off the slot** (plan v2, `utils/planEntries.js`): `weekPlan[cellKey] = [{ key, kind, id, amount?, unit?, addOns: [...] }]`. The old model — one recipe id per slot plus a parallel `weekAddOns` map — could not express "porridge + a boiled egg, honey on the porridge only". Everything that reads the plan (day KBJU, shopping list, PDF, planned count) goes through `forEachPlanEntry`/`entryNutrition`, so there is a single place to teach about new entry kinds.
 
+- **The plan is a list of day blocks, not a fixed week** (`utils/planDays.js`): `days: [{ id, date }]` is stored next to `weekPlan` (localStorage, `plans/current`, export), and cells are keyed by the block id, not by the date, so changing a date never moves or loses dishes. The default is Mon–Fri of the current week; blocks can be added (next date after the last one), removed (min. one, confirmed if it has dishes) and re-dated independently, and keep the user's order — re-sorting on every `onChange` of a date input would make the block jump while the year is being typed. Default blocks reuse `mon`…`fri` as ids so pre-blocks plans line up; a legacy plan also keeps `sat`/`sun` when they hold dishes. Removing a block deletes its cells (`dropOrphanCells`) rather than hiding them, because the shopping list sums every cell it gets — that is how the list follows the days without any code of its own changing. "Clear" resets to the default week.
+
 - **Plan migration is tolerant, not versioned-strict**: `normalizeWeekPlan` accepts v2 arrays, the legacy `{weekPlan, weekAddOns}` pair, and a bare `cellKey → recipeId` map, because the same shapes live in three places written at different times (localStorage, Firestore, exported JSON files users keep on disk). A string value is the migration trigger, so no stored version field has to be trusted.
 
 - **A dish is a recipe or a plain product**: ingredients carry `roles` (`dish` / `addon`) and `portion` defaults, so cottage cheese can be planned on its own with berries, nuts and honey on top instead of forcing a recipe for every combination. Big macro sources (grains, eggs, meat, fish, pasta, seafood) get `dish`; accents (veg, fruit, berries, greens, sauces, honey, cheese, oils, bread, cocoa, chia, nut butter, lemon juice) get `addon`; many get both.
@@ -249,7 +253,7 @@ scripts/
 
 - **App.jsx**: orchestrates tabs, language switcher, hooks
 
-- **WeekPlanner**: 7×4 slots holding a list of dishes, per-dish add-on rows, inline amount editing, batch auto-fill, day KBJU + micronutrient toggle
+- **WeekPlanner**: day blocks (weekday from the date, native date input, ✕ to remove, "+ day" at the bottom) × 4 slots holding a list of dishes, per-dish add-on rows, inline amount editing, batch auto-fill, day KBJU + micronutrient toggle
 
 - **DishPicker**: one overlay for both roles (dish / add-on); search, recipes ↔ products switch, grouped tag filters remembered per slot+role, amount field with kcal and household hint, and a mode for assigning personal tags
 

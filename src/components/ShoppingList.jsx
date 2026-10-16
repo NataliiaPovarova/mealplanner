@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { DAYS } from "../constants";
+import { dayLabel } from "../utils/planDays";
 import useShoppingList from "../hooks/useShoppingList";
 import useShoppingChecks, { itemKey } from "../hooks/useShoppingChecks";
 import NutrientSummary from "./NutrientSummary";
 import { formatShoppingAmount } from "../utils/shoppingMeasure";
 
-export default function ShoppingList({ weekPlan, getDayKBJU, plannedDishes, meals }) {
+export default function ShoppingList({ weekPlan, days, getDayKBJU, plannedDishes, meals }) {
   const { t, i18n } = useTranslation();
   const { grouped, sortedCategories } = useShoppingList(weekPlan, meals);
   const { isChecked, toggle } = useShoppingChecks();
@@ -92,18 +92,18 @@ export default function ShoppingList({ weekPlan, getDayKBJU, plannedDishes, meal
       <h3 style={{ fontSize: 15, fontWeight: 600, margin: "0 0 10px" }}>{t("shopping.kbjuTitle")}</h3>
       <p style={{ fontSize: 12, opacity: 0.5, margin: "0 0 10px" }}>{t("nutrition.sourceNote")}</p>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        {DAYS.map(day => {
-          const k = getDayKBJU(day);
+        {days.map(day => {
+          const k = getDayKBJU(day.id);
           if (k.kcal === 0) return null;
           return (
-            <div key={day} style={{
+            <div key={day.id} style={{
               padding: "8px 14px",
               border: "1px solid var(--border-color, #e0dcd4)", borderRadius: 8,
               background: k.kcal < 1800 ? "rgba(212,167,106,0.08)" : "var(--bg-surface, rgba(255,252,247,0.6))",
               fontSize: 13,
             }}>
               <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 6 }}>
-                <span style={{ fontWeight: 600, width: 28 }}>{t(`days.${day}`)}</span>
+                <span style={{ fontWeight: 600, minWidth: 84 }}>{dayLabel(day.date, t, i18n.language)}</span>
                 <span>{k.kcal} {t("week.kcal")}</span>
                 <span>{k.protein}{t("shopping.proteinLabel")}</span>
                 <span>{k.fat}{t("shopping.fatLabel")}</span>

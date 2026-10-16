@@ -34,6 +34,10 @@
   "week.batchDays": "{{count}}d",
   "week.amount": "Amount",
   "week.amountHint": "Change the amount — nutrition and the shopping list follow.",
+  "week.addDay": "+ day",
+  "week.removeDay": "Remove day",
+  "week.dayDate": "Date",
+  "week.confirmRemoveDay": "Remove this day? Its dishes will leave the plan and the shopping list.",
 
   "shopping.title": "Shopping Planner",
   "shopping.empty": "Fill in the week plan first — the ingredient list will be generated automatically.",

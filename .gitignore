@@ -5,6 +5,8 @@ dist
 .cursor
 .env
 scripts/
+venv/
+venv_win/
 
 
 # OpenMemory - IDE/Assistant specific rules
@@ -12,3 +14,4 @@ scripts/
 
 # Local architecture diagram
 architecture.md
+.cursor\rules\openmemory.mdc
