@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { DAYS, SLOTS } from "../constants";
+import { SLOTS } from "../constants";
+import { weekdayKey } from "../utils/planDays";
 import {
   KIND_INGREDIENT,
   ROLE_ADDON,
@@ -36,6 +37,12 @@ const amountInputStyle = {
   background: "var(--bg-color, #fffdf8)", color: "var(--text-color, #2d2a24)",
 };
 
+const dateInputStyle = {
+  padding: "2px 6px", fontSize: 12, fontFamily: "inherit",
+  borderRadius: 6, border: "1px solid var(--border-color, #e8e4dc)",
+  background: "transparent", color: "var(--text-color-secondary, #8a8478)",
+};
+
 /** Amount lives on the chip: changing a portion is a two-second edit, not a re-pick. */
 function AmountField({ entry, onChange, t, language }) {
   if (entry.kind !== KIND_INGREDIENT) return null;
@@ -67,7 +74,8 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
   const [picker, setPicker] = useState(null);
 
   const {
-    weekPlan, cellKey, nutritionContext, plannedDishes, dishesInSlot,
+    weekPlan, days, nutritionContext, plannedDishes, dishesInSlot,
+    addDay, removeDay, setDayDate,
     addDish, removeDish, setDishAmount,
     addAddOn, removeAddOn, setAddOnAmount,
     clearAll, getBatchWarnings, dismissWarning, getDayKBJU,
@@ -80,7 +88,7 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
     setPdfBusy(true);
     try {
       const { default: generateWeekPlanPdf } = await import("../utils/generateWeekPlanPdf");
-      await generateWeekPlanPdf({ weekPlan, meals, t, language: i18n.language });
+      await generateWeekPlanPdf({ weekPlan, days, meals, t, language: i18n.language });
     } catch (e) {
       console.error("PDF generation failed:", e);
     } finally {
@@ -92,6 +100,11 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
     if (!picker) return;
     if (picker.role === ROLE_ADDON) addAddOn(picker.day, picker.slot, picker.dishKey, draft);
     else addDish(picker.day, picker.slot, draft);
+  };
+
+  const handleRemoveDay = (dayId, hasDishes) => {
+    if (hasDishes && !window.confirm(t("week.confirmRemoveDay"))) return;
+    removeDay(dayId);
   };
 
   return (
@@ -131,7 +144,7 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
       )}
 
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        {DAYS.map(day => {
+        {days.map(({ id: day, date }) => {
           const dayKBJU = getDayKBJU(day);
           const hasAny = SLOTS.some(slot => dishesInSlot(day, slot).length > 0);
           return (
@@ -140,16 +153,26 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
               background: "var(--bg-surface, rgba(255,252,247,0.6))",
             }}>
               <div style={{
-                display: "flex", justifyContent: "space-between", alignItems: "center",
+                display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8,
                 padding: "10px 14px", background: "var(--bg-tag, rgba(0,0,0,0.02))",
                 borderBottom: "1px solid var(--border-color, rgba(0,0,0,0.05))",
               }}>
-                <span style={{ fontWeight: 700, fontSize: 15 }}>{t(`days.${day}`)}</span>
-                {hasAny && (
-                  <span style={{ fontSize: 11, opacity: 0.55, textAlign: "right", maxWidth: "70%" }}>
-                    {dayKBJU.kcal} {t("week.kcal")} · {dayKBJU.protein}{t("week.protein")} · {dayKBJU.fat}{t("week.fat")} · {dayKBJU.carbs}{t("week.carbs")} · {dayKBJU.fiber}{t("week.fiber")}
-                  </span>
-                )}
+                <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+                  <span style={{ fontWeight: 700, fontSize: 15 }}>{t(`days.${weekdayKey(date)}`)}</span>
+                  <input type="date" value={date} required aria-label={t("week.dayDate")}
+                    onChange={(e) => setDayDate(day, e.target.value)} style={dateInputStyle} />
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 0 }}>
+                  {hasAny && (
+                    <span style={{ fontSize: 11, opacity: 0.55, textAlign: "right" }}>
+                      {dayKBJU.kcal} {t("week.kcal")} · {dayKBJU.protein}{t("week.protein")} · {dayKBJU.fat}{t("week.fat")} · {dayKBJU.carbs}{t("week.carbs")} · {dayKBJU.fiber}{t("week.fiber")}
+                    </span>
+                  )}
+                  {days.length > 1 && (
+                    <button onClick={() => handleRemoveDay(day, hasAny)} title={t("week.removeDay")}
+                      aria-label={t("week.removeDay")} style={removeButtonStyle}>✕</button>
+                  )}
+                </div>
               </div>
               {hasAny && (
                 <div style={{ padding: "0 14px" }}>
@@ -226,6 +249,11 @@ export default function WeekPlanner({ plan, meals, dishTags }) {
             </div>
           );
         })}
+
+        <button onClick={addDay}
+          style={{ ...addButtonStyle, alignSelf: "stretch", padding: "10px", fontSize: 13, borderRadius: 10 }}>
+          {t("week.addDay")}
+        </button>
       </div>
 
       {picker && (

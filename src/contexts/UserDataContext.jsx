@@ -140,8 +140,8 @@ export function UserDataProvider({ children }) {
         ),
 
       /** Replaces the document, so the pre-v2 `weekAddOns` map disappears on first save. */
-      savePlan: (weekPlan) =>
-        setDoc(doc(db, "users", uid, "plans", PLAN_DOC_ID), { version: PLAN_VERSION, weekPlan }),
+      savePlan: ({ weekPlan, days }) =>
+        setDoc(doc(db, "users", uid, "plans", PLAN_DOC_ID), { version: PLAN_VERSION, weekPlan, days }),
 
       /**
        * Personal tags: the definitions plus which dish carries which tag.

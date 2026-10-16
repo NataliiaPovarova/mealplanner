@@ -163,7 +163,7 @@ function App() {
       </div>
 
       {currentTab === "week" && <WeekPlanner plan={plan} meals={meals} dishTags={dishTags} />}
-      {currentTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} getDayKBJU={plan.getDayKBJU} plannedDishes={plannedDishes} meals={meals} />}
+      {currentTab === "shopping" && <ShoppingList weekPlan={plan.weekPlan} days={plan.days} getDayKBJU={plan.getDayKBJU} plannedDishes={plannedDishes} meals={meals} />}
       {currentTab === "recipes" && <RecipeList dishTags={dishTags} />}
       {/* Two ways to make the catalog yours: a product it never had, and your
           brand of one it already has. */}
